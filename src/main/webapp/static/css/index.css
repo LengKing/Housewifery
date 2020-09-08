@@ -20,8 +20,8 @@
 .banner .swiper-pagination-bullet{width:15px !important;height:15px !important;}
 .banner .swiper-pagination-bullet-active{background: #ff7d28 !important;}
 .banner .prev,.banner .next{position:absolute;z-index:999;top:50%;margin-top:-30px;width:56px;height:56px;cursor:pointer;opacity:0;transition: all 1s;border-radius:50%;}
-.banner .prev{left:2%;background:url(../images/banner_prev.png) no-repeat center;}
-.banner .next{right:2%;background:url(../images/banner_next.png) no-repeat center;}
+.banner .prev{left:2%;background:url(../../images/banner_prev.png) no-repeat center;}
+.banner .next{right:2%;background:url(../../images/banner_next.png) no-repeat center;}
 .banner:hover .prev,.banner:hover .next{opacity:0.5;background-color:#ff7d28;}
 .banner .prev:hover,.banner .next:hover{opacity:1;}
 .common-title {
@@ -47,7 +47,7 @@
   overflow: hidden;
   width: 100%;
   padding-bottom: 70px;
-  background: url("../images/nantibg.png") repeat center;
+  background: url("../../images/nantibg.png") repeat center;
 }
 /*.nanti .content {
   overflow: hidden;
@@ -55,7 +55,7 @@
 .nanti .content .item {
   width: 205px;
   height: 212px;
-  background: url("../images/nanti-y.png") no-repeat center top;
+  background: url("../../images/nanti-y.png") no-repeat center top;
   float: left;
   margin: 0 17px;
 transition: all .3s ease-out;
@@ -84,7 +84,7 @@ transition: all .3s ease-out;
   overflow: hidden;
   width: 100%;
   height: 750px;
-  background: url("../images/xuyaobg.jpg") no-repeat center top;
+  background: url("../../images/xuyaobg.jpg") no-repeat center top;
 }
 .xuyao .content {
   overflow: hidden;
