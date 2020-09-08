@@ -303,7 +303,7 @@
     <div class="content">
         <div class="left">
             <div class="top">
-                <h3>加盟<em>社区邦</em></h3>
+                <h3>加盟<em>智慧家政</em></h3>
                 <p>让你立即拥有品牌完整产品链</p>
             </div>
             <div class="bottom">
@@ -349,15 +349,15 @@
     <a href="http://www.sqbang.com/help/ppzs.html" class="more" target="_blank">了解详情</a>
 </div>
 
-<!-- 课程 -->
+<!-- 客户评价 售后反馈 -->
 <div class="kecheng">
     <div class="common-title wow">
-        <h3>营销 · 管理 · 技能<b>零基础速成</b></h3>
-        <p>社区邦培训学校汇聚家政行业精尖教学资源</p>
+        <h3>好评 · 售后 · 反馈<b>实时监测</b></h3>
+        <p>真实生活</p>
     </div>
     <div class="content">
         <div class="left">
-            <a href="http://www.sqbang.com/product/" target="_blank"><img src="../static/images/sucheng.jpg"></a>
+            <a href="http://www.sqbang.com/product/" target="_blank"><img src="../static/images/pj1.jpg"></a>
         </div>
         <div class="right">
             <div class="swiper-container kecheng-swiper">
@@ -366,13 +366,8 @@
                     <div class="swiper-slide">
                         <div class="item">
                             <div class="text">
-                                <h3>保姆培训</h3>
-                                <p>学时：5天
-                                    地址：厦门市传一家政望海路25号</p>
-                            </div>
-                            <div class="btns">
-                                <a href="javascript:void(formShow())" target="_blank">咨询报名</a>
-                                <a href="http://www.sqbang.com/product/20190730104715243.html" target="_blank">查看详情</a>
+                                <h3>家庭保洁+下单时间+下单市区</h3>
+                                <p>赞赞赞赞赞赞</p>
                             </div>
                         </div>
                     </div>
@@ -380,13 +375,8 @@
                     <div class="swiper-slide">
                         <div class="item">
                             <div class="text">
-                                <h3>月嫂培训</h3>
-                                <p>时间：每月开班，学制9天（中级班、高级班）
-                                    地址：厦门市传一家政望海路25号</p>
-                            </div>
-                            <div class="btns">
-                                <a href="javascript:void(formShow())" target="_blank">咨询报名</a>
-                                <a href="http://www.sqbang.com/product/2019072012233133.html" target="_blank">查看详情</a>
+                                <h3>月嫂+下单时间+下单市区</h3>
+                                <p>赞赞赞赞赞赞</p>
                             </div>
                         </div>
                     </div>
@@ -394,13 +384,18 @@
                     <div class="swiper-slide">
                         <div class="item">
                             <div class="text">
-                                <h3>育婴师培训</h3>
-                                <p>时间：每月开班，学制9天（中级班、高级班）
-                                    地址：厦门市传一家政望海路25号</p>
+                                <h3>育婴师+下单时间+下单市区</h3>
+                                <p>赞赞赞赞赞赞</p>
                             </div>
-                            <div class="btns">
-                                <a href="javascript:void(formShow())" target="_blank">咨询报名</a>
-                                <a href="http://www.sqbang.com/product/2019073010568245.html" target="_blank">查看详情</a>
+
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="item">
+                            <div class="text">
+                                <h3>日常保洁+下单时间+下单市区</h3>
+                                <p>赞赞赞赞赞赞</p>
                             </div>
                         </div>
                     </div>
@@ -408,13 +403,8 @@
                     <div class="swiper-slide">
                         <div class="item">
                             <div class="text">
-                                <h3>家政金牌店长培训</h3>
-                                <p>时间：5天
-                                    地点：厦门市传一家政望海路25号</p>
-                            </div>
-                            <div class="btns">
-                                <a href="javascript:void(formShow())" target="_blank">咨询报名</a>
-                                <a href="http://www.sqbang.com/product/20190720152521145.html" target="_blank">查看详情</a>
+                                <h3>家庭早教师+下单时间+下单市区</h3>
+                                <p>赞赞赞赞赞赞</p>
                             </div>
                         </div>
                     </div>
@@ -422,27 +412,8 @@
                     <div class="swiper-slide">
                         <div class="item">
                             <div class="text">
-                                <h3>高端家庭早教师</h3>
-                                <p>时间：学制5天（高级班）
-                                    地址：厦门市传一家政望海路25号</p>
-                            </div>
-                            <div class="btns">
-                                <a href="javascript:void(formShow())" target="_blank">咨询报名</a>
-                                <a href="http://www.sqbang.com/product/20190721102858150.html" target="_blank">查看详情</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="item">
-                            <div class="text">
-                                <h3>家庭保洁员培训</h3>
-                                <p>时间：3天
-                                    地址：厦门市传一家政望海路25号</p>
-                            </div>
-                            <div class="btns">
-                                <a href="javascript:void(formShow())" target="_blank">咨询报名</a>
-                                <a href="http://www.sqbang.com/product/20190730104736244.html" target="_blank">查看详情</a>
+                                <h3>家庭保洁员+下单时间+下单市区</h3>
+                                <p>赞赞赞赞赞赞</p>
                             </div>
                         </div>
                     </div>
