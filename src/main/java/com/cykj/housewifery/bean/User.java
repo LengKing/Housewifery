@@ -12,12 +12,13 @@ public class User {
     private  int integral;
     private  String url;
     private Timestamp regDate;
+    private  Double money;
 
 
     public User() {
     }
 
-    public User(int userId, String account, String password, String gender, String phone, String address, int integral, String url, Timestamp regDate) {
+    public User(int userId, String account, String password, String gender, String phone, String address, int integral, String url, Timestamp regDate, Double money) {
         this.userId = userId;
         this.account = account;
         this.password = password;
@@ -27,6 +28,23 @@ public class User {
         this.integral = integral;
         this.url = url;
         this.regDate = regDate;
+        this.money = money;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", account='" + account + '\'' +
+                ", password='" + password + '\'' +
+                ", gender='" + gender + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", integral=" + integral +
+                ", url='" + url + '\'' +
+                ", regDate=" + regDate +
+                ", money=" + money +
+                '}';
     }
 
     public int getUserId() {
@@ -101,18 +119,11 @@ public class User {
         this.regDate = regDate;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId=" + userId +
-                ", account='" + account + '\'' +
-                ", password='" + password + '\'' +
-                ", gender='" + gender + '\'' +
-                ", phone='" + phone + '\'' +
-                ", address='" + address + '\'' +
-                ", integral=" + integral +
-                ", url='" + url + '\'' +
-                ", regDate=" + regDate +
-                '}';
+    public Double getMoney() {
+        return money;
+    }
+
+    public void setMoney(Double money) {
+        this.money = money;
     }
 }
