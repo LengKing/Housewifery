@@ -31,24 +31,48 @@
     <script src="../static/js/index.js" charset="utf-8" type="text/javascript"></script>
 </head>
 <body>
+<!--萝卜丝·智能客服代码 开始 -->
+<div id="byteDesk"></div>
+<script type="text/javascript">
+    window.adminUid = "202009071057111";
+    window.workGroupWid = "202009071057114";
+    window.subDomain = "057112";
+    window.type = "workGroup";
+    window.agentUid = "";
+    (function () {
+        d = document;
+        s = d.createElement("script");
+        s.src = "https://cdn.bytedesk.com/js/float/narrow/index.js";
+        s.async = 1;
+        d.getElementsByTagName("head")[0].appendChild(s);
+    })();
+</script>
+<!--./萝卜丝·智能客服代码 结束 -->
 
+<script type="text/javascript">
+    (function(){
+        startKeFuChat = function () {
+            document.getElementById("byteDesk-start").click();
+        }
+    })();
+</script>
 <!--头部包含文件-->
 <!-- header -->
 <div class="header">
     <div class="header-top">
         <div class="content">
-            <p>欢迎来到社区邦官方网站！</p>
+            <p>欢迎来到XXXX网站！</p>
             <div class="rightCon">
-                <a href="http://www.sqbang.com/SiteMap.html" target="_blank">网站地图</a>
-                <a href="javascript:addBookmark()">收藏本站</a>
-                <a href="http://www.sqbang.com/help/lxwm.html" target="_blank">联系社区邦</a>
-                <a href="http://www.sqbang.com/news/tag.html">热门标签</a>
+                <a href="" target="_blank">登录</a>
+                <a href="">注册</a>
+                <a href="" target="_blank">联系平台</a>
+                <a href="">工作机会</a>
             </div>
         </div>
     </div>
     <div class="header-center">
         <h1><a href="">XXXX智慧家政</a></h1>
-        <h2><img src="../images/logo_text.png"></h2>
+        <h2><img src="../static/images/logo_text.png"></h2>
         <div class="search">
             <form action="/Search/index.html">
                 <input type="text" name="word" placeholder="家庭保洁">
@@ -65,31 +89,31 @@
                 <li><a href="/jsp/index2.jsp">首页</a></li>
 
                 <li mark='65' px='1'>
-                    <a href="/help/ppzs.html" target="_blank">品牌招商</a>
+                    <a href="/help/ppzs.html" target="_blank">家政服务</a>
                 </li>
 
                 <li mark='47' px='2'>
-                    <a href="/product/" target="_blank">家政培训</a>
+                    <a href="/product/" target="_blank">热门服务</a>
                 </li>
 
                 <li mark='88' px='3'>
-                    <a href="/help/jzglrj.html" target="_blank">家政管理软件</a>
+                    <a href="/help/jzglrj.html" target="_blank">发布服务</a>
                 </li>
 
                 <li mark='89' px='4'>
-                    <a href="/help/jzfw.html" target="_blank">家政服务</a>
+                    <a href="/help/jzfw.html" target="_blank">联系平台</a>
                 </li>
 
                 <li mark='48' px='6'>
-                    <a href="/news/" target="_blank">资讯中心 </a>
+                    <a href="/news/" target="_blank">商户入驻</a>
                 </li>
 
                 <li mark='52' px='5'>
-                    <a href="/help/ppjs.html" target="_blank">关于社区邦</a>
+                    <a href="/help/ppjs.html" target="_blank">关于平台</a>
                 </li>
 
                 <li mark='71' px='7'>
-                    <a href="/help/lxwm.html" target="_blank">联系社区邦</a>
+                    <a href="/help/lxwm.html" target="_blank">家政了解</a>
                 </li>
 
             </ul>
@@ -111,13 +135,13 @@
     <div class="swiper-container banner-swiper">
         <div class="swiper-wrapper">
 
-            <div class="item swiper-slide"><a href="/help/jzfw.html" target="_blank" title="家政服务" style="background-image:url(../images/acb2b5105d6786a8.jpg)"></a></div>
+            <div class="item swiper-slide"><a href="/help/jzfw.html" target="_blank" title="家政服务" style="background-image:url(../static/images/acb2b5105d6786a8.jpg)"></a></div>
 
-            <div class="item swiper-slide"><a href="/help/lxwm.html" target="_blank" title="家政软件" style="background-image:url(../images/d56cb9859fa03c50.jpg)"></a></div>
+            <div class="item swiper-slide"><a href="/help/lxwm.html" target="_blank" title="家政软件" style="background-image:url(../static/images/d56cb9859fa03c50.jpg)"></a></div>
 
-            <div class="item swiper-slide"><a href="/product/" target="_blank" title="家政培训" style="background-image:url(../images/a3689c9a0ecff904.jpg)"></a></div>
+            <div class="item swiper-slide"><a href="/product/" target="_blank" title="家政培训" style="background-image:url(../static/images/a3689c9a0ecff904.jpg)"></a></div>
 
-            <div class="item swiper-slide"><a href="/help/jzglrj.html" target="_blank" title="家政软件" style="background-image:url(../images/1717cb9f75153d5a.jpg)"></a></div>
+            <div class="item swiper-slide"><a href="/help/jzglrj.html" target="_blank" title="家政软件" style="background-image:url(../static/images/1717cb9f75153d5a.jpg)"></a></div>
 
         </div>
         <!-- 如果需要分页器 -->
@@ -167,32 +191,32 @@
     </div>
     <div class="content">
         <div class="item wow">
-            <img src="../images/xuyao01.png">
+            <img src="../static/images/xuyao01.png">
             <h3>互联网精准客源</h3>
             <p>进入互联网客户所在区<br>获得海量客户</p>
         </div>
         <div class="item wow">
-            <img src="../images/xuyao02.png">
+            <img src="../static/images/xuyao02.png">
             <h3>互联网营销技巧</h3>
             <p>复制成功的互联网营销技巧<br>不用走弯路</p>
         </div>
         <div class="item wow">
-            <img src="../images/xuyao03.png">
+            <img src="../static/images/xuyao03.png">
             <h3>完整的产品链</h3>
             <p>客户想要的家政服务<br>一站式提供</p>
         </div>
         <div class="item wow">
-            <img src="../images/xuyao04.png">
+            <img src="../static/images/xuyao04.png">
             <h3>品牌影响力</h3>
             <p>借助品牌力量<br>快速赢得客户信任</p>
         </div>
         <div class="item wow">
-            <img src="../images/xuyao05.png">
+            <img src="../static/images/xuyao05.png">
             <h3>软件管理系统</h3>
             <p>拥有先进的管理系统<br>一键管控更轻松</p>
         </div>
         <div class="item wow">
-            <img src="../images/xuyao06.png">
+            <img src="../static/images/xuyao06.png">
             <h3>专业技术支撑</h3>
             <p>掌握标准化服务技能<br>赢得客户好评与续约</p>
         </div>
@@ -222,7 +246,7 @@
     </div>
     <div class="fnbox">
 
-        <div class="item" style="background-image:url(../images/4884fc0a96aa4f3d.jpg)">
+        <div class="item" style="background-image:url(../static/images/4884fc0a96aa4f3d.jpg)">
             <div class="content">
                 <div class="text">
                     <h3>汇聚全国351个地区海量精准家庭客户、<br/>企业客户携手多个大型平台全网覆盖式吸收客源</h3><p>携手百度、美团、大众点评、京东到家等，全网覆盖式吸收精准客户，建立专属粘性体系稳固平台客源。</p><p><a href="/help/ppzs.html#sqjm">抢先加盟，拿走你附近的客源</a></p>
@@ -230,7 +254,7 @@
             </div>
         </div>
 
-        <div class="item" style="background-image:url(../images/7873597b09790788.jpg)">
+        <div class="item" style="background-image:url(../static/images/7873597b09790788.jpg)">
             <div class="content">
                 <div class="text">
                     <h3>直接复制成功门店的赚钱方法<br/>现成营销方法锁定周边客户群</h3><p>市场调研、定价、促销策略、团队管理、服务品质管控等，由实战导师一对一全程指导。</p><p><a href="/help/ppzs.html#ppzc">加盟咨询</a></p>
@@ -238,7 +262,7 @@
             </div>
         </div>
 
-        <div class="item" style="background-image:url(../images/2097c0724476a748.jpg)">
+        <div class="item" style="background-image:url(../static/images/2097c0724476a748.jpg)">
             <div class="content">
                 <div class="text">
                     <h3>立即拥有完整的家政产品链<br/>每项服务都有参考的标准及方法</h3><p>社区邦拥有专属服务标准，并持续开发新产品服务，让每项服务都有参照的标准及方法。</p><p><a href="/help/jzfw.html">去看有哪些产品服务 &gt;&gt;</a></p>
@@ -246,7 +270,7 @@
             </div>
         </div>
 
-        <div class="item" style="background-image:url(../images/28390e1adc12bcb8.jpg)">
+        <div class="item" style="background-image:url(../static/images/28390e1adc12bcb8.jpg)">
             <div class="content">
                 <div class="text">
                     <h3>马上享有连锁品牌的影响力<br/>互联网品牌广告全网大力宣传</h3><p>互联网家政品牌典范，品牌VI、工服、标配工具、宣传物料、法务团队、风险评估全支持。</p><p><a href="/help/ppzs.html">查看品牌支持 &gt;&gt;</a></p>
@@ -254,7 +278,7 @@
             </div>
         </div>
 
-        <div class="item" style="background-image:url(../images/2618520d120ef66b.jpg)">
+        <div class="item" style="background-image:url(../static/images/2618520d120ef66b.jpg)">
             <div class="content">
                 <div class="text">
                     <h3>千万级管理软件一键管控更轻松<br/>一键管订单/一键财务分析/一键管员工/一键管客户</h3><p>千万资金注入研发，9年沉淀，打造成熟稳定的家政服务管理系统，独立后台可视化管理。</p><p><a href="/help/jzglrj.html">去发现系统更多功能 &gt;&gt;</a></p>
@@ -262,7 +286,7 @@
             </div>
         </div>
 
-        <div class="item" style="background-image:url(../images/9f4e4d24e6ecd780.jpg)">
+        <div class="item" style="background-image:url(../static/images/9f4e4d24e6ecd780.jpg)">
             <div class="content">
                 <div class="text">
                     <h3>营销/管理/技能 零基础速成<br/>理论与实践双管齐下 只教真本事</h3><p>社区邦家政培训学校，拥有行业重量级师资队伍，为你快速打造一支精英团队。</p><p><a href="/product/">了解社区邦培训学校 &gt;&gt;</a></p>
@@ -285,7 +309,7 @@
             <div class="bottom">
                 <h4>全空间无死角深层洁净</h4>
                 <span>Deep Cleaning without Dead Angle in Full Space</span>
-                <img src="../images/jm03.jpg">
+                <img src="../static/images/jm03.jpg">
                 <div class="btns">
                     <a href="http://www.sqbang.com/help/jtqj.html" target="_blank">家庭保洁</a>
                     <a href="http://www.sqbang.com/help/qyqj.html" target="_blank">企业保洁</a>
@@ -293,32 +317,32 @@
             </div>
         </div>
         <div class="center">
-            <img src="../images/jm01.jpg" class="top">
+            <img src="../static/images/jm01.jpg" class="top">
             <div class="item item01">
-                <img src="../images/jm04.jpg">
+                <img src="../static/images/jm04.jpg">
                 <h4>月嫂</h4>
                 <span>Baby Nurse</span>
             </div>
             <div class="item item02">
-                <img src="../images/jm05.jpg">
+                <img src="../static/images/jm05.jpg">
                 <h4>钟点工</h4>
                 <span>Hourly workers</span>
             </div>
             <div class="item item03">
-                <img src="../images/jm06.jpg">
+                <img src="../static/images/jm06.jpg">
                 <h4>育婴</h4>
                 <span>Baby raising</span>
             </div>
         </div>
         <div class="right">
             <div class="top">
-                <img src="../images/jm02.jpg">
+                <img src="../static/images/jm02.jpg">
                 <h4>保姆</h4>
                 <span>Nanny</span>
             </div>
             <div class="bottom">
-                <img src="../images/jm07.jpg">
-                <img src="../images/jm08.jpg">
+                <img src="../static/images/jm07.jpg">
+                <img src="../static/images/jm08.jpg">
             </div>
         </div>
     </div>
@@ -333,7 +357,7 @@
     </div>
     <div class="content">
         <div class="left">
-            <a href="http://www.sqbang.com/product/" target="_blank"><img src="../images/sucheng.jpg"></a>
+            <a href="http://www.sqbang.com/product/" target="_blank"><img src="../static/images/sucheng.jpg"></a>
         </div>
         <div class="right">
             <div class="swiper-container kecheng-swiper">
@@ -344,7 +368,7 @@
                             <div class="text">
                                 <h3>保姆培训</h3>
                                 <p>学时：5天
-                                    地址：深圳市南山区高新南一道TCL大厦B座332社区邦</p>
+                                    地址：厦门市传一家政望海路25号</p>
                             </div>
                             <div class="btns">
                                 <a href="javascript:void(formShow())" target="_blank">咨询报名</a>
@@ -358,7 +382,7 @@
                             <div class="text">
                                 <h3>月嫂培训</h3>
                                 <p>时间：每月开班，学制9天（中级班、高级班）
-                                    地址：深圳市南山区高新南一道TCL大厦B座332社区邦</p>
+                                    地址：厦门市传一家政望海路25号</p>
                             </div>
                             <div class="btns">
                                 <a href="javascript:void(formShow())" target="_blank">咨询报名</a>
@@ -372,7 +396,7 @@
                             <div class="text">
                                 <h3>育婴师培训</h3>
                                 <p>时间：每月开班，学制9天（中级班、高级班）
-                                    地址：深圳市南山区高新南一道TCL大厦B座332社区邦</p>
+                                    地址：厦门市传一家政望海路25号</p>
                             </div>
                             <div class="btns">
                                 <a href="javascript:void(formShow())" target="_blank">咨询报名</a>
@@ -386,7 +410,7 @@
                             <div class="text">
                                 <h3>家政金牌店长培训</h3>
                                 <p>时间：5天
-                                    地点：深圳市南山区高新南一道6号TCL大厦B座3楼332</p>
+                                    地点：厦门市传一家政望海路25号</p>
                             </div>
                             <div class="btns">
                                 <a href="javascript:void(formShow())" target="_blank">咨询报名</a>
@@ -400,7 +424,7 @@
                             <div class="text">
                                 <h3>高端家庭早教师</h3>
                                 <p>时间：学制5天（高级班）
-                                    地址：深圳市南山区高新南一道TCL大厦B座332社区邦</p>
+                                    地址：厦门市传一家政望海路25号</p>
                             </div>
                             <div class="btns">
                                 <a href="javascript:void(formShow())" target="_blank">咨询报名</a>
@@ -414,7 +438,7 @@
                             <div class="text">
                                 <h3>家庭保洁员培训</h3>
                                 <p>时间：3天
-                                    地址：深圳市南山区高新南一道TCL大厦B座332社区邦</p>
+                                    地址：厦门市传一家政望海路25号</p>
                             </div>
                             <div class="btns">
                                 <a href="javascript:void(formShow())" target="_blank">咨询报名</a>
