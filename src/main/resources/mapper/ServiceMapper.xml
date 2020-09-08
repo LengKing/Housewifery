@@ -3,10 +3,22 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cykj.housewifery.mapper.ServiceMapper">
-    <select id="getCount" parameterType="string" resultType="int">
-        select count(*) from
-    </select>
-    <select id="getServiceList" parameterType="map" resultType="serviceType">
 
+    <select id="getServiceCount" resultType="int">
+        select count(*) from tb_service_type s,tb_service_type s1 where s.pid = s1.id
     </select>
+
+    <select id="getServiceList" parameterType="layuiJson" resultType="serviceType">
+    select t.id,t.name,t.typename,c2.apply_date,c2.name state from
+    (select s.id,s.type_name name,s1.type_name typename from tb_service_type s,tb_service_type s1 where s.pid = s1.id) t left join
+        (select c.service_type_id,c.apply_date,p.name from tb_company_service c,tb_params p where c.company_id=#{condition.companyId} and c.state = p.value and p.type = '服务申请状态') c2 on
+     c2.service_type_id = t.id limit #{pageNum},#{limit};
+    </select>
+
+    <select id="findServiceType" parameterType="map" resultType="int">
+        select count(*) from tb_company_service c,tb_service_type s where c.service_type_id=s.id and c.company_id = #{companyId}
+        and s.id = (select id from tb_service_type where id = (select pid from tb_service_type where id= #{id}))
+    </select>
+
+
 </mapper>

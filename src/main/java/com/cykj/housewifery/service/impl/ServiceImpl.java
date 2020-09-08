@@ -4,7 +4,6 @@ import com.cykj.housewifery.bean.LayuiJson;
 import com.cykj.housewifery.bean.ServiceType;
 import com.cykj.housewifery.mapper.ServiceMapper;
 import com.cykj.housewifery.service.Service;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,13 +20,25 @@ public class ServiceImpl implements Service {
 
     @Override
     public int getServiceTypeCount(String companyId) {
-        int count = 0;
-        count = serviceMapper.getCount(companyId);
-        return count;
+
+        return 0;
     }
 
     @Override
     public List<ServiceType> getServiceTypeList(String companyId, Integer pageNum, String limit) {
+
+        return null;
+    }
+
+    @Override
+    public int getServiceCount() {
+        int count = 0;
+        count = serviceMapper.getServiceCount();
+        return count;
+    }
+
+    @Override
+    public List<ServiceType> getServiceList(String companyId, Integer pageNum, String limit) {
         List<ServiceType> list = new ArrayList<>();
         HashMap<String,Object> condition = new HashMap<>();
         condition.put("companyId",companyId);
@@ -37,5 +48,20 @@ public class ServiceImpl implements Service {
         layuiJson.setCondition(condition);
         list = serviceMapper.getServiceList(layuiJson);
         return list;
+    }
+
+    @Override
+    public String updateServiceState(String companyId,String id,String event) {
+        boolean result = false;
+        HashMap<String,Object> condition = new HashMap<>();
+        condition.put("companyId",companyId);
+        condition.put("id",id);
+        condition.put("event",event);
+        int n = serviceMapper.findServiceType(condition);
+        if (n<=0){
+            return "请先申请该服务的类别";
+        }
+       // int n1 = serviceMapper.
+        return "";
     }
 }

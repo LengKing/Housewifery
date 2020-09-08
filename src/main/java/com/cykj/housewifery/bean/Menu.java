@@ -6,7 +6,6 @@ public class Menu {
     private String url;
     private int pid;
 
-
     public Menu() {
     }
 

@@ -20,17 +20,24 @@ public class ServiceControl {
     @Autowired
     private Service service;
 
-    @RequestMapping(value = "/serviceTypeList",produces = "text/plain;charset=utf-8")
+    @RequestMapping(value = "/serviceList",produces = "text/plain;charset=utf-8")
     @ResponseBody
-    public Object getAdminList(String page,String limit,String companyId) throws IOException {
+    public Object getServiceList(String page,String limit,String companyId) throws IOException {
         Integer pageNum = (Integer.valueOf(page)-1)*Integer.valueOf(limit);
         LayuiJson layuiJson = new LayuiJson();
-        int count = service.getServiceTypeCount(companyId);
-        List<ServiceType> types = service.getServiceTypeList(companyId,pageNum,limit);
+        int count = service.getServiceCount();
+        List<ServiceType> types = service.getServiceList(companyId,pageNum,limit);
         layuiJson.setData(types);
         layuiJson.setCode(0);
         layuiJson.setCount(count);
         Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
         return gson.toJson(layuiJson);
     }
+
+    @RequestMapping(value = "/updateServiceState",produces = "text/plain;charset=utf-8")
+    public Object updateServiceState(String companyId,String id,String event){
+        String result = service.updateServiceState(companyId,id,event);
+        return result;
+    }
+
 }
