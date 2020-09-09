@@ -70,6 +70,7 @@
                     type:"post",
                     dataType:"text",
                     success:function (data) {
+                        layer.msg(data);
                         $(".layui-laypage-btn")[0].click();
                     },
                     error:function () {

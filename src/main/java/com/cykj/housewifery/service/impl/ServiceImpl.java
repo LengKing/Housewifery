@@ -1,5 +1,6 @@
 package com.cykj.housewifery.service.impl;
 
+import com.cykj.housewifery.bean.CompanyService;
 import com.cykj.housewifery.bean.LayuiJson;
 import com.cykj.housewifery.bean.ServiceType;
 import com.cykj.housewifery.mapper.ServiceMapper;
@@ -7,6 +8,7 @@ import com.cykj.housewifery.service.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -61,7 +63,16 @@ public class ServiceImpl implements Service {
         if (n<=0){
             return "请先申请该服务的类别";
         }
-       // int n1 = serviceMapper.
-        return "";
+        CompanyService companyService = new CompanyService();
+        companyService.setCompanyId(Integer.valueOf(companyId));
+        companyService.setServiceTypeId(Integer.valueOf(id));
+        companyService.setStateName(event);
+        companyService.setApplyDate(new Date(System.currentTimeMillis()));
+        int n1 = serviceMapper.insertCompanyService(companyService);
+        if (n1>0){
+            return "申请已提交！";
+        }else {
+            return "申请提交失败，，请稍后再试";
+        }
     }
 }

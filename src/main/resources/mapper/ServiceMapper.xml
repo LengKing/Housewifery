@@ -20,5 +20,7 @@
         and s.id = (select id from tb_service_type where id = (select pid from tb_service_type where id= #{id}))
     </select>
 
-
+    <insert id="insertCompanyService" parameterType="companyService">
+        insert into tb_company_service(company_id,service_type_id,state,apply_date) values (#{companyId},#{serviceTypeId},(select value from tb_params where type ='服务申请状态' and name =#{stateName}),#{applyDate})
+    </insert>
 </mapper>
