@@ -2,7 +2,7 @@ package com.cykj.housewifery.bean;
 
 import java.sql.Timestamp;
 
-public class afterSales {//售后记录表
+public class AfterSales {//售后记录表
     private int id;//id
     private  int orderId;//订单id
     private Timestamp time;//时间
@@ -10,10 +10,10 @@ public class afterSales {//售后记录表
     private  int state;//状态
     private  int houseId;//家政人员id
 
-    public afterSales() {
+    public AfterSales() {
     }
 
-    public afterSales(int id, int orderId, Timestamp time, String afterWhy, int state, int houseId) {
+    public AfterSales(int id, int orderId, Timestamp time, String afterWhy, int state, int houseId) {
         this.id = id;
         this.orderId = orderId;
         this.time = time;
@@ -24,7 +24,7 @@ public class afterSales {//售后记录表
 
     @Override
     public String toString() {
-        return "afterSales{" +
+        return "AfterSales{" +
                 "id=" + id +
                 ", orderId=" + orderId +
                 ", time=" + time +

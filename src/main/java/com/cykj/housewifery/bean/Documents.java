@@ -1,16 +1,16 @@
 package com.cykj.housewifery.bean;
 
 
-public class documents {//家政公司资质文件表
+public class Documents {//家政公司资质文件表
     private  int id;
     private  String title;
     private  String url;
     private String companyId;
 
-    public documents() {
+    public Documents() {
     }
 
-    public documents(int id, String title, String url, String companyId) {
+    public Documents(int id, String title, String url, String companyId) {
         this.id = id;
         this.title = title;
         this.url = url;
@@ -51,7 +51,7 @@ public class documents {//家政公司资质文件表
 
     @Override
     public String toString() {
-        return "documents{" +
+        return "Documents{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", url='" + url + '\'' +

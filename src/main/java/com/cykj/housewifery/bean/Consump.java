@@ -5,17 +5,17 @@ import java.sql.Time;
 import java.sql.Timestamp;
 
 //用户消费明细表
-public class consump {
+public class Consump {
     private  int id;
     private  int userId;
     private Timestamp consumpTime;
     private String consumpTing;
     private BigDecimal consumpMoney;
 
-    public consump() {
+    public Consump() {
     }
 
-    public consump(int id, int userId, Timestamp consumpTime, String consumpTing, BigDecimal consumpMoney) {
+    public Consump(int id, int userId, Timestamp consumpTime, String consumpTing, BigDecimal consumpMoney) {
         this.id = id;
         this.userId = userId;
         this.consumpTime = consumpTime;
@@ -25,7 +25,7 @@ public class consump {
 
     @Override
     public String toString() {
-        return "consump{" +
+        return "Consump{" +
                 "id=" + id +
                 ", userId=" + userId +
                 ", consumpTime=" + consumpTime +
