@@ -6,6 +6,8 @@ public class Train {
     private String title;       //标题
     private String startDate;   //开始时间
     private String endDate;     //结束时间
+    private String startTime;   //培训时间段
+    private String endTime;     //培训时间段
     private String content;     //培训内容
     private int count;          //培训人数
     private String length;      //培训时长
@@ -15,11 +17,13 @@ public class Train {
     public Train() {
     }
 
-    public Train(int id, String title, String startDate, String endDate, String content, int count, String length, String credential, String url) {
+    public Train(int id, String title, String startDate, String endDate, String startTime, String endTime, String content, int count, String length, String credential, String url) {
         this.id = id;
         this.title = title;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.startTime = startTime;
+        this.endTime = endTime;
         this.content = content;
         this.count = count;
         this.length = length;
@@ -34,12 +38,30 @@ public class Train {
                 ", title='" + title + '\'' +
                 ", startDate='" + startDate + '\'' +
                 ", endDate='" + endDate + '\'' +
+                ", startTime='" + startTime + '\'' +
+                ", endTime='" + endTime + '\'' +
                 ", content='" + content + '\'' +
                 ", count=" + count +
-                ", length=" + length +
+                ", length='" + length + '\'' +
                 ", credential='" + credential + '\'' +
                 ", url='" + url + '\'' +
                 '}';
+    }
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
     public int getId() {

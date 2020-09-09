@@ -12,10 +12,11 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="../static/css/font.css">
-    <link rel="stylesheet" href="../static/css/xadmin.css">
-    <script src="../static/layui/layui.js" charset="utf-8"></script>
-    <script type="text/javascript" src="../static/js/xadmin.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/font.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/xadmin.css">
+    <script src="${pageContext.request.contextPath}/static/js/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/static/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/xadmin.js"></script>
     <!--[if lt IE 9]>
     <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
     <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
@@ -26,6 +27,25 @@
         width: 300px;
     }
 </style>
+<script>
+    $(function () {
+        $.post("${pageContext.request.contextPath}/params/findParams",{"type":"credential"},function(data){
+            $(data).each(function(i,n){
+                $("#upd_credential").append("<option value='" +n+"'>" +n+ "</option>");
+            });
+            $("#upd_credential option[value='${credential}']").prop("selected","selected");
+        },"json");
+
+        $.post("${pageContext.request.contextPath}/params/findTime",{},function(data){
+            $(data).each(function(i,n){
+                $("#startTime").append("<option value='" +n+"'>" +n+ "</option>");
+                $("#endTime").append("<option value='" +n+"'>" +n+ "</option>");
+            });
+            $("#startTime option[value='${startTime}']").prop("selected","selected");
+            $("#endTime option[value='${endTime}']").prop("selected","selected");
+        },"json");
+    })
+</script>
 <body>
 <div class="layui-fluid">
     <div class="layui-row layui-col-space15">
@@ -80,6 +100,7 @@
                     $("#title").text(train.title);
                     $("#startDate").text(train.startDate);
                     $("#endDate").text(train.endDate);
+                    $("#time").text(train.startTime+"-"+train.endTime);
                     $("#content").text(train.content);
                     $("#count").text(train.count);
                     $("#length").text(train.length);
@@ -94,20 +115,51 @@
                     btn:'查看培训内容',
                     btnAlign: 'c',
                     btn1:function () {
-                        var account=obj.data.account;
-                        var name=$("#upd_name").val();
-                        var jobs=$("#upd_jobs").val();
+
                         $.ajax({
                             url: "${pageContext.request.contextPath}/train/playTrain",
                             type: "Post",
                             data: {},
                             dataType: "text",
-
                         });
                     }
                 })
             }else if (layEvent === 'update'){
+                $.ajax({
+                    url: "${pageContext.request.contextPath}/train/findTrainById",
+                    type: "Post",
+                    data: {"id":id},
+                    dataType: "text",
+                    success:function (data) {
+                        var train=JSON.parse(data);
+                        $("#upd_title").val(train.title);
+                        $("#upd_startDate").val(train.startDate);
+                        $("#upd_endDate").val(train.endDate);
+                        $("#startTime").val(train.startTime);
+                        $("#endTime").val(train.endTime);
+                        $("#upd_content").val(train.content);
+                        $("#upd_count").val(train.count);
+                        $("#upd_length").text(train.length);
+                        $("#upd_credential").val(train.credential);
+                    }
+                });
+                layer.open({
+                    title:"培训修改",
+                    type: 1,
+                    area: 'auto',
+                    content:$("#update_div"),
+                    btn:'保存',
+                    btnAlign: 'c',
+                    btn1:function () {
 
+                        $.ajax({
+                            url: "${pageContext.request.contextPath}/train/updateTrain",
+                            type: "Post",
+                            data: {},
+                            dataType: "text",
+                        });
+                    }
+                })
             }else if(layEvent === 'delete'){
 
             }
@@ -121,7 +173,7 @@
     <button class="layui-btn layui-btn-normal" type="button" lay-event="delete">删除</button>
 </script>
 </body>
-<div id="detail_div" style="width: 350px;height: 300px;text-align: center;display: none">
+<div id="detail_div" style="width: 350px;height: 350px;text-align: center;display: none">
     <table class="layui-table" lay-skin="line">
         <tr>
             <td>培训标题</td>
@@ -134,6 +186,10 @@
         <tr>
             <td>培训结束时间</td>
             <td id="endDate"></td>
+        </tr>
+        <tr>
+            <td>培训时间段</td>
+            <td id="time"></td>
         </tr>
         <tr>
             <td>培训内容</td>
@@ -152,45 +208,50 @@
             <td id="credential"></td>
         </tr>
     </table>
-<%--    <form class="layui-form">--%>
-<%--        <div class="layui-form-item">--%>
-<%--            <label class="layui-form-label" >培训标题</label>--%>
-<%--            <div class="layui-input-block">--%>
-<%--                <label class="layui-form-label" id="title"></label>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--        <div class="layui-form-item">--%>
-<%--            <label class="layui-form-label" >培训开始时间</label>--%>
-<%--            <label class="layui-form-label" id="startDate"></label>--%>
-<%--        </div>--%>
-<%--        <div class="layui-form-item">--%>
-<%--            <label class="layui-form-label" >培训结束时间</label>--%>
-<%--            <label class="layui-form-label" id="endDate"></label>--%>
-<%--        </div>--%>
-<%--        <div class="layui-form-item">--%>
-<%--            <label class="layui-form-label" >培训内容</label>--%>
-<%--            <div class="layui-input-inline">--%>
-<%--                <label class="layui-form-label" id="content"></label>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--        <div class="layui-form-item">--%>
-<%--            <label class="layui-form-label" >培训人数</label>--%>
-<%--            <div class="layui-input-inline">--%>
-<%--                <label class="layui-form-label" id="count"></label>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--        <div class="layui-form-item">--%>
-<%--            <label class="layui-form-label" >培训时长</label>--%>
-<%--            <div class="layui-input-inline">--%>
-<%--                <label class="layui-form-label" id="length"></label>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--        <div class="layui-form-item">--%>
-<%--            <label class="layui-form-label" >认证证书</label>--%>
-<%--            <div class="layui-input-inline">--%>
-<%--                <label class="layui-form-label" id="credential"></label>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </form>--%>
+
+</div>
+
+<div id="update_div" style="width: 350px;height: 390px;text-align: center;display: none">
+    <table class="layui-table" lay-skin="line">
+        <tr>
+            <td>培训标题</td>
+            <td><input class="layui-input" id="upd_title"></td>
+        </tr>
+        <tr>
+            <td>培训开始时间</td>
+            <td><input class="layui-input" type="date"  id="upd_startDate"></td>
+        </tr>
+        <tr>
+            <td>培训结束时间</td>
+            <td><input class="layui-input" type="date"  id="upd_endDate"></td>
+        </tr>
+        <tr>
+            <td>培训时间段</td>
+            <td><select name="startTime" id="startTime" class="layui-select">
+                <option></option></select>-
+                <select name="endTime" id="endTime" class="layui-select">
+                    <option></option></select>
+            </td>
+        </tr>
+        <tr>
+            <td>培训内容</td>
+            <td><input class="layui-input"  id="upd_content"></td>
+        </tr>
+        <tr>
+            <td>培训人数</td>
+            <td><input class="layui-input"  id="upd_count"></td>
+        </tr>
+        <tr>
+            <td>培训时长</td>
+            <td id="upd_length"></td>
+        </tr>
+        <tr>
+            <td>认证证书</td>
+            <td><select name="upd_credential" id="upd_credential" class="layui-select">
+                <option></option>
+            </select></td>
+        </tr>
+    </table>
+
 </div>
 </html>

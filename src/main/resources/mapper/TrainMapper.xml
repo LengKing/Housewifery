@@ -14,8 +14,8 @@
     </select>
 
     <select id="findTrainById" resultType="Train">
-        select t.id,title,start_date,end_date,content,count,length,p.name credential from tb_train t ,tb_params p
-        where t.credential=p.value and type='credential' and t.id=#{arg0}
+        select t.id,title,date_format(start_date,'%Y-%m-%d') start_date,date_format(end_date,'%Y-%m-%d') end_date,start_time,end_time,content,
+        count,length,p.name credential from tb_train t ,tb_params p where t.credential=p.value and type='credential' and t.id=#{arg0}
     </select>
 
 </mapper>
