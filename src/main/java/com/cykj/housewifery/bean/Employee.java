@@ -2,23 +2,96 @@ package com.cykj.housewifery.bean;
 
 import java.sql.Date;
 
+//家政员工实体类
 public class Employee {
-    private Integer id;
-    private Integer number;
-    private String password;
-    private String name;
-    private String gender;
-    private int age;
-    private Date birthday;
-    private Integer school;
-    private String schoolName;
-    private Integer skill;
-    private String skillName;
-    private Integer job;
-    private String jobName;
-    private String label;
-    private Integer state;
-    private String stateName;
+    private Integer id;             //员工ID
+    private Integer number;         //员工编号
+    private String password;        //密码
+    private String name;            //姓名
+    private String gender;          //性别
+    private int age;                //年龄
+    private Date birthday;          //出生年月日
+    private String school;          //学历
+    private String skill;           //技能
+    private String job;             //职位
+    private String label;           //标签
+    private Integer state;          //员工状态
+
+    public Employee() {
+    }
+
+    public Employee(Integer id, Integer number, String password, String name, String gender, int age, Date birthday, String school, String skill, String job, String label, Integer state) {
+        this.id = id;
+        this.number = number;
+        this.password = password;
+        this.name = name;
+        this.gender = gender;
+        this.age = age;
+        this.birthday = birthday;
+        this.school = school;
+        this.skill = skill;
+        this.job = job;
+        this.label = label;
+        this.state = state;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", number=" + number +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", age=" + age +
+                ", birthday=" + birthday +
+                ", school='" + school + '\'' +
+                ", skill='" + skill + '\'' +
+                ", job='" + job + '\'' +
+                ", label='" + label + '\'' +
+                ", state=" + state +
+                '}';
+    }
+
+    public String getSchool() {
+        return school;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
+
+    public String getSkill() {
+        return skill;
+    }
+
+    public void setSkill(String skill) {
+        this.skill = skill;
+    }
+
+    public String getJob() {
+        return job;
+    }
+
+    public void setJob(String job) {
+        this.job = job;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
+    }
 
     public Integer getId() {
         return id;
@@ -76,75 +149,5 @@ public class Employee {
         this.birthday = birthday;
     }
 
-    public Integer getSchool() {
-        return school;
-    }
 
-    public void setSchool(Integer school) {
-        this.school = school;
-    }
-
-    public String getSchoolName() {
-        return schoolName;
-    }
-
-    public void setSchoolName(String schoolName) {
-        this.schoolName = schoolName;
-    }
-
-    public Integer getSkill() {
-        return skill;
-    }
-
-    public void setSkill(Integer skill) {
-        this.skill = skill;
-    }
-
-    public String getSkillName() {
-        return skillName;
-    }
-
-    public void setSkillName(String skillName) {
-        this.skillName = skillName;
-    }
-
-    public Integer getJob() {
-        return job;
-    }
-
-    public void setJob(Integer job) {
-        this.job = job;
-    }
-
-    public String getJobName() {
-        return jobName;
-    }
-
-    public void setJobName(String jobName) {
-        this.jobName = jobName;
-    }
-
-    public String getLabel() {
-        return label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
-    public Integer getState() {
-        return state;
-    }
-
-    public void setState(Integer state) {
-        this.state = state;
-    }
-
-    public String getStateName() {
-        return stateName;
-    }
-
-    public void setStateName(String stateName) {
-        this.stateName = stateName;
-    }
 }

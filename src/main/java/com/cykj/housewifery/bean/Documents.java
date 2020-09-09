@@ -1,11 +1,11 @@
 package com.cykj.housewifery.bean;
 
-
-public class Documents {//家政公司资质文件表
-    private  int id;
-    private  String title;
-    private  String url;
-    private String companyId;
+//家政公司资质文件表
+public class Documents {
+    private  int id;            //文件ID
+    private  String title;      //标题
+    private  String url;        //url
+    private String companyId;   //公司ID
 
     public Documents() {
     }

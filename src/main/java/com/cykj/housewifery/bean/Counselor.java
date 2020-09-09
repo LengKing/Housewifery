@@ -1,10 +1,11 @@
 package com.cykj.housewifery.bean;
 
+//家政顾问实体类
 public class Counselor {
-    private int id;
-    private String number;
-    private String position;
-    private String detail;
+    private int id;             //顾问ID
+    private String number;      //编号
+    private String position;    //职位
+    private String detail;      //职责
 
     public Counselor() {
     }

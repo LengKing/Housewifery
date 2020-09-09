@@ -2,12 +2,13 @@ package com.cykj.housewifery.bean;
 
 import java.util.Date;
 
+//评价实体类
 public class UserEvaluation {
-    private int id;//用户评价的主id
-    private int orderId;//评价的订单号
-    private String evaluation;//评价内容
-    private Date evaluationDate;//评价时间
-    private int userId;//用户id
+    private int id;              //用户评价的主id
+    private int orderId;         //评价的订单号
+    private String evaluation;   //评价内容
+    private Date evaluationDate; //评价时间
+    private int userId;          //用户id
 
     public UserEvaluation() {
     }
