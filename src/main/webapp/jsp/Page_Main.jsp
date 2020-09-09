@@ -16,19 +16,22 @@
     <meta property="og:image" content="/upload/images/2019/8/31a6d380d226137b.jpg" />
 
     <title>首页</title>
+    <%
+        String path = request.getContextPath();
+    %>
     <meta name="Keywords" content="家政保姆,育婴师培训,月嫂公司加盟,保洁服务,家政公司加盟,社区邦">
     <meta name="description" content="社区邦提供一站式高品质家政服务,有月嫂,保洁,育婴师,家政培训等，现向全国进行月嫂公司加盟,月嫂加盟店,家政公司加盟招商服务，已帮助众多家政加盟商成功创业!   ">
-    <link href="../static/css/tcommon.css" rel="stylesheet" type="text/css">
-    <link type="text/css" rel="stylesheet" href="../static/css/common.css" />
-    <link type="text/css" rel="stylesheet" href="../static/css/index.css" />
-    <link type="text/css" rel="stylesheet" href="../static/css/swiper.css" />
-    <link type="text/css" rel="stylesheet" href="../static/css/animate.css" />
-    <script src="../static/js/1.9.1jquery.min.js" charset="utf-8" type="text/javascript"></script>
-    <script type="text/javascript" charset="utf-8" src="../static/js/common.js"></script>
-    <script type="text/javascript" charset="utf-8" src="../static/js/swiper.js"></script>
-    <script type="text/javascript" charset="utf-8" src="../static/js/wow.js"></script>
-    <script type="text/javascript" charset="utf-8" src="../static/js/tcommon-1.0.js"></script>
-    <script src="../static/js/index.js" charset="utf-8" type="text/javascript"></script>
+    <link href="${pageContext.request.contextPath}/static/css/tcommon.css" rel="stylesheet" type="text/css">
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/static/css/index.css" />
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/static/css/swiper.css" />
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/static/css/animate.css" />
+    <script src="${pageContext.request.contextPath}/static/js/1.9.1jquery.min.js" charset="utf-8" type="text/javascript"></script>
+    <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/static/js/common.js"></script>
+    <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/static/js/swiper.js"></script>
+    <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/static/js/wow.js"></script>
+    <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/static/js/tcommon-1.0.js"></script>
+    <script src="${pageContext.request.contextPath}/static/js/index.js" charset="utf-8" type="text/javascript"></script>
 </head>
 <body>
 <!--萝卜丝·智能客服代码 开始 -->
