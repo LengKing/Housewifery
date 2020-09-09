@@ -1,5 +1,6 @@
 package com.cykj.housewifery.control;
 
+import com.cykj.housewifery.bean.CompanyService;
 import com.cykj.housewifery.bean.LayuiJson;
 import com.cykj.housewifery.bean.ServiceType;
 import com.cykj.housewifery.service.Service;
@@ -34,9 +35,24 @@ public class ServiceControl {
         return gson.toJson(layuiJson);
     }
 
+    @RequestMapping(value = "/serviceTypeList",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object getServiceTypeList(String page,String limit,String companyId) throws IOException {
+        Integer pageNum = (Integer.valueOf(page)-1)*Integer.valueOf(limit);
+        LayuiJson layuiJson = new LayuiJson();
+        int count = service.getServiceTypeCount();
+        List<CompanyService> types = service.getServiceTypeList(companyId,pageNum,limit);
+        layuiJson.setData(types);
+        layuiJson.setCode(0);
+        layuiJson.setCount(count);
+        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+        return gson.toJson(layuiJson);
+    }
+
     @RequestMapping(value = "/updateServiceState",produces = "text/plain;charset=utf-8")
-    public Object updateServiceState(String companyId,String id,String event){
-        String result = service.updateServiceState(companyId,id,event);
+    @ResponseBody
+    public Object updateServiceState(String companyId,String id,String event,String type){
+        String result = service.updateServiceState(companyId,id,event,type);
         return result;
     }
 
