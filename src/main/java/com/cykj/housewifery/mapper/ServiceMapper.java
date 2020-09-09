@@ -18,4 +18,10 @@ public interface ServiceMapper {
     int findServiceType(HashMap<String, Object> condition);
 
     int insertCompanyService(CompanyService companyService);
+
+    int getServiceTypeCount();
+
+    List<CompanyService> getServiceTypeList(LayuiJson layuiJson);
+
+    int updateCompanyService(CompanyService companyService);
 }

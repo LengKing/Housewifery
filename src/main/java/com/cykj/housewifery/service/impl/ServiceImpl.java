@@ -21,15 +21,23 @@ public class ServiceImpl implements Service {
     public ServiceMapper serviceMapper;
 
     @Override
-    public int getServiceTypeCount(String companyId) {
-
-        return 0;
+    public int getServiceTypeCount() {
+        int count = 0;
+        count = serviceMapper.getServiceTypeCount();
+        return count;
     }
 
     @Override
-    public List<ServiceType> getServiceTypeList(String companyId, Integer pageNum, String limit) {
-
-        return null;
+    public List<CompanyService> getServiceTypeList(String companyId, Integer pageNum, String limit) {
+        List<CompanyService> list = new ArrayList<>();
+        HashMap<String,Object> condition = new HashMap<>();
+        condition.put("companyId",companyId);
+        LayuiJson layuiJson = new LayuiJson();
+        layuiJson.setPageNum(pageNum);
+        layuiJson.setLimit(Integer.valueOf(limit));
+        layuiJson.setCondition(condition);
+        list = serviceMapper.getServiceTypeList(layuiJson);
+        return list;
     }
 
     @Override
@@ -53,22 +61,29 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public String updateServiceState(String companyId,String id,String event) {
+    public String updateServiceState(String companyId,String id,String event,String type) {
         boolean result = false;
         HashMap<String,Object> condition = new HashMap<>();
         condition.put("companyId",companyId);
         condition.put("id",id);
         condition.put("event",event);
-        int n = serviceMapper.findServiceType(condition);
-        if (n<=0){
-            return "请先申请该服务的类别";
+        if (type!=null||!"".equals(type)){
+            int n = serviceMapper.findServiceType(condition);
+            if (n<=0){
+                return "请先申请该服务的类别";
+            }
         }
+        int n1 = 0;
         CompanyService companyService = new CompanyService();
         companyService.setCompanyId(Integer.valueOf(companyId));
         companyService.setServiceTypeId(Integer.valueOf(id));
         companyService.setStateName(event);
-        companyService.setApplyDate(new Date(System.currentTimeMillis()));
-        int n1 = serviceMapper.insertCompanyService(companyService);
+        if (event.equals(1)){
+            companyService.setApplyDate(new Date(System.currentTimeMillis()));
+            n1 = serviceMapper.insertCompanyService(companyService);
+        }else {
+            n1 = serviceMapper.updateCompanyService(companyService);
+        }
         if (n1>0){
             return "申请已提交！";
         }else {

@@ -3,7 +3,7 @@ server:
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://118.178.142.244:3306/db_housewifery?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false&amp
+    url: jdbc:mysql://118.178.142.244:3306/db_housewifery
     username: JX200219
     password: JX200219
     driver-class-name: com.mysql.jdbc.Driver

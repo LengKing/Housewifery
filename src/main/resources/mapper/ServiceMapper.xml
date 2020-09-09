@@ -11,7 +11,7 @@
     <select id="getServiceList" parameterType="layuiJson" resultType="serviceType">
     select t.id,t.name,t.typename,c2.apply_date,c2.name state from
     (select s.id,s.type_name name,s1.type_name typename from tb_service_type s,tb_service_type s1 where s.pid = s1.id) t left join
-        (select c.service_type_id,c.apply_date,p.name from tb_company_service c,tb_params p where c.company_id=#{condition.companyId} and c.state = p.value and p.type = '服务申请状态') c2 on
+        (select c.service_type_id,c.apply_date,p.name from tb_company_service c,tb_params p where c.company_id=#{condition.companyId} and c.state = p.value and p.type = 'service_application_state') c2 on
      c2.service_type_id = t.id limit #{pageNum},#{limit};
     </select>
 
@@ -21,6 +21,20 @@
     </select>
 
     <insert id="insertCompanyService" parameterType="companyService">
-        insert into tb_company_service(company_id,service_type_id,state,apply_date) values (#{companyId},#{serviceTypeId},(select value from tb_params where type ='服务申请状态' and name =#{stateName}),#{applyDate})
+        insert into tb_company_service(company_id,service_type_id,state,apply_date) values (#{companyId},#{serviceTypeId},#{stateName},#{applyDate})
     </insert>
+
+    <select id="getServiceTypeCount" resultType="int">
+        select count(*) from tb_service_type where pid =0;
+    </select>
+
+    <select id="getServiceTypeList" parameterType="layuiJson" resultType="companyService">
+        select s.id,s.type_name,t.apply_date,t.name stateName from tb_service_type s left join
+        (select s.service_type_id,p.name,s.apply_date from tb_company_service s,tb_params p where s.company_id = #{condition.companyId}
+        and s.state = p.value and p.type='service_application_state') t on s.id=t.service_type_id where s.pid = 0 limit #{pageNum},#{limit};
+    </select>
+
+    <update id="updateCompanyService" parameterType="companyService">
+        update tb_company_service set state = #{stateName} where company_id = #{companyId} and service_type_id = #{serviceTypeId}
+    </update>
 </mapper>
