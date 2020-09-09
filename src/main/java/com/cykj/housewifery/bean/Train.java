@@ -1,20 +1,21 @@
 package com.cykj.housewifery.bean;
 
+//培训计划
 public class Train {
-    private int id;
-    private String title;
-    private String startDate;
-    private String endDate;
-    private String content;
-    private int count;
-    private int length;
-    private String credential;
-    private String url;
+    private int id;             //培训ID
+    private String title;       //标题
+    private String startDate;   //开始时间
+    private String endDate;     //结束时间
+    private String content;     //培训内容
+    private int count;          //培训人数
+    private String length;      //培训时长
+    private String credential;  //认证证书
+    private String url;         //培训内容路径
 
     public Train() {
     }
 
-    public Train(int id, String title, String startDate, String endDate, String content, int count, int length, String credential, String url) {
+    public Train(int id, String title, String startDate, String endDate, String content, int count, String length, String credential, String url) {
         this.id = id;
         this.title = title;
         this.startDate = startDate;
@@ -89,11 +90,11 @@ public class Train {
         this.count = count;
     }
 
-    public int getLength() {
+    public String getLength() {
         return length;
     }
 
-    public void setLength(int length) {
+    public void setLength(String length) {
         this.length = length;
     }
 

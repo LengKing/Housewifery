@@ -1,9 +1,10 @@
 package com.cykj.housewifery.bean;
 
+//角色管理
 public class Jobs {
-    private int id;
-    private String jobs;
-    private String detail;
+    private int id;         //角色ID
+    private String jobs;    //角色名
+    private String detail;  //角色描述
 
     public Jobs() {
     }

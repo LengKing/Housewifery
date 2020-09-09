@@ -1,12 +1,13 @@
 package com.cykj.housewifery.bean;
 
+//培训风采实体类
 public class Mien {
-    private int id;
-    private String title;
-    private String detail;
-    private String type;
-    private String showDate;
-    private String url;
+    private int id;                 //风采ID
+    private String title;           //标题
+    private String detail;          //内容描述
+    private String type;            //类型
+    private String showDate;        //展示时间
+    private String url;             //内容路径
 
     public Mien() {
     }

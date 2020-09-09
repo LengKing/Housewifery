@@ -2,17 +2,18 @@ package com.cykj.housewifery.bean;
 
 import java.sql.Timestamp;
 
+//用户实体类
 public class User {
-    private  int userId;
-    private  String account;
-    private  String password;
-    private  String gender;
-    private String phone;
-    private  String address;
-    private  int integral;
-    private  String url;
-    private Timestamp regDate;
-    private  Double money;
+    private  int userId;        //用户ID
+    private  String account;    //用户账号
+    private  String password;   //用户密码
+    private  String gender;     //性别
+    private String phone;       //手机号
+    private  String address;    //地址
+    private  int integral;      //积分
+    private  String url;        //头像路径
+    private Timestamp regDate;  //注册时间
+    private  Double money;      //账户余额
 
 
     public User() {

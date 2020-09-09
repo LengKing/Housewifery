@@ -2,7 +2,8 @@ package com.cykj.housewifery.bean;
 
 import java.sql.Timestamp;
 
-public class Company {              //家政公司
+//家政公司
+public class Company {
     private int id;                 //公司ID
     private  String name;           //公司名称
     private  String password;       //登录密码

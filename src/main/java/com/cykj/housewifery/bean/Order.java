@@ -3,19 +3,20 @@ package com.cykj.housewifery.bean;
 import java.math.BigDecimal;
 import java.util.Date;
 
+//订单表
 public class Order {
-    private int id;//需求表 主id
-    private int userId;//服务对象id
-    private String serviceName;//服务名
-    private int type;//所属类别 对应服务列表
-    private int count;//服务频次
-    private Date date;//下单时间
-    private Date serviceDate;//服务时间
-    private BigDecimal cost;//费用
-    private String employeName;//服务人
-    private String companyName;//家政公司名称
-    private String state;//状态
-    private String payState;//支付状态
+    private int id;             //订单表 主id
+    private int userId;         //服务对象id
+    private String serviceName; //服务名
+    private int type;           //所属类别 对应服务列表
+    private int count;          //服务频次
+    private Date date;          //下单时间
+    private Date serviceDate;   //服务时间
+    private BigDecimal cost;    //费用
+    private String employeName; //服务人
+    private String companyName; //家政公司名称
+    private String state;       //状态
+    private String payState;    //支付状态
 
     public Order() {
     }
