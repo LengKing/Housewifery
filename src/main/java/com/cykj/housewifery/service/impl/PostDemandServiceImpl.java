@@ -13,9 +13,9 @@ public class PostDemandServiceImpl implements PostDemandService {
     PostDemandMapper postDemandMapper;
 
     @Override
-    public Demand getDemand(Demand demand) {
-        Demand getdemand = null;
-        getdemand = postDemandMapper.getDemand(demand);
-        return getdemand;
+    public int getDemand(Demand demand) {
+        int n = 0;
+        n = postDemandMapper.getDemand(demand);
+        return n;
     }
 }

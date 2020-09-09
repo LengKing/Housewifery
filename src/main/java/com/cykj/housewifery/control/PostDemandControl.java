@@ -19,15 +19,9 @@ public class PostDemandControl {
 
     @RequestMapping(value = "/demand", produces = "text/plain;charset=utf-8")
     @ResponseBody
-    public Object getDemand(Demand demand) throws IOException {
-
-//        List<ServiceType> types = postDemandService.getServiceList(companyId,pageNum,limit);
-//        layuiJson.setData(types);
-//        layuiJson.setCode(0);
-//        layuiJson.setCount(count);
-//        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-//        return gson.toJson(layuiJson);
-        return false;
+    public String getDemand(Demand demand) throws IOException {
+        postDemandService.getDemand(demand);
+        return "true";
     }
 
 }
