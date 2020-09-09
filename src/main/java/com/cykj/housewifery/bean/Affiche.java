@@ -3,10 +3,10 @@ package com.cykj.housewifery.bean;
 import java.util.Date;
 
 public class Affiche {
-    private int id;//公告动态表 主id
-    private Date releasrDate;//发布时间
-    private String title;//标题
-    private String describe;//描述
+    private int id;             //公告动态表 主id
+    private Date releasrDate;   //发布时间
+    private String title;       //标题
+    private String describe;    //描述
 
     public Affiche() {
     }

@@ -3,7 +3,7 @@ package com.cykj.housewifery.bean;
 import java.math.BigDecimal;
 import java.sql.Date;
 
-public class CompanyAccountDetails {
+public class CompanyAccountDetails {        //家政公司账户明细表
     private Integer id;
     private Date date;
     private String sourcesOfFunding;

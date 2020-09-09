@@ -2,13 +2,13 @@ package com.cykj.housewifery.bean;
 
 import java.sql.Timestamp;
 
-public class AfterSales {//售后记录表
-    private int id;//id
-    private  int orderId;//订单id
-    private Timestamp time;//时间
+public class AfterSales {   //售后记录表
+    private int id;         //id
+    private  int orderId;   //订单id
+    private Timestamp time; //时间
     private  String afterWhy;//售后原因
-    private  int state;//状态
-    private  int houseId;//家政人员id
+    private  int state;     //状态
+    private  int houseId;   //家政人员id
 
     public AfterSales() {
     }
