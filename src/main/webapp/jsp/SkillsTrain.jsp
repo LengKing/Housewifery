@@ -21,6 +21,11 @@
     <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+<style>
+    label{
+        width: 300px;
+    }
+</style>
 <body>
 <div class="layui-fluid">
     <div class="layui-row layui-col-space15">
@@ -65,12 +70,29 @@
             var layEvent = obj.event;       //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
             var title=obj.data.title;
             if (layEvent === 'detail') {    //查看详情
+                $.ajax({
+                    url: "${pageContext.request.contextPath}/train/findTrainById",
+                    type: "Post",
+                    data: {"id":id},
+                    dataType: "text",
+                    success:function (data) {
+                    var train=JSON.parse(data);
+                    $("#title").text(train.title);
+                    $("#startDate").text(train.startDate);
+                    $("#endDate").text(train.endDate);
+                    $("#content").text(train.content);
+                    $("#count").text(train.count);
+                    $("#length").text(train.length);
+                    $("#credential").text(train.credential);
+                    }
+                });
                 layer.open({
                     title:"培训详情",
                     type: 1,
-                    area: ['400', '500'],
+                    area: 'auto',
                     content:$("#detail_div"),
                     btn:'查看培训内容',
+                    btnAlign: 'c',
                     btn1:function () {
                         var account=obj.data.account;
                         var name=$("#upd_name").val();
@@ -99,50 +121,76 @@
     <button class="layui-btn layui-btn-normal" type="button" lay-event="delete">删除</button>
 </script>
 </body>
-<div id="detail_div" style="width: 400px;height: 450px;text-align: center;display: none">
-    <form class="layui-form">
-        <div class="layui-form-item">
-            <label class="layui-form-label" >培训标题</label>
-            <div class="layui-input-block">
-                <label class="layui-form-label" id="title"></label>
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label" >培训开始时间</label>
-            <div class="layui-input-block">
-                <label class="layui-form-label" id="startDate"></label>
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label" >培训结束时间</label>
-            <div class="layui-input-inline">
-                <label class="layui-form-label" id="endDate"></label>
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label" >培训内容</label>
-            <div class="layui-input-inline">
-                <label class="layui-form-label" id="content"></label>
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label" >培训人数</label>
-            <div class="layui-input-inline">
-                <label class="layui-form-label" id="count"></label>
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label" >培训时长</label>
-            <div class="layui-input-inline">
-                <label class="layui-form-label" id="length"></label>
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label" >认证证书</label>
-            <div class="layui-input-inline">
-                <label class="layui-form-label" id="credential"></label>
-            </div>
-        </div>
-    </form>
+<div id="detail_div" style="width: 350px;height: 300px;text-align: center;display: none">
+    <table class="layui-table" lay-skin="line">
+        <tr>
+            <td>培训标题</td>
+            <td id="title"></td>
+        </tr>
+        <tr>
+            <td>培训开始时间</td>
+            <td id="startDate"></td>
+        </tr>
+        <tr>
+            <td>培训结束时间</td>
+            <td id="endDate"></td>
+        </tr>
+        <tr>
+            <td>培训内容</td>
+            <td id="content"></td>
+        </tr>
+        <tr>
+            <td>培训人数</td>
+            <td id="count"></td>
+        </tr>
+        <tr>
+            <td>培训时长</td>
+            <td id="length"></td>
+        </tr>
+        <tr>
+            <td>认证证书</td>
+            <td id="credential"></td>
+        </tr>
+    </table>
+<%--    <form class="layui-form">--%>
+<%--        <div class="layui-form-item">--%>
+<%--            <label class="layui-form-label" >培训标题</label>--%>
+<%--            <div class="layui-input-block">--%>
+<%--                <label class="layui-form-label" id="title"></label>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--        <div class="layui-form-item">--%>
+<%--            <label class="layui-form-label" >培训开始时间</label>--%>
+<%--            <label class="layui-form-label" id="startDate"></label>--%>
+<%--        </div>--%>
+<%--        <div class="layui-form-item">--%>
+<%--            <label class="layui-form-label" >培训结束时间</label>--%>
+<%--            <label class="layui-form-label" id="endDate"></label>--%>
+<%--        </div>--%>
+<%--        <div class="layui-form-item">--%>
+<%--            <label class="layui-form-label" >培训内容</label>--%>
+<%--            <div class="layui-input-inline">--%>
+<%--                <label class="layui-form-label" id="content"></label>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--        <div class="layui-form-item">--%>
+<%--            <label class="layui-form-label" >培训人数</label>--%>
+<%--            <div class="layui-input-inline">--%>
+<%--                <label class="layui-form-label" id="count"></label>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--        <div class="layui-form-item">--%>
+<%--            <label class="layui-form-label" >培训时长</label>--%>
+<%--            <div class="layui-input-inline">--%>
+<%--                <label class="layui-form-label" id="length"></label>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--        <div class="layui-form-item">--%>
+<%--            <label class="layui-form-label" >认证证书</label>--%>
+<%--            <div class="layui-input-inline">--%>
+<%--                <label class="layui-form-label" id="credential"></label>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </form>--%>
 </div>
 </html>

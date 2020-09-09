@@ -33,4 +33,13 @@ public Object selTrain(String page,String limit){
         return gson.toJson(layuiJson);
 }
 
+    @RequestMapping(value = "/findTrainById" ,produces = "text/plain;charset=utf-8")
+    @ResponseBody
+public Object findTrainById(String id){
+        Train train=trainService.findTrainById(id);
+        return new Gson().toJson(train);
+
+
+}
+
 }

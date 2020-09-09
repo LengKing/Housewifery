@@ -7,4 +7,5 @@ import java.util.List;
 public interface TrainService {
     int getTrainCount();
     List<Train> selTrain(Integer pageNum, String limit);
+    Train findTrainById(String id);
 }

@@ -31,4 +31,10 @@ public class TrainServiceImpl implements TrainService {
         List<Train> list = trainMapper.selTrain(layuiJson);
         return list;
     }
+
+    @Override
+    public Train findTrainById(String id) {
+        Train train=trainMapper.findTrainById(id);
+        return train;
+    }
 }

@@ -11,4 +11,6 @@ public interface TrainMapper {
 
     int getTrainCount();
     List<Train> selTrain(LayuiJson layuiJson);
+    Train findTrainById(String id);
+
 }
