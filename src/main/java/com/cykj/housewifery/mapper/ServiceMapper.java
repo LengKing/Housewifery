@@ -11,7 +11,7 @@ import java.util.List;
 public interface ServiceMapper {
     int getCount(String companyId);
 
-    List<ServiceType> getServiceList(LayuiJson layuiJson);
+    List<CompanyService> getServiceList(LayuiJson layuiJson);
 
     int getServiceCount();
 

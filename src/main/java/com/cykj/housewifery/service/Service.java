@@ -12,7 +12,7 @@ public interface Service {
 
     int getServiceCount();
 
-    List<ServiceType> getServiceList(String companyId, Integer pageNum, String limit);
+    List<CompanyService> getServiceList(String companyId, Integer pageNum, String limit);
 
     String updateServiceState(String companyId,String id,String event,String type);
 }

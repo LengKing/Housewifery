@@ -48,8 +48,8 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public List<ServiceType> getServiceList(String companyId, Integer pageNum, String limit) {
-        List<ServiceType> list = new ArrayList<>();
+    public List<CompanyService> getServiceList(String companyId, Integer pageNum, String limit) {
+        List<CompanyService> list = new ArrayList<>();
         HashMap<String,Object> condition = new HashMap<>();
         condition.put("companyId",companyId);
         LayuiJson layuiJson = new LayuiJson();
@@ -78,8 +78,7 @@ public class ServiceImpl implements Service {
         companyService.setCompanyId(Integer.valueOf(companyId));
         companyService.setServiceTypeId(Integer.valueOf(id));
         companyService.setStateName(event);
-        if (event.equals(1)){
-            companyService.setApplyDate(new Date(System.currentTimeMillis()));
+        if (event.equals("1")){
             n1 = serviceMapper.insertCompanyService(companyService);
         }else {
             n1 = serviceMapper.updateCompanyService(companyService);

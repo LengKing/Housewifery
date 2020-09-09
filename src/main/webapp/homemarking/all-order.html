@@ -19,8 +19,17 @@
     <div class="layui-row layui-col-space15">
         <div class="layui-col-sm12 layui-col-md6" style="width: 100%;">
             <div class="layui-card">
-                <div class="layui-card-header">服务</div>
+                <div class="layui-card-header">订单信息</div>
                 <div class="layui-card-body" style="min-height: 400px;">
+                    <div class="layui-form layui-input-inline layui-show-xs-block">
+                        <select id="type">
+                            <option value="-1">----订单状态查询----</option>
+                        </select>
+                    </div>
+                    <div class="layui-input-inline layui-show-xs-block">
+                        <button class="layui-btn" id="searchBtn" lay-filter="sreach">
+                            <i class="layui-icon">&#xe615;</i></button>
+                    </div>
                     <div id="main4" class="layui-col-sm12" style="height: 400px;">
                         <table class="layui-table layui-form" id="service" lay-filter="service"></table>
                     </div>
@@ -36,7 +45,7 @@
         var tableIns = table.render({
             elem: '#service'
             , height: 312
-            , url: '/service/serviceList?companyId='+1000 //数据接口
+          //  , url: '/service/serviceList?companyId='+1000 //数据接口
             , page: true //开启分页
             , cols: [[ //表头
                 {field: 'id', title: 'ID', width: 200,align: 'center'}

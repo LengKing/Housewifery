@@ -27,7 +27,7 @@ public class ServiceControl {
         Integer pageNum = (Integer.valueOf(page)-1)*Integer.valueOf(limit);
         LayuiJson layuiJson = new LayuiJson();
         int count = service.getServiceCount();
-        List<ServiceType> types = service.getServiceList(companyId,pageNum,limit);
+        List<CompanyService> types = service.getServiceList(companyId,pageNum,limit);
         layuiJson.setData(types);
         layuiJson.setCode(0);
         layuiJson.setCount(count);

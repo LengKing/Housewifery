@@ -8,8 +8,8 @@
         select count(*) from tb_service_type s,tb_service_type s1 where s.pid = s1.id
     </select>
 
-    <select id="getServiceList" parameterType="layuiJson" resultType="serviceType">
-    select t.id,t.name,t.typename,c2.apply_date,c2.name state from
+    <select id="getServiceList" parameterType="layuiJson" resultType="companyService">
+    select t.id,t.name,t.typename,c2.apply_date,c2.name stateName from
     (select s.id,s.type_name name,s1.type_name typename from tb_service_type s,tb_service_type s1 where s.pid = s1.id) t left join
         (select c.service_type_id,c.apply_date,p.name from tb_company_service c,tb_params p where c.company_id=#{condition.companyId} and c.state = p.value and p.type = 'service_application_state') c2 on
      c2.service_type_id = t.id limit #{pageNum},#{limit};
@@ -21,7 +21,7 @@
     </select>
 
     <insert id="insertCompanyService" parameterType="companyService">
-        insert into tb_company_service(company_id,service_type_id,state,apply_date) values (#{companyId},#{serviceTypeId},#{stateName},#{applyDate})
+        insert into tb_company_service(company_id,service_type_id,state) values (#{companyId},#{serviceTypeId},#{stateName})
     </insert>
 
     <select id="getServiceTypeCount" resultType="int">
