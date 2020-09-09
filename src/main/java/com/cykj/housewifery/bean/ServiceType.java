@@ -1,10 +1,11 @@
 package com.cykj.housewifery.bean;
 
+//服务类别
 public class ServiceType {
-    private Integer id;
-    private String typeName;
-    private String name;
-    private Integer pid;
+    private Integer id;     //类别ID
+    private String typeName;//服务类别名称
+    private String name;    //服务名
+    private Integer pid;    //父类别ID
 
     public Integer getId() {
         return id;

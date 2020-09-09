@@ -1,10 +1,11 @@
 package com.cykj.housewifery.bean;
 
+//菜单表
 public class Menu {
-    private int id;
-    private String name;
-    private String url;
-    private int pid;
+    private int id;          //菜单ID
+    private String name;     //菜单名
+    private String url;      //菜单路径
+    private int pid;         //父菜单ID
 
     public Menu() {
     }

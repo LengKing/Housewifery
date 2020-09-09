@@ -2,11 +2,12 @@ package com.cykj.housewifery.bean;
 
 import java.util.Date;
 
+//服务区域
 public class ServiceArea {
-    private int id;//服务区域表 主id
-    private int companyId;//公司id
-    private String area;//服务区域
-    private Date date;//覆盖时间
+    private int id;         //服务区域表 主id
+    private int companyId;  //公司id
+    private String area;    //服务区域
+    private Date date;      //覆盖时间
 
     public ServiceArea() {
     }

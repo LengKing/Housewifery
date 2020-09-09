@@ -2,17 +2,18 @@ package com.cykj.housewifery.bean;
 
 import java.util.Date;
 
+//用户需求实体类
 public class Demand {
-    private int id;//需求表 主id
-    private int userId;//用户id
-    private String address;//详细地址
-    private String classService;//服务类别
-    private int serviceCount;//服务频次 次数
-    private String title;//标题
-    private String described;//要求描述
-    private String phone;//用户联系方式
-    private Date releaseTime;//发布时间
-    private String state;//状态 默认初始待服务
+    private int id;                 //需求表 主id
+    private int userId;             //用户id
+    private String address;         //详细地址
+    private String classService;    //服务类别
+    private int serviceCount;       //服务频次 次数
+    private String title;           //标题
+    private String described;       //要求描述
+    private String phone;           //用户联系方式
+    private Date releaseTime;       //发布时间
+    private String state;           //状态 默认初始待服务
 
     public Demand() {
     }

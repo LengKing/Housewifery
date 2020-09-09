@@ -2,6 +2,7 @@ package com.cykj.housewifery.bean;
 
 import java.util.Date;
 
+//公告
 public class Affiche {
     private int id;             //公告动态表 主id
     private Date releasrDate;   //发布时间

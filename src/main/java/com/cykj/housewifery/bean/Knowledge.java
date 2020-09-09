@@ -1,11 +1,12 @@
 package com.cykj.housewifery.bean;
 
+//知识实体类
 public class Knowledge {
-    private int id;
-    private String title;
-    private String type;
-    private String addDate;
-    private String url;
+    private int id;             //知识ID
+    private String title;       //标题
+    private String type;        //知识类型
+    private String addDate;     //添加时间
+    private String url;         //知识内容路径
 
     public Knowledge() {
     }

@@ -2,7 +2,8 @@ package com.cykj.housewifery.bean;
 
 import java.sql.Timestamp;
 
-public class AfterSales {   //售后记录表
+//售后记录
+public class AfterSales {
     private int id;         //id
     private  int orderId;   //订单id
     private Timestamp time; //时间

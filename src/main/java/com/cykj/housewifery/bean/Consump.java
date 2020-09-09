@@ -6,11 +6,11 @@ import java.sql.Timestamp;
 
 //用户消费明细表
 public class Consump {
-    private  int id;
-    private  int userId;
-    private Timestamp consumpTime;
-    private String consumpTing;
-    private BigDecimal consumpMoney;
+    private  int id;                //消费记录ID
+    private  int userId;            //用户id
+    private Timestamp consumpTime;  //消费时间
+    private String consumpTing;     //消费时间
+    private BigDecimal consumpMoney;    //消费金额
 
     public Consump() {
     }

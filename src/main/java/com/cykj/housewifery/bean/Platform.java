@@ -1,10 +1,11 @@
 package com.cykj.housewifery.bean;
 
+//平台管理员
 public class Platform {
-    private  int id;
-    private  String account;
-    private  String password;
-    private  int jobs;
+    private  int id;        //管理员ID
+    private  String account;//管理员账号
+    private  String password;//管理员密码
+    private  int jobs;          //角色
 
     public Platform() {
     }
