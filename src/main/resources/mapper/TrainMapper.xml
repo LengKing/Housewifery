@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.housewifery.mapper.TrainMapper">
+
+    <select id="getTrainCount" resultType="int">
+        select count(*) from tb_train
+    </select>
+
+    <select id="selTrain" parameterType="com.cykj.housewifery.bean.LayuiJson" resultType="Train">
+    select t.id,title,content,length,p.name credential from tb_train t left join tb_params p
+    on t.credential=p.value where type='credential' limit #{pageNum},#{limit}
+    </select>
+
+</mapper>
