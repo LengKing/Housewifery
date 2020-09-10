@@ -39,7 +39,6 @@ public Object findTrainById(String id){
         Train train=trainService.findTrainById(id);
         return new Gson().toJson(train);
 
-
 }
 
 }

@@ -27,7 +27,7 @@
 </fieldset>
 
 <form class="layui-form">
-    <input id="useraccount" name="useraccount" value="" style="display: none"  type="text">
+    <input id="userId" name="userId" value="" style="display: none"  type="text">
     <div class="layui-form-item">
         <label class="layui-form-label">详细地址：</label>
         <div class="layui-input-block">
@@ -38,22 +38,12 @@
     <div class="layui-form-item">
         <label class="layui-form-label">服务类别：</label>
         <div class="layui-input-block">
-            <select name="classService" lay-verify="required">
+            <select name="classService" id="classService" lay-verify="required">
                 <option value=""></option>
-                <option value="0">品类保洁</option>
-                <option value="1">月嫂</option>
-                <option value="2">保姆</option>
-                <option value="3">家教</option>
-            </select>
-        </div>
-
-        <div class="layui-input-block">
-            <select name="city" lay-verify="required">
-                <option value=""></option>
-                <option value="0">品类保洁</option>
-                <option value="1">月嫂</option>
-                <option value="2">保姆</option>
-                <option value="3">家教</option>
+                <option value="品类保洁">品类保洁</option>
+                <option value="月嫂">月嫂</option>
+                <option value="保姆">保姆</option>
+                <option value="家教">家教</option>
             </select>
         </div>
     </div>
@@ -61,12 +51,12 @@
     <div class="layui-form-item">
         <label class="layui-form-label">服务频次：</label>
         <div class="layui-input-block">
-            <select name="" lay-verify="required">
+            <select name="serviceCount" id="serviceCount" lay-verify="required">
                 <option value=""></option>
-                <option value="0">1</option>
-                <option value="1">2</option>
-                <option value="2">3</option>
-                <option value="3">4</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
             </select>
         </div>
     </div>
