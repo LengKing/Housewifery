@@ -5,8 +5,8 @@
 <mapper namespace="com.cykj.housewifery.mapper.PostDemandMapper">
 
     <insert id="getDemand" parameterType="com.cykj.housewifery.bean.Demand">
-        insert into tb_demand(address)
-        values (#{address})
+        insert into tb_demand(address,class_service,service_count,title,described,phone)
+        values (#{address},#{classService},#{serviceCount},#{title},#{described},#{phone})
     </insert>
 
 </mapper>
