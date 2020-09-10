@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="../static/layui/css/layui.css"  media="all">
+    <script src="../static/js/jquery.min.js" charset="utf-8"></script>
     <script src="../static/layui/layui.js" charset="utf-8"></script>
 </head>
 <body>
@@ -18,54 +19,49 @@
                     <div id="main4" class="layui-col-sm12" style="height: 400px;">
                         <form class="layui-form" action="" lay-filter="example">
                             <div class="layui-form-item">
-                                <label class="layui-form-label">账号名：</label>
+                                <label class="layui-form-label">账号：</label>
                                 <div class="layui-input-block">
-                                    <input type="text" name="id" lay-verify="title" autocomplete="off" class="layui-input">
+                                    <input type="text" disabled name="id" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
 
                             <div class="layui-form-item">
                                 <label class="layui-form-label">公司名称：</label>
                                 <div class="layui-input-block">
-                                    <input type="text" name="name" autocomplete="off" class="layui-input">
+                                    <input type="text" name="name" lay-verify="required" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
 
                             <div class="layui-form-item">
                                 <label class="layui-form-label">公司地址：</label>
                                 <div class="layui-input-block">
-                                    <input type="text" name="address" autocomplete="off" class="layui-input">
+                                    <input type="text" name="address" lay-verify="required" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
 
                             <div class="layui-form-item">
                                 <label class="layui-form-label">公司法人：</label>
                                 <div class="layui-input-block">
-                                    <input type="text" name="legal" autocomplete="off" class="layui-input">
+                                    <input type="text" name="legal" lay-verify="required" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
 
                             <div class="layui-form-item">
                                 <label class="layui-form-label">公司电话：</label>
                                 <div class="layui-input-block">
-                                    <input type="text" name="phone" autocomplete="off" class="layui-input">
+                                    <input type="text" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
 
                             <div class="layui-form-item">
                                 <label class="layui-form-label">服务类别：</label>
-                                <div class="layui-input-block">
-                                    <input type="checkbox" name="like[write]" title="品类保洁">
-                                    <input type="checkbox" name="like[read]" title="日常保洁">
-                                    <input type="checkbox" name="like[daze]" title="保姆">
-                                    <input type="checkbox" name="like[daze]" title="月嫂">
-                                    <input type="checkbox" name="like[daze]" title="育儿嫂">
+                                <div id="service" class="layui-input-block">
+
                                 </div>
                             </div>
 
                             <div class="layui-form-item">
                                 <div class="layui-input-block">
-                                    <button type="button" class="layui-btn layui-btn-normal" id="LAY-component-form-getval">取值</button>
                                     <button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
                                 </div>
                             </div>
@@ -80,57 +76,88 @@
 </body>
 
 <script>
-    layui.use(['form', 'layedit', 'laydate'], function(){
-        var form = layui.form
-            ,layer = layui.layer
-            ,layedit = layui.layedit;
+    $(function () {
+        layui.use(['form', 'layedit'], function(){
+            var form = layui.form
+                ,layer = layui.layer
+                ,layedit = layui.layedit;
 
-        //创建一个编辑器
-        var editIndex = layedit.build('LAY_demo_editor');
+            //创建一个编辑器
+            var editIndex = layedit.build('LAY_demo_editor');
 
-        //自定义验证规则
-        form.verify({
-            title: function(value){
-                if(value.length < 5){
-                    return '标题至少得5个字符啊';
+            //自定义验证规则
+            form.verify({
+                phone: [
+                    /^(13[0-9]{9})|(18[0-9]{9})|(14[0-9]{9})|(17[0-9]{9})|(15[0-9]{9})$/,
+                    '请输入正确的号码'
+                ]
+                ,title: function(value){
+                    if(value.length < 5){
+                        return '标题至少得5个字符啊';
+                    }
                 }
-            }
-            ,pass: [
-                /^[\S]{6,12}$/
-                ,'密码必须6到12位，且不能出现空格'
-            ]
-            ,content: function(value){
-                layedit.sync(editIndex);
-            }
-        });
-
-        //监听提交
-        form.on('submit(demo1)', function(data){
-            layer.alert(JSON.stringify(data.field), {
-                title: '最终的提交信息'
-            })
-            return false;
-        });
-
-        //表单赋值
-        layui.$('#LAY-component-form-setval').on('click', function(){
-            form.val('example', {
-                "username": "贤心" // "name": "value"
-                ,"password": "123456"
-                ,"interest": 1
-                ,"like[write]": true //复选框选中状态
-                ,"close": true //开关状态
-                ,"sex": "女"
-                ,"desc": "我爱 layui"
+                ,pass: [
+                    /^[\S]{6,12}$/
+                    ,'密码必须6到12位，且不能出现空格'
+                ]
+                ,content: function(value){
+                    layedit.sync(editIndex);
+                }
             });
-        });
 
-        //表单取值
-        layui.$('#LAY-component-form-getval').on('click', function(){
-            var data = form.val('example');
-            alert(JSON.stringify(data));
-        });
+            //监听提交
+            form.on('submit(demo1)', function(data){
+                $.ajax({
+                    url:"/homemarking/updateInformation",
+                    data:"id="+data.field.id+"&name="+data.field.name+"&legal="+data.field.legal+"&address="+data.field.address+"&phone="+data.field.phone,
+                    type:"post",
+                    dataType:"text",
+                    success:function (data) {
+                        layer.msg(data);
+                    },
+                    error:function () {
+                        layer.msg("发生了一点小问题..请稍后再试");
+                    }
+                })
+                return false;
+            });
 
-    });
+            $.ajax({
+                url:"/homemarking/basicInformation",
+                data:"companyId="+1000,
+                type:"post",
+                dataType:"json",
+                success:function (data) {
+                    form.val('example', {
+                        "id": data.id
+                        ,"name": data.name
+                        ,"address": data.address
+                        ,"legal": data.legal
+                        ,"phone": data.phone
+                    });
+                },
+                error:function () {
+                    layer.msg("发生了一点小问题..请稍后再试");
+                }
+            })
+
+            $.ajax({
+                url:"/service/serviceType",
+                data:"companyId="+1000,
+                type:"post",
+                dataType:"json",
+                success:function (data) {
+                    for (var i = 0;i < data.length;i++){
+                        $("#service").append("<span>"+data[i].typeName+"&nbsp;&nbsp</span>");
+                    }
+                },
+                error:function () {
+                    layer.msg("发生了一点小问题..请稍后再试");
+                }
+            })
+
+        });
+    })
+
 </script>
 </html>

@@ -24,4 +24,6 @@ public interface ServiceMapper {
     List<CompanyService> getServiceTypeList(LayuiJson layuiJson);
 
     int updateCompanyService(CompanyService companyService);
+
+    List<ServiceType> getServiceTypeByCompanyId(String companyId);
 }

@@ -89,4 +89,10 @@ public class ServiceImpl implements Service {
             return "申请提交失败，，请稍后再试";
         }
     }
+
+    @Override
+    public List<ServiceType> getServiceTypeByCompanyId(String companyId) {
+        List<ServiceType> types = serviceMapper.getServiceTypeByCompanyId(companyId);
+        return types;
+    }
 }

@@ -3,18 +3,22 @@ package com.cykj.housewifery.bean;
 //家政公司资质文件表
 public class Documents {
     private  int id;            //文件ID
-    private  String title;      //标题
+    private  Integer documentType;      //类型
     private  String url;        //url
     private String companyId;   //公司ID
+    private String name;   //类型名
+    private int count;  //文件总数；
 
     public Documents() {
     }
 
-    public Documents(int id, String title, String url, String companyId) {
+    public Documents(int id, Integer documentType, String url, String companyId, String name, int count) {
         this.id = id;
-        this.title = title;
+        this.documentType = documentType;
         this.url = url;
         this.companyId = companyId;
+        this.name = name;
+        this.count = count;
     }
 
     public int getId() {
@@ -23,14 +27,6 @@ public class Documents {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getUrl() {
@@ -49,13 +45,39 @@ public class Documents {
         this.companyId = companyId;
     }
 
+    public Integer getDocumentType() {
+        return documentType;
+    }
+
+    public void setDocumentType(Integer documentType) {
+        this.documentType = documentType;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
     @Override
     public String toString() {
         return "Documents{" +
                 "id=" + id +
-                ", title='" + title + '\'' +
+                ", documentType=" + documentType +
                 ", url='" + url + '\'' +
                 ", companyId='" + companyId + '\'' +
+                ", name='" + name + '\'' +
+                ", count=" + count +
                 '}';
     }
 }
