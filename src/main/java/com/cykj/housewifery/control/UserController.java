@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.crypto.Data;
 import java.io.IOException;
 
 @Controller
@@ -53,10 +54,11 @@ public class UserController {
         user.setGender(gender);
         user.setPassword(password);
         user.setPhone(phone);
+
         boolean a = userService.add(user);
         if (a) {
             if (null != user) {
-                request.getSession().setAttribute("admin", user);
+                request.getSession().setAttribute("user", user);
                 response.getWriter().write("success");
                 System.out.println("注册成功！");
             }

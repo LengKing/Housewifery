@@ -171,7 +171,7 @@
 <div id="center">
     <form name="myform" onSubmit="return validateform( )" enctype="multipart/form-data" action="cgi-bin/register.cgi" method="post" >
         <div class="input-group">
-            <h3>用&nbsp;&nbsp;户&nbsp;&nbsp;名：</h3><input class="form-control"  id="username" name="username" type="text"  style="height:40px" value=""  placeholder="只能输入中文、字母或数字，4-16个字符"/>
+            <h3>用&nbsp;&nbsp;户&nbsp;&nbsp;名：</h3><input class="form-control"  id="account" name="account" type="text"  style="height:40px" value=""  placeholder="只能输入中文、字母或数字，4-16个字符"/>
         </div>
         <div class="input-group">
             <h3>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</h3><input class="form-control"  id="password" name="password" type="password" style="height:40px" value=""  placeholder="密码长度6-12位"/>
@@ -186,7 +186,12 @@
         </span>
         </div>
         <div class="input-group">
-            <h3>手&nbsp;&nbsp;机&nbsp;&nbsp;号：</h3><input class="form-control"  id="password" name="password" type="password" style="height:40px" value=""  placeholder="手机号码11位"/>
+            <h3>手&nbsp;&nbsp;机&nbsp;&nbsp;号：</h3><input class="form-control"  id="phone" name="phone" type="phone" style="height:40px" value=""  placeholder="手机号码11位"/>
+
+        </div>
+
+        <div class="input-group">
+            <h3>地&nbsp;&nbsp;址&nbsp;&nbsp;：</h3><input class="form-control"  id="address" name="address" type="address" style="height:40px" value=""  placeholder="请输入输入"/>
 
         </div>
         <div class="input-group">
@@ -196,7 +201,8 @@
         </div>
 
         <div id="btn">
-            <INPUT name="registerButton"  class="btn btn-primary" type="submit" id="Button" value="注册"  onclick="checkUserName()">
+            <INPUT name="registerButton"  class="btn btn-primary" type="submit" id="Button" value="检测用户名"  onclick="checkUserName()">
+            <INPUT name="registerButton"  class="btn btn-primary" type="submit" id="Button" value="注册"  onclick="addUser()">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="${pageContext.request.contextPath}jsp/User_login.jsp"><INPUT  class="btn btn-primary" name="loginButton" id="Button" type="button" value="登录"></a>
         </div>
