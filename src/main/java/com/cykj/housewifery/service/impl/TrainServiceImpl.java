@@ -37,4 +37,22 @@ public class TrainServiceImpl implements TrainService {
         Train train=trainMapper.findTrainById(id);
         return train;
     }
+
+    @Override
+    public boolean updateTrain(Train train) {
+        int a=trainMapper.updateTrain(train);
+        return a>0;
+    }
+
+    @Override
+    public boolean addTrain(Train train) {
+       int a=trainMapper.addTrain(train);
+       return a>0;
+    }
+
+    @Override
+    public boolean delTrain(String id) {
+        int a=trainMapper.delTrain(id);
+        return a>0;
+    }
 }

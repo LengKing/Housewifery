@@ -7,6 +7,10 @@ spring:
     username: JX200219
     password: JX200219
     driver-class-name: com.mysql.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 200MB
 
 mybatis:
   config-location: classpath:mybatis/SqlMapConfig.xml

@@ -18,4 +18,20 @@
         count,length,p.name credential from tb_train t ,tb_params p where t.credential=p.value and type='credential' and t.id=#{arg0}
     </select>
 
+    <update id="updateTrain" parameterType="Train">
+    update tb_train set title=#{title},start_date=#{startDate},end_date=#{endDate},start_time=#{startTime},
+    end_time=#{endTime},content=#{content},count=#{count},length=#{length},credential=
+    (select value from tb_params where type='credential' and name=#{credential}) where id=#{id}
+    </update>
+
+    <insert id="addTrain" parameterType="Train">
+        insert into tb_train(title,start_date,end_date,start_time,end_time,content,count,length,credential,url)
+        values(#{title},#{startDate},#{endDate},#{startTime},#{endTime},#{content},#{count},#{length},
+        (select value from tb_params where name=#{credential} and type='credential'),#{url})
+    </insert>
+
+    <delete id="delTrain">
+        delete from tb_train where id=#{arg0}
+    </delete>
+
 </mapper>

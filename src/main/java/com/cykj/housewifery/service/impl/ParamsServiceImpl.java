@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service("paramsService")
-public class ParamsServiceImPL  implements ParamsService {
+public class ParamsServiceImpl implements ParamsService {
 
     @Autowired
     private ParamsMapper paramsMapper;

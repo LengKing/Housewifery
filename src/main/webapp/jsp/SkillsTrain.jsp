@@ -32,6 +32,7 @@
         $.post("${pageContext.request.contextPath}/params/findParams",{"type":"credential"},function(data){
             $(data).each(function(i,n){
                 $("#upd_credential").append("<option value='" +n+"'>" +n+ "</option>");
+                $("#add_credential").append("<option value='" +n+"'>" +n+ "</option>");
             });
             $("#upd_credential option[value='${credential}']").prop("selected","selected");
         },"json");
@@ -40,6 +41,8 @@
             $(data).each(function(i,n){
                 $("#startTime").append("<option value='" +n+"'>" +n+ "</option>");
                 $("#endTime").append("<option value='" +n+"'>" +n+ "</option>");
+                $("#add_startTime").append("<option value='" +n+"'>" +n+ "</option>");
+                $("#add_endTime").append("<option value='" +n+"'>" +n+ "</option>");
             });
             $("#startTime option[value='${startTime}']").prop("selected","selected");
             $("#endTime option[value='${endTime}']").prop("selected","selected");
@@ -52,6 +55,8 @@
         <div class="layui-col-sm12 layui-col-md6" style="width: 100%;height: 30%">
             <div class="layui-card">
                 <div class="layui-card-header">技能培训</div>
+                <div class="layui-card-body"><button class="layui-btn" id="addTrain">
+                    <i class="layui-icon">&#xe654;</i>添加</button></div>
                 <div class="layui-card-body" style="min-height: 400px;">
                     <div id="main4" class="layui-col-sm12" style="height: 400px;">
                         <table class="layui-table layui-form" id="train" lay-filter="train"></table>
@@ -63,9 +68,11 @@
 </div>
 </div>
 <script>
-    layui.use(['table', 'layer'], function () {
+    layui.use(['table', 'layer','upload'], function () {
         var table = layui.table;
         var layer=layui.layer;
+        var $ = layui.jquery
+            ,upload = layui.upload;
         var tableIns = table.render({
             elem: '#train'
             , height: 400
@@ -77,7 +84,7 @@
                 ,{field: 'content', title: '培训内容', width: 150,align: 'center'}
                 ,{field: 'length', title: '培训时长', width: 80,align: 'center'}
                 ,{field: 'credential', title: '认证证书', width: 120,align: 'center'}
-                , {title: '操作', width: 250, align: 'center', toolbar: '#barDemo'}
+                ,{title: '操作', width: 250, align: 'center', toolbar: '#barDemo'}
             ]]
             ,done: function () {
                 $("[data-field='id']").css('display','none');
@@ -86,7 +93,7 @@
             , limits: [5, 6, 7]
         });
         table.on('tool(train)', function (obj) {
-            var id = obj.data.id;           //获得当前行数据
+            id = obj.data.id;           //获得当前行数据
             var layEvent = obj.event;       //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
             var title=obj.data.title;
             if (layEvent === 'detail') {    //查看详情
@@ -100,7 +107,7 @@
                     $("#title").text(train.title);
                     $("#startDate").text(train.startDate);
                     $("#endDate").text(train.endDate);
-                    $("#time").text(train.startTime+"-"+train.endTime);
+                    $("#time").text(train.startTime+" - "+train.endTime);
                     $("#content").text(train.content);
                     $("#count").text(train.count);
                     $("#length").text(train.length);
@@ -115,7 +122,6 @@
                     btn:'查看培训内容',
                     btnAlign: 'c',
                     btn1:function () {
-
                         $.ajax({
                             url: "${pageContext.request.contextPath}/train/playTrain",
                             type: "Post",
@@ -151,21 +157,143 @@
                     btn:'保存',
                     btnAlign: 'c',
                     btn1:function () {
-
+                     var title=$("#upd_title").val();
+                     var startDate=$("#upd_startDate").val();
+                     var endDate=$("#upd_endDate").val();
+                     var startTime=$("#startTime").val();
+                     var endTime=$("#endTime").val();
+                     var content=$("#upd_content").val();
+                     var count=$("#upd_count").val();
+                     var credential=$("#upd_credential").val();
                         $.ajax({
                             url: "${pageContext.request.contextPath}/train/updateTrain",
                             type: "Post",
-                            data: {},
+                            data: {"id":id,"title":title,"startDate":startDate,"endDate":endDate,"startTime":startTime,"endTime":endTime,"content":content,"count":count,"credential":credential},
                             dataType: "text",
+                            beforeSend:function () {
+                                if (!/^(500|[1-4][0-9][0-9]|[1-9][0-9]|[1-9])$/.test(count)||count==""){
+                                    layer.alert("请输入1-500的培训人数",{icon:5,title:"提示",time:1500});
+                                    return false;
+                                }else if(title==""){
+                                    layer.alert("请输入培训标题",{icon:5,title:"提示",time:1500});
+                                    return false;
+                                }else if(startDate>endDate){
+                                    layer.alert("结束日期必须大于开始日期",{icon:5,title:"提示",time:1500});
+                                    return false;
+                                }else if(Number(startTime.split(":")[0])>Number(endTime.split(":")[0])){
+                                    layer.alert("结束时间必须大于开始时间",{icon:5,title:"提示",time:1500});
+                                    return false;
+                                }else if(content==""){
+                                    layer.alert("培训内容不得为空",{icon:5,title:"提示",time:1500});
+                                    return false;
+                                }else if(credential==""){
+                                    layer.alert("培训证书不得为空",{icon:5,title:"提示",time:1500});
+                                    return false;
+                                }else {
+                                   return confirm("确认修改培训计划？");
+                                }
+                            },
+                            success:function (data) {
+                                layer.alert(data,{time:1500});
+                                if (data=='修改成功'){
+                                layer.close(index);
+                                table.reload('train',{
+                                    url: '${pageContext.request.contextPath}/train/selTrain'
+                                    ,height: 400
+                                    ,page:{
+                                        curr:1
+                                    }
+                                })
+                            }
+                           },
+                            error:function () {
+                                layer.alert("网络繁忙",{icon:5,title:"提示",time:1500});
+                            }
                         });
                     }
                 })
+
             }else if(layEvent === 'delete'){
-
+                $.ajax({
+                    url: "${pageContext.request.contextPath}/train/delTrain",
+                    type: "Post",
+                    data: {"id":id},
+                    dataType: "text",
+                    beforeSend:function(){
+                        return confirm("确认删除该培训计划？")
+                    },
+                    success:function (data) {
+                        table.reload('train',{
+                            url: '${pageContext.request.contextPath}/train/selTrain'
+                            ,height: 400
+                            ,page:{
+                                curr:1
+                            }
+                        })
+                    }
+                });
             }
-
         });
+
+        $("#addTrain").on('click',function () {
+            layer.open({
+                title:"新增培训",
+                type: 1,
+                area: 'auto',
+                content:$("#add_div"),
+
+            })
+        })
+        upload.render({
+            elem: '#test8'
+            ,url: '${pageContext.request.contextPath}/train/addTrain' //改成您自己的上传接口
+            ,auto: false
+            ,accept:"file"
+            //,multiple: true
+            ,before:function (obj) {
+                // var title=$("#add_title").val();
+                // var startDate=$("#add_startDate").val();
+                // var endDate=$("#add_endDate").val();
+                // var startTime=$("#add_startTime").val();
+                // var endTime=$("#add_endTime").val();
+                // var content=$("#add_content").val();
+                // var count=$("#add_count").val();
+                // var credential=$("#add_credential").val();
+                // alert(id+title+startDate+endDate+startTime+endTime+content+count+credential);
+                // if (!/^(500|[1-4][0-9][0-9]|[1-9][0-9]|[1-9])$/.test(count)||count==""){
+                //     layer.alert("请输入1-500的培训人数",{icon:5,title:"提示",time:1500});
+                //     return false;
+                // }else if(title==""){
+                //     layer.alert("请输入培训标题",{icon:5,title:"提示",time:1500});
+                //     return false;
+                // }else if(startDate>endDate){
+                //     layer.alert("结束日期必须大于开始日期",{icon:5,title:"提示",time:1500});
+                //     return false;
+                // }else if(Number(startTime.split(":")[0])>Number(endTime.split(":")[0])){
+                //     layer.alert("结束时间必须大于开始时间",{icon:5,title:"提示",time:1500});
+                //     return false;
+                // }else if(content==""){
+                //     layer.alert("培训内容不得为空",{icon:5,title:"提示",time:1500});
+                //     return false;
+                // }else if(credential==""){
+                //     layer.alert("培训证书不得为空",{icon:5,title:"提示",time:1500});
+                //     return false;
+                // }else {
+                //     return confirm("确认添加培训计划？");
+                // }
+                layer.load();
+                this.data={"id":id,"title":$("#add_title").val(),"startDate":$("#add_startDate").val(),"endDate":$("#add_endDate").val(),"startTime":$("#add_startTime").val(),"endTime":$("#add_endTime").val(),"content":$("#add_content").val(),"count":$("#add_count").val(),"credential":$("#add_credential").val()};
+            }
+            ,bindAction: '#test9'
+            ,done: function(res){
+                layer.msg(res);
+                console.log(res)
+            }
+        });
+
     });
+
+
 </script>
 <script type="text/html" id="barDemo">
     <button class="layui-btn layui-btn-normal" type="button" lay-event="detail">查看详情</button>
@@ -254,4 +382,58 @@
     </table>
 
 </div>
+
+<div id="add_div" style="width: 350px;height: 520px;text-align: center;display: none">
+    <table class="layui-table" lay-skin="line">
+        <tr>
+            <td>培训标题</td>
+            <td><input class="layui-input" id="add_title"></td>
+        </tr>
+        <tr>
+            <td>培训开始时间</td>
+            <td><input class="layui-input" type="date"  id="add_startDate"></td>
+        </tr>
+        <tr>
+            <td>培训结束时间</td>
+            <td><input class="layui-input" type="date"  id="add_endDate"></td>
+        </tr>
+        <tr>
+            <td>培训时间段</td>
+            <td><select name="add_startTime" id="add_startTime" class="layui-select">
+                <option></option></select>-
+                <select name="add_endTime" id="add_endTime" class="layui-select">
+                    <option></option></select>
+            </td>
+        </tr>
+        <tr>
+            <td>培训内容</td>
+            <td><input class="layui-input"  id="add_content"></td>
+        </tr>
+        <tr>
+            <td>培训人数</td>
+            <td><input class="layui-input"  id="add_count"></td>
+        </tr>
+        <tr>
+            <td>认证证书</td>
+            <td><select name="add_credential" id="add_credential" class="layui-select">
+                <option></option>
+            </select></td>
+        </tr>
+
+        <tr>
+            <td colspan="2" height="80px">
+                <button type="button" class="layui-btn layui-btn-normal" id="test8">选择文件</button>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" height="80px" style="text-align: center">
+                <button type="button" class="layui-btn layui-btn-normal" id="test9">提交</button>
+            </td>
+        </tr>
+
+    </table>
+
+</div>
+
 </html>
