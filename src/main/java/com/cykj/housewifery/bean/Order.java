@@ -13,15 +13,15 @@ public class Order {
     private Date date;          //下单时间
     private Date serviceDate;   //服务时间
     private BigDecimal cost;    //费用
-    private String employeName; //服务人
-    private String companyName; //家政公司名称
+    private String employee; //服务人
+    private String company; //家政公司名称
     private String state;       //状态
     private String payState;    //支付状态
 
     public Order() {
     }
 
-    public Order(int id, int userId, String serviceName, int type, int count, Date date, Date serviceDate, BigDecimal cost, String employeName, String companyName, String state, String payState) {
+    public Order(int id, int userId, String serviceName, int type, int count, Date date, Date serviceDate, BigDecimal cost, String employee, String company, String state, String payState) {
         this.id = id;
         this.userId = userId;
         this.serviceName = serviceName;
@@ -30,10 +30,28 @@ public class Order {
         this.date = date;
         this.serviceDate = serviceDate;
         this.cost = cost;
-        this.employeName = employeName;
-        this.companyName = companyName;
+        this.employee = employee;
+        this.company = company;
         this.state = state;
         this.payState = payState;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", serviceName='" + serviceName + '\'' +
+                ", type=" + type +
+                ", count=" + count +
+                ", date=" + date +
+                ", serviceDate=" + serviceDate +
+                ", cost=" + cost +
+                ", employee='" + employee + '\'' +
+                ", company='" + company + '\'' +
+                ", state='" + state + '\'' +
+                ", payState='" + payState + '\'' +
+                '}';
     }
 
     public int getId() {
@@ -100,20 +118,20 @@ public class Order {
         this.cost = cost;
     }
 
-    public String getEmployeName() {
-        return employeName;
+    public String getEmployee() {
+        return employee;
     }
 
-    public void setEmployeName(String employeName) {
-        this.employeName = employeName;
+    public void setEmployee(String employee) {
+        this.employee = employee;
     }
 
-    public String getCompanyName() {
-        return companyName;
+    public String getCompany() {
+        return company;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    public void setCompany(String company) {
+        this.company = company;
     }
 
     public String getState() {
@@ -130,23 +148,5 @@ public class Order {
 
     public void setPayState(String payState) {
         this.payState = payState;
-    }
-
-    @Override
-    public String toString() {
-        return "Order{" +
-                "id=" + id +
-                ", userId=" + userId +
-                ", serviceName='" + serviceName + '\'' +
-                ", type=" + type +
-                ", count=" + count +
-                ", date=" + date +
-                ", serviceDate=" + serviceDate +
-                ", cost=" + cost +
-                ", employeName='" + employeName + '\'' +
-                ", companyName='" + companyName + '\'' +
-                ", state='" + state + '\'' +
-                ", payState='" + payState + '\'' +
-                '}';
     }
 }
