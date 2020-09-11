@@ -8,6 +8,7 @@ import com.google.gson.GsonBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
 import java.util.List;
@@ -20,6 +21,7 @@ public class OrderControl {
     private OrderService orderService;
 
     @RequestMapping(value = "/selOrder" ,produces = "text/plain;charset=utf-8")
+    @ResponseBody
     public Object selOrder(String company,String page,String limit){
         Integer pageNum = (Integer.valueOf(page)-1)*Integer.valueOf(limit);
         LayuiJson layuiJson = new LayuiJson();
@@ -30,5 +32,12 @@ public class OrderControl {
         layuiJson.setCount(count);
         Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
         return gson.toJson(layuiJson);
+    }
+
+    @RequestMapping(value = "/findOrderById" ,produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object findOrderById(String id){
+        Order order=orderService.findOrderById(id);
+        return new Gson().toJson(order);
     }
 }

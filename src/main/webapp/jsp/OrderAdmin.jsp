@@ -34,12 +34,12 @@
         <div class="layui-col-sm12 layui-col-md6" style="width: 100%;height: 30%">
             <div class="layui-card">
                 <div class="layui-card-header">订单信息</div>
-                <div class="layui-card-body"><input class="layui-input">
+                <div class="layui-card-body"><input placeholder="请输入家政公司名" id="company"  style="width: 200px;height: 30px">
                     <button class="layui-btn" id="selOrder">
                     <i class="layui-icon">&#xe615;</i>订单搜索</button></div>
                 <div class="layui-card-body" style="min-height: 400px;">
                     <div id="main4" class="layui-col-sm12" style="height: 400px;">
-                        <table class="layui-table layui-form" id="train" lay-filter="train"></table>
+                        <table class="layui-table layui-form" id="order" lay-filter="order"></table>
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@
             , limit: 5
             , limits: [5, 6, 7]
         });
-        table.on('tool(train)', function (obj) {
+        table.on('tool(order)', function (obj) {
             id = obj.data.id;           //获得当前行数据
             var layEvent = obj.event;       //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
             if (layEvent === 'detail') {    //查看详情
@@ -80,12 +80,12 @@
                     success:function (data) {
                     var order=JSON.parse(data);
                     $("#id").text(order.id);
-                    $("#userId").text(order.userId);
+                    $("#userId").text(order.user);
                     $("#serviceName").text(order.serviceName);
                     $("#count").text(order.count);
                     $("#orderTime").text(order.orderTime);
                     $("#serviceDate").text(order.serviceDate);
-                    $("#cost").text(order.cost);
+                    $("#cost").text(order.cost+"元");
                     $("#employee").text(order.employee);
                     $("#company").text(order.company);
                     $("#orderState").text(order.orderState);
@@ -96,13 +96,20 @@
                     type: 1,
                     area: 'auto',
                     content:$("#detail_div"),
-
                 })
             }
         });
 
         $("#selOrder").on('click',function () {
-
+            var company=$("#company").val();
+            table.reload('order',{
+                url: '${pageContext.request.contextPath}/order/selOrder'
+                ,height: 400
+                ,where:{"company":company}
+                ,page:{
+                    curr:1
+                }
+            })
         })
 
     });

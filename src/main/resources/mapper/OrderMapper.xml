@@ -7,11 +7,29 @@
     <select id="getOrderCount" resultType="int">
        select count(*) from tb_order
        <where>
-           company =(select id from tb_company where name like concat('%', #{arg0},'%'))
+       <if test="company!=null and company!=''">
+         and company =(select id from tb_company where name like concat('%',#{company},'%'))
+       </if>
        </where>
     </select>
 
     <select id="selOrder" resultType="Order">
-        select id,(select ) userId from tb_order
+        select id,(select name from tb_user where user_id=user) user,service_name,count,order_time,
+         service_date,cost,(select name from tb_employee where number=employee) employee,
+         (select name from tb_company where id=company) company,(select name from tb_params where
+          value=order_state and type='order_state') order_state from tb_order
+        <where>
+            <if test="company!=null and company!=''">
+               and company =(select id from tb_company where name like '%${company}%')
+            </if>
+        </where>
+        limit #{pageNum},#{limit}
+    </select>
+
+    <select id="findOrderById" resultType="Order">
+      select id,(select name from tb_user where user_id=user) user,service_name,count,order_time,
+         service_date,cost,(select name from tb_employee where number=employee) employee,
+         (select name from tb_company where id=company) company,(select name from tb_params where
+          value=order_state and type='order_state') order_state from tb_order where id=#{arg0}
     </select>
 </mapper>

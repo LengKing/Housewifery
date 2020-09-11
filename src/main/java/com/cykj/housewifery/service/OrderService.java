@@ -7,5 +7,5 @@ import java.util.List;
 public interface OrderService {
     int getOrderCount(String company);
     List<Order> selOrder(String company, Integer pageNum, String limit);
-
+    Order findOrderById(String id);
 }
