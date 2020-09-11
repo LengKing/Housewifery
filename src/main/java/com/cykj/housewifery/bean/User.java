@@ -7,22 +7,24 @@ public class User {
     private  int userId;        //用户ID
     private  String account;    //用户账号
     private  String password;   //用户密码
+    private  String name;       //姓名
     private  String gender;     //性别
-    private String phone;       //手机号
+    private  String phone;      //手机号
     private  String address;    //地址
     private  int integral;      //积分
     private  String url;        //头像路径
-    private Timestamp regDate;  //注册时间
+    private  Timestamp regDate; //注册时间
     private  Double money;      //账户余额
 
 
     public User() {
     }
 
-    public User(int userId, String account, String password, String gender, String phone, String address, int integral, String url, Timestamp regDate, Double money) {
+    public User(int userId, String account, String password, String name, String gender, String phone, String address, int integral, String url, Timestamp regDate, Double money) {
         this.userId = userId;
         this.account = account;
         this.password = password;
+        this.name = name;
         this.gender = gender;
         this.phone = phone;
         this.address = address;
@@ -38,6 +40,7 @@ public class User {
                 "userId=" + userId +
                 ", account='" + account + '\'' +
                 ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
                 ", gender='" + gender + '\'' +
                 ", phone='" + phone + '\'' +
                 ", address='" + address + '\'' +
@@ -47,7 +50,13 @@ public class User {
                 ", money=" + money +
                 '}';
     }
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
     public int getUserId() {
         return userId;
     }
