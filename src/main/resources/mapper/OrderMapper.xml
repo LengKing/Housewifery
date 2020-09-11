@@ -5,10 +5,13 @@
 <mapper namespace="com.cykj.housewifery.mapper.OrderMapper">
 
     <select id="getOrderCount" resultType="int">
-       select count(*) from tb_order where company=(select id from tb_company where name=#{arg0})
+       select count(*) from tb_order
+       <where>
+           company =(select id from tb_company where name like concat('%', #{arg0},'%'))
+       </where>
     </select>
 
     <select id="selOrder" resultType="Order">
-        select id,(select )userId from tb_order
+        select id,(select ) userId from tb_order
     </select>
 </mapper>

@@ -6,12 +6,12 @@ import java.util.Date;
 //订单表
 public class Order {
     private int id;             //订单表 主id
-    private int userId;         //服务对象id
+    private String user;         //服务对象
     private String serviceName; //服务名
-    private int type;           //所属类别 对应服务列表
-    private int count;          //服务频次
-    private Date date;          //下单时间
-    private Date serviceDate;   //服务时间
+    private String type;           //所属类别 对应服务列表
+    private String count;          //服务频次
+    private String date;          //下单时间
+    private String serviceDate;   //服务时间
     private BigDecimal cost;    //费用
     private String employee; //服务人
     private String company; //家政公司名称
@@ -21,9 +21,9 @@ public class Order {
     public Order() {
     }
 
-    public Order(int id, int userId, String serviceName, int type, int count, Date date, Date serviceDate, BigDecimal cost, String employee, String company, String state, String payState) {
+    public Order(int id, String user, String serviceName, String type, String count, String date, String serviceDate, BigDecimal cost, String employee, String company, String state, String payState) {
         this.id = id;
-        this.userId = userId;
+        this.user = user;
         this.serviceName = serviceName;
         this.type = type;
         this.count = count;
@@ -40,12 +40,12 @@ public class Order {
     public String toString() {
         return "Order{" +
                 "id=" + id +
-                ", userId=" + userId +
+                ", user='" + user + '\'' +
                 ", serviceName='" + serviceName + '\'' +
-                ", type=" + type +
-                ", count=" + count +
-                ", date=" + date +
-                ", serviceDate=" + serviceDate +
+                ", type='" + type + '\'' +
+                ", count='" + count + '\'' +
+                ", date='" + date + '\'' +
+                ", serviceDate='" + serviceDate + '\'' +
                 ", cost=" + cost +
                 ", employee='" + employee + '\'' +
                 ", company='" + company + '\'' +
@@ -62,12 +62,12 @@ public class Order {
         this.id = id;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getUser() {
+        return user;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUser(String user) {
+        this.user = user;
     }
 
     public String getServiceName() {
@@ -78,35 +78,35 @@ public class Order {
         this.serviceName = serviceName;
     }
 
-    public int getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(String type) {
         this.type = type;
     }
 
-    public int getCount() {
+    public String getCount() {
         return count;
     }
 
-    public void setCount(int count) {
+    public void setCount(String count) {
         this.count = count;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public Date getServiceDate() {
+    public String getServiceDate() {
         return serviceDate;
     }
 
-    public void setServiceDate(Date serviceDate) {
+    public void setServiceDate(String serviceDate) {
         this.serviceDate = serviceDate;
     }
 
