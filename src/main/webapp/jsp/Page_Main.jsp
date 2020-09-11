@@ -19,8 +19,8 @@
     <%
         String path = request.getContextPath();
     %>
-    <meta name="Keywords" content="家政保姆,育婴师培训,月嫂公司加盟,保洁服务,家政公司加盟,社区邦">
-    <meta name="description" content="社区邦提供一站式高品质家政服务,有月嫂,保洁,育婴师,家政培训等，现向全国进行月嫂公司加盟,月嫂加盟店,家政公司加盟招商服务，已帮助众多家政加盟商成功创业!   ">
+<%--    <meta name="Keywords" content="家政保姆,育婴师培训,月嫂公司加盟,保洁服务,家政公司加盟,社区邦">--%>
+<%--    <meta name="description" content="社区邦提供一站式高品质家政服务,有月嫂,保洁,育婴师,家政培训等，现向全国进行月嫂公司加盟,月嫂加盟店,家政公司加盟招商服务，已帮助众多家政加盟商成功创业!   ">--%>
     <link href="${pageContext.request.contextPath}/static/css/tcommon.css" rel="stylesheet" type="text/css">
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/static/css/index.css" />
@@ -75,7 +75,7 @@
     </div>
     <div class="header-center">
         <h1><a href="">XXXX智慧家政</a></h1>
-        <h2><img src="../static/images/logo_text.png"></h2>
+        <h2><img src="${pageContext.request.contextPath}/static/images/logo_text.png"></h2>
         <div class="search">
             <form action="/Search/index.html">
                 <input type="text" name="word" placeholder="家庭保洁">
@@ -89,10 +89,10 @@
     <div class="header-nav">
         <div class="content" id="navBox">
             <ul>
-                <li><a href="/jsp/index2.jsp">首页</a></li>
+                <li><a href="${pageContext.request.contextPath}/jsp/Page_Main.jsp">首页</a></li>
 
                 <li mark='65' px='1'>
-                    <a href="/help/ppzs.html" target="_blank">家政服务</a>
+                    <a href="${pageContext.request.contextPath}/jsp/jzfw.jsp" target="_blank">家政服务</a>
                 </li>
 
                 <li mark='47' px='2'>
@@ -100,7 +100,7 @@
                 </li>
 
                 <li mark='88' px='3'>
-                    <a href="/help/jzglrj.html" target="_blank">发布服务</a>
+                    <a href="${pageContext.request.contextPath}/jsp/PostDemand.jsp" target="_blank">发布服务</a>
                 </li>
 
                 <li mark='89' px='4'>
@@ -124,27 +124,18 @@
     </div>
 </div>
 
-<!--<script type="text/javascript">-->
-<!--    -->
-<!--    -->
-<!--    var sid = ',46';-->
-
-<!--  headinit(sid);-->
-<!--</script>-->
-
-
 <!-- banner -->
 <div class="banner">
     <div class="swiper-container banner-swiper">
         <div class="swiper-wrapper">
 
-            <div class="item swiper-slide"><a href="/help/jzfw.html" target="_blank" title="家政服务" style="background-image:url(../static/images/acb2b5105d6786a8.jpg)"></a></div>
+            <div class="item swiper-slide"><a href="/help/jzfw.html" target="_blank" title="家政1" style="background-image:url(${pageContext.request.contextPath}/static/images/gg1.jpg)"></a></div>
 
-            <div class="item swiper-slide"><a href="/help/lxwm.html" target="_blank" title="家政软件" style="background-image:url(../static/images/d56cb9859fa03c50.jpg)"></a></div>
+            <div class="item swiper-slide"><a href="/help/lxwm.html" target="_blank" title="家政2" style="background-image:url(${pageContext.request.contextPath}/static/images/gg2.jpg)"></a></div>
 
-            <div class="item swiper-slide"><a href="/product/" target="_blank" title="家政培训" style="background-image:url(../static/images/a3689c9a0ecff904.jpg)"></a></div>
+            <div class="item swiper-slide"><a href="/product/" target="_blank" title="家政3" style="background-image:url(${pageContext.request.contextPath}/static/images/gg3.jpg)"></a></div>
 
-            <div class="item swiper-slide"><a href="/help/jzglrj.html" target="_blank" title="家政软件" style="background-image:url(../static/images/1717cb9f75153d5a.jpg)"></a></div>
+            <div class="item swiper-slide"><a href="/help/jzglrj.html" target="_blank" title="家政4" style="background-image:url(${pageContext.request.contextPath}/static/images/gg4.jpg)"></a></div>
 
         </div>
         <!-- 如果需要分页器 -->
@@ -229,7 +220,7 @@
 <!-- 赋能 -->
 <div class="funeng">
     <div class="common-title wow">
-        <h3>社区邦 · 赋能<b>中小家政公司</b></h3>
+        <h3>智慧家政 · 赋能<b>中小家政公司</b></h3>
         <p>挖掘小家政公司的更多赚钱潜力</p>
     </div>
     <div class="menu">
@@ -249,7 +240,7 @@
     </div>
     <div class="fnbox">
 
-        <div class="item" style="background-image:url(../static/images/4884fc0a96aa4f3d.jpg)">
+        <div class="item" style="background-image:url(${pageContext.request.contextPath}/static/images/4884fc0a96aa4f3d.jpg)">
             <div class="content">
                 <div class="text">
                     <h3>汇聚全国351个地区海量精准家庭客户、<br/>企业客户携手多个大型平台全网覆盖式吸收客源</h3><p>携手百度、美团、大众点评、京东到家等，全网覆盖式吸收精准客户，建立专属粘性体系稳固平台客源。</p><p><a href="/help/ppzs.html#sqjm">抢先加盟，拿走你附近的客源</a></p>
@@ -257,7 +248,7 @@
             </div>
         </div>
 
-        <div class="item" style="background-image:url(../static/images/7873597b09790788.jpg)">
+        <div class="item" style="background-image:url(${pageContext.request.contextPath}/static/images/7873597b09790788.jpg)">
             <div class="content">
                 <div class="text">
                     <h3>直接复制成功门店的赚钱方法<br/>现成营销方法锁定周边客户群</h3><p>市场调研、定价、促销策略、团队管理、服务品质管控等，由实战导师一对一全程指导。</p><p><a href="/help/ppzs.html#ppzc">加盟咨询</a></p>
@@ -265,15 +256,15 @@
             </div>
         </div>
 
-        <div class="item" style="background-image:url(../static/images/2097c0724476a748.jpg)">
+        <div class="item" style="background-image:url(${pageContext.request.contextPath}/static/images/2097c0724476a748.jpg)">
             <div class="content">
                 <div class="text">
-                    <h3>立即拥有完整的家政产品链<br/>每项服务都有参考的标准及方法</h3><p>社区邦拥有专属服务标准，并持续开发新产品服务，让每项服务都有参照的标准及方法。</p><p><a href="/help/jzfw.html">去看有哪些产品服务 &gt;&gt;</a></p>
+                    <h3>立即拥有完整的家政产品链<br/>每项服务都有参考的标准及方法</h3><p>社区邦拥有专属服务标准，并持续开发新产品服务，让每项服务都有参照的标准及方法。</p><p><a href="${pageContext.request.contextPath}/jsp/jzfw.jsp">去看有哪些产品服务 &gt;&gt;</a></p>
                 </div>
             </div>
         </div>
 
-        <div class="item" style="background-image:url(../static/images/28390e1adc12bcb8.jpg)">
+        <div class="item" style="background-image:url(${pageContext.request.contextPath}/static/images/28390e1adc12bcb8.jpg)">
             <div class="content">
                 <div class="text">
                     <h3>马上享有连锁品牌的影响力<br/>互联网品牌广告全网大力宣传</h3><p>互联网家政品牌典范，品牌VI、工服、标配工具、宣传物料、法务团队、风险评估全支持。</p><p><a href="/help/ppzs.html">查看品牌支持 &gt;&gt;</a></p>
@@ -281,7 +272,7 @@
             </div>
         </div>
 
-        <div class="item" style="background-image:url(../static/images/2618520d120ef66b.jpg)">
+        <div class="item" style="background-image:url(${pageContext.request.contextPath}/static/images/2618520d120ef66b.jpg)">
             <div class="content">
                 <div class="text">
                     <h3>千万级管理软件一键管控更轻松<br/>一键管订单/一键财务分析/一键管员工/一键管客户</h3><p>千万资金注入研发，9年沉淀，打造成熟稳定的家政服务管理系统，独立后台可视化管理。</p><p><a href="/help/jzglrj.html">去发现系统更多功能 &gt;&gt;</a></p>
@@ -289,7 +280,7 @@
             </div>
         </div>
 
-        <div class="item" style="background-image:url(../static/images/9f4e4d24e6ecd780.jpg)">
+        <div class="item" style="background-image:url(${pageContext.request.contextPath}/static/images/9f4e4d24e6ecd780.jpg)">
             <div class="content">
                 <div class="text">
                     <h3>营销/管理/技能 零基础速成<br/>理论与实践双管齐下 只教真本事</h3><p>社区邦家政培训学校，拥有行业重量级师资队伍，为你快速打造一支精英团队。</p><p><a href="/product/">了解社区邦培训学校 &gt;&gt;</a></p>
@@ -320,32 +311,32 @@
             </div>
         </div>
         <div class="center">
-            <img src="../static/images/jm01.jpg" class="top">
+            <img src="${pageContext.request.contextPath}/static/images/jm01.jpg" class="top">
             <div class="item item01">
-                <img src="../static/images/jm04.jpg">
+                <img src="${pageContext.request.contextPath}/static/images/jm04.jpg">
                 <h4>月嫂</h4>
                 <span>Baby Nurse</span>
             </div>
             <div class="item item02">
-                <img src="../static/images/jm05.jpg">
+                <img src="${pageContext.request.contextPath}/static/images/jm05.jpg">
                 <h4>钟点工</h4>
                 <span>Hourly workers</span>
             </div>
             <div class="item item03">
-                <img src="../static/images/jm06.jpg">
+                <img src="${pageContext.request.contextPath}/static/images/jm06.jpg">
                 <h4>育婴</h4>
                 <span>Baby raising</span>
             </div>
         </div>
         <div class="right">
             <div class="top">
-                <img src="../static/images/jm02.jpg">
+                <img src="${pageContext.request.contextPath}/static/images/jm02.jpg">
                 <h4>保姆</h4>
                 <span>Nanny</span>
             </div>
             <div class="bottom">
-                <img src="../static/images/jm07.jpg">
-                <img src="../static/images/jm08.jpg">
+                <img src="${pageContext.request.contextPath}/static/images/jm07.jpg">
+                <img src="${pageContext.request.contextPath}/static/images/jm08.jpg">
             </div>
         </div>
     </div>
@@ -360,7 +351,7 @@
     </div>
     <div class="content">
         <div class="left">
-            <a href="http://www.sqbang.com/product/" target="_blank"><img src="../static/images/pj1.jpg"></a>
+            <a href="http://www.sqbang.com/product/" target="_blank"><img src="${pageContext.request.contextPath}/static/images/pj1.jpg"></a>
         </div>
         <div class="right">
             <div class="swiper-container kecheng-swiper">
@@ -433,74 +424,74 @@
 
 <!-- 底部包含文件 -->
 <!-- foter -->
-<div class="footer">
-    <div class="content">
-        <div class="item">
-            <h3><a href="http://www.sqbang.com/help/jzfw.html" target="_blank">家政服务</a></h3>
+<%--<div class="footer">--%>
+<%--    <div class="content">--%>
+<%--        <div class="item">--%>
+<%--            <h3><a href="http://www.sqbang.com/help/jzfw.html" target="_blank">家政服务</a></h3>--%>
 
-            <p><a href="http://www.sqbang.com/help/jtqj.html">家庭清洁</a></p>
+<%--            <p><a href="http://www.sqbang.com/help/jtqj.html">家庭清洁</a></p>--%>
 
-            <p><a href="http://www.sqbang.com/help/qyqj.html">企业清洁</a></p>
+<%--            <p><a href="http://www.sqbang.com/help/qyqj.html">企业清洁</a></p>--%>
 
-            <p><a href="http://www.sqbang.com/help/bm.html">保姆</a></p>
+<%--            <p><a href="http://www.sqbang.com/help/bm.html">保姆</a></p>--%>
 
-            <p><a href="http://www.sqbang.com/help/ys.html">月嫂</a></p>
+<%--            <p><a href="http://www.sqbang.com/help/ys.html">月嫂</a></p>--%>
 
-            <p><a href="http://www.sqbang.com/help/yy.html">育婴</a></p>
+<%--            <p><a href="http://www.sqbang.com/help/yy.html">育婴</a></p>--%>
 
-            <p><a href="http://www.sqbang.com/help/help/20190723111533169.html.html">钟点工</a></p>
+<%--            <p><a href="http://www.sqbang.com/help/help/20190723111533169.html.html">钟点工</a></p>--%>
 
-        </div>
-        <div class="item">
-            <h3><a href="http://www.sqbang.com/help/jzfw.html" target="_blank">家政培训</a></h3>
+<%--        </div>--%>
+<%--        <div class="item">--%>
+<%--            <h3><a href="http://www.sqbang.com/help/jzfw.html" target="_blank">家政培训</a></h3>--%>
 
-            <p><a href="http://www.sqbang.com/product/zxkk.html"> 最新开课</a></p>
+<%--            <p><a href="http://www.sqbang.com/product/zxkk.html"> 最新开课</a></p>--%>
 
-            <p><a href="http://www.sqbang.com/product/jzpxxm.html">家政培训项目</a></p>
+<%--            <p><a href="http://www.sqbang.com/product/jzpxxm.html">家政培训项目</a></p>--%>
 
-        </div>
-        <div class="item">
-            <h3><a href="http://www.sqbang.com/help/ppzs.html" target="_blank">加盟社区邦</a></h3>
+<%--        </div>--%>
+<%--        <div class="item">--%>
+<%--            <h3><a href="http://www.sqbang.com/help/ppzs.html" target="_blank">加盟社区邦</a></h3>--%>
 
-            <p><a href="http://www.sqbang.com/help/ppzs.html#hyqj">行业前景</a></p>
+<%--            <p><a href="http://www.sqbang.com/help/ppzs.html#hyqj">行业前景</a></p>--%>
 
-            <p><a href="http://www.sqbang.com/help/ppzs.html#ppzc">品牌支持</a></p>
+<%--            <p><a href="http://www.sqbang.com/help/ppzs.html#ppzc">品牌支持</a></p>--%>
 
-            <p><a href="http://www.sqbang.com/help/ppzs.html#tzys">投资预算</a></p>
+<%--            <p><a href="http://www.sqbang.com/help/ppzs.html#tzys">投资预算</a></p>--%>
 
-            <p><a href="http://www.sqbang.com/help/ppzs.html#khjz">客户见证</a></p>
+<%--            <p><a href="http://www.sqbang.com/help/ppzs.html#khjz">客户见证</a></p>--%>
 
-            <p><a href="http://www.sqbang.com/help/hzhb.html">合作伙伴</a></p>
+<%--            <p><a href="http://www.sqbang.com/help/hzhb.html">合作伙伴</a></p>--%>
 
-            <p><a href="http://www.sqbang.com/help/ppzs.html#sqjm">申请加盟</a></p>
+<%--            <p><a href="http://www.sqbang.com/help/ppzs.html#sqjm">申请加盟</a></p>--%>
 
-        </div>
-        <div class="item">
-            <h3><a href="http://www.sqbang.com/help/" target="_blank">关于社区邦</a></h3>
+<%--        </div>--%>
+<%--        <div class="item">--%>
+<%--            <h3><a href="http://www.sqbang.com/help/" target="_blank">关于社区邦</a></h3>--%>
 
-            <p><a href="http://www.sqbang.com/help/ppjs.html">品牌介绍</a></p>
+<%--            <p><a href="http://www.sqbang.com/help/ppjs.html">品牌介绍</a></p>--%>
 
-            <p><a href="http://www.sqbang.com/help/csr.html">创始人</a></p>
+<%--            <p><a href="http://www.sqbang.com/help/csr.html">创始人</a></p>--%>
 
-            <p><a href="http://www.sqbang.com/help/szdwqh.html">师资队伍</a></p>
+<%--            <p><a href="http://www.sqbang.com/help/szdwqh.html">师资队伍</a></p>--%>
 
-            <p><a href="http://www.sqbang.com/help/ryzz.html">荣誉资质</a></p>
+<%--            <p><a href="http://www.sqbang.com/help/ryzz.html">荣誉资质</a></p>--%>
 
-            <p><a href="http://www.sqbang.com/help/ppxx.html">品牌形象</a></p>
+<%--            <p><a href="http://www.sqbang.com/help/ppxx.html">品牌形象</a></p>--%>
 
-            <p><a href="http://www.sqbang.com/help/dsj.html">大事记</a></p>
+<%--            <p><a href="http://www.sqbang.com/help/dsj.html">大事记</a></p>--%>
 
-        </div>
+<%--        </div>--%>
 
-    </div>
-    <div class="phone">
-        全国服务热线：400-00-00000 / 品牌加盟专线：0755-36907516
-    </div>
-    <!--    <div class="text">-->
-    <!--        <p>版权所有：深圳市深家网络信息服务有限公司　<a href="http://www.beian.miit.gov.cn/" target="_blank" rel="nofollow">粤ICP备11103067号-8</a></p>-->
-    <!--        <p>技术支持：<a href="http://www.shenduwang.cn/" target="_blank" rel="nofollow" >深度网</a></p>            -->
-    <!--    </div>-->
-</div>
+<%--    </div>--%>
+<%--    <div class="phone">--%>
+<%--        全国服务热线：400-00-00000 / 品牌加盟专线：0755-36907516--%>
+<%--    </div>--%>
+<%--    <!--    <div class="text">-->--%>
+<%--    <!--        <p>版权所有：深圳市深家网络信息服务有限公司　<a href="http://www.beian.miit.gov.cn/" target="_blank" rel="nofollow">粤ICP备11103067号-8</a></p>-->--%>
+<%--    <!--        <p>技术支持：<a href="http://www.shenduwang.cn/" target="_blank" rel="nofollow" >深度网</a></p>            -->--%>
+<%--    <!--    </div>-->--%>
+<%--</div>--%>
 
 
 

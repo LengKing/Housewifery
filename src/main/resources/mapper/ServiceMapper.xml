@@ -31,10 +31,14 @@
     <select id="getServiceTypeList" parameterType="layuiJson" resultType="companyService">
         select s.id,s.type_name,t.apply_date,t.name stateName from tb_service_type s left join
         (select s.service_type_id,p.name,s.apply_date from tb_company_service s,tb_params p where s.company_id = #{condition.companyId}
-        and s.state = p.value and p.type='service_application_state') t on s.id=t.service_type_id where s.pid = 0 limit #{pageNum},#{limit};
+        and s.state = p.value and p.type='service_application_state') t on s.id=t.service_type_id where s.pid = 0 limit #{pageNum},#{limit}
     </select>
 
     <update id="updateCompanyService" parameterType="companyService">
         update tb_company_service set state = #{stateName} where company_id = #{companyId} and service_type_id = #{serviceTypeId}
     </update>
+
+    <select id="getServiceTypeByCompanyId" parameterType="string" resultType="serviceType">
+        select s.id,s.type_name from tb_service_type s,tb_company_service c where s.id = c.service_type_id and c.company_id=#{value} and s.pid = 0
+    </select>
 </mapper>

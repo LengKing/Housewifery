@@ -56,4 +56,10 @@ public class ServiceControl {
         return result;
     }
 
+    @RequestMapping(value = "/serviceType",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object getServiceTypeByCompanyId(String companyId){
+        List<ServiceType> types = service.getServiceTypeByCompanyId(companyId);
+        return new Gson().toJson(types);
+    }
 }

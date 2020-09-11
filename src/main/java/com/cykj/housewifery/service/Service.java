@@ -15,4 +15,6 @@ public interface Service {
     List<CompanyService> getServiceList(String companyId, Integer pageNum, String limit);
 
     String updateServiceState(String companyId,String id,String event,String type);
+
+    List<ServiceType> getServiceTypeByCompanyId(String companyId);
 }
