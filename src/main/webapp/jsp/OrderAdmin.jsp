@@ -87,7 +87,7 @@
                     $("#serviceDate").text(order.serviceDate);
                     $("#cost").text(order.cost+"元");
                     $("#employee").text(order.employee);
-                    $("#company").text(order.company);
+                    $("#d_company").text(order.company);
                     $("#orderState").text(order.orderState);
                     }
                 });
@@ -157,7 +157,7 @@
         </tr>
         <tr>
             <td>家政公司</td>
-            <td id="company"></td>
+            <td id="d_company"></td>
         </tr>
         <tr>
             <td>服务状态</td>
