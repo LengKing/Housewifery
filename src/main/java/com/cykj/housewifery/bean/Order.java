@@ -5,35 +5,69 @@ import java.util.Date;
 
 //订单表
 public class Order {
-    private int id;             //订单表 主id
-    private int userId;         //服务对象id
-    private String serviceName; //服务名
-    private int type;           //所属类别 对应服务列表
-    private int count;          //服务频次
-    private Date date;          //下单时间
-    private Date serviceDate;   //服务时间
-    private BigDecimal cost;    //费用
-    private String employeName; //服务人
-    private String companyName; //家政公司名称
-    private String state;       //状态
-    private String payState;    //支付状态
+    private int id;                //订单表 主id
+    private String user;          //服务对象
+    private String serviceName;   //服务名
+    private String type;          //所属类别 对应服务列表
+    private String count;         //服务频次
+    private String orderTime;     //下单时间
+    private String serviceDate;   //服务时间
+    private BigDecimal cost;     //费用
+    private String employee;     //服务人
+    private String company;      //家政公司名称
+    private String orderState;   //状态
+    private String payState;     //支付状态
 
     public Order() {
     }
 
-    public Order(int id, int userId, String serviceName, int type, int count, Date date, Date serviceDate, BigDecimal cost, String employeName, String companyName, String state, String payState) {
+    public Order(int id, String user, String serviceName, String type, String count, String orderTime, String serviceDate, BigDecimal cost, String employee, String company, String orderState, String payState) {
         this.id = id;
-        this.userId = userId;
+        this.user = user;
         this.serviceName = serviceName;
         this.type = type;
         this.count = count;
-        this.date = date;
+        this.orderTime = orderTime;
         this.serviceDate = serviceDate;
         this.cost = cost;
-        this.employeName = employeName;
-        this.companyName = companyName;
-        this.state = state;
+        this.employee = employee;
+        this.company = company;
+        this.orderState = orderState;
         this.payState = payState;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", user='" + user + '\'' +
+                ", serviceName='" + serviceName + '\'' +
+                ", type='" + type + '\'' +
+                ", count='" + count + '\'' +
+                ", orderTime='" + orderTime + '\'' +
+                ", serviceDate='" + serviceDate + '\'' +
+                ", cost=" + cost +
+                ", employee='" + employee + '\'' +
+                ", company='" + company + '\'' +
+                ", orderState='" + orderState + '\'' +
+                ", payState='" + payState + '\'' +
+                '}';
+    }
+
+    public String getOrderTime() {
+        return orderTime;
+    }
+
+    public void setOrderTime(String orderTime) {
+        this.orderTime = orderTime;
+    }
+
+    public String getOrderState() {
+        return orderState;
+    }
+
+    public void setOrderState(String orderState) {
+        this.orderState = orderState;
     }
 
     public int getId() {
@@ -44,12 +78,12 @@ public class Order {
         this.id = id;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getUser() {
+        return user;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUser(String user) {
+        this.user = user;
     }
 
     public String getServiceName() {
@@ -60,35 +94,29 @@ public class Order {
         this.serviceName = serviceName;
     }
 
-    public int getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(String type) {
         this.type = type;
     }
 
-    public int getCount() {
+    public String getCount() {
         return count;
     }
 
-    public void setCount(int count) {
+    public void setCount(String count) {
         this.count = count;
     }
 
-    public Date getDate() {
-        return date;
-    }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
 
-    public Date getServiceDate() {
+    public String getServiceDate() {
         return serviceDate;
     }
 
-    public void setServiceDate(Date serviceDate) {
+    public void setServiceDate(String serviceDate) {
         this.serviceDate = serviceDate;
     }
 
@@ -100,28 +128,20 @@ public class Order {
         this.cost = cost;
     }
 
-    public String getEmployeName() {
-        return employeName;
+    public String getEmployee() {
+        return employee;
     }
 
-    public void setEmployeName(String employeName) {
-        this.employeName = employeName;
+    public void setEmployee(String employee) {
+        this.employee = employee;
     }
 
-    public String getCompanyName() {
-        return companyName;
+    public String getCompany() {
+        return company;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
+    public void setCompany(String company) {
+        this.company = company;
     }
 
     public String getPayState() {
@@ -130,23 +150,5 @@ public class Order {
 
     public void setPayState(String payState) {
         this.payState = payState;
-    }
-
-    @Override
-    public String toString() {
-        return "Order{" +
-                "id=" + id +
-                ", userId=" + userId +
-                ", serviceName='" + serviceName + '\'' +
-                ", type=" + type +
-                ", count=" + count +
-                ", date=" + date +
-                ", serviceDate=" + serviceDate +
-                ", cost=" + cost +
-                ", employeName='" + employeName + '\'' +
-                ", companyName='" + companyName + '\'' +
-                ", state='" + state + '\'' +
-                ", payState='" + payState + '\'' +
-                '}';
     }
 }
