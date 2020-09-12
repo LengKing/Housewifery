@@ -1,24 +1,16 @@
 package com.cykj.housewifery.bean;
 
-//家政公司资质文件表
+//材料，资料文件表
 public class Documents {
     private  int id;            //文件ID
-    private  Integer documentType;      //类型
+    private  Integer documentType;      //材料类型
     private  String url;        //url
     private String companyId;   //公司ID
+    private String employee;  //员工名或员工号
     private String name;   //类型名
     private int count;  //文件总数；
 
     public Documents() {
-    }
-
-    public Documents(int id, Integer documentType, String url, String companyId, String name, int count) {
-        this.id = id;
-        this.documentType = documentType;
-        this.url = url;
-        this.companyId = companyId;
-        this.name = name;
-        this.count = count;
     }
 
     public int getId() {
@@ -69,6 +61,14 @@ public class Documents {
         this.count = count;
     }
 
+    public String getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(String employee) {
+        this.employee = employee;
+    }
+
     @Override
     public String toString() {
         return "Documents{" +
@@ -76,6 +76,7 @@ public class Documents {
                 ", documentType=" + documentType +
                 ", url='" + url + '\'' +
                 ", companyId='" + companyId + '\'' +
+                ", employee='" + employee + '\'' +
                 ", name='" + name + '\'' +
                 ", count=" + count +
                 '}';
