@@ -23,7 +23,7 @@ public class KnowledgeServiceImpl implements KnowledgeService {
 
     @Override
     public List<Knowledge> selKnowledge(Integer pageNum, String limit) {
-      List<Knowledge> knowledges=knowledgeMapper.selKnowledge(pageNum,limit);
+      List<Knowledge> knowledges=knowledgeMapper.selKnowledge(pageNum,Integer.valueOf(limit));
       return knowledges;
     }
 
@@ -31,5 +31,17 @@ public class KnowledgeServiceImpl implements KnowledgeService {
     public Knowledge findKnowledgeById(String id) {
         Knowledge knowledge=knowledgeMapper.findKnowledgeById(id);
         return knowledge;
+    }
+
+    @Override
+    public boolean updateKnowledge(String id, String title, String type) {
+        int a=knowledgeMapper.updateKnowledge(id,title,type);
+        return a>0;
+    }
+
+    @Override
+    public boolean deleteKnowledge(String id) {
+        int a=knowledgeMapper.deleteKnowledge(id);
+        return a>0;
     }
 }

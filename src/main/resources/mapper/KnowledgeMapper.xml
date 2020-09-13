@@ -10,11 +10,19 @@
 
     <select id="selKnowledge" resultType="Knowledge">
         select id,title,(select name from tb_params where value=k.type and type='content_type') type,date_format(add_date,'%Y-%m-%d') add_date
-        from tb_konwledge k limit #{pageNum},#{limit}
+        from tb_knowledge k limit #{pageNum},#{limit}
     </select>
 
     <select id="findKnowledgeById" resultType="Knowledge">
-         select id,title,(select name from tb_params where value=k.type and type='content_type') type from tb_konwledge k where id=#{id}
+         select id,title,(select name from tb_params where value=k.type and type='content_type') type from tb_knowledge k where id=#{id}
     </select>
+
+    <update id="updateKnowledge">
+        update tb_knowledge set title=#{title},type=(select value from tb_params where name=#{type}) where id=#{id}
+    </update>
+
+    <delete id="deleteKnowledge">
+    delete from tb_knowledge where id=#{id}
+    </delete>
 
 </mapper>

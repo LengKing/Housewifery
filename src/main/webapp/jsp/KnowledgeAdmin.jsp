@@ -47,7 +47,7 @@
             <div class="layui-card">
                 <div class="layui-card-header">育婴知识</div>
                 <div class="layui-card-body">
-                    <button class="layui-btn" id="addKonwledge">
+                    <button class="layui-btn" id="addKnowledge">
                     <i class="layui-icon">&#xe654;</i>添加</button></div>
                 <div class="layui-card-body" style="min-height: 400px;">
                     <div id="main4" class="layui-col-sm12" style="height: 400px;">
@@ -75,7 +75,7 @@
                 ,{field: 'title', title: '知识标题', width: 200,align: 'center'}
                 ,{field: 'type', title: '知识类别', width: 100,align: 'center'}
                 ,{field: 'addDate', title: '添加时间', width: 100,align: 'center'}
-                ,{title: '操作', width: 200, align: 'center', toolbar: '#barDemo'}
+                ,{title: '操作', width: 250, align: 'center', toolbar: '#barDemo'}
             ]]
             , limit: 5
             , limits: [5, 6, 7]

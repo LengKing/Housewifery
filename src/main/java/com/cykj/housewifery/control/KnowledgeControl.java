@@ -34,11 +34,32 @@ public class KnowledgeControl {
         return gson.toJson(layuiJson);
     }
 
-public Object findKnowledgeById(String id){
+    @RequestMapping(value = "/findKnowledgeById" ,produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object findKnowledgeById(String id){
         Knowledge knowledge=knowledgeService.findKnowledgeById(id);
         return new Gson().toJson(knowledge);
-}
+    }
 
+    @RequestMapping(value = "/updateKnowledge" ,produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object updateKnowledge(String id,String title,String type){
+        boolean flag=knowledgeService.updateKnowledge(id,title,type);
+        if (flag){
+            return new Gson().toJson(1);
+        }else {
+            return new Gson().toJson(2);
+        }
+    }
+
+    public Object deleteKnowledge(String id){
+        boolean flag=knowledgeService.deleteKnowledge(id);
+        if (flag){
+            return new Gson().toJson("删除成功");
+        }else {
+            return new Gson().toJson("删除失败");
+        }
+    }
 
 
 }
