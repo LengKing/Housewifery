@@ -1,5 +1,6 @@
 package com.cykj.housewifery.bean;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 //家政公司
@@ -12,11 +13,13 @@ public class Company {
     private  String phone;          //公司联系方式
     private  int state;             //公司状态
     private Timestamp entryDate;     //入驻时间
+    private String account;   //账户
+    private BigDecimal money;   //资金
 
     public Company() {
     }
 
-    public Company(int id, String name, String password, String legal, String address, String phone, int state, Timestamp entryDate) {
+    public Company(int id, String name, String password, String legal, String address, String phone, int state, Timestamp entryDate, String account, BigDecimal money) {
         this.id = id;
         this.name = name;
         this.password = password;
@@ -25,6 +28,8 @@ public class Company {
         this.phone = phone;
         this.state = state;
         this.entryDate = entryDate;
+        this.account = account;
+        this.money = money;
     }
 
     @Override
@@ -38,7 +43,25 @@ public class Company {
                 ", phone='" + phone + '\'' +
                 ", state=" + state +
                 ", entryDate=" + entryDate +
+                ", account='" + account + '\'' +
+                ", money=" + money +
                 '}';
+    }
+
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
+    public BigDecimal getMoney() {
+        return money;
+    }
+
+    public void setMoney(BigDecimal money) {
+        this.money = money;
     }
 
     public int getId() {

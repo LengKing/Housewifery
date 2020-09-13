@@ -42,15 +42,18 @@ public class DocumentControl {
     @RequestMapping(value = "/uploadFile",produces = "text/plain;charset=utf-8")
     @ResponseBody
     public Object uploadFile(HttpServletRequest request, HttpServletResponse response,
-                         MultipartFile file, String companyId,String name,String type) {
+                         MultipartFile file, String companyId,String name,String type,String employeeId) {
         try {
             String dir = "";
+            int typeVal = 0;
+            System.out.println("employee:"+employeeId);
             if ("company".equals(type)){
                 dir = "companyData";
+                typeVal= documentService.getDocumentTypeVal(name);
             }else if("employee".equals(type)){
                 dir = "employeeData";
+                typeVal= documentService.getDataTypeVal(name);
             }
-            int documentTypeVal = documentService.getDocumentTypeVal(name);
             //获取文件名
             String originalName = file.getOriginalFilename();
             //扩展名
@@ -63,7 +66,7 @@ public class DocumentControl {
             String savePath = request.getSession().getServletContext().getRealPath("/static/upload/"+dir);
             //要保存的问题件路径和名称   /upload/2020-09-09/uuid.jpg
             String projectPath = savePath + File.separator+ date + File.separator + uuid + "." + prefix;
-            String finalSavePath = "../static/upload/"+ dir+"/"+ date + "/" + uuid + "." + prefix;
+            String finalSavePath = "http://localhost:8080/static/upload/"+ dir+"/"+ date + "/" + uuid + "." + prefix;
             File files = new File(projectPath);
             //打印查看上传路径
             if (!files.getParentFile().exists()) {//判断目录是否存在
@@ -72,7 +75,8 @@ public class DocumentControl {
             Documents document = new Documents();
             document.setUrl(finalSavePath);
             document.setCompanyId(companyId);
-            document.setDocumentType(documentTypeVal);
+            document.setDocumentType(typeVal);
+            document.setEmployee(employeeId);
 
             int n = documentService.uploadFile(document,type);
             if (n>0){

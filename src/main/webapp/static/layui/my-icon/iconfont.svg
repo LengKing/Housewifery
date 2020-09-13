@@ -1,0 +1,29 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<!--
+2013-9-30: Created.
+-->
+<svg>
+<metadata>
+Created by iconfont
+</metadata>
+<defs>
+
+<font id="iconfont" horiz-adv-x="1024" >
+  <font-face
+    font-family="iconfont"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1024"
+    ascent="896"
+    descent="-128"
+  />
+    <missing-glyph />
+    
+    <glyph glyph-name="yinhangqia" unicode="&#59081;" d="M0 640V554.666667h1327.407407V640H0zM729.163852 186.785185h-74.676148l-80.213334-157.392592h76.534519z m165.925926 0h-74.676148l-76.496593-157.392592h76.496593z m309.741037 0h-221.259852l-73.765926-157.392592h217.543111zM1171.607704 896a155.496296 155.496296 0 0 0 110.933333-48.848593A164.636444 164.636444 0 0 0 1327.407407 731.97037v-695.94074a164.67437 164.67437 0 0 0-44.86637-115.218963A155.496296 155.496296 0 0 0 1171.607704-128H157.620148a155.496296 155.496296 0 0 0-110.933333 48.810667 164.67437 164.67437 0 0 0-44.866371 115.218963V731.97037A160.085333 160.085333 0 0 0 156.709926 896h1014.897778z m0 0"  horiz-adv-x="1327" />
+
+    
+
+
+  </font>
+</defs></svg>
