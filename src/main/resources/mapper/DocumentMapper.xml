@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.housewifery.mapper.DocumentMapper">
+    <select id="getCompanyData" parameterType="map" resultType="documents">
+    select d.url,p.name from tb_documents d,tb_params p where d.document_type = p.value
+    and p.type='document_type' and d.company_id = #{companyId} and p.name= #{name}
+    </select>
+
+    <select id="getDocumentTypeVal" parameterType="string" resultType="int">
+        select value from tb_params where type='document_type' and name=#{value}
+    </select>
+
+    <insert id="uploadCompanyFile" parameterType="documents">
+        insert into tb_documents(url, document_type, company_id) values (#{url},#{documentType},#{companyId})
+    </insert>
+
+    <select id="getEmployeeData" parameterType="map" resultType="documents">
+    select t.url,t.name from (select d.data_type,d.company_id,d.url,e.name from tb_employee_data d,tb_employee e
+    where d.employee_id = e.number) t,tb_params p where t.data_type = p.value and p.type='data_type'
+    and t.company_id = #{companyId} and p.name= #{name}
+    </select>
+
+    <insert id="uploadEmployeeFile" parameterType="documents">
+        insert into tb_employee_data(url, document_type, company_id) values (#{url},#{documentType},#{companyId})
+    </insert>
+</mapper>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.housewifery.mapper.HomeMarkingMapper">
+    <select id="findCompanyById" parameterType="string" resultType="company">
+        select id,name,password,legal,address,phone,state,entry_date from tb_company where id = #{value}
+    </select>
+
+    <update id="updateInformation" parameterType="company">
+        update tb_company set name = #{name},legal = #{legal},address = #{address},phone = #{phone} where id = #{id}
+    </update>
+
+    <select id="getCompanyDataCount" resultType="int">
+        select count(*) from tb_params where type = 'document_type'
+    </select>
+
+    <select id="getCompanyData" parameterType="layuiJson" resultType="documents">
+    select name,count(document_type) count from tb_params p left join (select * from tb_documents where
+     company_id = #{condition.companyId}) d on d.document_type = p.value where p.type = 'document_type' group by name order by name desc limit #{pageNum},#{limit}
+    </select>
+
+    <select id="getEmployeeDataCount" resultType="int">
+        select count(*) from tb_params where type = 'data_type'
+    </select>
+
+    <select id="getEmployeeData" parameterType="layuiJson" resultType="documents">
+        select name,count(data_type) count from tb_params p left join (select * from tb_employee_data where
+        company_id = #{condition.companyId} ) d on d.data_type = p.value where p.type = 'data_type' group by name limit #{pageNum},#{limit}
+    </select>
+</mapper>
