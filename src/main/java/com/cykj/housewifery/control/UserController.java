@@ -1,7 +1,9 @@
 package com.cykj.housewifery.control;
 
+import com.cykj.housewifery.bean.ReportDataBean;
 import com.cykj.housewifery.bean.User;
 import com.cykj.housewifery.service.UserService;
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +22,7 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
     @RequestMapping(value = "/login")
     @ResponseBody
     public void AdminLogin(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -28,7 +31,6 @@ public class UserController {
         User admin = new User();
         admin.setAccount(account);
         admin.setPassword(password);
-
         if (null != admin) {
             request.getSession().setAttribute("admin", admin);
             response.getWriter().print("success");
@@ -54,7 +56,6 @@ public class UserController {
         user.setGender(gender);
         user.setPassword(password);
         user.setPhone(phone);
-
         boolean a = userService.add(user);
         if (a) {
             if (null != user) {
@@ -63,8 +64,22 @@ public class UserController {
                 System.out.println("注册成功！");
             }
         }
-
     }
 
+    @RequestMapping(value = "/barUser",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object barUser(String startDate,String endDate){
+        ReportDataBean dataBeans=userService.barUser(startDate,endDate);
+        System.out.println(new Gson().toJson(dataBeans));
+        return new Gson().toJson(dataBeans);
+    }
+
+    @RequestMapping(value = "/lineUser",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object lineUser(String startDate,String endDate){
+        ReportDataBean dataBeans=userService.lineUser(startDate,endDate);
+        System.out.println(new Gson().toJson(dataBeans));
+        return new Gson().toJson(dataBeans);
+    }
 
 }

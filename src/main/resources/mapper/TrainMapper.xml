@@ -34,4 +34,14 @@
         delete from tb_train where id=#{arg0}
     </delete>
 
+    <select id="barTrain" resultType="int">
+        select count(*) from tb_train where date_format(start_date,'%Y-%m-%d') = #{date}
+    </select>
+
+    <select id="lineTrain" resultType="int">
+        select count(*) from tb_train where date_format(start_date,'%Y-%m-%d') &lt;= #{date}
+    </select>
+
+
+
 </mapper>

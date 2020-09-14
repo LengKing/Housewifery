@@ -11,4 +11,6 @@ public interface OrderMapper {
     int getOrderCount(@Param("company") String company);
     List<Order> selOrder(@Param("company") String company,@Param("pageNum") Integer pageNum, @Param("limit") Integer limit);
     Order findOrderById(String id);
+    int barOrder(@Param("date") String date, @Param("company") String company);
+    int lineOrder(@Param("date") String date, @Param("company") String company);
 }

@@ -2,6 +2,7 @@ package com.cykj.housewifery.control;
 
 import com.cykj.housewifery.bean.LayuiJson;
 import com.cykj.housewifery.bean.Order;
+import com.cykj.housewifery.bean.ReportDataBean;
 import com.cykj.housewifery.service.OrderService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -39,5 +40,21 @@ public class OrderControl {
     public Object findOrderById(String id){
         Order order=orderService.findOrderById(id);
         return new Gson().toJson(order);
+    }
+
+    @RequestMapping(value = "/barOrder",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object barOrder(String startDate,String endDate,String company){
+        ReportDataBean dataBeans=orderService.barOrder(startDate,endDate,company);
+        System.out.println(new Gson().toJson(dataBeans));
+        return new Gson().toJson(dataBeans);
+    }
+
+    @RequestMapping(value = "/lineOrder",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object lineOrder(String startDate,String endDate,String company){
+        ReportDataBean dataBeans=orderService.lineOrder(startDate,endDate,company);
+        System.out.println(new Gson().toJson(dataBeans));
+        return new Gson().toJson(dataBeans);
     }
 }

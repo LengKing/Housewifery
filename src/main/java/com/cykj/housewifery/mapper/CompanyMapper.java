@@ -10,5 +10,5 @@ import java.util.List;
 public interface CompanyMapper {
    List<String> allDate(@Param("startDate") String startDate, @Param("endDate") String endDate);
    int totalCompany(@Param("date") String date);
-   int lineCompany(String date);
+   int lineCompany(@Param("date") String date);
 }
