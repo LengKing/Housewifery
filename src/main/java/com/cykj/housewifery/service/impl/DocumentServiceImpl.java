@@ -51,4 +51,10 @@ public class DocumentServiceImpl implements DocumentService {
         return result;
     }
 
+    @Override
+    public int getDataTypeVal(String name) {
+        int val = documentMapper.getDataTypeVal(name);
+        return val;
+    }
+
 }

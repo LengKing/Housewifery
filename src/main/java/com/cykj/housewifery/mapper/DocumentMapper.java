@@ -17,4 +17,6 @@ public interface DocumentMapper {
     int uploadEmployeeFile(Documents document);
 
     List<Documents> getEmployeeData(HashMap<String, Object> condition);
+
+    int getDataTypeVal(String name);
 }

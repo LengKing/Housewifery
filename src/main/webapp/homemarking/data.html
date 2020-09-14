@@ -15,31 +15,31 @@
     <![endif]-->
 </head>
 <body>
-<div class="layui-fluid">
-    <div class="layui-row layui-col-space15">
-        <div class="layui-col-sm12 layui-col-md6" style="width: 100%;">
-            <div class="layui-card">
-                <div class="layui-card-header">公司资料</div>
-                <div class="layui-card-body" style="min-height: 280px;">
-                    <div id="main4" class="layui-col-sm12" style="height: 290px;">
-                        <table class="layui-table layui-form" id="companyData" lay-filter="companyData"></table>
+    <div class="layui-fluid">
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-sm12 layui-col-md6" style="width: 100%;">
+                <div class="layui-card">
+                    <div class="layui-card-header">公司资料</div>
+                    <div class="layui-card-body" style="min-height: 280px;">
+                        <div id="main4" class="layui-col-sm12" style="height: 290px;">
+                            <table class="layui-table layui-form" id="companyData" lay-filter="companyData"></table>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="layui-col-sm12 layui-col-md6" style="width: 100%;">
-            <div class="layui-card">
-                <div class="layui-card-header">员工资料</div>
-                <div class="layui-card-body" style="min-height: 280px;">
-                    <div id="main5" class="layui-col-sm12" style="height: 290px;">
-                        <table class="layui-table layui-form" id="employeeData" lay-filter="employeeData"></table>
+            <div class="layui-col-sm12 layui-col-md6" style="width: 100%;">
+                <div class="layui-card">
+                    <div class="layui-card-header">员工资料</div>
+                    <div class="layui-card-body" style="min-height: 280px;">
+                        <div id="main5" class="layui-col-sm12" style="height: 290px;">
+                            <table class="layui-table layui-form" id="employeeData" lay-filter="employeeData"></table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-</div>
+</body>
 <script>
     layui.use('table', function () {
         var table = layui.table;
@@ -51,7 +51,7 @@
             , cols: [[ //表头
                 {field: 'name', title: '材料名', width: 200,align: 'center'}
                 , {field: 'count', title: '份数', width: 200,align: 'center',templet:function(res){
-                       return res.count+'份';
+                        return res.count+'份';
                     }}
                 , {title: '操作', width: 200, align: 'center', toolbar: '#barDemo'}
             ]]
@@ -85,7 +85,7 @@
                     shadeClose: true,
                     content: url2, //这里填写自己的路径
                     end:function(){
-                         // location.reload();//弹出层结束后，刷新主页面
+                        // location.reload();//弹出层结束后，刷新主页面
                         $(".layui-laypage-btn")[0].click();
                     }
                 });
@@ -136,7 +136,7 @@
                     content: url2, //这里填写自己的路径
                     end:function(){
                         // location.reload();//弹出层结束后，刷新主页面
-                        $(".layui-laypage-btn")[0].click();
+                        $(".layui-laypage-btn")[1].click();
                     }
                 });
             }
@@ -147,5 +147,4 @@
     <button class="layui-btn layui-btn-normal" type="button" lay-event="see">查看详情</button>
     <button class="layui-btn layui-btn-normal" type="button" lay-event="add">新增</button>
 </script>
-</body>
 </html>

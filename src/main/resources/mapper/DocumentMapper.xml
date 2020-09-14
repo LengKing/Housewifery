@@ -23,6 +23,10 @@
     </select>
 
     <insert id="uploadEmployeeFile" parameterType="documents">
-        insert into tb_employee_data(url, document_type, company_id) values (#{url},#{documentType},#{companyId})
+        insert into tb_employee_data(url, data_type,employee_id,company_id) values (#{url},#{documentType},#{employee},#{companyId})
     </insert>
+
+    <select id="getDataTypeVal" parameterType="string" resultType="int">
+        select value from tb_params where type='data_type' and name=#{value}
+    </select>
 </mapper>

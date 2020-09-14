@@ -1,0 +1,16 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8338693",
+      "name": "银行卡",
+      "font_class": "yinhangqia",
+      "unicode": "e6c9",
+      "unicode_decimal": 59081
+    }
+  ]
+}

@@ -16,11 +16,12 @@ public class Employee {
     private String job;             //职位
     private String label;           //标签
     private Integer state;          //员工状态
+    private Integer companyId;      //所属公司
 
     public Employee() {
     }
 
-    public Employee(Integer id, Integer number, String password, String name, String gender, int age, Date birthday, String school, String skill, String job, String label, Integer state) {
+    public Employee(Integer id, Integer number, String password, String name, String gender, int age, Date birthday, String school, String skill, String job, String label, Integer state, Integer companyId) {
         this.id = id;
         this.number = number;
         this.password = password;
@@ -33,6 +34,15 @@ public class Employee {
         this.job = job;
         this.label = label;
         this.state = state;
+        this.companyId = companyId;
+    }
+
+    public Integer getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(Integer companyId) {
+        this.companyId = companyId;
     }
 
     @Override
@@ -50,6 +60,7 @@ public class Employee {
                 ", job='" + job + '\'' +
                 ", label='" + label + '\'' +
                 ", state=" + state +
+                ", companyId=" + companyId +
                 '}';
     }
 

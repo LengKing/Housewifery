@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.housewifery.mapper.CompanyAccountMapper">
+    <select id="getAccountMsgById" resultType="company" parameterType="string">
+        select id,name,password,legal,address,phone,state,entry_date,account,money from tb_company where id=#{value}
+    </select>
+
+    <update id="setAccount" parameterType="company">
+        update tb_company set account = #{account} where id = #{id}
+    </update>
+
+    <update id="consumption"  parameterType="company">
+        update tb_company set money = money - #{money} where id = #{id} and money >= #{money}
+    </update>
+
+    <insert id="insertRecords" parameterType="CompanyAccountDetails">
+        insert into tb_company_account_details(happen_time, sources_of_funding, money_to, money, operation_type,company_id) values
+        (#{happenTime},#{sourcesOfFunding},#{moneyTo},#{money},#{operationType},#{companyId})
+    </insert>
+
+    <update id="topUp"  parameterType="company">
+        update tb_company set money = money + #{money} where id = #{id}
+    </update>
+
+    <select id="getRecordsCount" resultType="int" parameterType="string">
+        select count(*) from tb_company_account_details where company_id = #{value}
+    </select>
+
+    <select id="getRecordsById" parameterType="map" resultType="CompanyAccountDetails">
+        select happen_time,sources_of_funding,money_to,money,operation_type from tb_company_account_details where
+        company_id = #{companyId} limit #{pageNum},#{limit}
+    </select>
+</mapper>

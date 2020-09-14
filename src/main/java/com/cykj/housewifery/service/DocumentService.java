@@ -12,4 +12,6 @@ public interface DocumentService {
     int getDocumentTypeVal(String name);
 
     int uploadFile(Documents document,String type);
+
+    int getDataTypeVal(String name);
 }

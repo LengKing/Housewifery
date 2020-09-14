@@ -6,7 +6,7 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="../static/layui/css/layui.css"  media="all">
+    <link rel="stylesheet" href="../static/layui/css/layui.css" media="all">
     <script src="../static/js/jquery.min.js" charset="utf-8"></script>
     <script src="../static/layui/layui.js" charset="utf-8"></script>
 </head>
@@ -16,8 +16,12 @@
         <label class="layui-form-label">员工编号：</label>
         <div class="layui-input-block">
             <form class="layui-form" action="" lay-filter="example">
-                <input type="text" name="employeeId" autocomplete="off" onkeyup="value=value.replace(/[^\d]/g,'')" lay-verify="required" class="layui-input" onfocus="disabled()" style="width: 60%;float: left">
-                <button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1" id="check" style="float: right;">确定</button>
+                <input type="hidden" id="employeeId" value="">
+                <input type="text" name="employeeId" autocomplete="off" onkeyup="value=value.replace(/[^\d]/g,'')"
+                       lay-verify="required" class="layui-input" onfocus="disabledBtn()" style="width: 60%;float: left">
+                <button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1" id="check"
+                        style="float: right;">确定
+                </button>
             </form>
         </div>
     </div>
@@ -31,56 +35,78 @@
 <script>
 
     $(function () {
-        function disabled() {
-            $('#test1').addClass("layui-btn-disabled").attr("disabled",true);
-        }
         var request = {
-            QueryString : function(val){
+            QueryString: function (val) {
                 var uri = decodeURI(window.location.search);
-                var re = new RegExp("" +val+ "=([^&?]*)", "ig");
-                return ((uri.match(re))?(uri.match(re)[0].substr(val.length+1)):null);
+                var re = new RegExp("" + val + "=([^&?]*)", "ig");
+                return ((uri.match(re)) ? (uri.match(re)[0].substr(val.length + 1)) : null);
             }
         }
         var companyId = request.QueryString("companyId");
         var name = request.QueryString("name");
         var type = request.QueryString("type");
-        if (type=="employee"){
-            $('#input').removeClass("layui-form-item").css("display","block");
-            $('#test1').addClass("layui-btn-disabled").attr("disabled",true);
+        if (type == "employee") {
+            $('#input').removeClass("layui-form-item").css("display", "block");
+            $('#test1').addClass("layui-btn-disabled").attr("disabled", true);
         }
-        layui.use(['upload','form'], function(){
+        layui.use(['upload', 'form'], function () {
             var $ = layui.jquery
-                ,upload = layui.upload
-                ,layer = layui.layer
-                ,form = layui.form;
-            form.on('submit(demo1)', function(data){
-                layer.alert(JSON.stringify(data.field), {
-                    title: '最终的提交信息'
+                , upload = layui.upload
+                , layer = layui.layer
+                , form = layui.form;
+
+            form.on('submit(demo1)', function (data) {
+                var eId = data.field.employeeId;
+                $.ajax({
+                    url: "/employee/findEmployeeById",
+                    data: 'employeeId=' + eId,
+                    type: 'post',
+                    dataType: 'text',
+                    success: function (data) {
+                        if (data == 'exist') {
+                            $('#test1').removeClass("layui-btn-disabled").attr("disabled", false);
+                            $('#employeeId').val(eId);
+                        } else {
+                            layer.msg("查找不到该员工编号，请检查");
+                        }
+                    },
+                    error: function () {
+                        layer.msg("发生了一点小问题..请稍后再试");
+                    }
                 });
                 return false;
             });
 
+
             //普通图片上传
             var uploadInst = upload.render({
                 elem: '#test1'
-                ,url: "/document/uploadFile?companyId="+companyId+"&name="+name+"&type="+type //改成您自己的上传接口
-                ,before: function(obj){
+                , url:"/document/uploadFile" //改成您自己的上传接口
+                ,data:{
+                    companyId:companyId,
+                    name:name,
+                    type:type,
+                    employeeId:function () {
+                        return document.getElementById("employeeId").value;
+                    }
+                }
+                , before: function (obj) {
                     //预读本地文件示例，不支持ie8
-                    obj.preview(function(index, file, result){
+                    obj.preview(function (index, file, result) {
                         $('#demo1').attr('src', result); //图片链接（base64）
                     });
                 }
-                ,done: function(res){
+                , done: function (res) {
                     //如果上传失败
-                    if(res.code > 0){
+                    if (res.code > 0) {
                         return layer.msg('上传失败');
-                    }else if(res.code ==0 ) {
+                    } else if (res.code == 0) {
                         layer.msg("上传成功")
                         var i = 1;
-                         var interval = setInterval(function(){
-                             i--;
-                            if(i === 0){
-                                var index=parent.layer.getFrameIndex(window.name); //获取当前窗口的name
+                        var interval = setInterval(function () {
+                            i--;
+                            if (i === 0) {
+                                var index = parent.layer.getFrameIndex(window.name); //获取当前窗口的name
                                 parent.layer.close(index);		//关闭窗口
                                 clearInterval(interval);
                             }
@@ -88,16 +114,20 @@
                     }
                     //上传成功
                 }
-                ,error: function(){
+                , error: function () {
                     //演示失败状态，并实现重传
                     var demoText = $('#demoText');
                     demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
-                    demoText.find('.demo-reload').on('click', function(){
+                    demoText.find('.demo-reload').on('click', function () {
                         uploadInst.upload();
                     });
                 }
             });
         });
     })
+
+    function disabledBtn() {
+        $('#test1').addClass("layui-btn-disabled").attr("disabled", true);
+    }
 </script>
 </html>
