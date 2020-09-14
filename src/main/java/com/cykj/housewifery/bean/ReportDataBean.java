@@ -1,6 +1,7 @@
 package com.cykj.housewifery.bean;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 图表对象
@@ -9,6 +10,16 @@ public class ReportDataBean {
 
     private List<String> categories;
     private List<Integer> data;
+    private Map<String,Integer> count;
+    private List<Integer> datas;
+
+    public Map<String, Integer> getCount() {
+        return count;
+    }
+
+    public void setCount(Map<String, Integer> count) {
+        this.count = count;
+    }
 
     public List<Integer> getDatas() {
         return datas;
@@ -18,7 +29,7 @@ public class ReportDataBean {
         this.datas = datas;
     }
 
-    private List<Integer> datas;
+
     public List<String> getCategories() {
         return categories;
     }
