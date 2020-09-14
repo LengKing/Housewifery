@@ -1,4 +1,4 @@
-
+package com.cykj.housewifery.bean;
 
 import java.util.List;
 
@@ -26,9 +26,11 @@ public class ReportDataBean {
     public void setCategories(List<String> categories) {
         this.categories = categories;
     }
+
     public List<Integer> getData() {
         return data;
     }
+
     public void setData(List<Integer> data) {
         this.data = data;
     }
