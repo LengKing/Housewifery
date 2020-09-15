@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.housewifery.mapper.HotServiceMapper">
+
+    <select id="getHot" resultType="com.cykj.housewifery.bean.Order">
+        select count(*) as hot_count ,service_name from tb_order group by service_name
+--          as hot_count,
+    </select>
+
+</mapper>
