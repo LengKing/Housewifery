@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.housewifery.mapper.CounselorMapper">
+
+    <select id="getCounselorCount" resultType="int">
+        select count(*) from tb_counselor
+    </select>
+
+    <select id="selCounselor"  resultType="Counselor">
+    select id,number,position,detail from tb_counselor limit #{pageNum},#{limit}
+    </select>
+
+
+</mapper>
