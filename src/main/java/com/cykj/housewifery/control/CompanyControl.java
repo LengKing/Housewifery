@@ -21,7 +21,6 @@ public class CompanyControl {
     @ResponseBody
     public Object barCompany(String startDate,String endDate){
         ReportDataBean dataBeans=companyService.totalCompany(startDate,endDate);
-        System.out.println(new Gson().toJson(dataBeans));
         return new Gson().toJson(dataBeans);
     }
 
@@ -29,7 +28,6 @@ public class CompanyControl {
     @ResponseBody
     public Object lineCompany(String startDate,String endDate){
         ReportDataBean dataBeans=companyService.lineCompany(startDate,endDate);
-        System.out.println(new Gson().toJson(dataBeans));
         return new Gson().toJson(dataBeans);
     }
 
