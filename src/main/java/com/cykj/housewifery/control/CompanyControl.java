@@ -1,5 +1,6 @@
 package com.cykj.housewifery.control;
 
+import com.cykj.housewifery.bean.MapBean;
 import com.cykj.housewifery.bean.ReportDataBean;
 import com.cykj.housewifery.service.CompanyService;
 import com.google.gson.Gson;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -31,4 +33,12 @@ public class CompanyControl {
         return new Gson().toJson(dataBeans);
     }
 
+    @RequestMapping(value = "/companyMap",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object companyMap(){
+        List<MapBean> data=companyService.companyMap();
+        System.out.println(data);
+//        System.out.println(new Gson().toJson(data));
+        return new Gson().toJson(data);
+    }
 }

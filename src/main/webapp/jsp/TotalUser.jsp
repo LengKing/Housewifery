@@ -36,12 +36,6 @@
                             <label>&nbsp;——</label>
                             <input  type="date" id="endDate" style="width: 150px;height: 25px" value="<fmt:formatDate value="${Time}" pattern="yyyy-MM-dd"/>">
                             &nbsp;&nbsp;<button type="button" id="select" class="layui-btn"><i class="layui-icon">&#xe615;</i>查询</button>
-<%--                            &nbsp;<button type="button" id="lineUser" class="layui-btn" style="float: right;margin-right: 8%"><i class="layui-icon">&#xe615;</i>查询</button>&nbsp;&nbsp;--%>
-<%--                            <input  type="date" id="eDate" style="width: 150px;height: 25px;float: right" value="<fmt:formatDate value="${Time}" pattern="yyyy-MM-dd"/>">--%>
-<%--                            <label style="float: right">&nbsp;——&nbsp;</label>--%>
-<%--                            <input  type="date" id="sDate" style="width: 150px;height: 25px;float: right" value="<fmt:formatDate value="${Time}" pattern="yyyy-MM-dd"/>">--%>
-<%--                            <label style="float: right">&nbsp;&nbsp;</label>--%>
-<%--                            <label style="float: right">注册时间</label>--%>
                         </div>
                     </div>
                 </div>
