@@ -1,13 +1,17 @@
 package com.cykj.housewifery.service.impl;
 
 import com.cykj.housewifery.bean.LayuiJson;
+import com.cykj.housewifery.bean.ReportDataBean;
 import com.cykj.housewifery.bean.ServiceType;
 import com.cykj.housewifery.bean.Train;
+import com.cykj.housewifery.mapper.CompanyMapper;
 import com.cykj.housewifery.mapper.TrainMapper;
 import com.cykj.housewifery.service.TrainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service("trainService")
@@ -54,5 +58,29 @@ public class TrainServiceImpl implements TrainService {
     public boolean delTrain(String id) {
         int a=trainMapper.delTrain(id);
         return a>0;
+    }
+
+    @Override
+    public ReportDataBean barTrain(List<String> dates) {
+        ReportDataBean reportDataBean=new ReportDataBean();
+        List<Integer> datas=new ArrayList<>();
+        for (String date:dates){
+            int count=trainMapper.barTrain(date);
+            datas.add(count);
+        }
+        reportDataBean.setData(datas);
+        return reportDataBean;
+    }
+
+    @Override
+    public ReportDataBean lineTrain(List<String> dates) {
+        ReportDataBean reportDataBean=new ReportDataBean();
+        List<Integer> datas=new ArrayList<>();
+        for (String date:dates){
+            int count=trainMapper.lineTrain(date);
+            datas.add(count);
+        }
+        reportDataBean.setData(datas);
+        return reportDataBean;
     }
 }

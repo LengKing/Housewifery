@@ -1,12 +1,15 @@
 package com.cykj.housewifery.control;
 
 import com.cykj.housewifery.bean.LayuiJson;
+import com.cykj.housewifery.bean.ReportDataBean;
 import com.cykj.housewifery.bean.Train;
 import com.cykj.housewifery.service.TrainService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -68,13 +71,11 @@ public Object updateTrain(HttpServletRequest request) throws ParseException {
         Train train=new Train(Integer.valueOf(id),title,startDate,endDate,startTime,endTime,content,Integer.valueOf(count),length,credential,"");
         System.out.println(train);
         boolean flag=trainService.updateTrain(train);
-        String res=null;
         if (flag){
-            res="修改成功";
+            return new Gson().toJson(1);
         }else{
-            res="修改失败";
+            return new Gson().toJson(2);
         }
-    return new Gson().toJson(res);
     }
 
     @RequestMapping(value = "/addTrain" ,produces = "text/plain;charset=utf-8")
@@ -100,14 +101,14 @@ public Object updateTrain(HttpServletRequest request) throws ParseException {
             String  prefix= originalName.substring(originalName.lastIndexOf(".") + 1);
             Date date = new Date();
             //使用UUID+后缀名保存文件名，防止中文乱码问题
-            String uuid = UUID.randomUUID() + "";
+            String uuid = UUID.randomUUID().toString();
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
             String dateStr = simpleDateFormat.format(date);
             //"/upload/"最后的的斜杠会被tomcat取消掉，需要把/放在projectPath
             String savePath = request.getSession().getServletContext().getRealPath("/static/data/video");
             //要保存的问题件路径和名称   /upload/2020-09-09/uuid.jpg
-            String projectPath = "/static/data/video"+ File.separator+ dateStr + File.separator + uuid + "." + prefix;
-//            System.out.println("projectPath==" + projectPath);
+            String projectPath = savePath+ File.separator+ dateStr + File.separator + uuid + "." + prefix;
+            System.out.println("projectPath==" + projectPath);
             File files = new File(projectPath);
             //打印查看上传路径
             if (!files.getParentFile().exists()) {//判断目录是否存在
@@ -134,15 +135,16 @@ public Object updateTrain(HttpServletRequest request) throws ParseException {
         }
     }
 
+    @RequestMapping(value = "/delTrain" ,produces = "text/plain;charset=utf-8")
+    @ResponseBody
     public Object delTrain(String id){
         boolean flag=trainService.delTrain(id);
-        String res=null;
         if (flag){
-            res="删除成功";
+            return new Gson().toJson(1);
         }else {
-            res="删除失败";
+            return new Gson().toJson(2);
         }
-        return new Gson().toJson(res);
+
     }
 
 
@@ -162,4 +164,25 @@ public Object updateTrain(HttpServletRequest request) throws ParseException {
         int dateDiff = days1 - days2;
         return dateDiff;
     }
+
+    @RequestMapping(value = "/barTrain",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object barTrain(String time){
+        Gson gson=new Gson();
+        List<String> dates = gson.fromJson(time, new TypeToken<List<String>>(){}.getType());
+        ReportDataBean dataBeans=trainService.barTrain(dates);
+        System.out.println(new Gson().toJson(dataBeans));
+        return new Gson().toJson(dataBeans);
+    }
+
+    @RequestMapping(value = "/lineTrain",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object lineTrain(String time){
+        Gson gson=new Gson();
+        List<String> dates = gson.fromJson(time, new TypeToken<List<String>>(){}.getType());
+        ReportDataBean dataBeans=trainService.lineTrain(dates);
+        System.out.println(new Gson().toJson(dataBeans));
+        return new Gson().toJson(dataBeans);
+    }
+
 }

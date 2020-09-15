@@ -2,7 +2,6 @@ package com.cykj.housewifery.control;
 
 import com.cykj.housewifery.bean.Company;
 import com.cykj.housewifery.bean.CompanyAccountDetails;
-import com.cykj.housewifery.bean.CompanyService;
 import com.cykj.housewifery.bean.LayuiJson;
 import com.cykj.housewifery.service.CompanyAccountService;
 import com.google.gson.Gson;
@@ -71,4 +70,6 @@ public class CompanyAccountControl {
         Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
         return gson.toJson(layuiJson);
     }
+
+
 }

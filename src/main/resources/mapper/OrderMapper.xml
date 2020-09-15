@@ -83,4 +83,20 @@
     <select id="allOrderState" resultType="param">
         select id paramId,type,name,value from tb_params where type='order_state'
     </select>
+
+    <select id="barOrder" resultType="int">
+        select count(*) from tb_order where date_format(order_time,'%Y-%m-%d') = #{date}
+            <if test="company!='' and company!=null">
+                and company=(select id from tb_company where name like concat('%', #{company},'%'))
+            </if>
+
+    </select>
+
+    <select id="lineOrder" resultType="int">
+        select count(*) from tb_order where date_format(order_time,'%Y-%m-%d') &lt;= #{date}
+        <if test="company!='' and company!=null">
+            and company=(select id from tb_company where name like concat('%', #{company},'%'))
+        </if>
+    </select>
+
 </mapper>

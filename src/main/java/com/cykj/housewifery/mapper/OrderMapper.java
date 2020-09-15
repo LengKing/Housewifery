@@ -12,7 +12,6 @@ public interface OrderMapper {
     int getOrderCount(@Param("company") String company);
     List<Order> selOrder(@Param("company") String company,@Param("pageNum") Integer pageNum, @Param("limit") Integer limit);
     Order findOrderById(String id);
-
     int orderCount(@Param("companyId") String companyId,@Param("type") String type);
 
     int getDemandCount();
@@ -30,4 +29,8 @@ public interface OrderMapper {
     List<Order> companyOrder(@Param("pageNum") Integer pageNum,@Param("limit") Integer limit,@Param("companyId") String companyId,@Param("type") String type);
 
     List<com.cykj.housewifery.bean.Param> allOrderState();
+
+    int barOrder(@Param("date") String date, @Param("company") String company);
+
+    int lineOrder(@Param("date") String date, @Param("company") String company);
 }

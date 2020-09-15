@@ -68,7 +68,7 @@
 </div>
 </div>
 <script>
-    layui.use(['table', 'layer','upload'], function () {
+    layui.use(['table','layer','upload'], function () {
         var table = layui.table;
         var layer=layui.layer;
         var $ = layui.jquery
@@ -156,7 +156,7 @@
                     content:$("#update_div"),
                     btn:'保存',
                     btnAlign: 'c',
-                    btn1:function () {
+                    btn1:function (index) {
                      var title=$("#upd_title").val();
                      var startDate=$("#upd_startDate").val();
                      var endDate=$("#upd_endDate").val();
@@ -194,8 +194,8 @@
                                 }
                             },
                             success:function (data) {
-                                layer.alert(data,{time:1500});
-                                if (data=='修改成功'){
+                                if (data==1){
+                                layer.alert("修改成功",{time:2000});
                                 layer.close(index);
                                 table.reload('train',{
                                     url: '${pageContext.request.contextPath}/train/selTrain'
@@ -204,10 +204,12 @@
                                         curr:1
                                     }
                                 })
-                            }
+                            }else{
+                                    layer.alert("修改失败",{title:"信息",time:2000});
+                                }
                            },
                             error:function () {
-                                layer.alert("网络繁忙",{icon:5,title:"提示",time:1500});
+                                layer.alert("网络繁忙",{icon:5,title:"提示",time:2000});
                             }
                         });
                     }
@@ -223,13 +225,18 @@
                         return confirm("确认删除该培训计划？")
                     },
                     success:function (data) {
-                        table.reload('train',{
-                            url: '${pageContext.request.contextPath}/train/selTrain'
-                            ,height: 400
-                            ,page:{
-                                curr:1
-                            }
-                        })
+                        if(data==1){
+                            layer.alert("删除成功",{title:"信息",time:2000});
+                            table.reload('train',{
+                                url: '${pageContext.request.contextPath}/train/selTrain'
+                                ,height: 400
+                                ,page:{
+                                    curr:1
+                                }
+                            })
+                        }else{
+                            layer.alert("删除失败",{title:"信息",time:2000});
+                        }
                     }
                 });
             }
@@ -282,7 +289,7 @@
                 //     return confirm("确认添加培训计划？");
                 // }
                 layer.load();
-                this.data={"id":id,"title":$("#add_title").val(),"startDate":$("#add_startDate").val(),"endDate":$("#add_endDate").val(),"startTime":$("#add_startTime").val(),"endTime":$("#add_endTime").val(),"content":$("#add_content").val(),"count":$("#add_count").val(),"credential":$("#add_credential").val()};
+                this.data={"title":$("#add_title").val(),"startDate":$("#add_startDate").val(),"endDate":$("#add_endDate").val(),"startTime":$("#add_startTime").val(),"endTime":$("#add_endTime").val(),"content":$("#add_content").val(),"count":$("#add_count").val(),"credential":$("#add_credential").val()};
             }
             ,bindAction: '#test9'
             ,done: function(res){

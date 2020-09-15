@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.housewifery.mapper.JobsMapper">
+
+    <select id="getJobsCount" resultType="int">
+        select count(*) from tb_jobs
+    </select>
+
+    <select id="selJobs" resultType="Jobs">
+        select id,jobs,detail from tb_jobs limit #{pageNum},#{limit}
+    </select>
+
+    <select id="findJobsById" resultType="Jobs">
+        select id,jobs,detail from tb_jobs where id=#{id}
+    </select>
+
+   <update id="updateJobs">
+       update tb_jobs set jobs=#{jobs},detail=#{detail} where id=#{id}
+   </update>
+
+    <delete id="deleteJobs">
+        delete from tb_jobs where id=#{id}
+    </delete>
+
+    <insert id="addJobs">
+        insert into tb_jobs values (#{id},#{jobs},#{detail})
+    </insert>
+
+</mapper>

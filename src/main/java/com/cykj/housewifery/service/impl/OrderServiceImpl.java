@@ -2,6 +2,9 @@ package com.cykj.housewifery.service.impl;
 
 import com.cykj.housewifery.bean.*;
 import com.cykj.housewifery.mapper.EmployeeMapper;
+import com.cykj.housewifery.bean.Order;
+import com.cykj.housewifery.bean.ReportDataBean;
+import com.cykj.housewifery.mapper.CompanyMapper;
 import com.cykj.housewifery.mapper.OrderMapper;
 import com.cykj.housewifery.mapper.UserMapper;
 import com.cykj.housewifery.service.OrderService;
@@ -11,6 +14,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service("orderService")
@@ -25,6 +30,9 @@ public class OrderServiceImpl implements OrderService {
     private UserMapper userMapper;
     @Autowired
     private EmployeeMapper employeeMapper;
+
+    @Autowired
+    private CompanyMapper companyMapper;
 
     @Override
     public int getOrderCount(String company) {
@@ -122,4 +130,32 @@ public class OrderServiceImpl implements OrderService {
         return map;
     }
 
+
+    @Override
+    public ReportDataBean barOrder(String startDate, String endDate, String company) {
+        List<String> dates=companyMapper.allDate(startDate,endDate);
+        Collections.reverse(dates);
+        ReportDataBean reportDataBean=new ReportDataBean();
+        List<Integer> datas=new ArrayList<>();
+        for (String date:dates){
+            int count=orderMapper.barOrder(date,company);
+            datas.add(count);
+        }
+        reportDataBean.setData(datas);
+        return reportDataBean;
+    }
+
+    @Override
+    public ReportDataBean lineOrder(String startDate, String endDate, String company) {
+        List<String> dates=companyMapper.allDate(startDate,endDate);
+        Collections.reverse(dates);
+        ReportDataBean reportDataBean=new ReportDataBean();
+        List<Integer> datas=new ArrayList<>();
+        for (String date:dates){
+            int count=orderMapper.lineOrder(date,company);
+            datas.add(count);
+        }
+        reportDataBean.setData(datas);
+        return reportDataBean;
+    }
 }
