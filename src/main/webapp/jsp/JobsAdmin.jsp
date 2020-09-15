@@ -33,7 +33,7 @@
     <div class="layui-row layui-col-space15">
         <div class="layui-col-sm12 layui-col-md6" style="width: 100%;height: 30%">
             <div class="layui-card">
-                <div class="layui-card-header">订单信息</div>
+                <div class="layui-card-header">角色管理</div>
                 <div class="layui-card-body">
                     <button class="layui-btn" id="addJobs">
                     <i class="layui-icon">&#xe654;</i>添加</button></div>
