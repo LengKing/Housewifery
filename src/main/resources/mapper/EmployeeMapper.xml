@@ -6,4 +6,15 @@
     <select id="findEmployeeById" parameterType="string" resultType="Employee">
         select id,number,password,name,gender,age,birthday,school,skill,job,label,state,company_id from tb_employee where number = #{value}
     </select>
+
+    <select id="getEmployeesCount" resultType="int">
+        select count(*) from tb_employee where company_id = #{companyId}
+        <if test="name!=null and name!=''">
+            and name like '%${name}%'
+        </if>
+    </select>
+
+    <select id="getEmployeesByCompanyId" resultType="Employee">
+        select
+    </select>
 </mapper>

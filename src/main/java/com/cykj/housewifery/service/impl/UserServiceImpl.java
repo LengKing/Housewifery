@@ -64,4 +64,10 @@ public class UserServiceImpl implements UserService {
         reportDataBean.setData(datas);
         return reportDataBean;
     }
+
+    @Override
+    public User findUserByAccount(String account) {
+        User user = userMapper.findUserByAccount(account);
+        return user;
+    }
 }

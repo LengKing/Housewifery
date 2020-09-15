@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.crypto.Data;
 import java.io.IOException;
+import java.util.HashMap;
 
 @Controller
 @RequestMapping("/user")
@@ -31,6 +32,7 @@ public class UserController {
         User admin = new User();
         admin.setAccount(account);
         admin.setPassword(password);
+
         if (null != admin) {
             request.getSession().setAttribute("admin", admin);
             response.getWriter().print("success");
@@ -56,6 +58,7 @@ public class UserController {
         user.setGender(gender);
         user.setPassword(password);
         user.setPhone(phone);
+
         boolean a = userService.add(user);
         if (a) {
             if (null != user) {
@@ -74,6 +77,12 @@ public class UserController {
         return new Gson().toJson(dataBeans);
     }
 
+    @RequestMapping(value = "/findUserByAccount")
+    @ResponseBody
+    public Object findUserByAccount(String account) throws IOException, ServletException {
+        User user = userService.findUserByAccount(account);
+        return new Gson().toJson(user);
+    }
     @RequestMapping(value = "/lineUser",produces = "text/plain;charset=utf-8")
     @ResponseBody
     public Object lineUser(String startDate,String endDate){
