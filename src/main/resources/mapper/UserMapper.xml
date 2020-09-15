@@ -11,6 +11,16 @@
     <insert id="add" parameterType="User"  >
         insert into tb_user (account,password,gender,phone,address) value (#{account},#{password},#{gender},#{phone},#{address})
     </insert>
+
+    <select id="barUser" resultType="int">
+        select count(*) from tb_user where date_format(reg_date,'%Y-%m-%d') = #{date}
+    </select>
+
+    <select id="lineUser" resultType="int">
+        select count(*) from tb_user where date_format(reg_date,'%Y-%m-%d') &lt;= #{date}
+    </select>
+
+
 <!--    <update id="updateAdmin"  parameterType="com.cykj.housewifery.bean.User" >-->
 <!--        update t_admin-->
 <!--        set t_admin.account = #{account},-->
@@ -26,4 +36,7 @@
 <!--            #{id}-->
 <!--        </foreach>-->
 <!--    </delete>-->
+    <select id="findUserByAccount" parameterType="string" resultType="user">
+        select user_id, account, name, password, gender, phone, address, integral, url, reg_date, money from tb_user where account = #{value}
+    </select>
 </mapper>

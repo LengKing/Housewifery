@@ -22,8 +22,7 @@ public class ServiceImpl implements Service {
 
     @Override
     public int getServiceTypeCount() {
-        int count = 0;
-        count = serviceMapper.getServiceTypeCount();
+        int count = serviceMapper.getServiceTypeCount();
         return count;
     }
 
@@ -42,8 +41,7 @@ public class ServiceImpl implements Service {
 
     @Override
     public int getServiceCount() {
-        int count = 0;
-        count = serviceMapper.getServiceCount();
+        int count = serviceMapper.getServiceCount();
         return count;
     }
 

@@ -1,10 +1,12 @@
 package com.cykj.housewifery.control;
 
 import com.cykj.housewifery.bean.LayuiJson;
+import com.cykj.housewifery.bean.ReportDataBean;
 import com.cykj.housewifery.bean.Train;
 import com.cykj.housewifery.service.TrainService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -162,4 +164,25 @@ public Object updateTrain(HttpServletRequest request) throws ParseException {
         int dateDiff = days1 - days2;
         return dateDiff;
     }
+
+    @RequestMapping(value = "/barTrain",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object barTrain(String time){
+        Gson gson=new Gson();
+        List<String> dates = gson.fromJson(time, new TypeToken<List<String>>(){}.getType());
+        ReportDataBean dataBeans=trainService.barTrain(dates);
+        System.out.println(new Gson().toJson(dataBeans));
+        return new Gson().toJson(dataBeans);
+    }
+
+    @RequestMapping(value = "/lineTrain",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object lineTrain(String time){
+        Gson gson=new Gson();
+        List<String> dates = gson.fromJson(time, new TypeToken<List<String>>(){}.getType());
+        ReportDataBean dataBeans=trainService.lineTrain(dates);
+        System.out.println(new Gson().toJson(dataBeans));
+        return new Gson().toJson(dataBeans);
+    }
+
 }

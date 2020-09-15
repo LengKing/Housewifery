@@ -40,8 +40,7 @@ public class HomeMarkingServiceImpl implements HomeMarkingService {
 
     @Override
     public int getCompanyDataCount() {
-        int count = 0;
-        count = homeMarkingMapper.getCompanyDataCount();
+        int count = homeMarkingMapper.getCompanyDataCount();
         return count;
     }
 
@@ -60,8 +59,7 @@ public class HomeMarkingServiceImpl implements HomeMarkingService {
 
     @Override
     public int getEmployeeDataCount() {
-        int count = 0;
-        count = homeMarkingMapper.getEmployeeDataCount();
+        int count = homeMarkingMapper.getEmployeeDataCount();
         return count;
     }
 

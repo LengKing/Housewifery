@@ -6,6 +6,7 @@ import java.util.Date;
 public class Demand {
     private int id;                 //需求表 主id
     private int userId;             //用户id
+    private String name;            //用户名
     private String address;         //详细地址
     private String classService;    //服务类别
     private int serviceCount;       //服务频次 次数
@@ -14,8 +15,17 @@ public class Demand {
     private String phone;           //用户联系方式
     private Date releaseTime;       //发布时间
     private String state;           //状态 默认初始待服务
+    private String payState;  //支付状态
 
     public Demand() {
+    }
+
+    public String getPayState() {
+        return payState;
+    }
+
+    public void setPayState(String payState) {
+        this.payState = payState;
     }
 
     public Demand(int id, int userId, String address, String classService, int serviceCount, String title, String described, String phone, Date releaseTime, String state) {
@@ -111,11 +121,20 @@ public class Demand {
         this.state = state;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return "Demand{" +
                 "id=" + id +
                 ", userId=" + userId +
+                ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", classService='" + classService + '\'' +
                 ", serviceCount=" + serviceCount +

@@ -109,8 +109,7 @@ public class CompanyAccountServiceImpl implements CompanyAccountService {
 
     @Override
     public int getRecordsCount(String companyId) {
-        int count = 0;
-        count = companyAccountMapper.getRecordsCount(companyId);
+        int count = companyAccountMapper.getRecordsCount(companyId);
         return count;
     }
 

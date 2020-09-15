@@ -32,4 +32,71 @@
          (select name from tb_company where id=company) company,(select name from tb_params where
           value=order_state and type='order_state') order_state from tb_order where id=#{arg0}
     </select>
+
+    <select id="getDemandCount" resultType="int">
+        select count(*) from tb_demand where state = '待接单'
+    </select>
+
+    <select id="getDemands" resultType="demand">
+        select d.id, d.user_id, u.name, d.address, d.class_service, d.service_count, d.title, d.described, d.phone,
+         d.release_time from tb_demand d,tb_user u where d.user_id = u.account and d.state ='待接单' limit #{pageNum},#{limit}
+    </select>
+
+    <select id="selectDemandById" parameterType="string" resultType="Demand">
+        select user_id, address, class_service, service_count, title, described, phone, release_time, state from tb_demand
+        where id = #{value}
+    </select>
+
+    <update id="updateDemandById" parameterType="string">
+        update tb_demand set state = '已接单' where id = #{value}
+    </update>
+
+    <select id="createOrderByDemandId" resultType="Order">
+        select d.user_id user,s.type_name serviceName, s.id type,d.service_count count,d.release_time orderTime,
+        d.pay_state from tb_demand d,tb_service_type s where d.class_service = s.type_name and d.id = #{id}
+    </select>
+
+    <insert id="insertOrder" parameterType="order">
+        insert into tb_order(user, service_name, type, count, order_time, service_date, cost, employee, company, pay_state)
+        values (#{user},#{serviceName},#{type},#{count},#{orderTime},#{serviceDate},#{cost},#{employee},#{company},#{payState})
+    </insert>
+
+    <select id="orderCount" resultType="int">
+        select count(*) from tb_order o,tb_params p where o.company = #{companyId} and o.pay_state = p.value
+        and p.type = 'pay_state' and p.name = '已支付'
+         <if test="type!=null and type!='' and type!=-1">
+         and o.order_state = #{type}
+         </if>
+    </select>
+
+    <select id="companyOrder" resultType="order">
+        select o.id,o.user,o.service_name,o.type,s.type_name,o.count,o.order_time,o.service_date,o.cost,
+        o.employee,p.name orderState from tb_order o,tb_service_type s,tb_params p,tb_params p1 where o.company = #{companyId}
+        and o.type = s.id and p.type = 'order_state' and p.value = o.order_state and o.pay_state = p1.value
+        and p1.type = 'pay_state' and p1.name = '已支付'
+         <if test="type!=null and type!='' and type!=-1">
+             and o.order_state = #{type}
+         </if>
+        limit #{pageNum},#{limit}
+    </select>
+
+    <select id="allOrderState" resultType="param">
+        select id paramId,type,name,value from tb_params where type='order_state'
+    </select>
+
+    <select id="barOrder" resultType="int">
+        select count(*) from tb_order where date_format(order_time,'%Y-%m-%d') = #{date}
+            <if test="company!='' and company!=null">
+                and company=(select id from tb_company where name like concat('%', #{company},'%'))
+            </if>
+
+    </select>
+
+    <select id="lineOrder" resultType="int">
+        select count(*) from tb_order where date_format(order_time,'%Y-%m-%d') &lt;= #{date}
+        <if test="company!='' and company!=null">
+            and company=(select id from tb_company where name like concat('%', #{company},'%'))
+        </if>
+    </select>
+
 </mapper>
