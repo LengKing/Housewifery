@@ -26,4 +26,7 @@
 <!--            #{id}-->
 <!--        </foreach>-->
 <!--    </delete>-->
+    <select id="findUserByAccount" parameterType="string" resultType="user">
+        select user_id, account, name, password, gender, phone, address, integral, url, reg_date, money from tb_user where account = #{value}
+    </select>
 </mapper>

@@ -62,4 +62,5 @@ public class ServiceControl {
         List<ServiceType> types = service.getServiceTypeByCompanyId(companyId);
         return new Gson().toJson(types);
     }
+
 }

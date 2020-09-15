@@ -20,7 +20,8 @@
     <div class="layui-row layui-col-space15">
         <div class="layui-col-sm12 layui-col-md6" style="width: 100%;">
             <div class="layui-card">
-                <div class="layui-card-header">订单信息</div>
+                <div class="layui-card-header">人员信息</div>
+                <button id="add" type="button" class="layui-btn layui-btn-normal" style="margin-left: 15px;margin-top: 5px">+新增</button>
                 <div class="layui-card-body" style="min-height: 400px;">
                     <div class="layui-form layui-input-inline layui-show-xs-block">
                         <select id="type">
@@ -65,32 +66,25 @@
         var tableIns = table.render({
             elem: '#order'
             , height: 312
-            , url: '/order/companyOrder?companyId='+1000 //数据接口
+            , url: '/employee/companyOrder?companyId='+1000 //数据接口
             , page: true //开启分页
             , cols: [[ //表头
-                 {field: 'id', title: '订单号', width: 100,align: 'center'}
-                , {field: 'user', title: '用户账号', width: 100,align: 'center'}
-                , {field: 'serviceName', title: '服务', width: 100,align: 'center'}
-                , {field: 'type', title: '服务类别', width: 100,align: 'center'}
-                , {field: 'typeName', title: '服务类别', width: 100,align: 'center'}
-                , {field: 'count', title: '频次', width: 100,align: 'center'}
-                , {field: 'orderTime', title: '下单时间', width: 150,align: 'center'}
-                , {field: 'serviceDate', title: '服务时间', width: 100,align: 'center',templet:function(res){
-                        if(res.serviceDate==null){
-                            return  '-';
-                        }else return res.serviceDate;
-                    }}
-                , {field: 'cost', title: '费用', width: 100,align: 'center'}
-                , {field: 'employee', title: '服务人员编号', width: 150,align: 'center',templet:function(res){
-                        if(res.employee==null){
-                            return  '-';
-                        }else return res.employee;
-                    }}
-                , {field: 'orderState', title: '订单状态', width: 100,align: 'center'}
-                , {title: '操作', width: 200, align: 'center', toolbar: '#barDemo'}
+                {field: 'id', title: '员工编号', width: 100,align: 'center'}
+                , {field: 'user', title: '人员姓名', width: 100,align: 'center'}
+                , {field: 'serviceName', title: '性别', width: 100,align: 'center'}
+                , {field: 'age', title: '年龄', width: 100,align: 'center'}
+                , {field: 'type', title: '出生年月', width: 100,align: 'center'}
+                , {field: 'typeName', title: '学历', width: 100,align: 'center'}
+                , {field: 'skill', title: '技能', width: 100,align: 'center'}
+                , {field: 'count', title: '求职意向', width: 100,align: 'center'}
+                , {field: 'label', title: '评语', width: 100,align: 'center'}
+                , {field: 'orderTime', title: '状态', width: 150,align: 'center'}
+                , {title: '操作', width: 300, align: 'center', toolbar: '#barDemo'}
             ]]
             ,done: function () {
-                $("[data-field='type']").css('display','none');
+                $("[data-field='age']").css('display','none');
+                $("[data-field='skill']").css('display','none');
+                $("[data-field='label']").css('display','none');
             }
             , limit: 5
             , limits: [5, 6, 7]
@@ -112,48 +106,14 @@
 
         table.on('tool(order)', function (obj) {
             var event = obj.event;
-            if (event=='dispatch'){
-                layer.msg("r")
-            }
-            if (event=='returnVisit'){
-                $.ajax({
-                    url:"/user/findUserByAccount",
-                    data:"account="+obj.data.user,
-                    type:"post",
-                    dataType:"json",
-                    success:function (data) {
-                        layer.alert("用户名："+data.name+"\n, 电话："+data.phone,{title:'电话回访'})
-                    },
-                    error:function () {
-                        layer.msg("发生了一点小问题..请稍后再试");
-                    }
-                });
-            }
-            if (event=='details'){
-                var user = obj.data.user;
-                var employee = obj.data.employee;
-                layer.open({
-                    type: 2,
-                    title: '详情',
-                    closeBtn: 1,
-                    icon: 6,
-                    shift: 2,
-                    area: ['30%', '90%'], //控制窗口大小
-                    shadeClose: true,
-                    content: 'order-details.html?user='+user+"&employee="+employee //这里填写自己的路径
-                });
-            }
         });
     });
 </script>
 <script type="text/html" id="barDemo">
-    {{#  if(d.orderState == '待处理'){ }}
-    <button class="layui-btn layui-btn-normal" type="button" lay-event="dispatch">人员派遣</button>
-    {{#  } }}
-    {{#  if(d.orderState == '已处理'){ }}
-    <button class="layui-btn layui-btn-normal" type="button" lay-event="returnVisit">回访</button>
-    {{#  } }}
+    <button class="layui-btn layui-btn-normal" type="button" lay-event="upload">上传资料</button>
     <button class="layui-btn layui-btn-normal" type="button" lay-event="details">详情</button>
+    <button class="layui-btn layui-btn-warm" type="button" lay-event="update">修改</button>
+    <button class="layui-btn layui-btn-danger" type="button" lay-event="delete">删除</button>
 </script>
 </body>
 </html>
