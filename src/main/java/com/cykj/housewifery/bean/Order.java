@@ -17,11 +17,12 @@ public class Order {
     private String company;      //家政公司名称
     private String orderState;   //状态
     private String payState;     //支付状态
+    private String hotCount;     //热度次数
 
     public Order() {
     }
 
-    public Order(int id, String user, String serviceName, String type, String count, String orderTime, String serviceDate, BigDecimal cost, String employee, String company, String orderState, String payState) {
+    public Order(int id, String user, String serviceName, String type, String count, String orderTime, String serviceDate, BigDecimal cost, String employee, String company, String orderState, String payState, String hotCount) {
         this.id = id;
         this.user = user;
         this.serviceName = serviceName;
@@ -34,6 +35,7 @@ public class Order {
         this.company = company;
         this.orderState = orderState;
         this.payState = payState;
+        this.hotCount = hotCount;
     }
 
     @Override
@@ -51,7 +53,16 @@ public class Order {
                 ", company='" + company + '\'' +
                 ", orderState='" + orderState + '\'' +
                 ", payState='" + payState + '\'' +
+                ", hotCount='" + hotCount + '\'' +
                 '}';
+    }
+
+    public String getHotCount() {
+        return hotCount;
+    }
+
+    public void setHotCount(String hotCount) {
+        this.hotCount = hotCount;
     }
 
     public String getOrderTime() {

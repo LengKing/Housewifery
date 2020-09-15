@@ -19,26 +19,27 @@
     <%
         String path = request.getContextPath();
     %>
-    <link href="${pageContext.request.contextPath}/static/css/common.css" rel="stylesheet" type="text/css">
-    <link href="${pageContext.request.contextPath}/static/css/tcommon.css" rel="stylesheet" type="text/css">
-    <link href="${pageContext.request.contextPath}/static/css/inpage.css" rel="stylesheet" type="text/css">
-    <link href="${pageContext.request.contextPath}/static/css/tinpage-1.0.css" rel="stylesheet" type="text/css">
-    <link href="${pageContext.request.contextPath}/css/fancybox.css" rel="stylesheet" type="text/css"/>
-    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/static/css/swiper.css"/>
+    <link href="/static/css/common.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/tcommon.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/inpage.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/tinpage-1.0.css" rel="stylesheet" type="text/css">
+    <link href="/css/fancybox.css" rel="stylesheet" type="text/css"/>
+    <link type="text/css" rel="stylesheet" href="/static/css/swiper.css"/>
     <script type="text/javascript" charset="utf-8"
-            src="${pageContext.request.contextPath}/static/js/1.9.1jquery.min.js"></script>
+            src="$/static/js/1.9.1jquery.min.js"></script>
     <script type="text/javascript" charset="utf-8"
-            src="${pageContext.request.contextPath}/static/js/swiper.js"></script>
-    <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/static/js/move.js"></script>
+            src="/static/js/swiper.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/static/js/move.js"></script>
     <script type="text/javascript" charset="utf-8"
-            src="${pageContext.request.contextPath}/static/js/tcommon-1.0.js"></script>
+            src="/static/js/tcommon-1.0.js"></script>
     <script type="text/javascript" charset="utf-8"
-            src="${pageContext.request.contextPath}/static/js/common.js"></script>
+            src="/static/js/common.js"></script>
     <script type="text/javascript" charset="utf-8"
-            src="${pageContext.request.contextPath}/static/js/inpage.js"></script>
+            src="/static/js/inpage.js"></script>
 </head>
 
 <body>
+
 <!-- header -->
 <div class="header">
     <div class="header-top">
@@ -54,7 +55,7 @@
     </div>
     <div class="header-center">
         <h1><a href="">XXXX智慧家政</a></h1>
-        <h2><img src="${pageContext.request.contextPath}/static/images/logo_text.png"></h2>
+        <h2><img src="/static/images/logo_text.png"></h2>
         <div class="search">
             <form action="/Search/index.html">
                 <input type="text" name="word" placeholder="家庭保洁">
@@ -68,34 +69,34 @@
     <div class="header-nav">
         <div class="content" id="navBox">
             <ul>
-                <li><a href="${pageContext.request.contextPath}/jsp/Page_Main.jsp">首页</a></li>
+                <li><a href="/jsp/Page_Main.jsp" target="_self">首页</a></li>
 
                 <li mark='65' px='1'>
-                    <a href="${pageContext.request.contextPath}/jsp/jzfw.jsp" target="_blank">家政服务</a>
+                    <a href="/jsp/jzfw.jsp" target="_self">家政服务</a>
                 </li>
 
                 <li mark='47' px='2'>
-                    <a href="/product/" target="_blank">热门服务</a>
+                    <a href="/jsp/jzfw_Hot.jsp" target="_self">热门服务</a>
                 </li>
 
                 <li mark='88' px='3'>
-                    <a href="${pageContext.request.contextPath}/jsp/PostDemand.jsp" target="_blank">发布服务</a>
+                    <a href="/jsp/PostDemand.jsp" target="_self">发布服务</a>
                 </li>
 
                 <li mark='89' px='4'>
-                    <a href="/help/jzfw.html" target="_blank">联系平台</a>
+                    <a href="/jsp/Main_lxpt.jsp" target="_self">联系平台</a>
                 </li>
 
                 <li mark='48' px='6'>
-                    <a href="/news/" target="_blank">商户入驻</a>
+                    <a href="/jsp/Main_ruzhu.jsp" target="_self">品牌招商</a>
                 </li>
 
                 <li mark='52' px='5'>
-                    <a href="/help/ppjs.html" target="_blank">关于平台</a>
+                    <a href="/jsp/Main_gypt.jsp" target="_self">关于平台</a>
                 </li>
 
                 <li mark='71' px='7'>
-                    <a href="/help/lxwm.html" target="_blank">家政了解</a>
+                    <a href="/jsp/jzfw_news.jsp" target="_self">知识了解</a>
                 </li>
 
             </ul>
@@ -108,36 +109,36 @@
 <!-- 产品中心 -->
 <div class="y-product-module bgcolor" id="yProductModule">
     <div class="width1200">
-        <h3><a href="http://www.sqbang.com/product/">家政服务</a></h3>
+        <h3><a href="">家政服务</a></h3>
         <div class="aboutMenu" id="aboutMenu1jzfw">
             <ul class="clearfix">
 
                 <li>
-                    <a href="${pageContext.request.contextPath}/jsp/jzfw_qj.jsp">家庭清洁</a>
+                    <a href="/jsp/jzfw_qj.jsp">家庭清洁</a>
                 </li>
 
                 <li>
-                    <a href="${pageContext.request.contextPath}/jsp/jzfw_qyqj.jsp">企业清洁</a>
+                    <a href="/jsp/jzfw_qyqj.jsp">企业清洁</a>
                 </li>
 
                 <li>
-                    <a href="${pageContext.request.contextPath}/jsp/jzfw_bm.jsp">保姆</a>
+                    <a href="/jsp/jzfw_bm.jsp">保姆</a>
                 </li>
 
                 <li>
-                    <a href="${pageContext.request.contextPath}/jsp/jzfw_ys.jsp">月嫂</a>
+                    <a href="/jsp/jzfw_ys.jsp">月嫂</a>
                 </li>
 
                 <li>
-                    <a href="${pageContext.request.contextPath}/jsp/jzfw_yy.jsp">育婴</a>
+                    <a href="/jsp/jzfw_yy.jsp">育婴</a>
                 </li>
 
                 <li>
-                    <a href="${pageContext.request.contextPath}/jsp/jzfw_zdg.jsp">钟点工</a>
+                    <a href="/jsp/jzfw_zdg.jsp">钟点工</a>
                 </li>
 
                 <li>
-                    <a href="${pageContext.request.contextPath}/jsp/jzfw_yyph.jsp">医院陪护</a>
+                    <a href="/jsp/jzfw_yyph.jsp">医院陪护</a>
                 </li>
 
             </ul>
@@ -154,91 +155,86 @@
 
                             <div class="details-cont fl">
                                             <span class="y-img-box">
-                                                <a href="http://www.sqbang.com/help/2019072323445187.html"
-                                                   target="_blank">
-                                                    <img src="${pageContext.request.contextPath}/static/images/678f276525bc247b.jpg" alt="新居清洁">
+                                                 <a href="" target="_self">
+                                                    <img src="/static/images/678f276525bc247b.jpg"
+                                                         alt="新居清洁">
                                                 </a>
                                             </span>
-                                <h4><a href="http://www.sqbang.com/help/2019072323445187.html" target="_blank">新居清洁</a>
+                                <h4><a href="" target="_blank">新居清洁</a>
                                 </h4>
                                 <p>本服务产品适用于居家、写字楼、商铺、厂房及其它类型的开荒项目...</p>
                                 <span class="y-btns clearfix">
-                                                <a href="javascript:void(formShow())" target="_blank" rel="nofollow"
-                                                   class="fl">立即咨询</a>
-                                                <a href="http://www.sqbang.com/help/2019072323445187.html"
-                                                   target="_blank" class="fl">了解更多</a>
+                                              <a href="javascript:void(formShow())" target="_self" rel="nofollow"
+                                                 class="fl">立即下单</a>
+                                                   <a href="/jsp/bmxq.jsp" target="_self" class="fl">了解更多</a>
                                             </span>
                             </div>
 
                             <div class="details-cont fl">
                                             <span class="y-img-box">
-                                                <a href="http://www.sqbang.com/help/2019072015833134.html"
-                                                   target="_blank">
-                                                    <img src="${pageContext.request.contextPath}/static/images/29c5dac1e01b5722.jpg" alt="企业开荒">
+                                                 <a href="" target="_self">
+                                                    <img src="/static/images/29c5dac1e01b5722.jpg"
+                                                         alt="企业开荒">
                                                 </a>
                                             </span>
-                                <h4><a href="http://www.sqbang.com/help/2019072015833134.html" target="_blank">企业开荒</a>
+                                <h4><a href="" target="_blank">企业开荒</a>
                                 </h4>
                                 <p>为了创新办公保洁服务模式和提升办公保洁服务水平，社区邦产品研...</p>
                                 <span class="y-btns clearfix">
-                                                <a href="javascript:void(formShow())" target="_blank" rel="nofollow"
-                                                   class="fl">立即咨询</a>
-                                                <a href="http://www.sqbang.com/help/2019072015833134.html"
-                                                   target="_blank" class="fl">了解更多</a>
+                                               <a href="javascript:void(formShow())" target="_self" rel="nofollow"
+                                                  class="fl">立即下单</a>
+                                                   <a href="/jsp/bmxq.jsp" target="_self" class="fl">了解更多</a>
                                             </span>
                             </div>
 
                             <div class="details-cont fl">
                                             <span class="y-img-box">
-                                                <a href="http://www.sqbang.com/help/201907192023687.html"
-                                                   target="_blank">
-                                                    <img src="${pageContext.request.contextPath}/static/images/b3645622f8c41eb7.jpg" alt="地毯清洗">
+                                                 <a href="" target="_self">
+                                                    <img src="/static/images/b3645622f8c41eb7.jpg"
+                                                         alt="地毯清洗">
                                                 </a>
                                             </span>
                                 <h4><a href="http://www.sqbang.com/help/201907192023687.html" target="_blank">地毯清洗</a>
                                 </h4>
                                 <p>服务详情社区邦为您提供服务服务人员:&#160; 专职技工服务时间:&#160; 上午...</p>
                                 <span class="y-btns clearfix">
-                                                <a href="javascript:void(formShow())" target="_blank" rel="nofollow"
-                                                   class="fl">立即咨询</a>
-                                                <a href="http://www.sqbang.com/help/201907192023687.html"
-                                                   target="_blank" class="fl">了解更多</a>
+                                               <a href="javascript:void(formShow())" target="_self" rel="nofollow"
+                                                  class="fl">立即下单</a>
+                                                   <a href="/jsp/bmxq.jsp" target="_self" class="fl">了解更多</a>
                                             </span>
                             </div>
 
                             <div class="details-cont fl">
                                             <span class="y-img-box">
-                                                <a href="http://www.sqbang.com/help/2019072015915136.html"
-                                                   target="_blank">
-                                                    <img src="${pageContext.request.contextPath}/static/images/ba97183ed6ba631f.jpg" alt="环境消毒">
+                                                   <a href="" target="_self">
+                                                    <img src="/static/images/ba97183ed6ba631f.jpg"
+                                                         alt="环境消毒">
                                                 </a>
                                             </span>
-                                <h4><a href="http://www.sqbang.com/help/2019072015915136.html" target="_blank">环境消毒</a>
+                                <h4><a>环境消毒</a>
                                 </h4>
                                 <p>服务人员: 专职技工<br/>服务时间: <br/>上午 8:00-12:00<br/>下午 14...</p>
                                 <span class="y-btns clearfix">
-                                                <a href="javascript:void(formShow())" target="_blank" rel="nofollow"
-                                                   class="fl">立即咨询</a>
-                                                <a href="http://www.sqbang.com/help/2019072015915136.html"
-                                                   target="_blank" class="fl">了解更多</a>
+                                              <a href="javascript:void(formShow())" target="_self" rel="nofollow"
+                                                 class="fl">立即下单</a>
+                                                   <a href="/jsp/bmxq.jsp" target="_self" class="fl">了解更多</a>
                                             </span>
                             </div>
 
                             <div class="details-cont fl">
                                             <span class="y-img-box">
-                                                <a href="http://www.sqbang.com/help/20190803144558320.html"
-                                                   target="_blank">
-                                                    <img src="${pageContext.request.contextPath}/static/images/cc2ef96ddee90ccd.jpg" alt="医院陪护">
+                                                  <a href="" target="_self">
+                                                    <img src="/static/images/cc2ef96ddee90ccd.jpg"
+                                                         alt="医院陪护">
                                                 </a>
                                             </span>
-                                <h4><a href="http://www.sqbang.com/help/20190803144558320.html" target="_blank">医院陪护</a>
+                                <h4><a>医院陪护</a>
                                 </h4>
                                 <p>1.24小时临床陪护不间断，服务贴心<br/>医护一体，高效协调医院专家...</p>
                                 <span class="y-btns clearfix">
-                                                <a href="javascript:void(formShow())" target="_blank" rel="nofollow"
-                                                   class="fl">立即咨询</a>
-                                                <a href="http://www.sqbang.com/help/20190803144558320.html"
-                                                   target="_blank" class="fl">了解更多</a>
+                                               <a href="javascript:void(formShow())" target="_self" rel="nofollow"
+                                                  class="fl">立即下单</a>
+                                                   <a href="/jsp/bmxq.jsp" target="_self" class="fl">了解更多</a>
                                             </span>
                             </div>
                         </div>
@@ -247,17 +243,20 @@
                         <div class="paging1200 clearfix">
 
                                     <span class="jkbtnl pagingPrev">
-                                        <a href="${pageContext.request.contextPath}/jsp/jzfw.jsp" class="previousBtn tBtn">
-                                                    <img src="${pageContext.request.contextPath}/static/images/pagingprevbtn.png" width="45" height="43"
+                                        <a href="/jsp/jzfw.jsp"
+                                           class="previousBtn tBtn">
+                                                    <img src="/static/images/pagingprevbtn.png"
+                                                         width="45" height="43"
                                                          alt="上一页">
                                                 </a>
                                     </span>
                             <p class="jk_num clearfix">
-                                <a href="${pageContext.request.contextPath}/jsp/jzfw.jsp">1</a><a class="cur"> 2</a>
+                                <a href="/jsp/jzfw.jsp">1</a><a class="cur"> 2</a>
                             </p>
                             <span class="jkbtnr pagingNext">
                                         <a href="javascript:;" class="nextBtn tBtn">
-                                            <img src="${pageContext.request.contextPath}/static/images/pagingnextbtn.png" width="45" height="43"
+                                            <img src="/static/images/pagingnextbtn.png"
+                                                 width="45" height="43"
                                                  alt="下一页">
                                         </a>
                             </span>
