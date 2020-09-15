@@ -7,9 +7,6 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface UserMapper {
 
-public User login(User user);//用户的登录
-public int add(User user);//用户的注册
-
     User findUserByAccount(String account);
     public User login(User user);       //用户的登录
     public int add(User user);          //用户的注册
