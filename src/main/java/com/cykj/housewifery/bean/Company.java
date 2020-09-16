@@ -15,14 +15,14 @@ public class Company {
     private Timestamp entryDate;     //入驻时间
     private String account;   //账户
     private BigDecimal money;   //资金
-    private int area;              //公司服务区域
+    private String area;              //公司服务区域
     private String stateName;     //对应参数表状态
     private String areaName;      //对应服务区域表 区域
 
     public Company() {
     }
 
-    public Company(int id, String name, String password, String legal, String address, String phone, int state, Timestamp entryDate, String account, BigDecimal money, int area, String stateName, String areaName) {
+    public Company(int id, String name, String password, String legal, String address, String phone, int state, Timestamp entryDate, String account, BigDecimal money, String area, String stateName, String areaName) {
         this.id = id;
         this.name = name;
         this.password = password;
@@ -51,17 +51,17 @@ public class Company {
                 ", entryDate=" + entryDate +
                 ", account='" + account + '\'' +
                 ", money=" + money +
-                ", area=" + area +
+                ", area='" + area + '\'' +
                 ", stateName='" + stateName + '\'' +
                 ", areaName='" + areaName + '\'' +
                 '}';
     }
 
-    public int getArea() {
+    public String getArea() {
         return area;
     }
 
-    public void setArea(int area) {
+    public void setArea(String area) {
         this.area = area;
     }
 
