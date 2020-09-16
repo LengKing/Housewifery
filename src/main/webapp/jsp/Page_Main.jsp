@@ -8,32 +8,31 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <meta charset="UTF-8" />
-    <meta name="renderer" content="webkit">
-    <meta name="force-rendering" content="webkit"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta property="og:image" content="/upload/images/2019/8/31a6d380d226137b.jpg" />
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
     <title>首页</title>
     <%
         String path = request.getContextPath();
     %>
-<%--    <meta name="Keywords" content="家政保姆,育婴师培训,月嫂公司加盟,保洁服务,家政公司加盟,社区邦">--%>
-<%--    <meta name="description" content="社区邦提供一站式高品质家政服务,有月嫂,保洁,育婴师,家政培训等，现向全国进行月嫂公司加盟,月嫂加盟店,家政公司加盟招商服务，已帮助众多家政加盟商成功创业!   ">--%>
-    <link href="${pageContext.request.contextPath}/static/css/tcommon.css" rel="stylesheet" type="text/css">
-    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/static/css/common.css" />
-    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/static/css/index.css" />
-    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/static/css/swiper.css" />
-    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/static/css/animate.css" />
-    <script src="${pageContext.request.contextPath}/static/js/1.9.1jquery.min.js" charset="utf-8" type="text/javascript"></script>
-    <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/static/js/common.js"></script>
-    <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/static/js/swiper.js"></script>
-    <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/static/js/wow.js"></script>
-    <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/static/js/tcommon-1.0.js"></script>
-    <script src="${pageContext.request.contextPath}/static/js/index.js" charset="utf-8" type="text/javascript"></script>
+    <link href="/static/css/tcommon.css" rel="stylesheet" type="text/css">
+    <link type="text/css" rel="stylesheet" href="/static/css/common.css" />
+    <link type="text/css" rel="stylesheet" href="/static/css/index.css" />
+    <link type="text/css" rel="stylesheet" href="/static/css/swiper.css" />
+    <link type="text/css" rel="stylesheet" href="/static/css/animate.css" />
+    <script type="text/javascript" src="/static/js/1.9.1jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8" src="/static/js/common.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/static/js/swiper.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/static/js/wow.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/static/js/tcommon-1.0.js"></script>
+    <script src="/static/js/index.js" charset="utf-8" type="text/javascript"></script>
+    <script src="/static/layui/layui.js" charset="UTF-8"></script>
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
 </head>
 <body>
+<input type="hidden" id="path" value="<%=path%>">
+
 <!--萝卜丝·智能客服代码 开始 -->
 <div id="byteDesk"></div>
 <script type="text/javascript">
@@ -66,16 +65,16 @@
         <div class="content">
             <p>欢迎来到XXXX网站！</p>
             <div class="rightCon">
-                <a href="" target="_blank">登录</a>
+                <a href="" target="_self">登录</a>
                 <a href="">注册</a>
-                <a href="" target="_blank">联系平台</a>
+                <a href="/jsp/Main_lxpt.jsp" target="_self">联系平台</a>
                 <a href="">工作机会</a>
             </div>
         </div>
     </div>
     <div class="header-center">
         <h1><a href="">XXXX智慧家政</a></h1>
-        <h2><img src="${pageContext.request.contextPath}/static/images/logo_text.png"></h2>
+        <h2><img src="/static/images/logo_text.png"></h2>
         <div class="search">
             <form action="/Search/index.html">
                 <input type="text" name="word" placeholder="家庭保洁">
@@ -89,34 +88,34 @@
     <div class="header-nav">
         <div class="content" id="navBox">
             <ul>
-                <li><a href="${pageContext.request.contextPath}/jsp/Page_Main.jsp">首页</a></li>
+                <li><a href="/jsp/Page_Main.jsp" target="_self">首页</a></li>
 
                 <li mark='65' px='1'>
-                    <a href="${pageContext.request.contextPath}/jsp/jzfw.jsp" target="_blank">家政服务</a>
+                    <a href="/jsp/jzfw.jsp" target="_self">家政服务</a>
                 </li>
 
                 <li mark='47' px='2'>
-                    <a href="/product/" target="_blank">热门服务</a>
+                    <a href="/jsp/jzfw_Hot.jsp" target="_self">热门服务</a>
                 </li>
 
                 <li mark='88' px='3'>
-                    <a href="${pageContext.request.contextPath}/jsp/PostDemand.jsp" target="_blank">发布服务</a>
+                    <a href="/jsp/PostDemand.jsp" target="_self">发布服务</a>
                 </li>
 
                 <li mark='89' px='4'>
-                    <a href="/help/jzfw.html" target="_blank">联系平台</a>
+                    <a href="/jsp/Main_lxpt.jsp" target="_self">联系平台</a>
                 </li>
 
                 <li mark='48' px='6'>
-                    <a href="/news/" target="_blank">商户入驻</a>
+                    <a href="/jsp/Main_ruzhu.jsp" target="_self">品牌招商</a>
                 </li>
 
                 <li mark='52' px='5'>
-                    <a href="/help/ppjs.html" target="_blank">关于平台</a>
+                    <a href="/jsp/Main_gypt.jsp" target="_self">关于平台</a>
                 </li>
 
                 <li mark='71' px='7'>
-                    <a href="/help/lxwm.html" target="_blank">家政了解</a>
+                    <a href="/jsp/jzfw_news.jsp" target="_self">知识了解</a>
                 </li>
 
             </ul>
@@ -129,16 +128,16 @@
     <div class="swiper-container banner-swiper">
         <div class="swiper-wrapper">
 
-            <div class="item swiper-slide"><a href="/help/jzfw.html" target="_blank" title="家政1" style="background-image:url(${pageContext.request.contextPath}/static/images/gg1.jpg)"></a></div>
+            <div class="item swiper-slide"><a title="家政1" style="background-image:url(/static/images/gg1.jpg)"></a></div>
 
-            <div class="item swiper-slide"><a href="/help/lxwm.html" target="_blank" title="家政2" style="background-image:url(${pageContext.request.contextPath}/static/images/gg2.jpg)"></a></div>
+            <div class="item swiper-slide"><a title="家政2" style="background-image:url(/static/images/gg2.jpg)"></a></div>
 
-            <div class="item swiper-slide"><a href="/product/" target="_blank" title="家政3" style="background-image:url(${pageContext.request.contextPath}/static/images/gg3.jpg)"></a></div>
+            <div class="item swiper-slide"><a title="家政3" style="background-image:url(/static/images/gg3.jpg)"></a></div>
 
-            <div class="item swiper-slide"><a href="/help/jzglrj.html" target="_blank" title="家政4" style="background-image:url(${pageContext.request.contextPath}/static/images/gg4.jpg)"></a></div>
+            <div class="item swiper-slide"><a title="家政4" style="background-image:url(/static/images/gg4.jpg)"></a></div>
 
         </div>
-        <!-- 如果需要分页器 -->
+
         <div class="swiper-pagination swiper-banner-pagination"></div>
         <div class="arrow">
             <div class="prev"></div>
@@ -185,32 +184,32 @@
     </div>
     <div class="content">
         <div class="item wow">
-            <img src="../static/images/xuyao01.png">
+            <img src="/static/images/xuyao01.png">
             <h3>互联网精准客源</h3>
             <p>进入互联网客户所在区<br>获得海量客户</p>
         </div>
         <div class="item wow">
-            <img src="../static/images/xuyao02.png">
+            <img src="/static/images/xuyao02.png">
             <h3>互联网营销技巧</h3>
             <p>复制成功的互联网营销技巧<br>不用走弯路</p>
         </div>
         <div class="item wow">
-            <img src="../static/images/xuyao03.png">
+            <img src="/static/images/xuyao03.png">
             <h3>完整的产品链</h3>
             <p>客户想要的家政服务<br>一站式提供</p>
         </div>
         <div class="item wow">
-            <img src="../static/images/xuyao04.png">
+            <img src="/static/images/xuyao04.png">
             <h3>品牌影响力</h3>
             <p>借助品牌力量<br>快速赢得客户信任</p>
         </div>
         <div class="item wow">
-            <img src="../static/images/xuyao05.png">
+            <img src="/static/images/xuyao05.png">
             <h3>软件管理系统</h3>
             <p>拥有先进的管理系统<br>一键管控更轻松</p>
         </div>
         <div class="item wow">
-            <img src="../static/images/xuyao06.png">
+            <img src="/static/images/xuyao06.png">
             <h3>专业技术支撑</h3>
             <p>掌握标准化服务技能<br>赢得客户好评与续约</p>
         </div>
@@ -225,22 +224,22 @@
     </div>
     <div class="menu">
 
-        <div class="item">给客源</div>
+        <div class="item">加盟1</div>
 
-        <div class="item">给方法</div>
+        <div class="item">加盟2</div>
 
-        <div class="item">给产品</div>
+        <div class="item">加盟3</div>
 
-        <div class="item">给品牌</div>
+        <div class="item">加盟4</div>
 
-        <div class="item">给软件</div>
+        <div class="item">加盟5</div>
 
-        <div class="item">给培训</div>
+        <div class="item">加盟6</div>
 
     </div>
     <div class="fnbox">
 
-        <div class="item" style="background-image:url(${pageContext.request.contextPath}/static/images/4884fc0a96aa4f3d.jpg)">
+        <div class="item" style="background-image:url(/static/images/4884fc0a96aa4f3d.jpg)">
             <div class="content">
                 <div class="text">
                     <h3>汇聚全国351个地区海量精准家庭客户、<br/>企业客户携手多个大型平台全网覆盖式吸收客源</h3><p>携手百度、美团、大众点评、京东到家等，全网覆盖式吸收精准客户，建立专属粘性体系稳固平台客源。</p><p><a href="/help/ppzs.html#sqjm">抢先加盟，拿走你附近的客源</a></p>
@@ -248,7 +247,7 @@
             </div>
         </div>
 
-        <div class="item" style="background-image:url(${pageContext.request.contextPath}/static/images/7873597b09790788.jpg)">
+        <div class="item" style="background-image:url(/static/images/7873597b09790788.jpg)">
             <div class="content">
                 <div class="text">
                     <h3>直接复制成功门店的赚钱方法<br/>现成营销方法锁定周边客户群</h3><p>市场调研、定价、促销策略、团队管理、服务品质管控等，由实战导师一对一全程指导。</p><p><a href="/help/ppzs.html#ppzc">加盟咨询</a></p>
@@ -256,7 +255,7 @@
             </div>
         </div>
 
-        <div class="item" style="background-image:url(${pageContext.request.contextPath}/static/images/2097c0724476a748.jpg)">
+        <div class="item" style="background-image:url(/static/images/2097c0724476a748.jpg)">
             <div class="content">
                 <div class="text">
                     <h3>立即拥有完整的家政产品链<br/>每项服务都有参考的标准及方法</h3><p>社区邦拥有专属服务标准，并持续开发新产品服务，让每项服务都有参照的标准及方法。</p><p><a href="${pageContext.request.contextPath}/jsp/jzfw.jsp">去看有哪些产品服务 &gt;&gt;</a></p>
@@ -264,7 +263,7 @@
             </div>
         </div>
 
-        <div class="item" style="background-image:url(${pageContext.request.contextPath}/static/images/28390e1adc12bcb8.jpg)">
+        <div class="item" style="background-image:url(/static/images/28390e1adc12bcb8.jpg)">
             <div class="content">
                 <div class="text">
                     <h3>马上享有连锁品牌的影响力<br/>互联网品牌广告全网大力宣传</h3><p>互联网家政品牌典范，品牌VI、工服、标配工具、宣传物料、法务团队、风险评估全支持。</p><p><a href="/help/ppzs.html">查看品牌支持 &gt;&gt;</a></p>
@@ -272,7 +271,7 @@
             </div>
         </div>
 
-        <div class="item" style="background-image:url(${pageContext.request.contextPath}/static/images/2618520d120ef66b.jpg)">
+        <div class="item" style="background-image:url(/static/images/2618520d120ef66b.jpg)">
             <div class="content">
                 <div class="text">
                     <h3>千万级管理软件一键管控更轻松<br/>一键管订单/一键财务分析/一键管员工/一键管客户</h3><p>千万资金注入研发，9年沉淀，打造成熟稳定的家政服务管理系统，独立后台可视化管理。</p><p><a href="/help/jzglrj.html">去发现系统更多功能 &gt;&gt;</a></p>
@@ -280,7 +279,7 @@
             </div>
         </div>
 
-        <div class="item" style="background-image:url(${pageContext.request.contextPath}/static/images/9f4e4d24e6ecd780.jpg)">
+        <div class="item" style="background-image:url(/static/images/9f4e4d24e6ecd780.jpg)">
             <div class="content">
                 <div class="text">
                     <h3>营销/管理/技能 零基础速成<br/>理论与实践双管齐下 只教真本事</h3><p>社区邦家政培训学校，拥有行业重量级师资队伍，为你快速打造一支精英团队。</p><p><a href="/product/">了解社区邦培训学校 &gt;&gt;</a></p>
@@ -304,39 +303,39 @@
                 <h4>全空间无死角深层洁净</h4>
                 <span>Deep Cleaning without Dead Angle in Full Space</span>
                 <img src="../static/images/jm03.jpg">
-                <div class="btns">
-                    <a href="http://www.sqbang.com/help/jtqj.html" target="_blank">家庭保洁</a>
-                    <a href="http://www.sqbang.com/help/qyqj.html" target="_blank">企业保洁</a>
-                </div>
+<%--                    <div class="btns">--%>
+<%--                        <a href="http://www.sqbang.com/help/jtqj.html" target="_self">家庭保洁</a>--%>
+<%--                        <a href="http://www.sqbang.com/help/qyqj.html" target="_self">企业保洁</a>--%>
+<%--                    </div>--%>
             </div>
         </div>
         <div class="center">
-            <img src="${pageContext.request.contextPath}/static/images/jm01.jpg" class="top">
+            <img src="/static/images/jm01.jpg" class="top">
             <div class="item item01">
-                <img src="${pageContext.request.contextPath}/static/images/jm04.jpg">
+                <img src="/static/images/jm04.jpg">
                 <h4>月嫂</h4>
                 <span>Baby Nurse</span>
             </div>
             <div class="item item02">
-                <img src="${pageContext.request.contextPath}/static/images/jm05.jpg">
+                <img src="/static/images/jm05.jpg">
                 <h4>钟点工</h4>
                 <span>Hourly workers</span>
             </div>
             <div class="item item03">
-                <img src="${pageContext.request.contextPath}/static/images/jm06.jpg">
+                <img src="/static/images/jm06.jpg">
                 <h4>育婴</h4>
                 <span>Baby raising</span>
             </div>
         </div>
         <div class="right">
             <div class="top">
-                <img src="${pageContext.request.contextPath}/static/images/jm02.jpg">
+                <img src="/static/images/jm02.jpg">
                 <h4>保姆</h4>
                 <span>Nanny</span>
             </div>
             <div class="bottom">
-                <img src="${pageContext.request.contextPath}/static/images/jm07.jpg">
-                <img src="${pageContext.request.contextPath}/static/images/jm08.jpg">
+                <img src="/static/images/jm07.jpg">
+                <img src="/static/images/jm08.jpg">
             </div>
         </div>
     </div>
@@ -351,7 +350,7 @@
     </div>
     <div class="content">
         <div class="left">
-            <a href="http://www.sqbang.com/product/" target="_blank"><img src="${pageContext.request.contextPath}/static/images/pj1.jpg"></a>
+            <a><img src="/static/images/pj1.jpg"></a>
         </div>
         <div class="right">
             <div class="swiper-container kecheng-swiper">
@@ -404,13 +403,9 @@
                     </div>
 
                     <div class="swiper-slide">
-                        <div class="item">
-                            <div class="text">
-                                <h3>家庭保洁员+下单时间+下单市区</h3>
-                                <p>赞赞赞赞赞赞</p>
-                            </div>
-                        </div>
+
                     </div>
+
 
                 </div>
             </div>
@@ -492,7 +487,6 @@
 <%--    <!--        <p>技术支持：<a href="http://www.shenduwang.cn/" target="_blank" rel="nofollow" >深度网</a></p>            -->--%>
 <%--    <!--    </div>-->--%>
 <%--</div>--%>
-
 
 
 

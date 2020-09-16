@@ -196,7 +196,7 @@
   display: inline-block;
   width: 11px;
   height: 10px;
-  background: url('../images/btn-d.png') no-repeat right center;
+  background: url('/static/images/btn-d.png') no-repeat right center;
   margin: 5px;
   position: relative;
   top: 4px;

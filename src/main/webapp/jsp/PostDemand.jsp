@@ -15,12 +15,69 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <script src="${pageContext.request.contextPath}/static/js/1.9.1jquery.min.js" charset="utf-8" type="text/javascript"></script>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/layui/css/layui.css"  media="all">
-    <script src="${pageContext.request.contextPath}/static/layui/layui.js" charset="utf-8"></script>
-    <script src="${pageContext.request.contextPath}/static/js/postDemand.js"></script>
+    <script src="/static/js/1.9.1jquery.min.js" charset="utf-8" type="text/javascript"></script>
+    <link href="/static/css/tcommon.css" rel="stylesheet" type="text/css">
+    <link type="text/css" rel="stylesheet" href="/static/css/common.css" />
+    <link type="text/css" rel="stylesheet" href="/static/css/index.css" />
+    <link type="text/css" rel="stylesheet" href="/static/css/swiper.css" />
+    <link type="text/css" rel="stylesheet" href="/static/css/animate.css" />
+    <script type="text/javascript" src="/static/js/1.9.1jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8" src="/static/js/common.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/static/js/swiper.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/static/js/wow.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/static/js/tcommon-1.0.js"></script>
+    <script src="/static/js/index.js" charset="utf-8" type="text/javascript"></script>
+    <script src="/static/layui/layui.js" charset="UTF-8"></script>
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+    <link rel="stylesheet" href="/static/layui/css/layui.css"  media="all">
+    <script src="/static/layui/layui.js" charset="utf-8"></script>
+    <script src="/static/js/postDemand.js"></script>
 </head>
 <body>
+<!-- header -->
+<div class="header">
+    <div class="header-top">
+        <div class="content">
+            <p>欢迎来到XXXX网站！</p>
+        </div>
+    </div>
+    <div class="header-nav">
+        <div class="content" id="navBox">
+            <ul>
+                <li><a href="/jsp/Page_Main.jsp" target="_self">首页</a></li>
+
+                <li mark='65' px='1'>
+                    <a href="/jsp/jzfw.jsp" target="_self">家政服务</a>
+                </li>
+
+                <li mark='47' px='2'>
+                    <a href="/jsp/jzfw_Hot.jsp" target="_self">热门服务</a>
+                </li>
+
+                <li mark='88' px='3'>
+                    <a href="/jsp/PostDemand.jsp" target="_self">发布服务</a>
+                </li>
+
+                <li mark='89' px='4'>
+                    <a href="/jsp/Main_lxpt.jsp" target="_self">联系平台</a>
+                </li>
+
+                <li mark='48' px='6'>
+                    <a href="/jsp/Main_ruzhu.jsp" target="_self">品牌招商</a>
+                </li>
+
+                <li mark='52' px='5'>
+                    <a href="/jsp/Main_gypt.jsp" target="_self">关于平台</a>
+                </li>
+
+                <li mark='71' px='7'>
+                    <a href="/jsp/jzfw_news.jsp" target="_self">知识了解</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
 <input type="hidden" id="path" value="<%=path%>">
 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
     <legend>需求信息</legend>

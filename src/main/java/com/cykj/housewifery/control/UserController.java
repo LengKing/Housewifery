@@ -73,7 +73,6 @@ public class UserController {
     @ResponseBody
     public Object barUser(String startDate,String endDate){
         ReportDataBean dataBeans=userService.barUser(startDate,endDate);
-        System.out.println(new Gson().toJson(dataBeans));
         return new Gson().toJson(dataBeans);
     }
 
@@ -87,7 +86,6 @@ public class UserController {
     @ResponseBody
     public Object lineUser(String startDate,String endDate){
         ReportDataBean dataBeans=userService.lineUser(startDate,endDate);
-        System.out.println(new Gson().toJson(dataBeans));
         return new Gson().toJson(dataBeans);
     }
 

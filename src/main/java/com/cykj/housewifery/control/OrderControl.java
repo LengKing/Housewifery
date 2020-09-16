@@ -98,7 +98,6 @@ public class OrderControl {
     @ResponseBody
     public Object barOrder(String startDate,String endDate,String company){
         ReportDataBean dataBeans=orderService.barOrder(startDate,endDate,company);
-        System.out.println(new Gson().toJson(dataBeans));
         return new Gson().toJson(dataBeans);
     }
 
@@ -106,7 +105,6 @@ public class OrderControl {
     @ResponseBody
     public Object lineOrder(String startDate,String endDate,String company){
         ReportDataBean dataBeans=orderService.lineOrder(startDate,endDate,company);
-        System.out.println(new Gson().toJson(dataBeans));
         return new Gson().toJson(dataBeans);
     }
 
