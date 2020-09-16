@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.housewifery.mapper.MenuMapper">
+
+    <select id="findHaveMenu" resultType="Menu">
+        select id,name from tb_menu where id in
+        <foreach collection="list" item="mid" open="(" separator="," close=")">#{mid}
+        </foreach>
+    </select>
+
+    <select id="findHaveIDs" resultType="java.lang.Object">
+   select id from tb_jobs_menu where jobs=(select id from tb_jobs where jobs=#{arg0})
+   </select>
+
+    <select id="findAllID" resultType="java.lang.Object">
+      select id from tb_jobs_menu
+    </select>
+
+    <insert id="addMenus">
+        insert into tb_jobs_menu (jobs,menu) values ((select id from tb_jobs where jobs= #{jobs}),#{mid})
+    </insert>
+
+    <delete id="delMenus">
+        delete from tb_jobs_menu where jobs=(select id from tb_jobs where jobs= #{jobs}) and menu= #{mid}
+    </delete>
+
+
+</mapper>

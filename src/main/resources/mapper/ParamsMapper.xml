@@ -12,4 +12,8 @@
     select time from tb_time
    </select>
 
+    <select id="findJobs"  resultType="java.lang.Object">
+        select jobs from tb_jobs
+    </select>
+
 </mapper>

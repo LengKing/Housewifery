@@ -14,7 +14,7 @@
     </select>
 
     <select id="selOrder" resultType="Order">
-        select id,(select name from tb_user where user_id=user) user,service_name,count,order_time,
+        select id,(select name from tb_user where account=user) user,service_name,count,order_time,
          service_date,cost,(select name from tb_employee where number=employee) employee,
          (select name from tb_company where id=company) company,(select name from tb_params where
           value=order_state and type='order_state') order_state from tb_order
@@ -27,10 +27,11 @@
     </select>
 
     <select id="findOrderById" resultType="Order">
-      select id,(select name from tb_user where user_id=user) user,service_name,count,order_time,
+      select id,(select name from tb_user where account=user) user,service_name,count,order_time,
          service_date,cost,(select name from tb_employee where number=employee) employee,
          (select name from tb_company where id=company) company,(select name from tb_params where
-          value=order_state and type='order_state') order_state from tb_order where id=#{arg0}
+          value=order_state and type='order_state') order_state,(select name from tb_params where
+          value=pay_state and type='pay_state' ) pay_state from tb_order where id=#{arg0}
     </select>
 
     <select id="getDemandCount" resultType="int">
@@ -64,7 +65,7 @@
     <select id="orderCount" resultType="int">
         select count(*) from tb_order o,tb_params p where o.company = #{companyId} and o.pay_state = p.value
         and p.type = 'pay_state' and p.name = '已支付'
-         <if test="type!=null and type!='' and type!=-1">
+        <if test="type!=null and type!='' and type!=-1">
          and o.order_state = #{type}
          </if>
     </select>

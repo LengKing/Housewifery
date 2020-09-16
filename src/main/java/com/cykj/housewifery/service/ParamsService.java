@@ -6,6 +6,6 @@ public interface ParamsService {
 
     List<Object> findParams(String type);
     List<Object> findTime();
-
+    List<Object> findJobs();
 
 }

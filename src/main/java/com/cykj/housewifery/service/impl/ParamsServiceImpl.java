@@ -25,4 +25,10 @@ public class ParamsServiceImpl implements ParamsService {
         List<Object> times=paramsMapper.findTime();
         return times;
     }
+
+    @Override
+    public List<Object> findJobs() {
+        List<Object> jobs=paramsMapper.findJobs();
+        return jobs;
+    }
 }
