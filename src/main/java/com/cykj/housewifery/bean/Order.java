@@ -6,18 +6,18 @@ import java.util.Date;
 //订单表
 public class Order {
     private int id;                //订单表 主id
-    private String user;          //服务对象
-    private String serviceName;   //服务名
-    private String type;          //所属类别 对应服务列表
-    private String count;         //服务频次
-    private String orderTime;     //下单时间
-    private String serviceDate;   //服务时间
-    private BigDecimal cost;     //费用
-    private String employee;     //服务人
-    private String company;      //家政公司名称
-    private String orderState;   //状态
-    private String payState;     //支付状态
-    private String hotCount;     //热度次数
+    private String user;           //服务对象
+    private String serviceName;    //服务名
+    private String type;           //所属类别 对应服务列表
+    private String count;          //服务频次
+    private String orderTime;      //下单时间
+    private String serviceDate;    //服务时间
+    private BigDecimal cost;       //费用
+    private String employee;       //服务人
+    private String company;        //家政公司名称
+    private String orderState;     //状态
+    private String payState;       //支付状态
+    private String hotCount;       //热度次数
 
     public Order() {
     }

@@ -17,4 +17,6 @@ public interface Service {
     String updateServiceState(String companyId,String id,String event,String type);
 
     List<ServiceType> getServiceTypeByCompanyId(String companyId);
+
+    List<ServiceType> findAllServiceType();
 }

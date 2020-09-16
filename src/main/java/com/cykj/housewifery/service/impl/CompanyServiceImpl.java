@@ -1,5 +1,6 @@
 package com.cykj.housewifery.service.impl;
 
+import com.cykj.housewifery.bean.MapBean;
 import com.cykj.housewifery.bean.ReportDataBean;
 import com.cykj.housewifery.mapper.CompanyMapper;
 import com.cykj.housewifery.service.CompanyService;
@@ -41,5 +42,17 @@ public class CompanyServiceImpl implements CompanyService {
         }
         reportDataBean.setData(datas);
         return reportDataBean;
+    }
+
+    @Override
+    public List<MapBean> companyMap() {
+        List<String> areas=companyMapper.selArea();
+        List<MapBean> data=new ArrayList<>();
+        for (String area:areas){
+            int count=companyMapper.companyMap(area);
+            MapBean bean=new MapBean(area,count);
+            data.add(bean);
+        }
+        return data;
     }
 }

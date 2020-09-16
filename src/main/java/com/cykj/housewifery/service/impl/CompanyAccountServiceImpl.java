@@ -2,6 +2,7 @@ package com.cykj.housewifery.service.impl;
 
 import com.cykj.housewifery.bean.Company;
 import com.cykj.housewifery.bean.CompanyAccountDetails;
+import com.cykj.housewifery.bean.Order;
 import com.cykj.housewifery.mapper.CompanyAccountMapper;
 import com.cykj.housewifery.service.CompanyAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -122,4 +123,5 @@ public class CompanyAccountServiceImpl implements CompanyAccountService {
         List<CompanyAccountDetails> list = companyAccountMapper.getRecordsById(condition);
         return list;
     }
+
 }

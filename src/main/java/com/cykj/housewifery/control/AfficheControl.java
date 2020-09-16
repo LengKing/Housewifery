@@ -24,7 +24,6 @@ public class AfficheControl {
         Gson gson=new Gson();
         List<String> dates = gson.fromJson(time, new TypeToken<List<String>>(){}.getType());
         ReportDataBean dataBeans=afficheService.barAffiche(dates);
-        System.out.println(new Gson().toJson(dataBeans));
         return new Gson().toJson(dataBeans);
     }
 
@@ -34,7 +33,6 @@ public class AfficheControl {
         Gson gson=new Gson();
         List<String> dates = gson.fromJson(time, new TypeToken<List<String>>(){}.getType());
         ReportDataBean dataBeans=afficheService.lineAffiche(dates);
-        System.out.println(new Gson().toJson(dataBeans));
         return new Gson().toJson(dataBeans);
     }
 

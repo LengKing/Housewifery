@@ -15,6 +15,18 @@
     </select>
 
     <select id="getEmployeesByCompanyId" resultType="Employee">
-        select
+        select e.number,e.name,e.gender,e.age,e.birthday,p.name school, s.type_name skill,e.job,e.label,p2.name stateName
+        from tb_employee e,tb_params p,tb_service_type s,tb_params p2 where e.school = p.value and p.type='school' and e.skill = s.id
+        and e.state = p2.value and p2.type = 'employee_state' and e.company_id = #{companyId}
+        <if test="name!=null and name!=''">
+            and e.name like '%${name}%'
+        </if>
+        limit #{pageNum},#{limit}
     </select>
+
+    <insert id="addEmployee" parameterType="employee">
+        insert into tb_employee (number, name, gender, age, birthday, school, skill, job, label, company_id) values (
+        #{number},#{name},#{gender},#{age},#{birthday},(select value from tb_params where type ='school' and name = #{school}),
+        #{skill},#{job},#{label},#{companyId});
+    </insert>
 </mapper>

@@ -22,4 +22,12 @@
      select count(*) from tb_company where state=2 and date_format(entry_date,'%Y-%m-%d') &lt;= #{date}
     </select>
 
+  <select id="selArea" resultType="java.lang.String">
+      select distinct area from tb_service_area
+  </select>
+
+    <select id="companyMap" resultType="int">
+    select count(*) from tb_company c,tb_service_area s where c.area=s.id and s.area=#{area}
+    </select>
+
 </mapper>

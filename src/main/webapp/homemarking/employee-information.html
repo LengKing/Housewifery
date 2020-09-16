@@ -22,18 +22,19 @@
             <div class="layui-card">
                 <div class="layui-card-header">人员信息</div>
                 <button id="add" type="button" class="layui-btn layui-btn-normal" style="margin-left: 15px;margin-top: 5px">+新增</button>
+                <a class="layui-btn layui-btn-small" style="width:80px;line-height:1.6em;margin-top:5px;margin-right:15px;float:right;clear: both"
+                   onclick="location.reload()" title="刷新">
+                    <i class="layui-icon layui-icon-refresh" style="line-height:30px"></i></a>
                 <div class="layui-card-body" style="min-height: 400px;">
-                    <div class="layui-form layui-input-inline layui-show-xs-block">
-                        <select id="type">
-                            <option value="-1">----订单状态查询----</option>
-                        </select>
+                    <div class="layui-input-inline layui-show-xs-block">
+                        <input type="text" placeholder="人员姓名搜索..." autocomplete="off" class="layui-input" id="name">
                     </div>
                     <div class="layui-input-inline layui-show-xs-block">
                         <button class="layui-btn" id="searchBtn" lay-filter="sreach">
                             <i class="layui-icon">&#xe615;</i></button>
                     </div>
                     <div id="main4" class="layui-col-sm12" style="height: 400px;">
-                        <table class="layui-table layui-form" id="order" lay-filter="order"></table>
+                        <table class="layui-table layui-form" id="employee" lay-filter="employee"></table>
                     </div>
                 </div>
             </div>
@@ -42,43 +43,41 @@
 </div>
 </div>
 <script>
-    $(function () {
-        $.ajax({
-            url:'/order/allOrderState',
-            type:"post",
-            dataType:"json",
-            success:function (data) {
-                if (data !=null){
-                    for(var i=0;i<data.length;i++){
-                        $("#type").append("<option value='"+data[i].value+"'>"+data[i].name+"</option>")
-                    }
-                    layui.form.render("select");
-                }
-            },
-            error:function () {
-                layer.msg("发生了一点小问题..请稍后再试");
+    $('#add').on('click', function () {
+        layer.open({
+            type: 2,
+            title: "新增人员",
+            closeBtn: 1,
+            icon: 6,
+            shift: 2,
+            area: ['70%', '85%'], //控制窗口大小
+            shadeClose: true,
+            content: "add-employee.html?companyId="+1000, //这里填写自己的路径
+            end:function(){
+                // location.reload();//弹出层结束后，刷新主页面
+                $(".layui-laypage-btn")[0].click();
             }
         });
-    })
+    });
 
     layui.use('table', function () {
         var table = layui.table;
         var tableIns = table.render({
-            elem: '#order'
+            elem: '#employee'
             , height: 312
-            , url: '/employee/companyOrder?companyId='+1000 //数据接口
+            , url: '/employee/allEmployee?companyId='+1000 //数据接口
             , page: true //开启分页
             , cols: [[ //表头
-                {field: 'id', title: '员工编号', width: 100,align: 'center'}
-                , {field: 'user', title: '人员姓名', width: 100,align: 'center'}
-                , {field: 'serviceName', title: '性别', width: 100,align: 'center'}
+                {field: 'number', title: '员工编号', width: 100,align: 'center'}
+                , {field: 'name', title: '人员姓名', width: 100,align: 'center'}
+                , {field: 'gender', title: '性别', width: 100,align: 'center'}
                 , {field: 'age', title: '年龄', width: 100,align: 'center'}
-                , {field: 'type', title: '出生年月', width: 100,align: 'center'}
-                , {field: 'typeName', title: '学历', width: 100,align: 'center'}
+                , {field: 'birthday', title: '出生年月', width: 100,align: 'center'}
+                , {field: 'school', title: '学历', width: 100,align: 'center'}
                 , {field: 'skill', title: '技能', width: 100,align: 'center'}
-                , {field: 'count', title: '求职意向', width: 100,align: 'center'}
+                , {field: 'job', title: '求职意向', width: 100,align: 'center'}
                 , {field: 'label', title: '评语', width: 100,align: 'center'}
-                , {field: 'orderTime', title: '状态', width: 150,align: 'center'}
+                , {field: 'stateName', title: '状态', width: 150,align: 'center'}
                 , {title: '操作', width: 300, align: 'center', toolbar: '#barDemo'}
             ]]
             ,done: function () {
@@ -91,21 +90,62 @@
         });
 
         $('#searchBtn').on('click', function () {
-            var type = $("#type").val();
+            var name = $("#name").val();
             tableIns.reload({
                 method: 'post',
-                url: '/order/companyOrder?companyId='+1000,
+                url: '/employee/allEmployee?companyId='+1000,
                 page: {
                     curr: 1 //重新从第 1 页开始
                 },
                 where: {
-                    type: type
+                    name: name
                 }
             });
         });
 
-        table.on('tool(order)', function (obj) {
+        table.on('tool(employee)', function (obj) {
+            var age= obj.data.age;
+            var birthday=obj.data.birthday;
+            var gender=obj.data.gender;
+            var job=obj.data.job;
+            var label= obj.data.label;
+            var name=obj.data.name;
+            var number=obj.data.number;
+            var school=obj.data.school;
+            var skill=obj.data.skill;
+            var stateName=obj.data.stateName;
             var event = obj.event;
+            if (event=='upload'){
+                layer.open({
+                    type: 2,
+                    title: "上传资料",
+                    closeBtn: 1,
+                    icon: 6,
+                    shift: 2,
+                    area: ['50%', '60%'], //控制窗口大小
+                    shadeClose: true,
+                    content: 'employee-uploadFile.html?number='+number+"&companyId="+1000, //这里填写自己的路径
+                })
+            }
+            if (event=='details'){
+                layer.open({
+                    type: 2,
+                    title: "详情",
+                    closeBtn: 1,
+                    icon: 6,
+                    shift: 2,
+                    area: ['40%', '90%'], //控制窗口大小
+                    shadeClose: true,
+                    content: 'employee-details.html?age='+age+"&birthday="+birthday+"&gender="+gender+"&job="+job+"&label="+label+"&name="+name
+                        +"&number="+number+"&school="+school+"&skill="+skill+"&stateName="+stateName, //这里填写自己的路径
+                })
+            }
+            if (event=='update'){
+
+            }
+            if (event=='delete'){
+
+            }
         });
     });
 </script>

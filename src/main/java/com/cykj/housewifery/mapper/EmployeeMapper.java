@@ -14,4 +14,6 @@ public interface EmployeeMapper {
     int getEmployeesCount(@Param("companyId") String companyId,@Param("name") String name);
 
     List<Employee> getEmployeesByCompanyId(@Param("pageNum") Integer pageNum,@Param("limit") Integer limit,@Param("companyId") String companyId,@Param("name") String name);
+
+    int addEmployee(Employee employee);
 }
