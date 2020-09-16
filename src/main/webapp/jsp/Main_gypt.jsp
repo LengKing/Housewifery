@@ -12,25 +12,19 @@
     <meta name="force-rendering" content="webkit"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>家政加盟品牌介绍</title>
-
-    <meta name="keywords" content="家政加盟品牌">
-
-    <meta name="description" content="社区邦家政加盟品牌作为深圳市消费者口碑榜十佳企业，硕士生团队打造的家政品牌值得信赖。">
-
-    <link href="/static/css/common.css" rel="stylesheet" type="text/css">
-    <link href="/static/css/tcommon.css" rel="stylesheet" type="text/css">
-    <link href="/static/css/inpage.css" rel="stylesheet" type="text/css">
-    <link href="/static/css/tinpage-1.0.css" rel="stylesheet" type="text/css">
-    <link href="/static/css/fancybox.css" rel="stylesheet" type="text/css"/>
-    <link type="text/css" rel="stylesheet" href="/static/css/swiper.css"/>
-    <script type="text/javascript" charset="utf-8" src="/static/js/1.9.1jquery.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/static/js/swiper.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/static/js/move.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/static/js/tcommon-1.0.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/static/js/common.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/static/js/inpage.js"></script>
-
+    <title>关于平台</title>
+    <link href="../static/css/common.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/tcommon.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/inpage.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/tinpage-1.0.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/fancybox.css" rel="stylesheet" type="text/css"/>
+    <link type="text/css" rel="stylesheet" href="../static/css/swiper.css"/>
+    <script type="text/javascript" charset="utf-8" src="../static/js/1.9.1jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../static/js/swiper.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../static/js/move.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../static/js/tcommon-1.0.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../static/js/common.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../static/js/inpage.js"></script>
 </head>
 
 <body>
@@ -41,38 +35,51 @@
             <p>欢迎来到XXXX网站！</p>
         </div>
     </div>
+    <div class="header-center">
+        <h1><a href="">XXXX智慧家政</a></h1>
+        <h2><img src="../static/images/logo_text.png"></h2>
+        <div class="search">
+            <form>
+                <input  id="title" type="text" name="word" placeholder="家庭清洁">
+                <button id="btn" type="button" >搜　索</button>
+            </form>
+        </div>
+        <div class="phone">
+            全国服务热线：<b>400-00-00000</b>
+        </div>
+    </div>
 
     <div class="header-nav">
         <div class="content" id="navBox">
             <ul>
-                <li><a href="/jsp/Page_Main.jsp" target="_self">首页</a></li>
+                <li><a href="../jsp/Page_Main.jsp" target="_self">首页</a></li>
 
                 <li mark='65' px='1'>
-                    <a href="/jsp/jzfw.jsp" target="_self">家政服务</a>
+                    <a href="../jsp/jzfw.jsp" target="_self">家政服务</a>
                 </li>
 
                 <li mark='47' px='2'>
-                    <a href="/jsp/jzfw_Hot.jsp" target="_self">热门服务</a>
+                    <a href="../jsp/jzfw_Hot.jsp" target="_self">热门服务</a>
                 </li>
 
                 <li mark='88' px='3'>
-                    <a href="/jsp/PostDemand.jsp" target="_self">发布服务</a>
+                    <a href="../jsp/PostDemand.jsp" target="_self">发布服务</a>
                 </li>
 
                 <li mark='89' px='4'>
-                    <a href="/jsp/Main_lxpt.jsp" target="_self">联系平台</a>
+                    <a href="../jsp/Main_lxpt.jsp" target="_self">联系平台</a>
                 </li>
 
                 <li mark='48' px='6'>
-                    <a href="/jsp/Main_ruzhu.jsp" target="_self">品牌招商</a>
+                    <a href="../jsp/Main_ruzhu.jsp" target="_self">品牌招商</a>
                 </li>
 
                 <li mark='52' px='5'>
-                    <a href="/jsp/Main_gypt.jsp" target="_self">关于平台</a>
+                    <a href="../jsp/Main_gypt.jsp" target="_self">关于平台</a>
                 </li>
 
                 <li mark='71' px='7'>
-                    <a href="/jsp/jzfw_news.jsp" target="_self">知识了解</a>
+                    <a href="../jsp/jzfw_news.jsp" target="_self">知识了解</a>
                 </li>
 
             </ul>
@@ -87,7 +94,7 @@
         <ul class="clearfix">
 
             <li class="cur">
-                <a href="/jsp/Main_gypt.jsp">图说家政</a>
+                <a href="../jsp/Main_gypt.jsp">图说家政</a>
             </li>
 
             <li>
@@ -196,7 +203,7 @@
                         <div class="iteam">
                             <b></b>
                             <a href="">
-                                <img src="/static/images/tushuo.jpg" alt="关于平台">
+                                <img src="../static/images/tushuo.jpg" alt="关于平台">
                             </a>
                             <p><a href="">关于平台</a></p>
                         </div>
@@ -204,7 +211,7 @@
                         <div class="iteam">
                             <b></b>
                             <a href="">
-                                <img src="/static/images/tushuo.jpg" alt="关于平台">
+                                <img src="../static/images/tushuo.jpg" alt="关于平台">
                             </a>
                             <p><a href="">关于平台</a></p>
                         </div>
@@ -212,7 +219,7 @@
                         <div class="iteam">
                             <b></b>
                             <a href="">
-                                <img src="/static/images/tushuo.jpg" alt="关于平台">
+                                <img src="../static/images/tushuo.jpg" alt="关于平台">
                             </a>
                             <p><a href="">关于平台</a></p>
                         </div>
@@ -220,7 +227,7 @@
                         <div class="iteam">
                             <b></b>
                             <a href="">
-                                <img src="/static/images/tushuo.jpg" alt="关于平台">
+                                <img src="../static/images/tushuo.jpg" alt="关于平台">
                             </a>
                             <p><a href="">关于平台</a></p>
                         </div>
@@ -228,7 +235,7 @@
                         <div class="iteam">
                             <b></b>
                             <a href="">
-                                <img src="/static/images/tushuo.jpg" alt="关于平台">
+                                <img src="../static/images/tushuo.jpg" alt="关于平台">
                             </a>
                             <p><a href="">关于平台</a></p>
                         </div>
@@ -236,7 +243,7 @@
                         <div class="iteam">
                             <b></b>
                             <a href="">
-                                <img src="/static/images/tushuo.jpg" alt="关于平台">
+                                <img src="../static/images/tushuo.jpg" alt="关于平台">
                             </a>
                             <p><a href="">关于平台</a></p>
                         </div>
@@ -322,7 +329,29 @@
 </script>
 
 
-<!--是否设置分站-->
-<input type="hidden" id="fenzhan" value="否">
 </body>
 </html>
+<script type="text/javascript">
+    window.onload = function(){
+        var titles = document.getElementById("titles");
+        var btn = document.getElementById("btn");
+        btn.onclick = function(){
+            if(titles.value == "家庭清洁"){
+                url = "../jsp/jzfw_qj.jsp";
+            }else if(titles.value == "企业清洁"){
+                url = "../jsp/jzfw_qyqj.jsp";
+            }else if(titles.value == "保姆"){
+                url = "../jsp/jzfw_bm.jsp";
+            }else if(titles.value == "月嫂"){
+                url = "../jsp/jzfw_ys.jsp";
+            }else if(titles.value == "育婴"){
+                url = "../jsp/jzfw_yy.jsp";
+            }else if(titles.value == "钟点工"){
+                url = "../jsp/jzfw_zdg.jsp";
+            }else if(titles.value == "医院陪护"){
+                url = "../jsp/jzfw_yyph.jsp";
+            }
+            window.location.href = url;
+        }
+    }
+</script>

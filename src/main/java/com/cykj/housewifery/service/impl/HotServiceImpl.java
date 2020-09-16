@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.List;
+import java.util.Map;
 
 @Service("hots")
 public class HotServiceImpl implements HotService {
@@ -19,11 +20,14 @@ public class HotServiceImpl implements HotService {
 
 
     @Override
-    public LayuiJson getHot() {
-        List <Order> orders =  hotServiceMapper.getHot();
+    public LayuiJson getHot(Map<String, String> condition, Integer curPage, Integer pageSize) {
+        Integer record = hotServiceMapper.selectRecord(condition);
+        List <Order> orders =  hotServiceMapper.getHot(condition, curPage, pageSize, record);
         LayuiJson layuiJson= new LayuiJson();
         layuiJson.setData(orders);
         layuiJson.setCode(0);
+        layuiJson.setCount(record);
         return layuiJson;
     }
+
 }

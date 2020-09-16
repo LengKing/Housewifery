@@ -4,9 +4,26 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cykj.housewifery.mapper.HotServiceMapper">
 
-    <select id="getHot" resultType="com.cykj.housewifery.bean.Order">
+    <select id="getHot" parameterType="java.util.Map" resultType="com.cykj.housewifery.bean.Order">
         select count(*) as hot_count ,service_name from tb_order group by service_name
---          as hot_count,
+
+        <trim prefix="having" suffixOverrides="and">
+        <if test="condition.serviceName !=null">
+            service_name like CONCAT('%',#{condition.serviceName},'%')
+        </if>
+        </trim>
+
+        <if test="curPage!= null and pageSize!= null">
+            limit #{curPage},#{pageSize};
+        </if>
+    </select>
+
+    <select id="selectRecord" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select count(t.service_name) from (select service_name from tb_order group by service_name
+        <if test="condition.serviceName != null and condition.pageSize!= ''">
+            having service_name like CONCAT('%',#{condition.serviceName},'%')
+        </if>
+        ) t
     </select>
 
 </mapper>
