@@ -35,4 +35,15 @@ public class EmployeeServiceImpl implements EmployeeService {
         List<Employee> employees = employeeMapper.getEmployeesByCompanyId(pageNum,Integer.valueOf(limit),companyId,name);
         return employees;
     }
+
+    @Override
+    public String addEmployee(Employee employee) {
+        int n = employeeMapper.addEmployee(employee);
+        if (n>0){
+            return "新增成功";
+        }else{
+            return "新增失败，编号已存在";
+        }
+
+    }
 }

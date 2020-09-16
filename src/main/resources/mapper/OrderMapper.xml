@@ -99,4 +99,20 @@
         </if>
     </select>
 
+    <select id="orderCountByYear" parameterType="string" resultType="order">
+        SELECT DATE_FORMAT(order_time,'%Y年') as orderTime,sum(cost) cost,count(id) count FROM tb_order where company = #{value}  GROUP BY  orderTime
+    </select>
+
+    <select id="orderCountByMonth" parameterType="string" resultType="order">
+        SELECT DATE_FORMAT(order_time,'%Y年%m月') as orderTime,sum(cost) cost,count(id) count FROM tb_order where company = #{value}  GROUP BY  orderTime
+    </select>
+
+    <select id="orderCountByWeek" parameterType="string" resultType="order">
+        SELECT DATE_FORMAT(order_time,'%Y年第%u周') as orderTime,sum(cost) cost,count(id) count FROM tb_order where company = #{value}  GROUP BY  orderTime
+    </select>
+
+    <select id="orderCountByDay" parameterType="string" resultType="order">
+        SELECT DATE_FORMAT(order_time,'%Y年%m月%d日') as orderTime,sum(cost) cost,count(id) count FROM tb_order where company = #{value}  GROUP BY  orderTime
+    </select>
+
 </mapper>

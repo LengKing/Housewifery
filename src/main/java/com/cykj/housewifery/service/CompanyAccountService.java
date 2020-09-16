@@ -2,6 +2,7 @@ package com.cykj.housewifery.service;
 
 import com.cykj.housewifery.bean.Company;
 import com.cykj.housewifery.bean.CompanyAccountDetails;
+import com.cykj.housewifery.bean.Order;
 
 import java.util.List;
 
@@ -19,4 +20,5 @@ public interface CompanyAccountService {
     int getRecordsCount(String companyId);
 
     List<CompanyAccountDetails> getRecords(String companyId, Integer pageNum, String limit);
+
 }

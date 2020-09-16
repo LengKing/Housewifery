@@ -43,4 +43,11 @@ public class EmployeeControl {
         Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
         return gson.toJson(layuiJson);
     }
+
+    @RequestMapping(value = "/addEmployee",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object addEmployee(Employee employee) {
+        String result = employeeService.addEmployee(employee);
+        return result;
+    }
 }

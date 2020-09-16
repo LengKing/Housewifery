@@ -33,4 +33,12 @@ public interface OrderMapper {
     int barOrder(@Param("date") String date, @Param("company") String company);
 
     int lineOrder(@Param("date") String date, @Param("company") String company);
+
+    List<Order> orderCountByYear(String companyId);
+
+    List<Order> orderCountByMonth(String companyId);
+
+    List<Order> orderCountByWeek(String companyId);
+
+    List<Order> orderCountByDay(String companyId);
 }

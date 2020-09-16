@@ -16,6 +16,7 @@ public class Employee {
     private String job;             //职位
     private String label;           //标签
     private Integer state;          //员工状态
+    private String stateName;
     private Integer companyId;      //所属公司
 
     public Employee() {
@@ -43,6 +44,14 @@ public class Employee {
 
     public void setCompanyId(Integer companyId) {
         this.companyId = companyId;
+    }
+
+    public String getStateName() {
+        return stateName;
+    }
+
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
     }
 
     @Override

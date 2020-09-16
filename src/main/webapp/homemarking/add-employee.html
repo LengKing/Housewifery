@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="stylesheet" href="../static/css/font.css">
+    <link rel="stylesheet" href="../static/css/xadmin.css">
+    <script src="../static/js/jquery.min.js" charset="utf-8"></script>
+    <script src="../static/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../static/js/xadmin.js"></script>
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-sm12 layui-col-md6" style="width: 100%;">
+            <div class="layui-card">
+                <div class="layui-card-body" style="min-height: 100%;text-align: left">
+                    <form class="layui-form" action="" lay-filter="example">
+                        <input id="companyId" type="hidden" name="companyId" value="">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">员工编号：</label>
+                            <div class="layui-input-block">
+                                <input type="text" id="number" lay-verify="required|numAndLetter" name="number" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">姓名：</label>
+                            <div class="layui-input-block">
+                                <input type="text" id="name" lay-verify="required" name="name" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">性别：</label>
+                            <div class="layui-form layui-input-inline layui-show-xs-block">
+                                <input type="radio" name="gender" id="man" value="男" checked="checked" title="男"/>
+                                <input type="radio" name="gender" id="woman" value="女" title="女"/>
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">年龄：</label>
+                            <div class="layui-input-block">
+                                <input type="text" id="age" name="age" lay-verify="required|age" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">出生年月：</label>
+                            <div class="layui-inline layui-show-xs-block">
+                                <input class="layui-input"  autocomplete="off" placeholder="--年--月--日" name="birthday" id="birthday" lay-verify="required">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">学历：</label>
+                            <div class="layui-form layui-input-inline layui-show-xs-block">
+                                <select id="school" name="school" lay-verify="required"></select>
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">技能：</label>
+                            <div class="layui-form layui-input-inline layui-show-xs-block">
+                                <select id="skill" name="skill" lay-verify="required"></select>
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">求职意向：</label>
+                            <div class="layui-input-block">
+                                <input type="text" id="job" name="job" lay-verify="required" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">评价-标签：</label>
+                            <div class="layui-input-block">
+                                <input type="text" id="label" name="label" lay-verify="required" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script>
+    layui.use(['laydate','form'], function(){
+        var laydate = layui.laydate;
+        var  form = layui.form;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#birthday' //指定元素
+        });
+    });
+    $(function () {
+        var request = {
+            QueryString: function (val) {
+                var uri = decodeURI(window.location.search);
+                var re = new RegExp("" + val + "=([^&?]*)", "ig");
+                return ((uri.match(re)) ? (uri.match(re)[0].substr(val.length + 1)) : null);
+            }
+        }
+        var companyId = request.QueryString("companyId");
+        $("#companyId").val(companyId);
+        layui.use('form', function(){
+            var  form = layui.form;
+            $.ajax({
+                url:"/params/findParams",
+                data:"type="+'school',
+                type:"post",
+                dataType:"json",
+                success:function (data) {
+                    if (data!=null){
+                        for (var i=0;i<data.length;i++){
+                            $("#school").append("<option value='"+data[i]+"'>"+data[i]+"</option>")
+                        }
+                         form.render("select");
+                    }
+                },
+                error:function () {
+                    layer.msg("发生了一点小问题..请稍后再试");
+                }
+            });
+            $.ajax({
+                url:"/service/findAllServiceType",
+                type:"post",
+                dataType:"json",
+                success:function (data) {
+                    if (data!=null){
+                        for (var i=0;i<data.length;i++){
+                            $("#skill").append("<option value='"+data[i].id+"'>"+data[i].typeName+"</option>")
+                        }
+                        form.render("select");
+                    }
+                },
+                error:function () {
+                    layer.msg("发生了一点小问题..请稍后再试");
+                }
+            })
+
+            //自定义验证规则
+            form.verify({
+                numAndLetter: [
+                    /^[A-Za-z0-9]+$/,
+                    '编号由数字或字母组成'
+                ],
+                age: [
+                    /^[0-9]+$/,
+                    '请输入正确的年龄'
+                ]
+            });
+            //监听提交
+            form.on('submit(demo1)', function(data){
+                $.ajax({
+                    url:"/employee/addEmployee",
+                    data:data.field,
+                    type:"post",
+                    dataType:"text",
+                    success:function (data) {
+                        layer.msg(data);
+                    },
+                    error:function () {
+                        layer.msg("发生了一点小问题..请稍后再试");
+                    }
+                })
+                return false;
+            });
+        });
+    })
+
+</script>
+</html>

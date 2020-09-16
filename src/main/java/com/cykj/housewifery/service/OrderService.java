@@ -30,4 +30,6 @@ public interface OrderService {
     ReportDataBean barOrder(String startDate, String endDate, String company);
     ReportDataBean lineOrder(String startDate, String endDate, String company);
 
+    ReportDataBean orderTotalByCompany(String companyId,String condition);
+
 }

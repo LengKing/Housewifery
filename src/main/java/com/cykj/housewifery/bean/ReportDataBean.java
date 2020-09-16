@@ -1,5 +1,6 @@
 package com.cykj.housewifery.bean;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +13,15 @@ public class ReportDataBean {
     private List<Integer> data;
     private Map<String,Integer> count;
     private List<Integer> datas;
+    private List<BigDecimal> cost;
+
+    public List<BigDecimal> getCost() {
+        return cost;
+    }
+
+    public void setCost(List<BigDecimal> cost) {
+        this.cost = cost;
+    }
 
     public Map<String, Integer> getCount() {
         return count;
