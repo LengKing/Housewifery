@@ -9,14 +9,17 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <%
+        String path = request.getContextPath();
+        String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+    %>
     <title>register</title>
-    <script src="${pageContext.request.contextPath}static/bootstrap/js/jquery-2.2.3.min.js"></script>
-    <script src="${pageContext.request.contextPath}static/bootstrap/js/jquery-ui.min.js"></script>
-    <link type="text/css" href="${pageContext.request.contextPath}static/bootstrap/css/jquery-ui.min.css" rel="stylesheet">
-    <link type="text/css" href="${pageContext.request.contextPath}static/bootstrap/css/register.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <script src="${pageContext.request.contextPath}static/bootstrap/js/bootstrap.min.js"></script>
-    <script src="${pageContext.request.contextPath}static/bootstrap/js/my.js"></script>
+    <script type="text/javascript" charset="utf-8" src="<%=basePath%>/static/js/1.9.1jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="<%=basePath%>static/bootstrap/js/jquery-ui.min.js"></script>
+    <link type="text/css" href="<%=basePath%>static/bootstrap/css/jquery-ui.min.css" rel="stylesheet">
+    <link type="text/css" href="<%=basePath%>static/bootstrap/css/register.css" rel="stylesheet">
+    <link href="<%=basePath%>static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" charset="utf-8" src="<%=basePath%>static/bootstrap/js/bootstrap.min.js"></script>
     <SCRIPT language = "JavaScript">
         // function checkUserName(){    //验证用户名
         //     var fname = document.myform.username.value;
@@ -161,12 +164,22 @@
         });
 
     </SCRIPT>
+    <style>
+        body{
+            width: 100%;
+            height: 100%;
+
+        }
+        .Vcode{
+            color: whitesmoke;
+        }
+    </style>
 </head>
 <body>
 <input type="hidden" id="path" value="${pageContext.request.contextPath}">
-<img src="${pageContext.request.contextPath}static/bootstrap/img/login_bg.jpg" class="bg">
+<img src="<%=basePath%>static/bootstrap/img/login_bg.jpg" class="bg">
 <div id="head">
-    <img src="${pageContext.request.contextPath}static/bootstrap/img/register_head.png" width=100% height=auto />
+    <img src="<%=basePath%>static/bootstrap/img/register_head.png" width=100% height=auto />
 </div>
 <div id="center">
     <form name="myform" onSubmit="return validateform( )" enctype="multipart/form-data" action="cgi-bin/register.cgi" method="post" >
@@ -176,38 +189,80 @@
         <div class="input-group">
             <h3>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</h3><input class="form-control"  id="password" name="password" type="password" style="height:40px" value=""  placeholder="密码长度6-12位"/>
             <span class="input-group-btn">
-			<INPUT class="btn btn-default" id="passwordeye" type="button" value="show/hide"">
+			<INPUT class="btn btn-default" id="passwordeye" type="button" value="show/hide">
         </span>
         </div>
         <div class="input-group">
-            <h3>确认密码：</h3><input class="form-control"  id="password2" name="password2" type="password" style="height:40px" value=""/>
-            <span class="input-group-btn">
-			<INPUT class="btn btn-default" id="passwordeye" type="button" value="show/hide"">
-        </span>
-        </div>
-        <div class="input-group">
-            <h3>手&nbsp;&nbsp;机&nbsp;&nbsp;号：</h3><input class="form-control"  id="phone" name="phone" type="phone" style="height:40px" value=""  placeholder="手机号码11位"/>
-
+            <div>手&nbsp;&nbsp;机&nbsp;&nbsp;号：<input class="form-control"  id="phone" type="text" style="height:40px" value=""  placeholder="手机号码11位"/>
+            </div>
         </div>
 
         <div class="input-group">
-            <h3>地&nbsp;&nbsp;址&nbsp;&nbsp;：</h3><input class="form-control"  id="address" name="address" type="address" style="height:40px" value=""  placeholder="请输入输入"/>
-
+            <div>地&nbsp;&nbsp;址&nbsp;&nbsp;：<input class="form-control"  id="address" type="text" style="height:40px" value=""  placeholder="请输入输入地址"/>
+            </div>
         </div>
-        <div class="input-group">
-            <label>验证码:</label>
-            <input name="verifyCode">
-            <button type="button" class="btn btn-primary">获取短信验证码</button>
+        <div class="Vcode">
+
+                <input type="text" id="code"><a href="javascript:void(0)" id="getCode">获取短信验证码</a>
+
         </div>
 
         <div id="btn">
-            <INPUT name="registerButton"  class="btn btn-primary" type="submit" id="Button" value="检测用户名"  onclick="checkUserName()">
-            <INPUT name="registerButton"  class="btn btn-primary" type="submit" id="Button" value="注册"  onclick="addUser()">
+            <INPUT name="registerButton"  class="btn btn-primary" type="button" id="Button" value="检测用户名"  onclick="validate()">
+            <INPUT name="registerButton"  class="btn btn-primary" type="button" id="wButton" value="注册"  onclick="addUser()">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="${pageContext.request.contextPath}jsp/User_login.jsp"><INPUT  class="btn btn-primary" name="loginButton" id="Button" type="button" value="登录"></a>
+            <a href="<%=basePath%>jsp/User_login.jsp"><INPUT  class="btn btn-primary" name="loginButton" id="rButton" type="button" value="已有账号 请跳转登录界面登录！"></a>
         </div>
     </form>
 </div>
 
+<script type="text/javascript">
+    var obj = document.getElementById("getCode");
+    var flag = 60;
+    obj.onclick = function () {
+        if (flag < 60) {
+            return;
+        }
+
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("get", "/getCode/service?phone="+ document.getElementById("phone").value,true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                alert(xhr.responseText);
+            }
+        }
+        xhr.send(null);
+        timer();
+
+    }
+    
+    //校验验证码
+    function validate() {
+        if (flag < 60) {
+            return;
+        }
+        var xhr = new XMLHttpRequest();
+        xhr.open("get", "/validate/date?code=" + document.getElementById("code").value, true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                alert(xhr.responseText);
+            }
+        }
+        xhr.send(null);
+    }
+
+    function timer() {
+        flag--;
+        obj.innerHTML = flag + "秒以后重新刷新验证码"
+        if (flag == 0) {
+            obj.innerHTML = "获取短信验证码";
+            flag = 60;
+
+        } else {
+            setTimeout("timer()", 1000);//递归调用
+        }
+    }
+</script>
 </body>
 </html>
