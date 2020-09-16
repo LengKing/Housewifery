@@ -41,4 +41,8 @@
     <select id="getServiceTypeByCompanyId" parameterType="string" resultType="serviceType">
         select s.id,s.type_name from tb_service_type s,tb_company_service c where s.id = c.service_type_id and c.company_id=#{value} and s.pid = 0
     </select>
+
+    <select id="findAllServiceType" resultType="serviceType">
+        select id,type_name,pid from tb_service_type where pid = 0
+    </select>
 </mapper>

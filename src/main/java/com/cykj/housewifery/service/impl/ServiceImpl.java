@@ -93,4 +93,10 @@ public class ServiceImpl implements Service {
         List<ServiceType> types = serviceMapper.getServiceTypeByCompanyId(companyId);
         return types;
     }
+
+    @Override
+    public List<ServiceType> findAllServiceType() {
+        List<ServiceType> types = serviceMapper.findAllServiceType();
+        return types;
+    }
 }

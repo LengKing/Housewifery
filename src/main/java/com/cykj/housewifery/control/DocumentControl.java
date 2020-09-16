@@ -46,7 +46,6 @@ public class DocumentControl {
         try {
             String dir = "";
             int typeVal = 0;
-            System.out.println("employee:"+employeeId);
             if ("company".equals(type)){
                 dir = "companyData";
                 typeVal= documentService.getDocumentTypeVal(name);

@@ -107,4 +107,12 @@ public class OrderControl {
         ReportDataBean dataBeans=orderService.lineOrder(startDate,endDate,company);
         return new Gson().toJson(dataBeans);
     }
+
+    @RequestMapping(value = "/orderTotalByCompany",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object orderTotalByCompany(String companyId,String condition) {
+        ReportDataBean reportDataBean = orderService.orderTotalByCompany(companyId,condition);
+        return new Gson().toJson(reportDataBean);
+    }
+
 }

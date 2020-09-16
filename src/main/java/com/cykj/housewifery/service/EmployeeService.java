@@ -10,4 +10,6 @@ public interface EmployeeService {
     int getEmployeesCount(String companyId, String name);
 
     List<Employee> getEmployeesByCompanyId(Integer pageNum, String limit, String companyId, String name);
+
+    String addEmployee(Employee employee);
 }

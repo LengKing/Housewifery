@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -156,6 +157,30 @@ public class OrderServiceImpl implements OrderService {
             datas.add(count);
         }
         reportDataBean.setData(datas);
+        return reportDataBean;
+    }
+
+    @Override
+    public ReportDataBean orderTotalByCompany(String companyId,String condition) {
+        List<Order> orders = new ArrayList<>();
+        switch (condition){
+            case "year": orders = orderMapper.orderCountByYear(companyId);break;
+            case "month": orders = orderMapper.orderCountByMonth(companyId);break;
+            case "week": orders = orderMapper.orderCountByWeek(companyId);break;
+            case "day": orders = orderMapper.orderCountByDay(companyId);break;
+        }
+        ReportDataBean reportDataBean=new ReportDataBean();
+        List<String> years = new ArrayList<>();
+        List<BigDecimal> cost = new ArrayList<>();
+        List<Integer> count = new ArrayList<>();
+        for (Order order : orders){
+            years.add(order.getOrderTime());
+            cost.add(order.getCost());
+            count.add(Integer.valueOf(order.getCount()));
+        }
+        reportDataBean.setCategories(years);
+        reportDataBean.setCost(cost);
+        reportDataBean.setData(count);
         return reportDataBean;
     }
 }

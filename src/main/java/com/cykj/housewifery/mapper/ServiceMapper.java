@@ -26,4 +26,6 @@ public interface ServiceMapper {
     int updateCompanyService(CompanyService companyService);
 
     List<ServiceType> getServiceTypeByCompanyId(String companyId);
+
+    List<ServiceType> findAllServiceType();
 }
