@@ -1,6 +1,7 @@
 package com.cykj.housewifery.service.impl;
 
 import com.cykj.housewifery.bean.CompanyService;
+import com.cykj.housewifery.bean.Employee;
 import com.cykj.housewifery.bean.LayuiJson;
 import com.cykj.housewifery.bean.ServiceType;
 import com.cykj.housewifery.mapper.ServiceMapper;
@@ -98,5 +99,11 @@ public class ServiceImpl implements Service {
     public List<ServiceType> findAllServiceType() {
         List<ServiceType> types = serviceMapper.findAllServiceType();
         return types;
+    }
+
+    @Override
+    public ServiceType getServiceTypeByEmployee(Employee employee) {
+        ServiceType serviceType = serviceMapper.getServiceTypeByEmployee(employee);
+        return serviceType;
     }
 }

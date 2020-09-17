@@ -1,9 +1,6 @@
 package com.cykj.housewifery.service.impl;
 
-import com.cykj.housewifery.bean.LayuiJson;
-import com.cykj.housewifery.bean.ReportDataBean;
-import com.cykj.housewifery.bean.ServiceType;
-import com.cykj.housewifery.bean.Train;
+import com.cykj.housewifery.bean.*;
 import com.cykj.housewifery.mapper.CompanyMapper;
 import com.cykj.housewifery.mapper.TrainMapper;
 import com.cykj.housewifery.service.TrainService;
@@ -82,5 +79,16 @@ public class TrainServiceImpl implements TrainService {
         }
         reportDataBean.setData(datas);
         return reportDataBean;
+    }
+
+    @Override
+    public String employeeApply(List<Employee> employees,String trainId) {
+        int n = trainMapper.employeeApply(employees,trainId);
+        if (n>0){
+            return "报名成功";
+        }else {
+            return "报名失败，请重试";
+        }
+
     }
 }

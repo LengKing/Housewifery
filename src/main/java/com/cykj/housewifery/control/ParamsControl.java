@@ -1,5 +1,6 @@
 package com.cykj.housewifery.control;
 
+import com.cykj.housewifery.bean.Param;
 import com.cykj.housewifery.service.ParamsService;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,12 @@ public class ParamsControl {
         return new Gson().toJson(times);
     }
 
+    @RequestMapping(value = "/findAfterSalesState",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object findAfterSalesState(){
+        List<Param> params = paramsService.findAfterSalesState();
+        return new Gson().toJson(params);
+    }
     @RequestMapping(value = "/findJobs" ,produces = "text/plain;charset=utf-8")
     @ResponseBody
     public Object findJobs(){

@@ -46,4 +46,34 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
 
     }
+
+    @Override
+    public String updateEmployee(Employee employee) {
+        int n = employeeMapper.updateEmployee(employee);
+        if (n>0){
+            return "保存成功";
+        }else{
+            return "保存失败，请重试";
+        }
+    }
+
+    @Override
+    public String deleteEmployeeById(String number) {
+        int n = employeeMapper.deleteEmployeeById(number);
+        if (n>0){
+            return "删除成功";
+        }else{
+            return "删除失败，请重试";
+        }
+    }
+
+    @Override
+    public String updateSkill(Employee employee) {
+        int n = employeeMapper.updateSkill(employee);
+        if (n>0){
+            return "分配成功";
+        }else{
+            return "分配失败，请重试";
+        }
+    }
 }

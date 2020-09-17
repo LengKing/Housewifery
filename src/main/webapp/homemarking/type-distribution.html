@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../static/layui/css/layui.css"  media="all">
+    <script src="../static/js/jquery.min.js" charset="utf-8"></script>
+    <script src="../static/layui/layui.js" charset="utf-8"></script>
+</head>
+<body>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-sm12 layui-col-md6" style="width: 100%;text-align: center">
+            <div class="layui-card">
+                <div class="layui-card-body" style="min-height: 100%;">
+                    <div id="main4" class="layui-col-sm12" style="height: 100%;">
+                        <form class="layui-form" action="" lay-filter="example">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">服务类别：</label>
+                                <div id="box" class="layui-input-block"></div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <div class="layui-input-block">
+                                    <button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1">确认分配</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script>
+    $(function () {
+        var request = {
+            QueryString : function(val){
+                var uri = decodeURI(window.location.search);
+                var re = new RegExp("" +val+ "=([^&?]*)", "ig");
+                return ((uri.match(re))?(uri.match(re)[0].substr(val.length+1)):null);
+            }
+        }
+        var companyId= request.QueryString("companyId");
+        var number= request.QueryString("number");
+
+        layui.use('form', function(){
+            var form = layui.form
+                ,layer = layui.layer;
+            $.ajax({
+                url:'/service/serviceTypeByEmployee',
+                data:"companyId="+companyId+"&number="+number,
+                type:'post',
+                dataType:'json',
+                success:function (data) {
+                    if (data!=null){
+                       var val = data.id;
+                        $.ajax({
+                            url:'/service/findAllServiceType',
+                            type:'post',
+                            async:false,
+                            dataType:'json',
+                            success:function (data2) {
+                                if (data2!=null){
+                                    for (var i=0;i<data2.length;i++){
+                                        $("#box").append("<input type='radio' "+(data2[i].id==val?'checked="true"':'')+" value='"+data2[i].id+"' name='skill' title='"+data2[i].typeName+"'>")
+                                    }
+                                    form.render();
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+
+
+            //监听提交
+            form.on('submit(demo1)', function(data){
+                $.ajax({
+                    url:"/employee/updateSkill",
+                    data:"companyId="+companyId+"&number="+number+"&skill="+data.field.skill,
+                    type:"post",
+                    dataType:"text",
+                    success:function (data) {
+                        layer.msg(data);
+                        if (data=='分配成功'){
+                            var i = 1;
+                            var interval = setInterval(function () {
+                                i--;
+                                if (i === 0) {
+                                    var index = parent.layer.getFrameIndex(window.name); //获取当前窗口的name
+                                    parent.layer.close(index);		//关闭窗口
+                                    clearInterval(interval);
+                                }
+                            }, 1000);
+                        }
+                    },
+                    error:function () {
+                        layer.msg("发生了一点小问题..请稍后再试");
+                    }
+                })
+                return false;
+            });
+
+        });
+
+    })
+
+</script>
+</html>
