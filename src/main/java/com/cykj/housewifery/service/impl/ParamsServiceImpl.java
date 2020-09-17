@@ -28,6 +28,12 @@ public class ParamsServiceImpl implements ParamsService {
     }
 
     @Override
+    public List<Object> findJobs() {
+        List<Object> jobs=paramsMapper.findJobs();
+        return jobs;
+    }
+
+    @Override
     public List<Param> findAfterSalesState() {
         List<Param> params = paramsMapper.findAllAfterSalesState();
         return params;

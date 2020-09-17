@@ -7,16 +7,16 @@ public class Affiche {
     private int id;             //公告动态表 主id
     private Date releasrDate;   //发布时间
     private String title;       //标题
-    private String describe;    //描述
+    private String describes;    //描述
 
     public Affiche() {
     }
 
-    public Affiche(int id, Date releasrDate, String title, String describe) {
+    public Affiche(int id, Date releasrDate, String title, String describes) {
         this.id = id;
         this.releasrDate = releasrDate;
         this.title = title;
-        this.describe = describe;
+        this.describes = describes;
     }
 
     public int getId() {
@@ -43,21 +43,21 @@ public class Affiche {
         this.title = title;
     }
 
-    public String getDescribe() {
-        return describe;
+    public String getDescribes() {
+        return describes;
     }
 
-    public void setDescribe(String describe) {
-        this.describe = describe;
+    public void setDescribes(String describes) {
+        this.describes = describes;
     }
 
     @Override
     public String toString() {
-        return "affiche{" +
+        return "Affiche{" +
                 "id=" + id +
                 ", releasrDate=" + releasrDate +
                 ", title='" + title + '\'' +
-                ", describe='" + describe + '\'' +
+                ", describes='" + describes + '\'' +
                 '}';
     }
 }

@@ -80,11 +80,11 @@
             <scope>provided</scope>
         </dependency>
 
-<!--        验证码的包-->
+        <!-- 验证码的包-->
         <dependency>
-            <groupId>com.zhenzikj</groupId>
-            <artifactId>zhenzisms</artifactId>
-            <version>2.0.2</version>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-core</artifactId>
+            <version>4.5.3</version>
         </dependency>
 
         <dependency>

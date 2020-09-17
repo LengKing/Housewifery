@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.housewifery.mapper.AdminTrainMapper">
+
+    <select id="getTrain" parameterType="java.util.Map" resultType="com.cykj.housewifery.bean.Train">
+        select id,title,start_date,end_date,start_time,end_time,content,count,length,credential,url from tb_train where 1=1
+        <if test="condition.title !=null">
+            and title like CONCAT('%',#{condition.title},'%')
+        </if>
+
+        <if test="curPage!= null and pageSize!= null">
+            limit #{curPage},#{pageSize};
+        </if>
+
+    </select>
+
+    <select id="selectRecord" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select count(id) from tb_train where 1=1
+        <if test="condition.id != null and condition.pageSize!= ''">
+            and id like CONCAT('%',#{condition.id},'%')
+        </if>
+    </select>
+
+
+    <delete id="deleteTrain" parameterType="com.cykj.housewifery.bean.Train">
+        delete from tb_train where id = #{id}
+    </delete>
+
+
+    <insert id="addTrain" parameterType="com.cykj.housewifery.bean.Train">
+        insert into tb_train(title,start_date,end_date,start_time,end_time,content,count,length)
+        values (#{title},#{startDate},#{endDate},#{startTime},#{endTime},#{content},#{count},#{length})
+    </insert>
+
+    <update id="updateTrain" parameterType="com.cykj.housewifery.bean.Train">
+        update tb_train
+        <set>
+            <if test="train.title !=null and train.title != ''">
+                title=#{train.title},
+            </if>
+
+            <if test="train.startDate !=null and train.startDate != ''">
+                start_date=#{train.startDate},
+            </if>
+
+            <if test="train.endDate !=null and train.endDate != ''">
+                end_date=#{train.endDate},
+            </if>
+
+            <if test="train.startTime !=null and train.startTime != ''">
+                start_time=#{train.startTime},
+            </if>
+
+            <if test="train.endTime !=null and train.endTime != ''">
+                end_time=#{train.endTime},
+            </if>
+
+            <if test="train.uploadRatio !=null and train.uploadRatio != ''">
+                content=#{train.uploadRatio},
+            </if>
+
+            <if test="train.count !=null and train.count != ''">
+                count=#{train.count},
+            </if>
+
+            <if test="train.length !=null and train.length != ''">
+                length=#{train.length},
+            </if>
+        </set>
+        where id=#{train.id}
+    </update>
+
+</mapper>

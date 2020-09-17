@@ -16,7 +16,7 @@ public class Demand {
     private Date releaseTime;       //发布时间
     private String state;           //状态 默认初始待服务
     private String payState;  //支付状态
-
+    private String names;            //对应参数表支付状态的名字
     public Demand() {
     }
 
@@ -28,9 +28,10 @@ public class Demand {
         this.payState = payState;
     }
 
-    public Demand(int id, int userId, String address, String classService, int serviceCount, String title, String described, String phone, Date releaseTime, String state) {
+    public Demand(int id, int userId, String name, String address, String classService, int serviceCount, String title, String described, String phone, Date releaseTime, String state, String payState, String names) {
         this.id = id;
         this.userId = userId;
+        this.name = name;
         this.address = address;
         this.classService = classService;
         this.serviceCount = serviceCount;
@@ -39,6 +40,8 @@ public class Demand {
         this.phone = phone;
         this.releaseTime = releaseTime;
         this.state = state;
+        this.payState = payState;
+        this.names = names;
     }
 
     public int getId() {
@@ -129,6 +132,14 @@ public class Demand {
         this.name = name;
     }
 
+    public String getNames() {
+        return names;
+    }
+
+    public void setNames(String names) {
+        this.names = names;
+    }
+
     @Override
     public String toString() {
         return "Demand{" +
@@ -143,6 +154,8 @@ public class Demand {
                 ", phone='" + phone + '\'' +
                 ", releaseTime=" + releaseTime +
                 ", state='" + state + '\'' +
+                ", payState='" + payState + '\'' +
+                ", names='" + names + '\'' +
                 '}';
     }
 }

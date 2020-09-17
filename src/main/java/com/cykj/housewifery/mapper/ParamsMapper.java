@@ -8,8 +8,8 @@ import java.util.List;
 @Mapper
 public interface ParamsMapper {
     List<Object> findParams(String type);
-
     List<Object> findTime();
+    List<Object> findJobs();
 
     List<Param> findAllAfterSalesState();
 }

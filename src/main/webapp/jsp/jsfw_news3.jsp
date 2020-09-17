@@ -13,25 +13,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>附近家政服务公司收费价格范围</title>
-    <link href="/static/css/common.css" rel="stylesheet" type="text/css">
-    <link href="/static/css/tcommon.css" rel="stylesheet" type="text/css">
-    <link href="/static/css/inpage.css" rel="stylesheet" type="text/css">
-    <link href="/static/css/tinpage-1.0.css" rel="stylesheet" type="text/css">
-    <link href="/static/css/fancybox.css" rel="stylesheet" type="text/css"/>
-    <link type="text/css" rel="stylesheet" href="/static/css/swiper.css"/>
-    <script type="text/javascript" charset="utf-8" src="/static/js/1.9.1jquery.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/static/js/swiper.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/static/js/move.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/static/js/tcommon-1.0.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/static/js/common.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/static/js/inpage.js"></script>
-
+    <link href="../static/css/common.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/tcommon.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/inpage.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/tinpage-1.0.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/fancybox.css" rel="stylesheet" type="text/css"/>
+    <link type="text/css" rel="stylesheet" href="../static/css/swiper.css"/>
+    <script type="text/javascript" charset="utf-8" src="../static/js/1.9.1jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../static/js/swiper.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../static/js/move.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../static/js/tcommon-1.0.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../static/js/common.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../static/js/inpage.js"></script>
 
 </head>
 
 <body style=" background: #f4f4f4; ">
-<script src="/static/js/lodash-4.17.4.min.js" type="text/javascript"></script>
-<script src="/static/js/stlclient.js" type="text/javascript"></script>
+<script src="../static/js/lodash-4.17.4.min.js" type="text/javascript"></script>
+<script src="../static/js/stlclient.js" type="text/javascript"></script>
 
 <!-- header -->
 <div class="header">
@@ -43,34 +42,34 @@
     <div class="header-nav">
         <div class="content" id="navBox">
             <ul>
-                <li><a href="/jsp/Page_Main.jsp" target="_self">首页</a></li>
+                <li><a href="../jsp/Page_Main.jsp" target="_self">首页</a></li>
 
                 <li mark='65' px='1'>
-                    <a href="/jsp/jzfw.jsp" target="_self">家政服务</a>
+                    <a href="../jsp/jzfw.jsp" target="_self">家政服务</a>
                 </li>
 
                 <li mark='47' px='2'>
-                    <a href="/jsp/jzfw_Hot.jsp" target="_self">热门服务</a>
+                    <a href="../jsp/jzfw_Hot.jsp" target="_self">热门服务</a>
                 </li>
 
                 <li mark='88' px='3'>
-                    <a href="/jsp/PostDemand.jsp" target="_self">发布服务</a>
+                    <a href="../jsp/PostDemand.jsp" target="_self">发布服务</a>
                 </li>
 
                 <li mark='89' px='4'>
-                    <a href="/jsp/Main_lxpt.jsp" target="_self">联系平台</a>
+                    <a href="../jsp/Main_lxpt.jsp" target="_self">联系平台</a>
                 </li>
 
                 <li mark='48' px='6'>
-                    <a href="/jsp/Main_ruzhu.jsp" target="_self">品牌招商</a>
+                    <a href="../jsp/Main_ruzhu.jsp" target="_self">品牌招商</a>
                 </li>
 
                 <li mark='52' px='5'>
-                    <a href="/jsp/Main_gypt.jsp" target="_self">关于平台</a>
+                    <a href="../jsp/Main_gypt.jsp" target="_self">关于平台</a>
                 </li>
 
                 <li mark='71' px='7'>
-                    <a href="/jsp/jzfw_news.jsp" target="_self">知识了解</a>
+                    <a href="../jsp/jzfw_news.jsp" target="_self">知识了解</a>
                 </li>
 
             </ul>
@@ -144,7 +143,7 @@
                         <a>已经是第一篇</a>
                     </p>
                     <p class="NextNews">
-                        <a href="/news/202009091654541553.html">找附近小时工的注意事项有哪些?</a>
+                        <a>找附近小时工的注意事项有哪些?</a>
                     </p>
                 </div>
             </div>
@@ -157,7 +156,7 @@
             <div class="box box1">
                 <div class="top">
                     <h3>热门<em>文章</em><i></i></h3>
-                    <a href="" class="more"><img src="/static/images/newsdetialsarticle_icon09.png" width="21"
+                    <a href="" class="more"><img src="../static/images/newsdetialsarticle_icon09.png" width="21"
                                                  height="21" alt="热门文章"></a>
                 </div>
                 <ul>
@@ -182,7 +181,7 @@
             <div class="box box2">
                 <div class="top">
                     <h3>最新<em>资讯</em><i></i></h3>
-                    <a href="" class="more"><img src="/static/images/newsdetialsarticle_icon09.png" width="21"
+                    <a href="" class="more"><img src="../static/images/newsdetialsarticle_icon09.png" width="21"
                                                  height="21" alt="最新资讯"></a>
                 </div>
                 <ul class="clearfix">

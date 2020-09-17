@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.housewifery.mapper.AdminManageMapper">
+
+    <select id="getManage" parameterType="java.util.Map" resultType="com.cykj.housewifery.bean.User">
+        select user_id,account,name,password,gender,phone,address,integral,url,reg_date,money,user_state,
+        (select name from tb_params where type = 'user_state' and value = user_state) state from tb_user where 1=1
+        <if test="condition.name !=null">
+            and name like CONCAT('%',#{condition.name},'%')
+        </if>
+
+        <if test="curPage!= null and pageSize!= null">
+            limit #{curPage},#{pageSize};
+        </if>
+
+    </select>
+
+    <select id="selectRecord" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select count(account) from tb_user where 1=1
+        <if test="condition.account != null and condition.pageSize!= ''">
+            and account like CONCAT('%',#{condition.account},'%')
+        </if>
+    </select>
+
+    <!--修改状态 禁用 启用-->
+    <update id="updateState" parameterType="java.util.Map">
+        update tb_user
+        <set>
+            <if test="user.userState !=null and user.userState != ''">
+                user_state=#{user.userState},
+            </if>
+
+        </set>
+        where account =#{user.account}
+    </update>
+
+
+    <!--搜索服务信息-->
+    <select id="getNeed" parameterType="java.util.Map" resultType="com.cykj.housewifery.bean.Demand">
+        select id,user_id,address,class_service,service_count,title,described,phone,
+        release_time,state,pay_state,(select name from tb_params where type = 'pay_state'
+        and value = t.pay_state ) names ,(select name from tb_user where account = t.user_id) name from tb_demand t where 1=1
+
+        <if test="condition.name !=null">
+            and name like CONCAT('%',#{condition.name},'%')
+        </if>
+
+        <if test="curPage!= null and pageSize!= null">
+            limit #{curPage},#{pageSize};
+        </if>
+
+    </select>
+
+    <select id="selectRecords" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select count(id) from tb_demand where 1=1
+        <if test="condition.id != null and condition.pageSize!= ''">
+            and id like CONCAT('%',#{condition.id},'%')
+        </if>
+    </select>
+
+</mapper>

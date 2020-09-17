@@ -37,4 +37,11 @@ public class ParamsControl {
         List<Param> params = paramsService.findAfterSalesState();
         return new Gson().toJson(params);
     }
+    @RequestMapping(value = "/findJobs" ,produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object findJobs(){
+        List<Object> jobs=paramsService.findJobs();
+        return new Gson().toJson(jobs);
+    }
+
 }

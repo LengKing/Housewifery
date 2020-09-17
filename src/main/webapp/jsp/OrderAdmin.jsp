@@ -23,8 +23,36 @@
     <![endif]-->
 </head>
 <style>
+    .p_div{
+        margin: 20px auto;
+        width: 80px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 12px;
+        border: solid 1px #ddd;
+        background-color: #F1F1F1;
+        float: left;
+        text-align: center;
+        border-radius: 12px;
+    }
+    .p_i{
+        margin:20px auto;
+        width: 30px;
+        height: 50px;
+        line-height: 50px;
+        float: left;
+        text-align: center;
+    }
+    .t_div{
+        margin: 0 auto;
+        width: 110px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 6px;
+        float: left;
+    }
     label{
-        width: 300px;
+        font-size: 8px;
     }
 </style>
 
@@ -57,8 +85,8 @@
             , url: '${pageContext.request.contextPath}/order/selOrder' //数据接口
             , page: true //开启分页
             , cols: [[ //表头
-                {field: 'id', title: '订单号', width: 150,align: 'center'}
-                ,{field: 'employee', title: '家政人员姓名', width: 100,align: 'center'}
+                {field: 'id', title: '订单号', width: 80,align: 'center'}
+                ,{field: 'employee', title: '家政人员姓名', width: 150,align: 'center'}
                 ,{field: 'serviceName', title: '服务', width: 100,align: 'center'}
                 ,{field: 'company', title: '所属公司', width: 150,align: 'center'}
                 ,{field: 'orderTime', title: '订单时间', width: 200,align: 'center'}
@@ -72,6 +100,16 @@
             id = obj.data.id;           //获得当前行数据
             var layEvent = obj.event;       //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
             if (layEvent === 'detail') {    //查看详情
+                $("#id").text("");
+                $("#userId").text("");
+                $("#serviceName").text("");
+                $("#count").text("");
+                $("#orderTime").text("");
+                $("#serviceDate").text("");
+                $("#cost").text("");
+                $("#employee").text("");
+                $("#d_company").text("");
+                $("#orderState").text("");
                 $.ajax({
                     url: "${pageContext.request.contextPath}/order/findOrderById",
                     type: "Post",
@@ -97,8 +135,46 @@
                     area: 'auto',
                     content:$("#detail_div"),
                 })
+            } else if (layEvent === 'process') {   //查看流程图
+                $("#one").css('background','#F1F1F1');
+                $("#two").css('background','#F1F1F1');
+                $("#three").css('background','#F1F1F1');
+                $("#four").css('background','#F1F1F1');
+                $("#five").css('background','#F1F1F1');
+                $("#t_user").text("");
+                $("#t_company").text("");
+                $("#t_employee").text("");
+                $.ajax({
+                    url: "${pageContext.request.contextPath}/order/findOrderById",
+                    type: "Post",
+                    data: {"id":id},
+                    dataType: "text",
+                    success:function (data) {
+                    var order=JSON.parse(data);
+                    $("#one").css('background','#8CD3EC');
+                    $("#t_user").text("用户："+order.user)
+                        if (order.payState=='已支付'){
+                            $("#two").css('background','#8CD3EC');
+                        }if (order.company!=null){
+                            $("#three").css('background','#8CD3EC');
+                            $("#t_company").text("家政公司："+order.company)
+                        }if (order.employee!=null){
+                            $("#four").css('background','#8CD3EC');
+                            $("#t_employee").text("服务人员："+order.employee)
+                        }if (order.orderState=='已处理'){
+                            $("#five").css('background','#8CD3EC');
+                        }
+                    }
+                });
+                layer.open({
+                    title:"订单流程",
+                    type: 1,
+                    area: ['600', '200'],
+                    content:$("#process_div"),
+                })
             }
         });
+
 
         $("#selOrder").on('click',function () {
             var company=$("#company").val();
@@ -118,6 +194,7 @@
 </script>
 <script type="text/html" id="barDemo">
     <button class="layui-btn layui-btn-normal" type="button" lay-event="detail">查看详情</button>
+    <button class="layui-btn layui-btn-normal" type="button" lay-event="process">查看流程</button>
 </script>
 </body>
 
@@ -166,5 +243,47 @@
     </table>
 </div>
 
+<div id="process_div" style="width: 600px;height: 100px;text-align: center;display: none">
+    <div class="p_div" style="margin-left: 20px" id="one">
+        用户下单
+    </div>
+
+    <i class="p_i layui-icon">&#xe65b;</i>
+
+    <div class="p_div" id="two">
+        付款
+    </div>
+
+    <i class="p_i layui-icon">&#xe65b;</i>
+
+    <div class="p_div" id="three">
+        接单
+    </div>
+
+    <i class="p_i layui-icon">&#xe65b;</i>
+
+    <div class="p_div" id="four">
+        服务中
+    </div>
+
+    <i class="p_i layui-icon">&#xe65b;</i>
+
+    <div class="p_div" id="five">
+        服务结束
+    </div><br>
+
+    <div class="t_div">
+        <label id="t_user"></label>
+    </div>
+    <div class="t_div" style="width: 90px">
+        <label id="t_pay"></label>
+    </div>
+    <div class="t_div" style="width: 150px">
+        <label id="t_company"></label>
+    </div>
+    <div class="t_div">
+        <label id="t_employee"></label>
+    </div>
+</div>
 
 </html>

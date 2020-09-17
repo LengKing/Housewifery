@@ -9,4 +9,6 @@ public interface ParamsService {
     List<Object> findParams(String type);
     List<Object> findTime();
     List<Param> findAfterSalesState();
+    List<Object> findJobs();
+
 }

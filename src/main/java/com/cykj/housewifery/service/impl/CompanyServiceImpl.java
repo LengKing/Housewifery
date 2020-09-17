@@ -46,13 +46,7 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public List<MapBean> companyMap() {
-        List<String> areas=companyMapper.selArea();
-        List<MapBean> data=new ArrayList<>();
-        for (String area:areas){
-            int count=companyMapper.companyMap(area);
-            MapBean bean=new MapBean(area,count);
-            data.add(bean);
-        }
+        List<MapBean> data=companyMapper.companyMap();
         return data;
     }
 }

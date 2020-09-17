@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.housewifery.mapper.CompanyManageMapper">
+
+    <select id="getCompany" parameterType="java.util.Map" resultType="com.cykj.housewifery.bean.Company">
+        select id,name,legal,address,phone,phone,state,entry_date,account,money,area,
+        (select name from tb_params where type = 'company_state' and value = state) stateName,
+        (select area from tb_service_area where id = c.area) areaName
+        from tb_company c where 1=1
+        <if test="condition.name !=null">
+            and name like CONCAT('%',#{condition.name},'%')
+        </if>
+
+        <if test="curPage!= null and pageSize!= null">
+            limit #{curPage},#{pageSize};
+        </if>
+
+    </select>
+
+    <select id="selectRecord" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select count(id) from tb_company where 1=1
+        <if test="condition.id != null and condition.pageSize!= ''">
+            and id like CONCAT('%',#{condition.id},'%')
+        </if>
+    </select>
+
+
+</mapper>
