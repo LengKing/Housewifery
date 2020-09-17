@@ -12,25 +12,19 @@
     <meta name="force-rendering" content="webkit"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>家政服务培训,家政服务公司-社区邦</title>
-
-    <meta name="keywords" content="家政服务培训,月嫂公司招商加盟,家政服务公司,高端家政公司,深圳家政公司">
-
-    <meta name="description"
-          content="社区邦隶属于深圳市深家网络信息服务有限公司，提供家政服务培训,月嫂公司招商加盟服务，是一家专业的家政服务公司,高端家政公司,深圳家政公司，注重以互联网和信息化技术优化提升用户体验，进而促进行业示范及规模化。">
-
-    <link href="/static/css/common.css" rel="stylesheet" type="text/css">
-    <link href="/static/css/tcommon.css" rel="stylesheet" type="text/css">
-    <link href="/static/css/inpage.css" rel="stylesheet" type="text/css">
-    <link href="/static/css/tinpage-1.0.css" rel="stylesheet" type="text/css">
-    <link href="/static/css/fancybox.css" rel="stylesheet" type="text/css"/>
-    <link type="text/css" rel="stylesheet" href="/static/css/swiper.css"/>
-    <script type="text/javascript" charset="utf-8" src="/static/js/1.9.1jquery.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/static/js/swiper.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/static/js/move.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/static/js/tcommon-1.0.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/static/js/common.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/static/js/inpage.js"></script>
+    <title>联系平台</title>
+    <link href="../static/css/common.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/tcommon.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/inpage.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/tinpage-1.0.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/fancybox.css" rel="stylesheet" type="text/css"/>
+    <link type="text/css" rel="stylesheet" href="../static/css/swiper.css"/>
+    <script type="text/javascript" charset="utf-8" src="../static/js/1.9.1jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../static/js/swiper.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../static/js/move.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../static/js/tcommon-1.0.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../static/js/common.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../static/js/inpage.js"></script>
 
 </head>
 
@@ -42,38 +36,51 @@
             <p>欢迎来到XXXX网站！</p>
         </div>
     </div>
+    <div class="header-center">
+        <h1><a href="">XXXX智慧家政</a></h1>
+        <h2><img src="../static/images/logo_text.png"></h2>
+        <div class="search">
+            <form>
+                <input  id="title" type="text" name="word" placeholder="家庭清洁">
+                <button id="btn" type="button" >搜　索</button>
+            </form>
+        </div>
+        <div class="phone">
+            全国服务热线：<b>400-00-00000</b>
+        </div>
+    </div>
 
     <div class="header-nav">
         <div class="content" id="navBox">
             <ul>
-                <li><a href="/jsp/Page_Main.jsp" target="_self">首页</a></li>
+                <li><a href="../jsp/Page_Main.jsp" target="_self">首页</a></li>
 
                 <li mark='65' px='1'>
-                    <a href="/jsp/jzfw.jsp" target="_self">家政服务</a>
+                    <a href="../jsp/jzfw.jsp" target="_self">家政服务</a>
                 </li>
 
                 <li mark='47' px='2'>
-                    <a href="/jsp/jzfw_Hot.jsp" target="_self">热门服务</a>
+                    <a href="../jsp/jzfw_Hot.jsp" target="_self">热门服务</a>
                 </li>
 
                 <li mark='88' px='3'>
-                    <a href="/jsp/PostDemand.jsp" target="_self">发布服务</a>
+                    <a href="../jsp/PostDemand.jsp" target="_self">发布服务</a>
                 </li>
 
                 <li mark='89' px='4'>
-                    <a href="/jsp/Main_lxpt.jsp" target="_self">联系平台</a>
+                    <a href="../jsp/Main_lxpt.jsp" target="_self">联系平台</a>
                 </li>
 
                 <li mark='48' px='6'>
-                    <a href="/jsp/Main_ruzhu.jsp" target="_self">品牌招商</a>
+                    <a href="../jsp/Main_ruzhu.jsp" target="_self">品牌招商</a>
                 </li>
 
                 <li mark='52' px='5'>
-                    <a href="/jsp/Main_gypt.jsp" target="_self">关于平台</a>
+                    <a href="../jsp/Main_gypt.jsp" target="_self">关于平台</a>
                 </li>
 
                 <li mark='71' px='7'>
-                    <a href="/jsp/jzfw_news.jsp" target="_self">知识了解</a>
+                    <a href="../jsp/jzfw_news.jsp" target="_self">知识了解</a>
                 </li>
 
             </ul>
@@ -117,14 +124,14 @@
                         <tr class="firstRow">
                             <td width="678" valign="top" style="word-break: break-all;"><p
                                     style="line-height: 2em; margin-bottom: 15px; margin-top: 25px;"><img
-                                    src="/static/images/3dac144d08ae140e.png" title="hi" alt="hi"/>&nbsp;欢迎您进入<span
+                                    src="../static/images/3dac144d08ae140e.png" title="hi" alt="hi"/>&nbsp;欢迎您进入<span
                                     style="letter-spacing: 1pt; font-family: arial, helvetica, sans-serif; font-size: 14px;">智慧家政</span>官方网站！感谢您对<span
                                     style="font-family: arial, helvetica, sans-serif; letter-spacing: 1.33333px;">智慧家政</span>的信赖！“智慧家政”注重提升家庭服务供给侧品质，充分利用互联网+技术，打造线上线下垂直一体化运营的模式和业务系统、营销系统，贯彻“以用户为中心”的产品思维，通过专业化、标准化、职业化的服务和培训体系，提升团队运营能力和服务人员的专业服务水准，用心服务好每一个客户。我们每天都在用微笑欢迎您的到访，服务热线：<span
                                     style="font-size: 20px; color: rgb(255, 125, 40);"><strong><span
                                     style="font-size: 20px; text-align: center; background-color: rgb(255, 255, 255);">400-00-00000</span></strong></span>
                             </p></td>
                             <td width="162" valign="top" style="word-break: break-all;" align="right"><img
-                                    src="/static/images/erweima.jpg" title="智慧家政二维码" alt="智慧家政二维码" width="200"
+                                    src="../static/images/erweima.jpg" title="智慧家政二维码" alt="智慧家政二维码" width="200"
                                     height="200" border="0" vspace="0" style="width: 200px; height: 200px;"/></td>
                         </tr>
                         </tbody>
@@ -136,7 +143,7 @@
                             <td width="460"
                                 style="background: rgb(244, 244, 244); border: 4px solid rgb(255, 255, 255); word-break: break-all;"
                                 valign="middle" align="center" height="203"><p style="margin-top: 15px;"><img
-                                    src="/static/images/587fa37330054e70.png" title="电话" alt="电话" width="50" height="50"
+                                    src="../static/images/587fa37330054e70.png" title="电话" alt="电话" width="50" height="50"
                                     border="0" vspace="0" style="width: 50px; height: 50px;"/></p>
                                 <p style="margin-top: 15px; margin-bottom: 15px;"><span
                                         style="font-size: 16px;"><strong><span
@@ -149,7 +156,7 @@
                             <td width="460"
                                 style="background: rgb(244, 244, 244); border: 4px solid rgb(255, 255, 255); word-break: break-all;"
                                 valign="middle" align="center" height="203"><p style="margin-top: 15px;"><img
-                                    src="/static/images/caa9f1e098ca4d8e.png" title="邮箱" alt="邮箱" width="50" height="50"
+                                    src="../static/images/caa9f1e098ca4d8e.png" title="邮箱" alt="邮箱" width="50" height="50"
                                     border="0" vspace="0" style="width: 50px; height: 50px;"/></p>
                                 <p style="margin-top: 15px;"><span style="font-size: 16px;"><strong><span
                                         style="color: rgb(12, 12, 12);">邮 箱</span></strong></span></p>
@@ -158,7 +165,7 @@
                             <td valign="middle" align="center" colspan="1" rowspan="1" width="460"
                                 style="background: rgb(244, 244, 244); word-break: break-all;" height="203"><p
                                     style="padding: 0px; text-align: -webkit-center; white-space: normal; margin-bottom: 10px; margin-top: 15px;">
-                                <img src="/static/images/db306c84c4540c5.png" title="微信" alt="微信"/></p>
+                                <img src="../static/images/db306c84c4540c5.png" title="微信" alt="微信"/></p>
                                 <p style="margin-top: 15px; margin-bottom: 0px; padding: 0px; text-align: -webkit-center; white-space: normal;">
                                     <span style="color:#0c0c0c"><span
                                             style="font-size: 16px;"><strong>微信</strong></span></span></p>
@@ -167,7 +174,7 @@
                             <td width="460"
                                 style="background: rgb(244, 244, 244); border: 4px solid rgb(255, 255, 255); word-break: break-all;"
                                 valign="middle" align="center" height="203"><p style="margin-top: 15px;"><img
-                                    src="/static/images/4492b8646b894a7e.png" title="收货地址" alt="收货地址" width="50"
+                                    src="../static/images/4492b8646b894a7e.png" title="收货地址" alt="收货地址" width="50"
                                     height="50" border="0" vspace="0" style="width: 50px; height: 50px;"/></p>
                                 <p style="margin-top: 15px;"><span
                                         style="color: rgb(12, 12, 12); font-size: 16px;"><strong><span
@@ -197,3 +204,27 @@
 </div>
 </body>
 </html>
+<script type="text/javascript">
+    window.onload = function(){
+        var titles = document.getElementById("titles");
+        var btn = document.getElementById("btn");
+        btn.onclick = function(){
+            if(titles.value == "家庭清洁"){
+                url = "../jsp/jzfw_qj.jsp";
+            }else if(titles.value == "企业清洁"){
+                url = "../jsp/jzfw_qyqj.jsp";
+            }else if(titles.value == "保姆"){
+                url = "../jsp/jzfw_bm.jsp";
+            }else if(titles.value == "月嫂"){
+                url = "../jsp/jzfw_ys.jsp";
+            }else if(titles.value == "育婴"){
+                url = "../jsp/jzfw_yy.jsp";
+            }else if(titles.value == "钟点工"){
+                url = "../jsp/jzfw_zdg.jsp";
+            }else if(titles.value == "医院陪护"){
+                url = "../jsp/jzfw_yyph.jsp";
+            }
+            window.location.href = url;
+        }
+    }
+</script>

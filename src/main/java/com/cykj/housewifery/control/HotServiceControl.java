@@ -26,8 +26,22 @@ public class HotServiceControl {
 
     @RequestMapping("/getHot")
     @ResponseBody
-    public String getHot(){
-        LayuiJson layuiJson = hotService.getHot();
+    public String getHot(HttpServletRequest request){
+        String serviceName = request.getParameter("serviceName");
+        String curPageStr = request.getParameter("page");
+        String pageSizeStr = request.getParameter("limit");
+        Integer pageSize = 5;
+        Integer curPage = 1;
+        Map<String, String> condition = new HashMap<>();
+        if (null != serviceName && !"".equalsIgnoreCase(serviceName)) {
+            condition.put("serviceName", serviceName);
+        }
+        if (null != curPageStr && !"".equalsIgnoreCase(curPageStr)) {
+            curPage = Integer.parseInt(curPageStr);
+            pageSize = Integer.parseInt(pageSizeStr);
+            curPage = (curPage - 1) * pageSize;
+        }
+        LayuiJson layuiJson = hotService.getHot(condition, curPage, pageSize);
         return new Gson().toJson(layuiJson);
     }
 

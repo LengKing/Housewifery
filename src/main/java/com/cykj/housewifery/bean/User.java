@@ -15,12 +15,13 @@ public class User {
     private  String url;        //头像路径
     private  Timestamp regDate; //注册时间
     private  Double money;      //账户余额
-
+    private int userState;     //用户表禁用启用 1启用 2禁用
+    private String state;      //参数表禁用/启用别名
 
     public User() {
     }
 
-    public User(int userId, String account, String password, String name, String gender, String phone, String address, int integral, String url, Timestamp regDate, Double money) {
+    public User(int userId, String account, String password, String name, String gender, String phone, String address, int integral, String url, Timestamp regDate, Double money, int userState, String state) {
         this.userId = userId;
         this.account = account;
         this.password = password;
@@ -32,7 +33,10 @@ public class User {
         this.url = url;
         this.regDate = regDate;
         this.money = money;
+        this.userState = userState;
+        this.state = state;
     }
+
 
     @Override
     public String toString() {
@@ -48,8 +52,28 @@ public class User {
                 ", url='" + url + '\'' +
                 ", regDate=" + regDate +
                 ", money=" + money +
+                ", userState=" + userState +
+                ", state='" + state + '\'' +
                 '}';
     }
+
+
+    public int getUserState() {
+        return userState;
+    }
+
+    public void setUserState(int userState) {
+        this.userState = userState;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
     public String getName() {
         return name;
     }
