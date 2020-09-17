@@ -19,6 +19,7 @@ public class Order {
     private String payState;       //支付状态
     private String hotCount;       //热度次数
 
+
     public Order() {
     }
 

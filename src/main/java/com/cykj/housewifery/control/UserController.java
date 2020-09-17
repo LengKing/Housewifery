@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.crypto.Data;
 import java.io.IOException;
-import java.util.HashMap;
 
 @Controller
 @RequestMapping("/user")
@@ -58,7 +57,6 @@ public class UserController {
         user.setGender(gender);
         user.setPassword(password);
         user.setPhone(phone);
-
         boolean a = userService.add(user);
         if (a) {
             if (null != user) {
@@ -67,26 +65,24 @@ public class UserController {
                 System.out.println("注册成功！");
             }
         }
+
     }
 
-    @RequestMapping(value = "/barUser",produces = "text/plain;charset=utf-8")
+    @RequestMapping(value = "/barUser", produces = "text/plain;charset=utf-8")
     @ResponseBody
-    public Object barUser(String startDate,String endDate){
-        ReportDataBean dataBeans=userService.barUser(startDate,endDate);
+    public Object barUser(String startDate, String endDate) {
+        ReportDataBean dataBeans = userService.barUser(startDate, endDate);
+        System.out.println(new Gson().toJson(dataBeans));
         return new Gson().toJson(dataBeans);
     }
 
-    @RequestMapping(value = "/findUserByAccount")
+    @RequestMapping(value = "/lineUser", produces = "text/plain;charset=utf-8")
     @ResponseBody
-    public Object findUserByAccount(String account) throws IOException, ServletException {
-        User user = userService.findUserByAccount(account);
-        return new Gson().toJson(user);
-    }
-    @RequestMapping(value = "/lineUser",produces = "text/plain;charset=utf-8")
-    @ResponseBody
-    public Object lineUser(String startDate,String endDate){
-        ReportDataBean dataBeans=userService.lineUser(startDate,endDate);
+    public Object lineUser(String startDate, String endDate) {
+        ReportDataBean dataBeans = userService.lineUser(startDate, endDate);
+        System.out.println(new Gson().toJson(dataBeans));
         return new Gson().toJson(dataBeans);
     }
-
 }
+
+

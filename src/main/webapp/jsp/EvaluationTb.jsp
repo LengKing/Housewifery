@@ -10,11 +10,11 @@
 
     <script src="${pageContext.request.contextPath}/static/js/jquery-3.5.1.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/layui/css/layui.css" media="all">
-    <script src="${pageContext.request.contextPath}/static/js/userLogin.js"></script>
+
     <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
 </head>
 <body>
-<input type="hidden" id="path" value="${pageContext.request.contextPath}">
+
 <form class="layui-form" lay-filter="component-form-group" id="search_submits" onsubmit="return false" style="margin-top: 15px">
     <div class="layui-form layui-card-header layuiadmin-card-header-auto" lay-filter="layadmin-useradmin-formlist">
 
@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="layui-inline">
-            <button class="layui-btn" lay-submit="search_submits" lay-filter="search"  onclick="OrderQuery(this)">查询</button>
+            <button class="layui-btn" lay-submit="search_submits" lay-filter="search"  >查询</button>
         </div>
     </div>
 </form>
@@ -47,7 +47,7 @@
 
 <script type="text/html" id="barDemo">
     <a class="layui-btn layui-btn-xs" lay-event="edit">修改</a>
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" onclick="deleteAdmin(this)">删除</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" >删除</a>
 </script>
 
 
@@ -62,7 +62,7 @@
         var $ = layui.jquery;
         var tableinf = table.render({
             elem: '#test'
-            ,url:'/Order/OrderSel'
+            ,url:'${pageContext.request.contextPath}/Evaluation/evaluation'
             ,toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
             ,defaultToolbar: ['filter', 'exports', 'print', { //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
                 title: '提示'
@@ -72,13 +72,12 @@
             ,title: '用户订单表'
             ,cols: [[
                 {type: 'checkbox', fixed: 'left'}
-                ,{field:'id', title:'订单号', width:130, fixed: 'left', unresize: true, sort: true }
-                ,{field:'serviceName', title:'服务', width:120, edit: 'text'}
-                ,{field:'type', title:'服务分类', width:160, edit: 'text', sort: true}
-                ,{field:'cost', title:'消费金额', width:150, edit: 'text', sort: true}
-                ,{field:'orderTime', title:'消费时间', width:160, edit: 'text', sort: true}
-                ,{field:'company', title:'商家名称', width:160, edit: 'text', sort: true}
-                ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
+                ,{field:'employee', title:'保姆名字', width:130, fixed: 'left', unresize: true, sort: true }
+                ,{field:'company', title:'所属公司', width:120, edit: 'text'}
+                ,{field:'orderTime', title:'订单时间', width:160, edit: 'text', sort: true}
+                ,{field:'cost', title:'费用', width:150, edit: 'text', sort: true}
+                ,{field:'orderState', title:'状态', width:160, edit: 'text', sort: true}
+                ,{title: '操作', width: 250, align: 'center', toolbar: '#barDemo'}
             ]]
             , limit: 5
             , limits: [5, 6, 7]
@@ -113,7 +112,7 @@
 
 
             tableinf.reload({
-                url:'/Order/OrderSel',
+                url:'${pageContext.request.contextPath}/Evaluation/evaluation',
                 page: {
                     curr: 1 //重新从第 1 页开始
                 },
