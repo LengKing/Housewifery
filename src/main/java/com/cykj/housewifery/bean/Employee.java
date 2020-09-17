@@ -5,7 +5,7 @@ import java.sql.Date;
 //家政员工实体类
 public class Employee {
     private Integer id;             //员工ID
-    private Integer number;         //员工编号
+    private String number;         //员工编号
     private String password;        //密码
     private String name;            //姓名
     private String gender;          //性别
@@ -22,7 +22,7 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(Integer id, Integer number, String password, String name, String gender, int age, Date birthday, String school, String skill, String job, String label, Integer state, Integer companyId) {
+    public Employee(Integer id, String number, String password, String name, String gender, int age, Date birthday, String school, String skill, String job, String label, Integer state, Integer companyId) {
         this.id = id;
         this.number = number;
         this.password = password;
@@ -121,11 +121,11 @@ public class Employee {
         this.id = id;
     }
 
-    public Integer getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(Integer number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 

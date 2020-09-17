@@ -32,4 +32,17 @@
         order by a.id desc limit #{pageNum},#{limit}
     </select>
 
+    <update id="updateAfterSalesState">
+        update tb_after set state = (select value from tb_params where type='after_sales_state' and name=#{stateName})
+        where id = #{id}
+    </update>
+
+    <select id="seeDetailsById" resultType="employee" parameterType="string">
+        select e.number,e.name from tb_after a,tb_employee e where a.house_id = e.number and a.id = #{value}
+    </select>
+
+    <update id="arrangeAfterSales">
+        update tb_after set house_id = #{number},state = (select value from tb_params where type='after_sales_state'
+        and name='处理中') where id = #{id}
+    </update>
 </mapper>

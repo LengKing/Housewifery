@@ -18,6 +18,8 @@ public class Order {
     private String orderState;     //状态
     private String payState;       //支付状态
     private String hotCount;       //热度次数
+    private Integer evaluationState;
+    private String evaluationStateName;
 
     public Order() {
     }
@@ -55,6 +57,22 @@ public class Order {
                 ", payState='" + payState + '\'' +
                 ", hotCount='" + hotCount + '\'' +
                 '}';
+    }
+
+    public Integer getEvaluationState() {
+        return evaluationState;
+    }
+
+    public void setEvaluationState(Integer evaluationState) {
+        this.evaluationState = evaluationState;
+    }
+
+    public String getEvaluationStateName() {
+        return evaluationStateName;
+    }
+
+    public void setEvaluationStateName(String evaluationStateName) {
+        this.evaluationStateName = evaluationStateName;
     }
 
     public String getHotCount() {

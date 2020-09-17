@@ -1,9 +1,6 @@
 package com.cykj.housewifery.control;
 
-import com.cykj.housewifery.bean.AfterSales;
-import com.cykj.housewifery.bean.CompanyService;
-import com.cykj.housewifery.bean.LayuiJson;
-import com.cykj.housewifery.bean.Param;
+import com.cykj.housewifery.bean.*;
 import com.cykj.housewifery.service.AfterSalesService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -35,5 +32,24 @@ public class AfterSalesControl {
         Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
         return gson.toJson(layuiJson);
     }
+    @RequestMapping(value = "/afterSalesAudit",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object afterSalesAudit(String id,String type){
+        String result = afterSalesService.afterSalesAudit(id,type);
+        return result;
+    }
 
+    @RequestMapping(value = "/seeDetails",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object seeDetails(String id){
+        Employee employee = afterSalesService.seeDetailsById(id);
+        return new Gson().toJson(employee);
+    }
+
+    @RequestMapping(value = "/arrangeAfterSales",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object arrangeAfterSales(String id,String number){
+        String result = afterSalesService.arrangeAfterSales(id,number);
+        return result;
+    }
 }
