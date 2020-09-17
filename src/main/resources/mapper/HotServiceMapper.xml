@@ -5,7 +5,7 @@
 <mapper namespace="com.cykj.housewifery.mapper.HotServiceMapper">
 
     <select id="getHot" parameterType="java.util.Map" resultType="com.cykj.housewifery.bean.Order">
-        select count(*) as hot_count ,service_name from tb_order group by service_name
+        select count(*) as hot_count ,service_name from tb_order group by service_name order by hot_count DESC
 
         <trim prefix="having" suffixOverrides="and">
         <if test="condition.serviceName !=null">

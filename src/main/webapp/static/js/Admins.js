@@ -170,3 +170,312 @@ function look(node) {
         }
     });
 }
+
+
+//发布动态公告
+function fabu() {
+    layer.open({
+        anim: 1,
+        type: 2,
+        title: '发布公告',
+        shadeClose: true,
+        shade: false,
+        maxmin: true,
+        id: 'fabus',
+        area: ['450', '400'],
+        content: ['/jsp/Admin_Afficheadd.jsp'],
+        end: function () {
+            $("#searchUserifAccount").click();
+        }
+    });
+}
+
+//发布动态公告ajax
+function fabus(node) {
+    var title = $("#title").val();
+    var describes = $("#describes").val();
+    $.ajax({
+        url: "/adminAffiche/addTAffiche",
+        data: {title: title, describes: describes},
+        success: function (data) {
+            if (data == "发布成功") {
+                alert("发布成功");
+                guanbi();
+            } else {
+                layer.alert("发布失败")
+            }
+        },
+        end: function () {
+            $("#searchUserifAccount").click();
+        }
+    })
+}
+
+
+
+//动态公告查看
+function lookAffiche(node) {
+    var releasrDate = $(node).parent("div").parent("td").parent("tr")[0].firstChild.nextSibling.nextSibling.textContent;
+    var describes = $(node).parent("div").parent("td").parent("tr")[0].firstChild.nextSibling.nextSibling.nextSibling.textContent;
+    var title = $(node).parent("div").parent("td").parent("tr")[0].firstChild.nextSibling.textContent;
+    layer.open({
+        anim: 1,
+        type: 2,
+        title: '查看详情',
+        shadeClose: true,
+        shade: false,
+        maxmin: true,
+        id: 'lookAffiche',
+        area: ['400', '500'],
+        content: ['/jsp/Admin_Affichelook.jsp'],
+
+        success: function (layero, index) {
+            var body = layer.getChildFrame('body', index);
+            body.contents().find("#releasrDate").val(releasrDate);
+            body.contents().find("#describes").val(describes);
+            body.contents().find("#title").val(title);
+        },
+        end: function () {
+            $("#searchUserifAccount").click();
+        }
+    });
+}
+
+
+function updateAffiche(node) {
+    var releasrDate = $(node).parent("div").parent("td").parent("tr")[0].firstChild.nextSibling.nextSibling.textContent;
+    var describes = $(node).parent("div").parent("td").parent("tr")[0].firstChild.nextSibling.nextSibling.nextSibling.textContent;
+    var title = $(node).parent("div").parent("td").parent("tr")[0].firstChild.nextSibling.textContent;
+    var id = $(node).parent("div").parent("td").parent("tr")[0].firstChild.textContent;
+    layer.open({
+        anim: 1,
+        type: 2,
+        title: '修改公告信息',
+        shadeClose: true,
+        shade: false,
+        maxmin: true,
+        id: 'update',
+        area: ['400', '500'],
+        content: ['/jsp/Admin_Afficheupdate.jsp'],
+
+        success: function (layero, index) {
+            var body = layer.getChildFrame('body', index);
+            body.contents().find("#releasrDate").val(releasrDate);
+            body.contents().find("#describes").val(describes);
+            body.contents().find("#title").val(title);
+            body.contents().find("#id").val(id);
+        },
+        end: function () {
+            $("#searchUserifAccount").click();
+        }
+    });
+}
+
+
+function updateAffiches(node) {
+    var title = $("#title").val();
+    // var releasrDate = $("#releasrDate").val();
+    var describes = $("#describes").val();
+    var id = $("#id").val();
+
+    $.ajax({
+        url: "/adminAffiche/updateAffiche",
+        data: {title: title,
+            describes: describes,id: id},
+        success: function (data) {
+            if (data == "修改成功") {
+                alert("修改成功");
+                guanbi();
+            } else {
+                layer.alert("修改失败")
+            }
+        },
+        end: function () {
+            $("#searchUserifAccount").click();
+        }
+    })
+}
+
+//查看服务类型
+function lookType(node) {
+    var typeName = $(node).parent("div").parent("td").parent("tr")[0].firstChild.nextSibling.textContent;
+    var name = $(node).parent("div").parent("td").parent("tr")[0].firstChild.nextSibling.nextSibling.textContent;
+    var id1 = $(node).parent("div").parent("td").parent("tr")[0].firstChild.nextSibling.nextSibling.nextSibling.textContent;
+    var id = $(node).parent("div").parent("td").parent("tr")[0].firstChild.textContent;
+    layer.open({
+        anim: 1,
+        type: 2,
+        title: '查看详情',
+        shadeClose: true,
+        shade: false,
+        maxmin: true,
+        id: 'lookType',
+        area: ['400', '400'],
+        content: ['/jsp/Admin_ServerTypelook.jsp'],
+
+        success: function (layero, index) {
+            var body = layer.getChildFrame('body', index);
+            body.contents().find("#id").val(id);
+            body.contents().find("#id1").val(id1);
+            body.contents().find("#name").val(name);
+            body.contents().find("#typeName").val(typeName);
+        },
+        end: function () {
+            $("#searchUserifAccount").click();
+        }
+    });
+}
+
+//修改服务类型
+function updatesType(node) {
+    var typeName = $(node).parent("div").parent("td").parent("tr")[0].firstChild.nextSibling.textContent;
+    var name = $(node).parent("div").parent("td").parent("tr")[0].firstChild.nextSibling.nextSibling.textContent;
+    var id1 = $(node).parent("div").parent("td").parent("tr")[0].firstChild.nextSibling.nextSibling.nextSibling.textContent;
+    // var pid1 = $(node).parent("div").parent("td").parent("tr")[0].firstChild.nextSibling.nextSibling.nextSibling.nextSibling.textContent;
+    var id = $(node).parent("div").parent("td").parent("tr")[0].firstChild.textContent;
+    layer.open({
+        anim: 1,
+        type: 2,
+        title: '修改服务类型',
+        shadeClose: true,
+        shade: false,
+        maxmin: true,
+        id: 'updatesTypes',
+        area: ['400', '400'],
+        content: ['/jsp/Admin_ServerTypeupdate.jsp'],
+
+        success: function (layero, index) {
+            var body = layer.getChildFrame('body', index);
+            body.contents().find("#typeName").val(typeName);
+            body.contents().find("#name").val(name);
+            body.contents().find("#id1").val(id1);
+            body.contents().find("#id").val(id);
+        },
+        end: function () {
+            $("#searchUserifAccount").click();
+        }
+    });
+}
+
+
+function updatesTypes(node) {
+    var typeName = $("#typeName").val();
+    var id = $("#id").val();
+    var name = $("#name").val();
+    var id1 = $("#id1").val();
+
+    $.ajax({
+        url: "/adminType/updatesType",
+        data: {typeName: typeName,id: id,
+            name: name,id1: id1},
+        success: function (data) {
+            if (data == "修改成功") {
+                alert("修改成功");
+                guanbi();
+            } else {
+                layer.alert("修改失败")
+            }
+        },
+        end: function () {
+            $("#searchUserifAccount").click();
+        }
+    })
+}
+
+
+
+
+//修改服务
+function updateServer(node) {
+    var typeName = $(node).parent("div").parent("td").parent("tr")[0].firstChild.nextSibling.textContent;
+    var name = $(node).parent("div").parent("td").parent("tr")[0].firstChild.nextSibling.nextSibling.textContent;
+    var id1 = $(node).parent("div").parent("td").parent("tr")[0].firstChild.nextSibling.nextSibling.nextSibling.textContent;
+    var pid1 = $(node).parent("div").parent("td").parent("tr")[0].firstChild.nextSibling.nextSibling.nextSibling.nextSibling.textContent;
+    var id = $(node).parent("div").parent("td").parent("tr")[0].firstChild.textContent;
+    layer.open({
+        anim: 1,
+        type: 2,
+        title: '修改服务',
+        shadeClose: true,
+        shade: false,
+        maxmin: true,
+        id: 'updateServers',
+        area: ['400', '400'],
+        content: ['/jsp/Admin_ServerTypeupdates.jsp'],
+
+        success: function (layero, index) {
+            var body = layer.getChildFrame('body', index);
+            body.contents().find("#typeName").val(typeName);
+            body.contents().find("#name").val(name);
+            body.contents().find("#id1").val(id1);
+            body.contents().find("#id").val(id);
+        },
+        end: function () {
+            $("#searchUserifAccount").click();
+        }
+    });
+}
+
+
+function updateServers(node) {
+    var typeName = $("#typeName").val();
+    var id = $("#id").val();
+    var name = $("#name").val();
+    var id1 = $("#id1").val();
+    $.ajax({
+        url: "/adminType/updateServers",
+        data: {typeName: typeName,id: id,
+            name: name,id1: id1},
+        success: function (data) {
+            if (data == "修改成功") {
+                alert("修改成功");
+                guanbi();
+            } else {
+                layer.alert("修改失败")
+            }
+        },
+        end: function () {
+            $("#searchUserifAccount").click();
+        }
+    })
+}
+
+
+//addType 添加服务类型
+function addType() {
+    layer.open({
+        anim: 1,
+        type: 2,
+        title: '新增服务类型',
+        shadeClose: true,
+        shade: false,
+        maxmin: true,
+        id: 'addTypes',
+        area: ['450', '400'],
+        content: ['/jsp/Admin_ServerTypeadd.jsp'],
+        end: function () {
+            $("#searchUserifAccount").click();
+        }
+    });
+}
+
+//发布动态公告ajax
+function addTypes(node) {
+    var typeName = $("#typeName").val();
+    var pid = $("#pid").val();
+    $.ajax({
+        url: "/adminType/addType",
+        data: {typeName: typeName, pid: pid},
+        success: function (data) {
+            if (data == "添加成功") {
+                alert("添加成功");
+                guanbi();
+            } else {
+                layer.alert("添加失败")
+            }
+        },
+        end: function () {
+            $("#searchUserifAccount").click();
+        }
+    })
+}

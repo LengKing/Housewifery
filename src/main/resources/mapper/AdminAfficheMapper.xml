@@ -19,10 +19,37 @@
 
     <select id="selectRecord" parameterType="java.util.Map" resultType="java.lang.Integer">
         select count(id) from tb_affiche where 1=1
-        <if test="condition.id != null and condition.pageSize!= ''">
-            and id like CONCAT('%',#{condition.id},'%')
+        <if test="condition.title != null and condition.pageSize!= ''">
+            and title like CONCAT('%',#{condition.title},'%')
         </if>
     </select>
 
+    <delete id="deleteAffiche" parameterType="com.cykj.housewifery.bean.Affiche">
+        delete from tb_affiche where id = #{id}
+    </delete>
+
+    <insert id="addTAffiche" parameterType="com.cykj.housewifery.bean.Affiche">
+        insert into tb_affiche(title,describes,releasr_date)
+        values (#{affiche.title},#{affiche.describes},#{affiche.releasrDate})
+    </insert>
+
+    <update id="updateAffiche" parameterType="com.cykj.housewifery.bean.Affiche">
+        update tb_affiche
+        <set>
+            <if test="affiche.title !=null and affiche.title != ''">
+                title=#{affiche.title},
+            </if>
+
+            <if test="affiche.describes !=null and affiche.describes != ''">
+                describes=#{affiche.describes},
+            </if>
+
+            <if test="affiche.releasrDate !=null and affiche.releasrDate != ''">
+                releasr_date=#{affiche.releasrDate},
+            </if>
+
+        </set>
+        where id=#{affiche.id}
+    </update>
 
 </mapper>

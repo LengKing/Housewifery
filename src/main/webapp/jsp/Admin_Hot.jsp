@@ -39,7 +39,7 @@
 
     <script type="text/html" id="barDemo">
 <%--        <a class="layui-btn layui-btn-danger layui-btn-xs" onclick="update(this)">修改</a>--%>
-        <a class="layui-btn layui-btn-xs" onclick="look(this)">查看详情</a>
+<%--        <a class="layui-btn layui-btn-xs" onclick="look(this)">查看详情</a>--%>
     </script>
     <script>
         var path = $("#path").val();
@@ -64,9 +64,9 @@
                 }
                 , toolbar: 'default'
                 , cols: [[ //表头
-                    {field: 'serviceName', title: '热门服务名', width: 180, sort: true}
-                    , {field: 'hotCount', title: '热度量', width: 180}
-                    , {fixed: 'right', align: 'center', toolbar: '#barDemo'}
+                    {field: 'serviceName', title: '热门服务名', width: 280, sort: true}
+                    , {field: 'hotCount', title: '热度量'}
+                    // , {fixed: 'right', align: 'center', toolbar: '#barDemo'}
                 ]]
             });
 

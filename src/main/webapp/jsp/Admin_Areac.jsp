@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>动态公告</title>
+    <title>区域管理</title>
     <script type="text/javascript" src="../static/js/jquery-3.5.1.js" charset="UTF-8"></script>
     <script src="../static/layui/layui.js" charset="UTF-8"></script>
     <link rel="stylesheet" href="../static/layui/css/layui.css">
@@ -24,9 +24,9 @@
 <div class="layui-input-block" style="margin-top: 20px">
 
     <div class="layui-inline">
-        <label class="layui-form-label">活动标题：</label>
+        <label class="layui-form-label">区域：</label>
         <div class="layui-input-inline">
-            <input name="title" id="title" class="layui-input" type="text" autocomplete="off">
+            <input name="area" id="area" class="layui-input" type="text" autocomplete="off">
         </div>
     </div>
     <button class="layui-btn" style="margin-top: 0px;" id="searchUserifAccount" data-type="reload">
@@ -40,7 +40,7 @@
     <script type="text/html" id="barDemo">
         <a class="layui-btn layui-btn-danger layui-btn-xs" onclick="lookAffiche(this)">查看详情</a>
         <a class="layui-btn layui-btn-xs" onclick="updateAffiche(this)">修改</a>
-        <a class="layui-btn layui-btn-danger layui-btn-xs" onclick="fabu(this)">发布</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" onclick="fabu(this)">添加</a>
         <a class="layui-btn layui-btn-xs" lay-event="del">删除</a>
     </script>
     <script>
@@ -55,7 +55,7 @@
             table.render({
                 elem: '#demo'
                 , height: 510
-                , url:'/adminAffiche/getAffiche' //数据接口
+                , url:'/adminAreac/getAreac' //数据接口
                 , page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
                     layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
                     , curr: 1 //设定初始在第 1 页
@@ -67,9 +67,9 @@
                 , toolbar: 'default'
                 , cols: [[ //表头
                     {field: 'id', title: 'ID', width: 180, sort: true}
-                    , {field: 'title', title: '标题', width: 180}
-                    , {field: 'releasrDate', title: '发布时间', width: 180}
-                    , {field: 'describes', title: '描述', width: 180}
+                    , {field: 'area', title: '区域', width: 180}
+                    , {field: 'name', title: '区域公司', width: 180}
+                    // , {field: 'describes', title: '描述', width: 180}
                     , {fixed: 'right', align: 'center', toolbar: '#barDemo'}
                 ]]
             });
@@ -115,14 +115,14 @@
 
             var active = {
                 reload: function () {
-                    var title = $("#title").val();//搜索框内容
+                    var area = $("#area").val();//搜索框内容
                     //执行重载
                     table.reload('demo', {
                         page: {
                             curr: 1 //重新从第 1 页开始
                         }
                         , where: {
-                            title: title//作为参数传递给后端
+                            area: area//作为参数传递给后端
                         }
                     });
 
