@@ -1,6 +1,7 @@
 package com.cykj.housewifery.service;
 
 import com.cykj.housewifery.bean.CompanyService;
+import com.cykj.housewifery.bean.Employee;
 import com.cykj.housewifery.bean.ServiceType;
 
 import java.util.List;
@@ -19,4 +20,6 @@ public interface Service {
     List<ServiceType> getServiceTypeByCompanyId(String companyId);
 
     List<ServiceType> findAllServiceType();
+
+    ServiceType getServiceTypeByEmployee(Employee employee);
 }

@@ -16,4 +16,10 @@ public interface EmployeeMapper {
     List<Employee> getEmployeesByCompanyId(@Param("pageNum") Integer pageNum,@Param("limit") Integer limit,@Param("companyId") String companyId,@Param("name") String name);
 
     int addEmployee(Employee employee);
+
+    int updateEmployee(Employee employee);
+
+    int deleteEmployeeById(String number);
+
+    int updateSkill(Employee employee);
 }

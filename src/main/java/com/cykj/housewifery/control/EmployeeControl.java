@@ -50,4 +50,45 @@ public class EmployeeControl {
         String result = employeeService.addEmployee(employee);
         return result;
     }
+
+    @RequestMapping(value = "/updateEmployee",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object updateEmployee(Employee employee) {
+        String result = employeeService.updateEmployee(employee);
+        return result;
+    }
+
+    @RequestMapping(value = "/deleteEmployeeById",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object deleteEmployeeById(String  number) {
+        String result = employeeService.deleteEmployeeById(number);
+        return result;
+    }
+    @RequestMapping(value = "/updateSkill",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object updateSkill(Employee employee) {
+        String result = employeeService.updateSkill(employee);
+        return result;
+    }
+
+    @RequestMapping(value = "/onJobEmployee",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object onJobEmployee(String page,String limit,String companyId,String name) {
+        Integer pageNum = (Integer.valueOf(page)-1)*Integer.valueOf(limit);
+        LayuiJson layuiJson = new LayuiJson();
+        int count = employeeService.getEmployeesCount(companyId,name);
+        List<Employee> employees = employeeService.getEmployeesByCompanyId(pageNum,limit,companyId,name);
+        for (int i=0;i<employees.size();i++){
+            if (employees.get(i).getStateName().equals("已离职")){
+                count--;
+                employees.remove(i);
+                i--;
+            }
+        }
+        layuiJson.setData(employees);
+        layuiJson.setCode(0);
+        layuiJson.setCount(count);
+        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+        return gson.toJson(layuiJson);
+    }
 }

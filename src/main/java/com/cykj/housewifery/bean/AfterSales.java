@@ -9,6 +9,7 @@ public class AfterSales {
     private Timestamp time; //时间
     private  String afterWhy;//售后原因
     private  int state;     //状态
+    private String stateName;
     private  int houseId;   //家政人员id
 
     public AfterSales() {
@@ -33,6 +34,14 @@ public class AfterSales {
                 ", state=" + state +
                 ", houseId=" + houseId +
                 '}';
+    }
+
+    public String getStateName() {
+        return stateName;
+    }
+
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
     }
 
     public int getId() {

@@ -12,4 +12,10 @@ public interface EmployeeService {
     List<Employee> getEmployeesByCompanyId(Integer pageNum, String limit, String companyId, String name);
 
     String addEmployee(Employee employee);
+
+    String updateEmployee(Employee employee);
+
+    String deleteEmployeeById(String number);
+
+    String updateSkill(Employee employee);
 }

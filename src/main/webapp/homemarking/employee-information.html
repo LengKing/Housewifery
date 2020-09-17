@@ -141,10 +141,38 @@
                 })
             }
             if (event=='update'){
-
+                layer.open({
+                    type: 2,
+                    title: "详情",
+                    closeBtn: 1,
+                    icon: 6,
+                    shift: 2,
+                    area: ['40%', '85%'], //控制窗口大小
+                    shadeClose: true,
+                    content: 'employee-update.html?age='+age+"&birthday="+birthday+"&gender="+gender+"&job="+job+"&label="+label+"&name="+name
+                        +"&number="+number+"&school="+school+"&skill="+skill+"&companyId="+1000, //这里填写自己的路径
+                    end:function(){
+                        // location.reload();//弹出层结束后，刷新主页面
+                        $(".layui-laypage-btn")[0].click();
+                    }
+                })
             }
             if (event=='delete'){
-
+                layer.confirm('确认删除该员工的账号吗？',function(index){
+                    $.ajax({
+                        url:'/employee/deleteEmployeeById',
+                        data:'number='+number,
+                        type:'post',
+                        dataType:'text',
+                        success:function (data) {
+                            layer.msg(data);
+                            $(".layui-laypage-btn")[0].click();
+                        },
+                        error:function () {
+                            layer.msg("网络发生了一点小问题..请稍后再试");
+                        }
+                    })
+                });
             }
         });
     });

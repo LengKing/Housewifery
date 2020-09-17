@@ -12,4 +12,7 @@
     select time from tb_time
    </select>
 
+    <select id="findAllAfterSalesState" resultType="param">
+        select id,type,name,value from tb_params where type='after_sales_state'
+    </select>
 </mapper>

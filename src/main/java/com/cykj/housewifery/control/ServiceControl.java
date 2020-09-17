@@ -1,6 +1,7 @@
 package com.cykj.housewifery.control;
 
 import com.cykj.housewifery.bean.CompanyService;
+import com.cykj.housewifery.bean.Employee;
 import com.cykj.housewifery.bean.LayuiJson;
 import com.cykj.housewifery.bean.ServiceType;
 import com.cykj.housewifery.service.Service;
@@ -68,5 +69,12 @@ public class ServiceControl {
     public Object findAllServiceType(String companyId){
         List<ServiceType> types = service.findAllServiceType();
         return new Gson().toJson(types);
+    }
+
+    @RequestMapping(value = "/serviceTypeByEmployee",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object serviceTypeByEmployee(Employee employee){
+        ServiceType type = service.getServiceTypeByEmployee(employee);
+        return new Gson().toJson(type);
     }
 }
