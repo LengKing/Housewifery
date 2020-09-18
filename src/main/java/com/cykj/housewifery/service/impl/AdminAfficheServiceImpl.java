@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 
-@Service("adminAffiches")
+@Service("adminAffiche")
 public class AdminAfficheServiceImpl implements AdminAfficheService {
     @Autowired
     AdminAfficheMapper adminAfficheMapper;
