@@ -29,4 +29,18 @@
         #{number},#{name},#{gender},#{age},#{birthday},(select value from tb_params where type ='school' and name = #{school}),
         #{skill},#{job},#{label},#{companyId});
     </insert>
+
+    <update id="updateEmployee" parameterType="employee">
+        update tb_employee set name=#{name},gender=#{gender},age=#{age},birthday=#{birthday},school=(select value from tb_params where type ='school' and name = #{school}),
+        skill=#{skill},job=#{job},label=#{label} where number=#{number} and company_id=#{companyId}
+    </update>
+
+    <update id="deleteEmployeeById" parameterType="string">
+        update tb_employee set state=(select value from tb_params where type ='employee_state' and name = '已离职') where
+        number = #{value}
+    </update>
+
+    <update id="updateSkill" parameterType="employee">
+        update tb_employee set skill = #{skill} where company_id=#{companyId} and number = #{number}
+    </update>
 </mapper>

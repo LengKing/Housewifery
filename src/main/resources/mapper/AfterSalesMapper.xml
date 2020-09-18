@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.housewifery.mapper.AfterSalesMapper">
+    <select id="getafterSalesCount" resultType="int">
+        select count(*) from tb_after where order_id in(select id from tb_order where company = #{companyId})
+        <if test="state!=null and state!='' and state!=-1">
+            and state = #{state}
+        </if>
+        <if test="startDate!=null and startDate!=''">
+            and time >=#{startDate}
+        </if>
+        <if test="endDate!=null and endDate!=''">
+            and time &lt;= #{endDate}
+        </if>
+    </select>
+
+    <select id="getAfterSalesList" resultType="AfterSales">
+        select a.id,a.order_id,a.time,a.after_why,p.name stateName,p.value,a.house_id from tb_after a,tb_params p
+        where a.order_id in (select id from tb_order where company = #{companyId})
+        and p.type='after_sales_state' and p.value = a.state
+        <if test="state!=null and state!='' and state!=-1">
+            and a.state = #{state}
+        </if>
+        <if test="startDate!=null and startDate!=''">
+            and a.time >=#{startDate}
+        </if>
+        <if test="endDate!=null and endDate!=''">
+            and a.time &lt;= #{endDate}
+        </if>
+        order by a.id desc limit #{pageNum},#{limit}
+    </select>
+
+    <update id="updateAfterSalesState">
+        update tb_after set state = (select value from tb_params where type='after_sales_state' and name=#{stateName})
+        where id = #{id}
+    </update>
+
+    <select id="seeDetailsById" resultType="employee" parameterType="string">
+        select e.number,e.name from tb_after a,tb_employee e where a.house_id = e.number and a.id = #{value}
+    </select>
+
+    <update id="arrangeAfterSales">
+        update tb_after set house_id = #{number},state = (select value from tb_params where type='after_sales_state'
+        and name='处理中') where id = #{id}
+    </update>
+</mapper>

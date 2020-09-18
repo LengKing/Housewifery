@@ -25,4 +25,25 @@ public class AdminAfficheServiceImpl implements AdminAfficheService {
         layuiJson.setCount(record);
         return layuiJson;
     }
+
+    @Override
+    public int deleteAffiche(int id) {
+        int n = 0;
+        n = adminAfficheMapper.deleteAffiche(id);
+        return n;
+    }
+
+    @Override
+    public int addTAffiche(Affiche affiche) {
+        int n = 0;
+        n = adminAfficheMapper.addTAffiche(affiche);
+        return n;
+    }
+
+    @Override
+    public int updateAffiche(Affiche affiche) {
+        int n = 0;
+        n = adminAfficheMapper.updateAffiche(affiche);
+        return n;
+    }
 }

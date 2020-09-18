@@ -45,4 +45,9 @@
     <select id="findAllServiceType" resultType="serviceType">
         select id,type_name,pid from tb_service_type where pid = 0
     </select>
+
+    <select id="getServiceTypeByEmployee" parameterType="employee" resultType="serviceType">
+        select s.id,s.type_name,s.pid from tb_employee e,tb_service_type s where e.skill = s.id and e.number = #{number}
+        and e.company_id = #{companyId}
+    </select>
 </mapper>

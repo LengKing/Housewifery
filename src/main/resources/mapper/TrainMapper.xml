@@ -9,7 +9,11 @@
     </select>
 
     <select id="selTrain" parameterType="com.cykj.housewifery.bean.LayuiJson" resultType="Train">
+<<<<<<< HEAD
     select t.id,title,content,length,p.name credential,url from tb_train t left join tb_params p
+=======
+    select t.id,date_format(start_date,'%Y-%m-%d') start_date,date_format(end_date,'%Y-%m-%d') end_date,title,content,length,p.name credential from tb_train t left join tb_params p
+>>>>>>> d9da30e9305b5289815870585a6de3e2eeb5096c
     on t.credential=p.value where type='credential' limit #{pageNum},#{limit}
     </select>
 
@@ -42,6 +46,11 @@
         select count(*) from tb_train where date_format(start_date,'%Y-%m-%d') &lt;= #{date}
     </select>
 
-
+    <insert id="employeeApply">
+        insert into tb_employee_train (employee, train) values
+        <foreach collection="list" item="employee" index="index" separator=",">
+            (#{employee.number}, #{trainId})
+        </foreach>
+    </insert>
 
 </mapper>

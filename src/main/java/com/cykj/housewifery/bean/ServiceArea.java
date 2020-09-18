@@ -9,14 +9,25 @@ public class ServiceArea {
     private String area;    //服务区域
     private Date date;      //覆盖时间
 
+    private String name;   //查到的公司名
+
     public ServiceArea() {
     }
 
-    public ServiceArea(int id, int companyId, String area, Date date) {
+    public ServiceArea(int id, int companyId, String area, Date date, String name) {
         this.id = id;
         this.companyId = companyId;
         this.area = area;
         this.date = date;
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getId() {
@@ -58,6 +69,7 @@ public class ServiceArea {
                 ", companyId=" + companyId +
                 ", area='" + area + '\'' +
                 ", date=" + date +
+                ", name='" + name + '\'' +
                 '}';
     }
 }

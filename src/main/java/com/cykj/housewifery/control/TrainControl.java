@@ -1,6 +1,11 @@
 package com.cykj.housewifery.control;
 
+<<<<<<< HEAD
 import com.cykj.housewifery.bean.LayuiData;
+=======
+import com.alibaba.fastjson.JSON;
+import com.cykj.housewifery.bean.Employee;
+>>>>>>> d9da30e9305b5289815870585a6de3e2eeb5096c
 import com.cykj.housewifery.bean.LayuiJson;
 import com.cykj.housewifery.bean.ReportDataBean;
 import com.cykj.housewifery.bean.Train;
@@ -8,6 +13,7 @@ import com.cykj.housewifery.service.TrainService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -182,4 +188,11 @@ public Object updateTrain(HttpServletRequest request) throws ParseException {
         return new Gson().toJson(dataBeans);
     }
 
+    @RequestMapping(value = "/employeeApply",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object employeeApply(String data,String trainId){
+        List<Employee> employees = JSON.parseArray(data,Employee.class);
+        String result = trainService.employeeApply(employees,trainId);
+        return "result";
+    }
 }

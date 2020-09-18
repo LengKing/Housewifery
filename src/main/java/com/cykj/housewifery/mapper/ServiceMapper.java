@@ -1,6 +1,7 @@
 package com.cykj.housewifery.mapper;
 
 import com.cykj.housewifery.bean.CompanyService;
+import com.cykj.housewifery.bean.Employee;
 import com.cykj.housewifery.bean.LayuiJson;
 import com.cykj.housewifery.bean.ServiceType;
 import org.apache.ibatis.annotations.Mapper;
@@ -28,4 +29,6 @@ public interface ServiceMapper {
     List<ServiceType> getServiceTypeByCompanyId(String companyId);
 
     List<ServiceType> findAllServiceType();
+
+    ServiceType getServiceTypeByEmployee(Employee employee);
 }

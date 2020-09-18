@@ -1,5 +1,6 @@
 package com.cykj.housewifery.service;
 
+import com.cykj.housewifery.bean.Employee;
 import com.cykj.housewifery.bean.ReportDataBean;
 import com.cykj.housewifery.bean.Train;
 
@@ -15,4 +16,5 @@ public interface TrainService {
     ReportDataBean barTrain(List<String> dates);
     ReportDataBean lineTrain(List<String> dates);
 
+    String employeeApply(List<Employee> employees,String trainId);
 }
