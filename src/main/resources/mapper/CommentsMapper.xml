@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.housewifery.mapper.CommentsMapper">
+    <select id="getCompanyCommentsCount" resultType="int">
+        select count(*) from tb_company_comments where order_id in(select id from tb_order where company = #{companyId})
+        <if test="startDate!=null and startDate!=''">
+            and date >=#{startDate}
+        </if>
+        <if test="endDate!=null and endDate!=''">
+            and date &lt;= #{endDate}
+        </if>
+    </select>
+
+    <select id="getCompanyComments" resultType="comments">
+        select t.name,cc.date,t.url head,cc.comment from tb_company_comments cc,
+        (select id,name,url from tb_order o,tb_user u where o.company = #{companyId} and o.user = u.account) t where t.id = cc.order_id
+        <if test="startDate!=null and startDate!=''">
+            and cc.date >=#{startDate}
+        </if>
+        <if test="endDate!=null and endDate!=''">
+            and cc.date &lt;= #{endDate}
+        </if>
+         limit #{pageNum},#{limit}
+    </select>
+
+    <select id="getEmployeeCommentsCount" resultType="int">
+        select count(*) from tb_employee_comments where number=#{number}
+    </select>
+
+    <select id="getEmployeeComments" resultType="comments">
+        select name,url head,date,comment from tb_employee_comments ec,tb_user u
+        where ec.number = #{number} and ec.user_id = u.account limit #{pageNum},#{limit}
+    </select>
+</mapper>

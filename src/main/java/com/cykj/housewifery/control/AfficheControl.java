@@ -1,8 +1,10 @@
 package com.cykj.housewifery.control;
 
+import com.cykj.housewifery.bean.Affiche;
 import com.cykj.housewifery.bean.ReportDataBean;
 import com.cykj.housewifery.service.AfficheService;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,4 +38,11 @@ public class AfficheControl {
         return new Gson().toJson(dataBeans);
     }
 
+    @RequestMapping(value = "/getAfficheList",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object getAfficheList(){
+        List<Affiche> affiches = afficheService.getAfficheList();
+        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+        return gson.toJson(affiches);
+    }
 }
