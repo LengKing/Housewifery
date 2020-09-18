@@ -1,10 +1,8 @@
 package com.cykj.housewifery.control;
 
 import com.cykj.housewifery.bean.LayuiData;
-
 import com.alibaba.fastjson.JSON;
 import com.cykj.housewifery.bean.Employee;
-
 import com.cykj.housewifery.bean.LayuiJson;
 import com.cykj.housewifery.bean.ReportDataBean;
 import com.cykj.housewifery.bean.Train;
