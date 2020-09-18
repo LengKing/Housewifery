@@ -10,7 +10,7 @@
 
     <select id="selKnowledge" resultType="Knowledge">
         select id,title,(select name from tb_params where value=k.type and type='content_type') type,date_format(add_date,'%Y-%m-%d') add_date
-        from tb_knowledge k limit #{pageNum},#{limit}
+       ,url from tb_knowledge k limit #{pageNum},#{limit}
     </select>
 
     <select id="findKnowledgeById" resultType="Knowledge">
@@ -24,5 +24,9 @@
     <delete id="deleteKnowledge">
     delete from tb_knowledge where id=#{id}
     </delete>
+
+    <insert id="addKnowledge" parameterType="Knowledge">
+        insert into tb_knowledge(title,type,url) values (#{title},(select value from tb_params where name =#{type}),#{url})
+    </insert>
 
 </mapper>

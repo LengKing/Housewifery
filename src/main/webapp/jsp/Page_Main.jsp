@@ -62,8 +62,9 @@
         <div class="content">
             <p>欢迎来到XXXX网站！</p>
             <div class="rightCon">
-                <a href="" target="_self">登录</a>
-                <a href="">注册</a>
+                <a>欢迎：${sessionScope.user.name}</a>
+                <a href="../jsp/User_login.jsp" target="_self">登录</a>
+                <a href="../jsp/Resig_user.jsp" target="_self">注册</a>
                 <a href="../jsp/Main_lxpt.jsp" target="_self">联系平台</a>
                 <a href="">工作机会</a>
             </div>

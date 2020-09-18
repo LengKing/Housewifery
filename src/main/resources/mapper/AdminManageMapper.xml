@@ -7,6 +7,7 @@
     <select id="getManage" parameterType="java.util.Map" resultType="com.cykj.housewifery.bean.User">
         select user_id,account,name,password,gender,phone,address,integral,url,reg_date,money,user_state,
         (select name from tb_params where type = 'user_state' and value = user_state) state from tb_user where 1=1
+
         <if test="condition.name !=null">
             and name like CONCAT('%',#{condition.name},'%')
         </if>
@@ -19,8 +20,8 @@
 
     <select id="selectRecord" parameterType="java.util.Map" resultType="java.lang.Integer">
         select count(account) from tb_user where 1=1
-        <if test="condition.account != null and condition.pageSize!= ''">
-            and account like CONCAT('%',#{condition.account},'%')
+        <if test="condition.name != null and condition.pageSize!= ''">
+            and name like CONCAT('%',#{condition.name},'%')
         </if>
     </select>
 

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.housewifery.mapper.MienMapper">
+
+    <select id="getMienCount" resultType="int">
+        select count(*) from tb_mien
+    </select>
+
+    <select id="selMien" resultType="Mien">
+        select id,title,(select name from tb_params where value=k.type and type='content_type') type,date_format(show_date,'%Y-%m-%d') show_date
+       ,url from tb_mien k limit #{pageNum},#{limit}
+    </select>
+
+    <select id="findMienById" resultType="Mien">
+         select id,title,(select name from tb_params where value=k.type and type='content_type') type from tb_mien k where id=#{id}
+    </select>
+
+    <update id="updateMien">
+        update tb_mien set title=#{title},type=(select value from tb_params where name=#{type}) where id=#{id}
+    </update>
+
+    <delete id="deleteMien">
+    delete from tb_mien where id=#{id}
+    </delete>
+
+    <insert id="addMien" parameterType="Mien">
+        insert into tb_mien(title,type,url) values (#{title},(select value from tb_params where name =#{type}),#{url})
+    </insert>
+
+</mapper>
