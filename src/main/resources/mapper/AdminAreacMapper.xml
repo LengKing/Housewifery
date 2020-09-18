@@ -27,14 +27,14 @@
         </if>
     </select>
 
-    <!--    <delete id="deleteAffiche" parameterType="com.cykj.housewifery.bean.Affiche">-->
-    <!--        delete from tb_affiche where id = #{id}-->
-    <!--    </delete>-->
+        <delete id="deleteAreac" parameterType="com.cykj.housewifery.bean.ServiceArea">
+            delete from tb_service_area where id = #{id}
+        </delete>
 
-    <!--    <insert id="addTAffiche" parameterType="com.cykj.housewifery.bean.Affiche">-->
-    <!--        insert into tb_affiche(title,describes,releasr_date)-->
-    <!--        values (#{affiche.title},#{affiche.describes},#{affiche.releasrDate})-->
-    <!--    </insert>-->
+        <insert id="addareac" parameterType="com.cykj.housewifery.bean.ServiceArea">
+            insert into tb_service_area(area)
+            values (#{serviceArea.area})
+        </insert>
 
 
 </mapper>

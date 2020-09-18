@@ -39,7 +39,7 @@
 
     <script type="text/html" id="barDemo">
         <a class="layui-btn layui-btn-danger layui-btn-xs" onclick="lookAreac(this)">查看详情</a>
-        <a class="layui-btn layui-btn-xs" onclick="updateAffiche(this)">添加</a>
+        <a class="layui-btn layui-btn-xs" onclick="addareac(this)">添加</a>
         <a class="layui-btn layui-btn-xs" lay-event="del">删除</a>
     </script>
     <script>
@@ -84,7 +84,7 @@
                 if (obj.event === 'del') {
                     layer.confirm('真的要删除吗', function (index) {
                         $.ajax({
-                            url: "/adminAffiche/deleteAffiche",
+                            url: "/adminAreac/deleteAreac",
                             data: {id: data.id},
                             success: function (data) {
                                 if (data == "删除成功") {

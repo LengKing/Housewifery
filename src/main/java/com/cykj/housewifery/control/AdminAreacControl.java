@@ -1,6 +1,8 @@
 package com.cykj.housewifery.control;
 
+import com.cykj.housewifery.bean.Affiche;
 import com.cykj.housewifery.bean.LayuiJson;
+import com.cykj.housewifery.bean.ServiceArea;
 import com.cykj.housewifery.service.AdminAreacService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -41,5 +43,35 @@ public class AdminAreacControl {
         LayuiJson layuiJson = adminAreacService.getAreac(condition, curPage, pageSize);
         return gson.toJson(layuiJson);
     }
+
+
+    @RequestMapping(value = "/addareac")
+    @ResponseBody
+    public String addareac(HttpServletRequest request) {
+        String area = request.getParameter("area");
+        ServiceArea serviceArea = new ServiceArea();
+        serviceArea.setArea(area);
+        int n = adminAreacService.addareac(serviceArea);
+        if (n == 1) {
+            return "添加成功";
+        } else {
+            return "添加失败";
+        }
+    }
+
+
+
+    @RequestMapping(value = "/deleteAreac")
+    @ResponseBody
+    public String deleteAreac(HttpServletRequest request) {
+        String id = request.getParameter("id");
+        int n = adminAreacService.deleteAreac(Integer.parseInt(id));
+        if (n == 1) {
+            return "删除成功";
+        } else {
+            return "删除失败";
+        }
+    }
+
 
 }

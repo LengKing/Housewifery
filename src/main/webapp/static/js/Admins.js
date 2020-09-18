@@ -526,7 +526,7 @@ function addareac() {
         shade: false,
         maxmin: true,
         id: 'addareacs',
-        area: ['200', '200'],
+        area: ['300', '250'],
         content: ['/jsp/Admin_Areacadd.jsp'],
         end: function () {
             $("#searchUserifAccount").click();
@@ -534,11 +534,11 @@ function addareac() {
     });
 }
 
-//发布动态公告ajax
+//添加区域 ajax
 function addareacs(node) {
     var area = $("#area").val();
     $.ajax({
-        url: "/adminType/addType",
+        url: "/adminAreac/addareac",
         data: {area: area},
         success: function (data) {
             if (data == "添加成功") {

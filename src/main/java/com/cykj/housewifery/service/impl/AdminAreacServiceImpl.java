@@ -1,5 +1,6 @@
 package com.cykj.housewifery.service.impl;
 
+import com.cykj.housewifery.bean.Affiche;
 import com.cykj.housewifery.bean.LayuiJson;
 import com.cykj.housewifery.bean.ServiceArea;
 import com.cykj.housewifery.bean.User;
@@ -26,6 +27,20 @@ public class AdminAreacServiceImpl implements AdminAreacService {
         layuiJson.setCode(0);
         layuiJson.setCount(record);
         return layuiJson;
+    }
+
+    @Override
+    public int addareac(ServiceArea serviceArea) {
+        int n = 0;
+        n = adminAreacMapper.addareac(serviceArea);
+        return n;
+    }
+
+    @Override
+    public int deleteAreac(int id) {
+        int n = 0;
+        n = adminAreacMapper.deleteAreac(id);
+        return n;
     }
 
 }

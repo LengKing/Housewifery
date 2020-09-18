@@ -23,13 +23,13 @@
         </tr>
         <tr>
             <td style="margin: 8px">区域名：</td>
-            <td style="margin: 8px"><input style="margin: 8px" id="area" name="area" type="text" disabled="disabled" class="layui-input"></td>
+            <td style="margin: 8px"><input style="margin: 8px" id="area" name="area" type="text"  class="layui-input"></td>
 
         </tr>
 
 
         <tr>
-            <td style="margin: 8px"><input onclick="fabus(this)" type="button" value="添加" class="layui-btn layui-btn-primary"></td>
+            <td style="margin: 8px"><input onclick="addareacs(this)" type="button" value="添加" class="layui-btn layui-btn-primary"></td>
             <td style="margin: 8px"><input onclick="guanbi()" type="button" value="返回" class="layui-btn layui-btn-primary"></td>
         </tr>
     </table>
