@@ -1,5 +1,6 @@
 package com.cykj.housewifery.control;
 
+import com.cykj.housewifery.bean.LayuiData;
 import com.alibaba.fastjson.JSON;
 import com.cykj.housewifery.bean.Employee;
 import com.cykj.housewifery.bean.LayuiJson;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -81,9 +83,9 @@ public Object updateTrain(HttpServletRequest request) throws ParseException {
         }
     }
 
-    @RequestMapping(value = "/addTrain" ,produces = "text/plain;charset=utf-8")
+    @RequestMapping(value = "/addTrain")
     @ResponseBody
-    public Object addTrain(HttpServletRequest request,MultipartFile file) throws ParseException {
+    public Object addTrain(HttpServletRequest request, HttpServletResponse response,MultipartFile file) throws ParseException {
         String title = request.getParameter("title");
         String startDate=request.getParameter("startDate");
         String endDate=request.getParameter("endDate");
@@ -112,6 +114,7 @@ public Object updateTrain(HttpServletRequest request) throws ParseException {
             //要保存的问题件路径和名称   /upload/2020-09-09/uuid.jpg
             String projectPath = savePath+ File.separator+ dateStr + File.separator + uuid + "." + prefix;
             System.out.println("projectPath==" + projectPath);
+            String playPath="/static/data/video"+ File.separator+ dateStr + File.separator + uuid + "." + prefix;
             File files = new File(projectPath);
             //打印查看上传路径
             if (!files.getParentFile().exists()) {//判断目录是否存在
@@ -119,19 +122,16 @@ public Object updateTrain(HttpServletRequest request) throws ParseException {
                 files.getParentFile().mkdirs();
             }
             file.transferTo(files); // 将接收的文件保存到指定文件中
-            System.out.println(projectPath);
-            LayuiJson layuiJson=new LayuiJson();
-            Train train=new Train(0,title,startDate,endDate,startTime,endTime,content,Integer.valueOf(count),length,credential,projectPath);
-            System.out.println(train);
+            Train train=new Train(0,title,startDate,endDate,startTime,endTime,content,Integer.valueOf(count),length,credential,playPath);
             boolean flag=trainService.addTrain(train);
+            LayuiData layuiData=new LayuiData();
+            layuiData.setCode(0);
             if (flag){
-                layuiJson.setCode(0);
-                layuiJson.setMsg("上传成功");
+                layuiData.setMsg("上传成功");
             }else {
-                layuiJson.setCode(0);
-                layuiJson.setMsg("上传失败");
+                layuiData.setMsg("上传失败");
             }
-            return layuiJson;
+            return layuiData;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -147,7 +147,6 @@ public Object updateTrain(HttpServletRequest request) throws ParseException {
         }else {
             return new Gson().toJson(2);
         }
-
     }
 
 

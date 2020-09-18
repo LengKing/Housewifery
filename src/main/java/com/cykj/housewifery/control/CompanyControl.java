@@ -37,8 +37,6 @@ public class CompanyControl {
     @ResponseBody
     public Object companyMap(){
         List<MapBean> data=companyService.companyMap();
-        System.out.println(data);
-//        System.out.println(new Gson().toJson(data));
         return new Gson().toJson(data);
     }
 }

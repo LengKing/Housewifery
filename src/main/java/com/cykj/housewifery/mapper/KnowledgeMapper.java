@@ -13,4 +13,5 @@ public interface KnowledgeMapper {
     Knowledge findKnowledgeById(@Param("id") String id);
     int updateKnowledge(@Param("id") String id, @Param("title") String title, @Param("type") String type);
     int deleteKnowledge(@Param("id") String id);
+    int addKnowledge(Knowledge knowledge);
 }
