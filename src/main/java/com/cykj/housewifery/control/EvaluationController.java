@@ -23,16 +23,16 @@ public class EvaluationController {
 
     @ResponseBody
     @RequestMapping(value = "/evaluation" , produces = "text/plain;charset=utf-8")
-    public Object OrderSel(String company,String page,Integer limit)  {
+    public Object OrderSel(String company,String page,String limit)  {
         Integer pageNum = (Integer.valueOf(page)-1)*Integer.valueOf(limit);
         LayuiJson layuiJson = new LayuiJson();
         int count=evaluationService.getCountCompany(company);
-        List<Order> list = evaluationService.evaluation(pageNum,limit);
+        List<Order> list = evaluationService.evaluation(company,pageNum,limit);
         layuiJson.setData(list);
         layuiJson.setCode(0);
         layuiJson.setCount(count);
         Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-
+        System.out.println(gson+"458");
         return gson.toJson(layuiJson);
     }
 

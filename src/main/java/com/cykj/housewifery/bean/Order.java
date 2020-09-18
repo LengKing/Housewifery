@@ -18,8 +18,8 @@ public class Order {
     private String orderState;     //状态
     private String payState;       //支付状态
     private String hotCount;       //热度次数
-    private Integer evaluationState;
-    private String evaluationStateName;
+    private Integer evaluationState;//订单的评价状态
+    private String evaluationStateName;//评价名称 待评价还是已评价
 
 
     public Order() {

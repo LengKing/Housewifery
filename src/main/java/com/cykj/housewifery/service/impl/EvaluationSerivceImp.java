@@ -16,8 +16,8 @@ public class EvaluationSerivceImp implements EvaluationService {
 
 
     @Override
-    public List<Order> evaluation(Integer pageNum, Integer limit) {
-        List<Order> orders = evaluationMapper.evaluation(pageNum,Integer.valueOf(limit));
+    public List<Order> evaluation(String company, Integer pageNum, String limit) {
+        List<Order> orders = evaluationMapper.evaluation(company,pageNum,Integer.valueOf(limit));
         return orders;
     }
 

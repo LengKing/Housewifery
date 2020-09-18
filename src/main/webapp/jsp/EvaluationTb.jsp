@@ -35,7 +35,7 @@
         </div>
     </div>
 </form>
-<table class="layui-hide" id="test" lay-filter="test"></table>
+<table class="layui-table" id="test" lay-filter="test"></table>
 
 <script type="text/html" id="toolbarDemo">
     <div class="layui-btn-container">
@@ -76,9 +76,13 @@
                 ,{field:'company', title:'所属公司', width:120, edit: 'text'}
                 ,{field:'orderTime', title:'订单时间', width:160, edit: 'text', sort: true}
                 ,{field:'cost', title:'费用', width:150, edit: 'text', sort: true}
-                ,{field:'orderState', title:'状态', width:160, edit: 'text', sort: true}
+                ,{field:'evaluationStateName', title:'状态', width:160, edit: 'text', sort: true}
                 ,{title: '操作', width: 250, align: 'center', toolbar: '#barDemo'}
             ]]
+            ,done:function (res) {
+                console.log(res.data)
+
+            }
             , limit: 5
             , limits: [5, 6, 7]
         });

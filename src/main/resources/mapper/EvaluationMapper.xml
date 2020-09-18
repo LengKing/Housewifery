@@ -4,10 +4,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cykj.housewifery.mapper.EvaluationMapper">
     <!--    用户评价的查询-->
-    <select id="evaluation" resultType="UserEvaluation" >
-   select  (select name from tb_employee where id=employee) employee, (select name from tb_company where id=company) company,
-       order_time,cost,(select name from  tb_params where value=order_state and type="evaluation_state") order_state from tb_order
+    <select id="evaluation" resultType="Order" >
+        select  (select name from tb_employee where id=employee) employee, (select name from tb_company where id=company) company,
+        order_time,cost,(select name from  tb_params where value=evaluation_state and type="evaluation_state") evaluationState_name from tb_order
+        <where>
+            <if test="company!=null and company!=''">
+                and company =(select id from tb_company where name like '%${company}%')
+            </if>
 
+        </where>
         limit #{pageNum},#{limit}
     </select>
 

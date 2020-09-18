@@ -8,6 +8,6 @@ import java.util.List;
 @Mapper
 
 public interface EvaluationMapper {
-    List<Order> evaluation( @Param("pageNum") Integer pageNum, @Param("limit") Integer limit);
+    List<Order> evaluation( @Param("company") String company,@Param("pageNum") Integer pageNum, @Param("limit") Integer limit);
     int getCountCompany(@Param("company")String company);
 }
