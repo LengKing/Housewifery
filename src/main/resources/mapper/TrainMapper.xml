@@ -9,6 +9,7 @@
     </select>
 
     <select id="selTrain" parameterType="com.cykj.housewifery.bean.LayuiJson" resultType="Train">
+
     select t.id,title,content,length,p.name credential,url from tb_train t left join tb_params p
     select t.id,date_format(start_date,'%Y-%m-%d') start_date,date_format(end_date,'%Y-%m-%d') end_date,title,content,length,p.name credential from tb_train t left join tb_params p
     on t.credential=p.value where type='credential' limit #{pageNum},#{limit}
