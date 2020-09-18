@@ -44,4 +44,10 @@ public class KnowledgeServiceImpl implements KnowledgeService {
         int a=knowledgeMapper.deleteKnowledge(id);
         return a>0;
     }
+
+    @Override
+    public boolean addKnowledge(Knowledge knowledge) {
+        int a=knowledgeMapper.addKnowledge(knowledge);
+        return a>0;
+    }
 }

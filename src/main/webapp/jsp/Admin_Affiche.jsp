@@ -38,9 +38,9 @@
     <table id="demo" lay-filter="test"></table>
 
     <script type="text/html" id="barDemo">
-        <a class="layui-btn layui-btn-danger layui-btn-xs" onclick="add(this)">查看详情</a>
-        <a class="layui-btn layui-btn-xs" onclick="update(this)">修改</a>
-        <a class="layui-btn layui-btn-danger layui-btn-xs" onclick="add(this)">发布</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" onclick="lookAffiche(this)">查看详情</a>
+        <a class="layui-btn layui-btn-xs" onclick="updateAffiche(this)">修改</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" onclick="fabu(this)">发布</a>
         <a class="layui-btn layui-btn-xs" lay-event="del">删除</a>
     </script>
     <script>
@@ -74,7 +74,6 @@
                 ]]
             });
 
-
             table.on('tool(test)', function (obj) {
                 var data = obj.data;
                 // if (obj.event === 'detail') {
@@ -83,8 +82,8 @@
                 if (obj.event === 'del') {
                     layer.confirm('真的要删除吗', function (index) {
                         $.ajax({
-                            url: path + "/scale/deleteScale",
-                            data: {scaleId: data.scaleId},
+                            url: "/adminAffiche/deleteAffiche",
+                            data: {id: data.id},
                             success: function (data) {
                                 if (data == "删除成功") {
                                     obj.del();

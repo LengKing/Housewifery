@@ -9,6 +9,7 @@
 <html style="height: 100%">
 <head>
     <meta charset="utf-8">
+    <title>家政公司区域地图</title>
 </head>
 <body style="height: 100%; margin: 0">
 <div id="container" style="height: 100%"></div>

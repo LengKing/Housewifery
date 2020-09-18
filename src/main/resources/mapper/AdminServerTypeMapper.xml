@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.housewifery.mapper.AdminServerTypeMapper">
+
+    <select id="getType" parameterType="java.util.Map" resultType="com.cykj.housewifery.bean.ServiceType">
+        select s1.id,s1.type_name,s1.pid,s2.pid pid1,s2.id id1,s2.type_name name from tb_service_type s1
+        left join tb_service_type s2 on s1.id = s2.pid
+        where s1.pid = 0
+
+        <if test="condition.typeName !=null">
+            and s1.type_name like CONCAT('%',#{condition.typeName},'%')
+        </if>
+
+        <if test="curPage!= null and pageSize!= null">
+            limit #{curPage},#{pageSize};
+        </if>
+
+    </select>
+
+    <select id="selectRecord" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select count(*) from tb_service_type s1
+        left join tb_service_type s2 on s1.id = s2.pid
+        where s1.pid = 0
+        <if test="condition.typeName != null and condition.pageSize!= ''">
+            and s1.type_name like CONCAT('%',#{condition.typeName},'%')
+        </if>
+    </select>
+
+    <update id="updatesType" parameterType="com.cykj.housewifery.bean.ServiceType">
+        update tb_service_type
+        <set>
+            <if test="serviceType.typeName !=null and serviceType.typeName != ''">
+                type_name=#{serviceType.typeName},
+            </if>
+        </set>
+        where id=#{serviceType.id}
+    </update>
+
+    <update id="updateServers" parameterType="com.cykj.housewifery.bean.ServiceType">
+        update tb_service_type
+        <set>
+            <if test="serviceType.name !=null and serviceType.name != ''">
+                type_name=#{serviceType.name},
+            </if>
+        </set>
+        where id=#{serviceType.id1}
+    </update>
+
+    <insert id="addType" parameterType="com.cykj.housewifery.bean.ServiceType">
+        insert into tb_service_type(type_name,pid)
+        values (#{serviceType.typeName},#{serviceType.pid})
+    </insert>
+
+    <delete id="deleteType" parameterType="com.cykj.housewifery.bean.ServiceType">
+        delete from tb_service_type where id = #{id}
+    </delete>
+
+    <delete id="deleteTypes" parameterType="com.cykj.housewifery.bean.ServiceType">
+        delete from tb_service_type where id = #{id1}
+    </delete>
+</mapper>
