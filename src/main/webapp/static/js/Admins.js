@@ -479,3 +479,77 @@ function addTypes(node) {
         }
     })
 }
+
+
+//区域查看详细的商家信息
+function lookAreac(node) {
+    var name = $(node).parent("div").parent("td").parent("tr")[0].firstChild.nextSibling.nextSibling.textContent;
+    var address = $(node).parent("div").parent("td").parent("tr")[0].firstChild.nextSibling.nextSibling.nextSibling.textContent;
+    var legal = $(node).parent("div").parent("td").parent("tr")[0].firstChild.nextSibling.nextSibling.nextSibling.nextSibling.textContent;
+    var phone = $(node).parent("div").parent("td").parent("tr")[0].firstChild.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.textContent;
+    var entryDate = $(node).parent("div").parent("td").parent("tr")[0].firstChild.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.textContent;
+    var area = $(node).parent("div").parent("td").parent("tr")[0].firstChild.nextSibling.textContent;
+    layer.open({
+        anim: 1,
+        type: 2,
+        title: '查看详情',
+        shadeClose: true,
+        shade: false,
+        maxmin: true,
+        id: 'lookAffiche',
+        area: ['400', '500'],
+        content: ['/jsp/Admin_Areaclook.jsp'],
+
+        success: function (layero, index) {
+            var body = layer.getChildFrame('body', index);
+            body.contents().find("#name").val(name);
+            body.contents().find("#legal").val(legal);
+            body.contents().find("#area").val(area);
+            body.contents().find("#address").val(address);
+            body.contents().find("#phone").val(phone);
+            body.contents().find("#entryDate").val(entryDate);
+        },
+        end: function () {
+            $("#searchUserifAccount").click();
+        }
+    });
+}
+
+
+//addareac 添加区域
+function addareac() {
+    layer.open({
+        anim: 1,
+        type: 2,
+        title: '新增区域',
+        shadeClose: true,
+        shade: false,
+        maxmin: true,
+        id: 'addareacs',
+        area: ['200', '200'],
+        content: ['/jsp/Admin_Areacadd.jsp'],
+        end: function () {
+            $("#searchUserifAccount").click();
+        }
+    });
+}
+
+//发布动态公告ajax
+function addareacs(node) {
+    var area = $("#area").val();
+    $.ajax({
+        url: "/adminType/addType",
+        data: {area: area},
+        success: function (data) {
+            if (data == "添加成功") {
+                alert("添加成功");
+                guanbi();
+            } else {
+                layer.alert("添加失败")
+            }
+        },
+        end: function () {
+            $("#searchUserifAccount").click();
+        }
+    })
+}

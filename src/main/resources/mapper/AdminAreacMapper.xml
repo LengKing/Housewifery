@@ -5,12 +5,11 @@
 <mapper namespace="com.cykj.housewifery.mapper.AdminAreacMapper">
 
     <select id="getAreac" parameterType="java.util.Map" resultType="com.cykj.housewifery.bean.ServiceArea">
-        select s1.id,s1.area,s1.date,s2.id ,s2.name,s2.address,s2.phone,s2.entry_date from tb_service_area s1
-        left join tb_company s2 on s1.id = s2.area
-        where s1.id = s2.area
+        select s1.id,s1.area,s1.date,s2.id ,s2.name,s2.address,s2.phone,s2.entry_date,s2.legal from tb_service_area s1
+        left join tb_company s2 on s1.id = s2.area where 1=1
 
         <if test="condition.area !=null">
-            and area like CONCAT('%',#{condition.area},'%')
+            and s1.area like CONCAT('%',#{condition.area},'%')
         </if>
 
         <if test="curPage!= null and pageSize!= null">
@@ -20,38 +19,22 @@
     </select>
 
     <select id="selectRecord" parameterType="java.util.Map" resultType="java.lang.Integer">
-        select count(id) from tb_service_area where 1=1
+        select count(*)
+        from tb_service_area s1
+        left join tb_company s2 on s1.id = s2.area where 1=1
         <if test="condition.area != null and condition.pageSize!= ''">
-            and area like CONCAT('%',#{condition.area},'%')
+            and s1.area like CONCAT('%',#{condition.area},'%')
         </if>
     </select>
 
-<!--    <delete id="deleteAffiche" parameterType="com.cykj.housewifery.bean.Affiche">-->
-<!--        delete from tb_affiche where id = #{id}-->
-<!--    </delete>-->
+    <!--    <delete id="deleteAffiche" parameterType="com.cykj.housewifery.bean.Affiche">-->
+    <!--        delete from tb_affiche where id = #{id}-->
+    <!--    </delete>-->
 
-<!--    <insert id="addTAffiche" parameterType="com.cykj.housewifery.bean.Affiche">-->
-<!--        insert into tb_affiche(title,describes,releasr_date)-->
-<!--        values (#{affiche.title},#{affiche.describes},#{affiche.releasrDate})-->
-<!--    </insert>-->
+    <!--    <insert id="addTAffiche" parameterType="com.cykj.housewifery.bean.Affiche">-->
+    <!--        insert into tb_affiche(title,describes,releasr_date)-->
+    <!--        values (#{affiche.title},#{affiche.describes},#{affiche.releasrDate})-->
+    <!--    </insert>-->
 
-<!--    <update id="updateAffiche" parameterType="com.cykj.housewifery.bean.Affiche">-->
-<!--        update tb_affiche-->
-<!--        <set>-->
-<!--            <if test="affiche.title !=null and affiche.title != ''">-->
-<!--                title=#{affiche.title},-->
-<!--            </if>-->
-
-<!--            <if test="affiche.describes !=null and affiche.describes != ''">-->
-<!--                describes=#{affiche.describes},-->
-<!--            </if>-->
-
-<!--            <if test="affiche.releasrDate !=null and affiche.releasrDate != ''">-->
-<!--                releasr_date=#{affiche.releasrDate},-->
-<!--            </if>-->
-
-<!--        </set>-->
-<!--        where id=#{affiche.id}-->
-<!--    </update>-->
 
 </mapper>
