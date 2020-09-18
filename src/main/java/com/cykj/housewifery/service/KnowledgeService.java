@@ -10,4 +10,6 @@ public interface KnowledgeService {
     Knowledge findKnowledgeById(String id);
     boolean updateKnowledge(String id, String title, String type);
     boolean deleteKnowledge(String id);
+    boolean addKnowledge(Knowledge knowledge);
+
 }
