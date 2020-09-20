@@ -19,6 +19,7 @@ public class Company {
     private String stateName;     //对应参数表状态
     private String areaName;      //对应服务区域表 区域
 
+
     public Company() {
     }
 
