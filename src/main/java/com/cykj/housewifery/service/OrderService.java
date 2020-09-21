@@ -32,4 +32,5 @@ public interface OrderService {
 
     ReportDataBean orderTotalByCompany(String companyId,String condition);
 
+    String sendEmployee(String orderId, String number);
 }

@@ -116,4 +116,17 @@
         SELECT DATE_FORMAT(order_time,'%Y年%m月%d日') as orderTime,sum(cost) cost,count(id) count FROM tb_order where company = #{value}  GROUP BY  orderTime
     </select>
 
+    <update id="insertEmployeeNumber">
+        update tb_order set employee=#{number},service_date = #{serviceTime} where id=#{orderId}
+    </update>
+
+    <update id="updateOrderState">
+        update tb_order set order_state = (select value from tb_params where type='order_state' and
+        name = #{stateName}) where id = #{orderId}
+    </update>
+
+    <update id="updateEmployeeState">
+        update tb_employee set state = (select value from tb_params where type='employee_state' and
+        name = #{stateName}) where number = #{number}
+    </update>
 </mapper>

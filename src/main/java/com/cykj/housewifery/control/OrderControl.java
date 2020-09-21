@@ -62,7 +62,7 @@ public class OrderControl {
         if (!orderService.grabSingle(id)) {
             return "抢单失败";
         }
-        Object o = orderService.createOrder(companyId,id);
+        orderService.createOrder(companyId,id);
         return "抢单成功,请前往订单查看";
     }
 
@@ -115,4 +115,10 @@ public class OrderControl {
         return new Gson().toJson(reportDataBean);
     }
 
+    @RequestMapping(value = "/sendEmployee",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object sendEmployee(String orderId,String number) {
+        String result = orderService.sendEmployee(orderId,number);
+        return result;
+    }
 }

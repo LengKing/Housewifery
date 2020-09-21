@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.housewifery.mapper.ArrangeMapper">
+
+    <select id="getCompanyEmployees" resultType="Employee">
+        select id, number, password, name, gender, age, birthday, school, skill, job, label, state, company_id from tb_employee
+    where company_id=#{companyId} and state in(select value from tb_params where type='employee_state' and name not in('已离职'))
+    and number not in(select number from tb_employee_arrange where date = #{date})
+    </select>
+
+    <insert id="addArrange">
+        insert into tb_employee_arrange (date, number) values
+        <foreach collection="list" item="employee" index="index" separator=",">
+            (#{date},#{employee.number})
+        </foreach>
+    </insert>
+
+    <select id="getArrange" resultType="arrange">
+        select ea.number,e.name,ea.date from tb_employee_arrange ea,tb_employee e where ea.number in
+        (select e1.number from tb_employee e1 where e1.company_id = #{companyId}) and ea.number = e.number
+        <if test="date!=null and date!=''">
+            and ea.date = #{date}
+        </if>
+    </select>
+
+    <delete id="updateArrange">
+        delete from tb_employee_arrange where date=#{date} and number in
+        <foreach collection="list" item="string" index="index" open="(" separator="," close=")">
+            #{string}
+        </foreach>
+    </delete>
+</mapper>

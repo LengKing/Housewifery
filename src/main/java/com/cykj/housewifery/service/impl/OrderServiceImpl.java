@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.sql.Date;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -182,5 +183,22 @@ public class OrderServiceImpl implements OrderService {
         reportDataBean.setCost(cost);
         reportDataBean.setData(count);
         return reportDataBean;
+    }
+
+    @Override
+    @Transactional
+    public String sendEmployee(String orderId, String number) {
+        Date now = new Date(System.currentTimeMillis());
+        int n = orderMapper.insertEmployeeNumber(orderId,number,now);
+        if (n>0){
+            n = orderMapper.updateOrderState(orderId,"服务中");
+            if (n>0){
+                n = orderMapper.updateEmployeeState(number,"服务中");
+                if (n>0){
+                    return "操作成功";
+                }
+            }
+        }
+        return "操作失败";
     }
 }

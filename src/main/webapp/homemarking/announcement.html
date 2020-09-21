@@ -159,7 +159,7 @@
 
         #mooc ul li a {
 
-            width: 180px;
+            width: 700px;
 
             float: left;
 
@@ -206,6 +206,7 @@
 </body>
 <script>
     $(function () {
+        layui.use('laytpl', function(){
         $.ajax({
             url :"/affiche/getAfficheList",
             type : "post",
@@ -217,15 +218,16 @@
                 });
             },
             error: function() {
-                alert("异步请求失败!");
+                alert("请求失败!");
             }
         })
+        });
     });
 </script>
 <script id="testTpl" type="text/html">
         {{# for(var i = 0; i < d.list.length; i++){ }}
         <li>
-            <a href="#">{{ d.list[i].title }}：{{ d.list[i].describes }}</a>
+            <a title="{{ d.list[i].title }}：{{ d.list[i].describes }}">{{ d.list[i].title }}：{{ d.list[i].describes }}</a>
             <span>{{ d.list[i].releasrDate }}</span>
         </li>
         {{# } }}
