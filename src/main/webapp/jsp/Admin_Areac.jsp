@@ -38,9 +38,8 @@
     <table id="demo" lay-filter="test"></table>
 
     <script type="text/html" id="barDemo">
-        <a class="layui-btn layui-btn-danger layui-btn-xs" onclick="lookAffiche(this)">查看详情</a>
-        <a class="layui-btn layui-btn-xs" onclick="updateAffiche(this)">修改</a>
-        <a class="layui-btn layui-btn-danger layui-btn-xs" onclick="fabu(this)">添加</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" onclick="lookAreac(this)">查看详情</a>
+        <a class="layui-btn layui-btn-xs" onclick="addareac(this)">添加</a>
         <a class="layui-btn layui-btn-xs" lay-event="del">删除</a>
     </script>
     <script>
@@ -69,7 +68,10 @@
                     {field: 'id', title: 'ID', width: 180, sort: true}
                     , {field: 'area', title: '区域', width: 180}
                     , {field: 'name', title: '区域公司', width: 180}
-                    // , {field: 'describes', title: '描述', width: 180}
+                    , {field: 'address', title: '地址', width: 180,hide:true}
+                    , {field: 'legal', title: '法人代表', width: 180,hide:true}
+                    , {field: 'phone', title: '联系方式', width: 180,hide:true}
+                    , {field: 'entryDate', title: '注册时间', width: 180,hide:true}
                     , {fixed: 'right', align: 'center', toolbar: '#barDemo'}
                 ]]
             });
@@ -82,7 +84,7 @@
                 if (obj.event === 'del') {
                     layer.confirm('真的要删除吗', function (index) {
                         $.ajax({
-                            url: "/adminAffiche/deleteAffiche",
+                            url: "/adminAreac/deleteAreac",
                             data: {id: data.id},
                             success: function (data) {
                                 if (data == "删除成功") {

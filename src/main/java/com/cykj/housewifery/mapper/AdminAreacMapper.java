@@ -12,4 +12,8 @@ public interface AdminAreacMapper {
     Integer selectRecord(@Param("condition") Map<String, String> condition);
 
     List<ServiceArea> getAreac(@Param("condition")Map<String, String> condition, @Param("curPage")Integer curPage, @Param("pageSize")Integer pageSize, Integer record);
+
+    int addareac(@Param("serviceArea")ServiceArea serviceArea);
+
+    int deleteAreac(int id);
 }
