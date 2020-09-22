@@ -90,9 +90,9 @@
             data : {
                 img : img,number : number
             },
-            dataType : "JSON",
+            dataType : "text",
             success : function(data) {
-                console.log(data)
+                layer.msg(data);
                 //返回的结果
             }
         });

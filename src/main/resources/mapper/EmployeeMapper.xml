@@ -43,4 +43,8 @@
     <update id="updateSkill" parameterType="employee">
         update tb_employee set skill = #{skill} where company_id=#{companyId} and number = #{number}
     </update>
+
+    <update id="updateFaceToken">
+        update tb_employee set face_token=#{face_token} where number = #{number}
+    </update>
 </mapper>
