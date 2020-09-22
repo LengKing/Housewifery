@@ -17,7 +17,7 @@
         <div class="layui-input-block">
             <form class="layui-form" action="" lay-filter="example">
                 <input type="hidden" id="employeeId" value="">
-                <input type="text" name="employeeId" autocomplete="off" onkeyup="value=value.replace(/[^\d]/g,'')"
+                <input type="text" name="employeeId" autocomplete="off" onkeyup="value=value.replace(/[^A-Za-z\d]/g,'')"
                        lay-verify="required" class="layui-input" onfocus="disabledBtn()" style="width: 60%;float: left">
                 <button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1" id="check"
                         style="float: right;">确定

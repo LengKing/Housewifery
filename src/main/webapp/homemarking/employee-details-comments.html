@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"/>
+    <link rel="stylesheet" href="../static/css/font.css">
+    <link rel="stylesheet" href="../static/css/xadmin.css">
+    <script src="../static/js/jquery.min.js" charset="utf-8"></script>
+    <script src="../static/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../static/js/xadmin.js"></script>
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style type="text/css">
+    .comment_list {
+        padding-top: 40px;
+        width: 900px;
+        margin-left: 40px;
+    }
+
+    .comment_content {
+        margin-top: 10px;
+        font-size: 16px;
+    }
+
+    .imgdiv {
+        float: left;
+    }
+
+    .imgcss {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+
+    .comment_name {
+        margin-left: 10px;
+        color: #3D9EEA;
+        font-size: 15px;
+        font-weight: bolder;
+    }
+</style>
+<body>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-sm12 layui-col-md6" style="width: 100%;">
+            <div class="layui-card">
+                <div class="layui-card-body" style="min-height: 550px;">
+                    <div id="main5" class="layui-col-sm12" style="height: 550px;">
+                        <div id="c" class="comment_list"></div>
+                        <div style="position: fixed;bottom: 50px">
+                            <table class="layui-table layui-form" id="comments" lay-filter="comments"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    $(function () {
+        var request = {
+            QueryString: function (val) {
+                var uri = decodeURI(window.location.search);
+                var re = new RegExp("" + val + "=([^&?]*)", "ig");
+                return ((uri.match(re)) ? (uri.match(re)[0].substr(val.length + 1)) : null);
+            }
+        }
+        var number = request.QueryString("number");
+
+        layui.use(['form', 'layer', 'jquery','element', 'laypage', 'table'], function () {
+            var form = layui.form;
+            window.layer = layui.layer;
+            layedit = layui.layedit;
+            window.jQuery = window.$ = layui.jquery;
+            var element = layui.element,
+                form = layui.form,
+                laypage = layui.laypage;
+            var table = layui.table;
+
+            var tableIns = table.render({
+                elem: '#comments'
+                , height: 0
+                , url: '/comments/getEmployeeComments?number=' + number //数据接口
+                , page: true //开启分页
+                , cols: [[ //表头
+                    {field: 'name', title: '用户', width: 200, align: 'center'}
+                    , {field: 'date', title: '时间', width: 200, align: 'center'}
+                    , {field: 'head', title: '头像', width: 200, align: 'center'}
+                    , {field: 'comment', title: '评论', width: 200, align: 'center'}
+                ]]
+                , done: function (res) {
+                    $("[data-field='name']").css('display', 'none');
+                    $("[data-field='date']").css('display', 'none');
+                    $("[data-field='head']").css('display', 'none');
+                    $("[data-field='comment']").css('display', 'none');
+                    $('#c').empty();
+                    for (var i = 0; i < res.data.length; i++) {
+                        var s = " ";
+                        s += '<div class="comment">';
+                        s += '<div class="imgdiv"><img class="imgcss"  src="' + res.data[i].head + '"/></div>';
+                        s += '<div class="conmment_details">';
+                        s += '<span class="comment_name">' + res.data[i].name + ' </span><span style="float: right">' + res.data[i].date + '</span>';
+                        s += '<div class="comment_content" >&nbsp;&nbsp;&nbsp;' + res.data[i].comment + '</div></div><hr></div>';
+                        $('.comment_list').append(s);
+                    }
+                }
+                , limit: 5
+                , limits: [5]
+            });
+        });
+    })
+
+</script>
+</html>

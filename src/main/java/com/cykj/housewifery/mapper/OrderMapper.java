@@ -5,6 +5,7 @@ import com.cykj.housewifery.bean.Order;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.sql.Date;
 import java.util.List;
 
 @Mapper
@@ -41,4 +42,10 @@ public interface OrderMapper {
     List<Order> orderCountByWeek(String companyId);
 
     List<Order> orderCountByDay(String companyId);
+
+    int insertEmployeeNumber(@Param("orderId") String orderId,@Param("number") String number,@Param("serviceTime") Date time);
+
+    int updateOrderState(@Param("orderId") String orderId,@Param("stateName") String stateName);
+
+    int updateEmployeeState(@Param("number") String number,@Param("stateName") String stateName);
 }

@@ -1,5 +1,6 @@
 package com.cykj.housewifery.service.impl;
 
+import com.cykj.housewifery.bean.Affiche;
 import com.cykj.housewifery.bean.ReportDataBean;
 import com.cykj.housewifery.mapper.AfficheMapper;
 import com.cykj.housewifery.mapper.TrainMapper;
@@ -38,5 +39,11 @@ public class AfficheServiceImpl implements AfficheService {
         }
         reportDataBean.setData(datas);
         return reportDataBean;
+    }
+
+    @Override
+    public List<Affiche> getAfficheList() {
+        List<Affiche> affiches = afficheMapper.getAfficheList();
+        return affiches;
     }
 }

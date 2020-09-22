@@ -13,6 +13,8 @@
         select count(*) from tb_affiche where date_format(releasr_date,'%Y-%m-%d') &lt;= #{date}
     </select>
 
-
+    <select id="getAfficheList" resultType="Affiche">
+        select id, releasr_date, title, describes from tb_affiche
+    </select>
 
 </mapper>
