@@ -49,7 +49,7 @@ public class CompanyControl {
     //家政公司的
     @RequestMapping(value = "/login")
     @ResponseBody
-    public void AdminLogin(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public Object AdminLogin(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String id = request.getParameter("id");
         String password = request.getParameter("password");
         Company company = new Company();
@@ -58,16 +58,16 @@ public class CompanyControl {
         Company company1=companyService.loginCompany(company);
         if (null != company1) {
             request.getSession().setAttribute("company", company1);
-            response.getWriter().print("登录成功");
+            return new Gson().toJson(1);
         } else {
-            response.getWriter().print("你好！账号不正确");
+            return new Gson().toJson(2);
         }
     }
 
     //平台的登录
     @RequestMapping(value = "/PTlogin")
     @ResponseBody
-    public void PTLogin(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public Object PTLogin(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String account = request.getParameter("account");
         String password = request.getParameter("password");
         Admin admin = new Admin();
@@ -75,10 +75,10 @@ public class CompanyControl {
         admin.setPassword(password);
         Admin admin1 = companyService.LoginPT(admin);
         if (null != admin1) {
-            request.getSession().setAttribute("admin1", admin1);
-            response.getWriter().print("登录成功");
+            request.getSession().setAttribute("admin", admin1);
+            return new Gson().toJson(1);
         } else {
-            response.getWriter().print("你好！账号不正确");
+            return new Gson().toJson(2);
         }
     }
 }

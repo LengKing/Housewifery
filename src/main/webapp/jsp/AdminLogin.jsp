@@ -48,11 +48,12 @@
             data:admin,
             dataType:"text",
             success:function (data) {
-                alert(data);
-                if (data == "登录成功"){
+                if (data == 1){
+                    alert("登录成功");
                     location.href=path+"/menu/findMenu?jobs=3";
                 }
                 else {
+                    alert("账号或密码错误");
                     changeImg();
                 }
             },
