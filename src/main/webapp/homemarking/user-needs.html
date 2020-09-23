@@ -36,6 +36,7 @@
 <script>
     layui.use('table', function () {
         var table = layui.table;
+        var companyId = parent.document.getElementById('id').value;
         table.render({
             elem: '#demand'
             , height: 500
@@ -66,7 +67,7 @@
             var id = obj.data.id;
             $.ajax({
                     url:"/order/grabSingle",
-                    data:"companyId="+1000+"&id="+id,
+                    data:"companyId="+companyId+"&id="+id,
                     type:"post",
                     dataType:"text",
                     success:function (data) {

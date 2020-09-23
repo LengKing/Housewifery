@@ -35,10 +35,11 @@
 <script>
     layui.use('table', function () {
         var table = layui.table;
+        var companyId = parent.document.getElementById('id').value;
         var tableIns = table.render({
             elem: '#serviceType'
             , height: 312
-            , url: '/service/serviceTypeList?companyId='+1000 //数据接口
+            , url: '/service/serviceTypeList?companyId='+companyId //数据接口
             , page: true //开启分页
             , cols: [[ //表头
                 {field: 'id', title: 'ID', width: 200,align: 'center'}
@@ -67,7 +68,7 @@
             layer.confirm("确认"+(event=='1'?'申请':'申请取消')+"？",['确定','取消'], function () {
                 $.ajax({
                     url:"/service/updateServiceState",
-                    data:"companyId="+1000+"&id="+id+"&event="+event+"&type=yes",
+                    data:"companyId="+companyId+"&id="+id+"&event="+event+"&type=yes",
                     type:"post",
                     dataType:"text",
                     success:function (data) {

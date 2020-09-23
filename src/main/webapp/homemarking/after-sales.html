@@ -68,10 +68,11 @@
             elem: '#endDate' //指定元素
         });
 
+        var companyId = parent.document.getElementById('id').value;
         var tableIns = table.render({
             elem: '#sales'
             , height: 312
-            , url: '/afterSales/afterSalesList?companyId=' + 1000//数据接口
+            , url: '/afterSales/afterSalesList?companyId=' + companyId//数据接口
             , page: true //开启分页
             , cols: [[ //表头
                 {field: 'id', title: 'ID', width: 200, align: 'center'}
@@ -111,7 +112,7 @@
             var state = $("#state").val();
             tableIns.reload({
                 method: 'post',
-                url: '/afterSales/afterSalesList?companyId=' + 1000,
+                url: '/afterSales/afterSalesList?companyId=' + companyId,
                 page: {
                     curr: 1 //重新从第 1 页开始
                 },
@@ -167,7 +168,7 @@
                     shift: 2,
                     area: ['60%', '80%'], //控制窗口大小
                     shadeClose: true,
-                    content: 'after-sales-arrange.html?id=' + id, //这里填写自己的路径
+                    content: 'after-sales-arrange.html?id=' + id+'&companyId='+companyId, //这里填写自己的路径
                     end:function(){
                         // location.reload();//弹出层结束后，刷新主页面
                         $(".layui-laypage-btn")[0].click();

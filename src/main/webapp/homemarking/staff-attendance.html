@@ -49,7 +49,7 @@
         var table = layui.table,
             form = layui.form,
             laydate = layui.laydate;
-
+        var companyId = parent.document.getElementById('id').value;
         //执行一个laydate实例
         laydate.render({
             elem: '#date' //指定元素
@@ -60,7 +60,7 @@
         var tableIns = table.render({
             elem: '#employee'
             , height: 312
-            , url: '/attendance/clockList?companyId=' + 1000+'&date='+date//数据接口
+            , url: '/attendance/clockList?companyId=' + companyId+'&date='+date//数据接口
             , page: true //开启分页
             , cols: [[ //表头
                 {field: 'number', title: '员工编号', width: 200, align: 'center'}
@@ -77,7 +77,7 @@
             var date = $("#date").val();
             tableIns.reload({
                 method: 'post',
-                url: '/attendance/clockList?companyId=' + 1000,
+                url: '/attendance/clockList?companyId=' + companyId,
                 page: {
                     curr: 1 //重新从第 1 页开始
                 },

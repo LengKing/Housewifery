@@ -96,11 +96,11 @@
             laydate.render({
                 elem: '#endDate' //指定元素
             });
-
+            var companyId = parent.document.getElementById('id').value;
             var tableIns = table.render({
                 elem: '#comments'
                 , height: 0
-                , url: '/comments/getCompanyComments?companyId=' + 1000 //数据接口
+                , url: '/comments/getCompanyComments?companyId=' + companyId //数据接口
                 , page: true //开启分页
                 , cols: [[ //表头
                     {field: 'name', title: '用户', width: 200, align: 'center'}
@@ -133,7 +133,7 @@
                 var endDate = $("#endDate").val();
                 tableIns.reload({
                     method: 'post',
-                    url: '/comments/getCompanyComments?companyId=' + 1000,
+                    url: '/comments/getCompanyComments?companyId=' + companyId,
                     page: {
                         curr: 1 //重新从第 1 页开始
                     },

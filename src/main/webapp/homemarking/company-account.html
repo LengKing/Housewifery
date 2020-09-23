@@ -84,9 +84,10 @@
 </body>
 <script>
     $(function () {
+        var companyId = parent.document.getElementById('id').value;
         $.ajax({
             url: '/companyAccount/accountMsg',
-            data: "companyId=" + 1000,
+            data: "companyId=" + companyId,
             type: 'post',
             dataType: 'json',
             success: function (data) {
@@ -105,7 +106,7 @@
             table.render({
                 elem: '#records'
                 , height: 250
-                , url: '/companyAccount/transactionRecords?companyId='+1000 //数据接口
+                , url: '/companyAccount/transactionRecords?companyId='+companyId //数据接口
                 , page: true //开启分页
                 , cols: [[ //表头
                      {title: '序号', width: 200,align: 'center',type:'numbers'}
@@ -130,6 +131,7 @@
     })
 
     function set() {
+        var companyId = parent.document.getElementById('id').value;
         layer.prompt({
             title: '设置账户',
             btn: ['确认', '取消'],
@@ -141,7 +143,7 @@
             if (regYhk.test(value)) {
                 $.ajax({
                     url: '/companyAccount/setAccount',
-                    data: "companyId=" + 1000 + "&account=" + value,
+                    data: "companyId=" + companyId + "&account=" + value,
                     type: 'post',
                     dataType: 'text',
                     success: function (data) {
@@ -164,6 +166,7 @@
     }
 
     $('#withdrawal').on('click', function () {
+        var companyId = parent.document.getElementById('id').value;
         layer.prompt({
             title: '账户提现',
             btn: ['确认', '取消'],
@@ -180,7 +183,7 @@
                     layer.confirm("提现账户：" + account + "\n,提现金额：" + money + "\n,是否确认提现？", function (index2) {
                         $.ajax({
                             url: '/companyAccount/withdrawal',
-                            data: "companyId=" + 1000 + "&money=" + money,
+                            data: "companyId=" + companyId + "&money=" + money,
                             type: 'post',
                             dataType: 'text',
                             success: function (data) {
@@ -215,6 +218,7 @@
     })
 
     $('#transfer').on('click', function () {
+        var companyId = parent.document.getElementById('id').value;
         layer.prompt({
             title: '转账',
             btn: ['确认', '取消'],
@@ -239,7 +243,7 @@
                             layer.confirm("转账账户：" + account + "\n,转账金额：" + money + "\n,是否确认转账？", function (index3) {
                                 $.ajax({
                                     url: '/companyAccount/transfer',
-                                    data: "companyId=" + 1000 + "&money=" + money,
+                                    data: "companyId=" + companyId + "&money=" + money,
                                     type: 'post',
                                     dataType: 'text',
                                     success: function (data) {
@@ -280,6 +284,7 @@
     })
 
     $('#top-up').on('click', function () {
+        var companyId = parent.document.getElementById('id').value;
         layer.prompt({
             title: '账户充值',
             btn: ['确认', '取消'],
@@ -305,7 +310,7 @@
                             layer.confirm("银行卡：" + account + "\n,充值账户：" + account1 + "\n,充值金额："+money+"\n,是否确认充值？", function (index3) {
                                 $.ajax({
                                     url: '/companyAccount/topUp',
-                                    data: "companyId=" + 1000 + "&money=" + money,
+                                    data: "companyId=" + companyId + "&money=" + money,
                                     type: 'post',
                                     dataType: 'text',
                                     success: function (data) {

@@ -41,12 +41,13 @@
             }
         }
         var id = request.QueryString("id");
+        var companyId = request.QueryString("companyId");
         layui.use('table', function () {
             var table = layui.table;
             var tableIns = table.render({
                 elem: '#employee'
                 , height: 400
-                , url: '/employee/onJobEmployee?companyId='+1000 //数据接口
+                , url: '/employee/onJobEmployee?companyId='+companyId //数据接口
                 , page: true //开启分页
                 ,toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
                 ,defaultToolbar: [{ //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可

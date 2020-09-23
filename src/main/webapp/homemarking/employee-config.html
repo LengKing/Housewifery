@@ -38,10 +38,11 @@
 
     layui.use('table', function () {
         var table = layui.table;
+        var companyId = parent.document.getElementById('id').value;
         var tableIns = table.render({
             elem: '#config'
             , height: 312
-            , url: '/employee/allEmployee?companyId='+1000 //数据接口
+            , url: '/employee/allEmployee?companyId='+companyId //数据接口
             , page: true //开启分页
             , cols: [[ //表头
                 {field: 'number', title: '员工编号', width: 200,align: 'center'}
@@ -63,7 +64,7 @@
                 shift: 2,
                 area: ['60%', '30%'], //控制窗口大小
                 shadeClose: true,
-                content: 'type-distribution.html?number='+number+"&companyId="+1000, //这里填写自己的路径
+                content: 'type-distribution.html?number='+number+"&companyId="+companyId, //这里填写自己的路径
                 end:function(){
                     // location.reload();//弹出层结束后，刷新主页面
                     $(".layui-laypage-btn")[0].click();
