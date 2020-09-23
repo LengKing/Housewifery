@@ -18,12 +18,14 @@ public class Company {
     private String area;              //公司服务区域
     private String stateName;     //对应参数表状态
     private String areaName;      //对应服务区域表 区域
+    private int jobs;             //角色
 
 
     public Company() {
     }
 
-    public Company(int id, String name, String password, String legal, String address, String phone, int state, Timestamp entryDate, String account, BigDecimal money, String area, String stateName, String areaName) {
+
+    public Company(int id, String name, String password, String legal, String address, String phone, int state, Timestamp entryDate, String account, BigDecimal money, String area, String stateName, String areaName, int jobs) {
         this.id = id;
         this.name = name;
         this.password = password;
@@ -37,6 +39,7 @@ public class Company {
         this.area = area;
         this.stateName = stateName;
         this.areaName = areaName;
+        this.jobs = jobs;
     }
 
     @Override
@@ -55,7 +58,16 @@ public class Company {
                 ", area='" + area + '\'' +
                 ", stateName='" + stateName + '\'' +
                 ", areaName='" + areaName + '\'' +
+                ", jobs=" + jobs +
                 '}';
+    }
+
+    public int getJobs() {
+        return jobs;
+    }
+
+    public void setJobs(int jobs) {
+        this.jobs = jobs;
     }
 
     public String getArea() {

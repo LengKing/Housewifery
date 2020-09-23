@@ -72,7 +72,7 @@
             ,title: '用户订单表'
             ,cols: [[
                 {type: 'checkbox', fixed: 'left'}
-                ,{field:'id', title:'订单号', width:80, fixed: 'left', unresize: true, sort: true }
+                ,{field:'id', title:'订单号', width:130, fixed: 'left', unresize: true, sort: true }
                 ,{field:'serviceName', title:'服务', width:120, edit: 'text'}
                 ,{field:'type', title:'服务分类', width:160, edit: 'text', sort: true}
                 ,{field:'cost', title:'消费金额', width:150, edit: 'text', sort: true}

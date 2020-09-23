@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.xml.crypto.Data;
 import java.io.IOException;
-import java.util.HashMap;
 
 @Controller
 @RequestMapping("/user")
@@ -29,12 +29,14 @@ public class UserController {
     public void AdminLogin(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String account = request.getParameter("account");
         String password = request.getParameter("password");
-        User admin = new User();
-        admin.setAccount(account);
-        admin.setPassword(password);
+        User user = new User();
+        HttpSession session = request.getSession();
 
-        if (null != admin) {
-            request.getSession().setAttribute("admin", admin);
+        user.setAccount(account);
+        user.setPassword(password);
+        User user1 = userService.login(user);
+        if (null != user1) {
+            request.getSession().setAttribute("user1", user1);
             response.getWriter().print("success");
             System.out.println("登陆成功！");
         } else {
@@ -45,7 +47,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/userAdd")
-    //管理员的增加
+    //用户的增加
     public void addAdmaina(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String account = request.getParameter("account");
         String password = request.getParameter("password");
@@ -53,12 +55,12 @@ public class UserController {
         String phone = request.getParameter("phone");
         String address = request.getParameter("address");
         User user = new User();
+
         user.setAccount(account);
         user.setAddress(address);
         user.setGender(gender);
         user.setPassword(password);
         user.setPhone(phone);
-
         boolean a = userService.add(user);
         if (a) {
             if (null != user) {
@@ -67,26 +69,24 @@ public class UserController {
                 System.out.println("注册成功！");
             }
         }
+
     }
 
-    @RequestMapping(value = "/barUser",produces = "text/plain;charset=utf-8")
+    @RequestMapping(value = "/barUser", produces = "text/plain;charset=utf-8")
     @ResponseBody
-    public Object barUser(String startDate,String endDate){
-        ReportDataBean dataBeans=userService.barUser(startDate,endDate);
+    public Object barUser(String startDate, String endDate) {
+        ReportDataBean dataBeans = userService.barUser(startDate, endDate);
+        System.out.println(new Gson().toJson(dataBeans));
         return new Gson().toJson(dataBeans);
     }
 
-    @RequestMapping(value = "/findUserByAccount")
+    @RequestMapping(value = "/lineUser", produces = "text/plain;charset=utf-8")
     @ResponseBody
-    public Object findUserByAccount(String account) throws IOException, ServletException {
-        User user = userService.findUserByAccount(account);
-        return new Gson().toJson(user);
-    }
-    @RequestMapping(value = "/lineUser",produces = "text/plain;charset=utf-8")
-    @ResponseBody
-    public Object lineUser(String startDate,String endDate){
-        ReportDataBean dataBeans=userService.lineUser(startDate,endDate);
+    public Object lineUser(String startDate, String endDate) {
+        ReportDataBean dataBeans = userService.lineUser(startDate, endDate);
+        System.out.println(new Gson().toJson(dataBeans));
         return new Gson().toJson(dataBeans);
     }
-
 }
+
+

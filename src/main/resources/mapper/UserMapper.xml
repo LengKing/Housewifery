@@ -21,21 +21,7 @@
     </select>
 
 
-<!--    <update id="updateAdmin"  parameterType="com.cykj.housewifery.bean.User" >-->
-<!--        update t_admin-->
-<!--        set t_admin.account = #{account},-->
-<!--            t_admin.password = #{password},-->
-<!--            t_admin.name = #{name},-->
-<!--    where t_admin.id = #{id};-->
-<!--    </update>-->
-    <!--    管理员的删除-->
-<!--    <delete id="deleteAdmin" parameterType="com.cykj.housewifery.bean.User">-->
-<!--        delete t_admin where id in-->
-<!--        <foreach collection="list" index="index" item="id">-->
-<!--            open="("close=")"separator=",">-->
-<!--            #{id}-->
-<!--        </foreach>-->
-<!--    </delete>-->
+
     <select id="findUserByAccount" parameterType="string" resultType="user">
         select user_id, account, name, password, gender, phone, address, integral, url, reg_date, money from tb_user where account = #{value}
     </select>

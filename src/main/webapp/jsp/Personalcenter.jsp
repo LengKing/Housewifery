@@ -135,7 +135,7 @@
                     <i class="iconfont nav_right">&#xe697;</i></a>
                 <ul class="sub-menu">
                     <li>
-                        <a onclick="xadmin.add_tab('多级分类','http://localhost:8080/demo2.0/jsps/Document.jsp')">
+                        <a onclick="xadmin.add_tab('多级分类','http://localhost:8080/jsp/EvaluationTb.jsp')">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>我的评价</cite></a>
                     </li>

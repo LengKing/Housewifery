@@ -1,15 +1,24 @@
 package com.cykj.housewifery.control;
 
+import com.cykj.housewifery.bean.Company;
 import com.cykj.housewifery.bean.Menu;
 import com.cykj.housewifery.service.MenuService;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import jdk.nashorn.internal.ir.RuntimeNode;
+import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.security.auth.message.callback.SecretKeyCallback;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/menu")
@@ -60,6 +69,23 @@ public class MenuControl {
         }else{
            return new Gson().toJson(2);
         }
+    }
+
+
+
+    //动态菜单的获取
+    @RequestMapping(value = "/findMenu", produces = "text/plain;charset=utf-8")
+
+    public Object findMenu(HttpServletRequest request){
+            String jobs=request.getParameter("jobs");
+            Map<String, List<com.sun.glass.ui.Menu>> menuMap = menuService.findMenu(Integer.valueOf(jobs));
+//            Iterator<String> key = menuMap.keySet().iterator();
+//            while (key.hasNext()){
+//                String s = key.next();
+//                List<com.sun.glass.ui.Menu> m = menuMap.get(s);
+            request.setAttribute("menuMap",menuMap);
+//        }
+        return "/testjsp/TestForView.jsp";//返回一个jsp 菜单栏
     }
 
 }

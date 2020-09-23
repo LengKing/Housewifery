@@ -1,5 +1,7 @@
 package com.cykj.housewifery.service.impl;
 
+import com.cykj.housewifery.bean.Admin;
+import com.cykj.housewifery.bean.Company;
 import com.cykj.housewifery.bean.MapBean;
 import com.cykj.housewifery.bean.ReportDataBean;
 import com.cykj.housewifery.mapper.CompanyMapper;
@@ -48,5 +50,18 @@ public class CompanyServiceImpl implements CompanyService {
     public List<MapBean> companyMap() {
         List<MapBean> data=companyMapper.companyMap();
         return data;
+    }
+    @Override
+    public Company loginCompany(Company company) {
+        Company companyLogin = null;
+        companyLogin = companyMapper.loginCompany(company);
+        return companyLogin;
+    }
+
+    @Override
+    public Admin LoginPT(Admin admin) {
+        Admin PTLogin = null;
+        PTLogin = companyMapper.LoginPT(admin);
+        return PTLogin;
     }
 }

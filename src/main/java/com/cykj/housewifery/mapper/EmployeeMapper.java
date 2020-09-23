@@ -22,4 +22,6 @@ public interface EmployeeMapper {
     int deleteEmployeeById(String number);
 
     int updateSkill(Employee employee);
+
+    int updateFaceToken(@Param("number") String number,@Param("face_token") String face_token);
 }

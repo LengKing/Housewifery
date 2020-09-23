@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface MenuMapper {
@@ -13,4 +14,5 @@ public interface MenuMapper {
     List<Object> findAllID();
     int addMenus(@Param("jobs") String jobs, @Param("mid") int mid);
     int delMenus(@Param("jobs") String jobs, @Param("mid") int mid);
+    List<Menu> findMenu(@Param("jobs") Integer jobs,@Param("pid") Integer id);
 }
