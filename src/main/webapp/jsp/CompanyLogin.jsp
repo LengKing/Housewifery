@@ -58,7 +58,6 @@
                 }
                 else {
                     alert("账号或密码错误")
-                    changeImg();
                 }
             },
 
