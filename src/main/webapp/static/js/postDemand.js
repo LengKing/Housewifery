@@ -34,7 +34,7 @@ function postDemand(node) {
         $.ajax({
             // +  "&userId=" + userId
             data: "address=" + address +"&classService=" + classService + "&serviceCount=" + serviceCount + "&title=" + title+ "&described=" + described+ "&phone=" + phone,
-            url: path + "/postDemand/demand",
+            url:"/postDemand/demand",
             dataType: "text",
             type: "Post",
             success: function (data) {

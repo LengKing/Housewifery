@@ -65,8 +65,6 @@ public class MenuControl {
         }
     }
 
-
-
     //动态菜单的获取
     @RequestMapping(value = "/findMenu", produces = "text/plain;charset=utf-8")
 
@@ -74,7 +72,12 @@ public class MenuControl {
             String jobs=request.getParameter("jobs");
             Map<String, List<Menu>> menuMap = menuService.findMenu(Integer.valueOf(jobs));
             request.setAttribute("menuMap",menuMap);
-        return "/testjsp/TestForView.jsp";              //返回一个jsp 菜单栏
+            if (jobs.equals("2")){
+                return "/jsp/CompanyView.jsp";
+            }else {
+                return "/jsp/ForView,jsp";
+            }
+                       //返回一个jsp 菜单栏
     }
 
 }

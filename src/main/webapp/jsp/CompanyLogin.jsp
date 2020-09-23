@@ -25,7 +25,7 @@
     <div id="darkbannerwrap"></div>
 
     <form method="post" class="layui-form" >
-        <input name="id" placeholder="用户名" id="id"  type="text" lay-verify="required"  class="layui-input" >
+        <input name="id" placeholder="公司账号" id="id"  type="text" lay-verify="required"  class="layui-input" >
         <hr class="hr15">
         <input name="password" lay-verify="required" id="password" placeholder="密码"  type="password" class="layui-input">
         <hr class="hr15">

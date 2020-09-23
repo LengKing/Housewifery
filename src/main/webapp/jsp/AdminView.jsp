@@ -38,8 +38,7 @@
 <!-- 顶部开始 -->
 <div class="container">
         <div class="logo">
-            <a href="${pageContext.request.contextPath}/admin/X-admin/index.html">家政公司管理端</a></div>
-
+            <a href="${pageContext.request.contextPath}/admin/X-admin/index.html">平台管理端</a></div>
     <div class="left_open">
         <a><i title="展开左侧栏" class="iconfont">&#xe699;</i></a>
     </div>
@@ -57,9 +56,7 @@
     <ul class="layui-nav right" lay-filter="">
         <li class="layui-nav-item">
                 <a href="javascript:;">
-                    <span>欢迎${company.name}</span>
-                </a>
-
+                    <span>欢迎：${admin.account}</span>
             <dl class="layui-nav-child">
                 <!-- 二级菜单 -->
                 <dd>
@@ -79,25 +76,25 @@
     <div id="side-nav">
         <ul id="nav">
 
-        <c:if test="${not empty menuMap}">
-            <c:forEach items="${menuMap}" var="map">
-            <li>
-            <a href="javascript:;">
-                <cite>${map.key}</cite>
-                <i class="iconfont nav_right">&#xe697;</i></a>
-                <ul class="sub-menu">
+            <c:if test="${not empty menuMap}">
+                <c:forEach items="${menuMap}" var="map">
                     <li>
-                    <c:forEach items="${map.value}" var="menu" varStatus="status">
-                        <a onclick="xadmin.add_tab('${menu.name}','${menu.url}')">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>${menu.name}</cite></a>
-                        </a>
-                    </c:forEach>
+                        <a href="javascript:;">
+                            <cite>${map.key}</cite>
+                            <i class="iconfont nav_right">&#xe697;</i></a>
+                        <ul class="sub-menu">
+                            <li>
+                                <c:forEach items="${map.value}" var="menu" varStatus="status">
+                                    <a onclick="xadmin.add_tab('${menu.name}','${menu.url}')">
+                                        <i class="iconfont">&#xe6a7;</i>
+                                        <cite>${menu.name}</cite></a>
+                                    </a>
+                                </c:forEach>
+                            </li>
+                        </ul>
                     </li>
-                </ul>
-            </li>
-            </c:forEach>
-        </c:if>
+                </c:forEach>
+            </c:if>
 
         </ul>
     </div>
