@@ -3,6 +3,7 @@ var calendar;
 $(function() {
     // 日历插件初始化
     calendarEl = document.getElementById('calendar');
+    var companyId = parent.document.getElementById('id').value;
     // calendarEl=$("#calendar");
     calendar = new FullCalendar.Calendar(calendarEl, {
         plugins : [ 'interaction', 'dayGrid' ],
@@ -21,7 +22,7 @@ $(function() {
             $("#p").empty();
             $.ajax({
                 url:path+"/arrange/companyEmployees",
-                data:"companyId="+1000+"&date="+date,
+                data:"companyId="+companyId+"&date="+date,
                 type:"post",
                 dataType:"json",
                 success:function (data) {
@@ -49,7 +50,7 @@ $(function() {
             $.ajax({
                 url:path+"/arrange/getArrange",
                 type:"post",
-                data:"date="+starttimes+"&companyId="+1000,
+                data:"date="+starttimes+"&companyId="+companyId,
                 dataType:"json",
                 success:function (data) {
                     if (data !=null){
@@ -139,7 +140,7 @@ $(function() {
     var path = $("#path").val();
     $.ajax({
         url:path+"/arrange/getArrange",
-        data:'companyId='+1000,
+        data:'companyId='+companyId,
         type:"post",
         dataType:"json",
         success:function (data) {
