@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="../static/layui/css/layui.css" media="all">
     <script src="../static/layui/layui.all.js" charset="utf-8"></script>
     <script src="../static/layui/lay/modules/layer.js"></script>
+    <script src="../static/js/Admins.js"></script>
 
 </head>
 
@@ -50,8 +51,8 @@
         <h2><img src="../static/images/logo_text.png"></h2>
         <div class="search">
             <form>
-                <input  id="title" type="text" name="word" placeholder="家庭清洁">
-                <button id="btn" type="button" >搜　索</button>
+                <input id="titles" type="text" name="titles" placeholder="家庭清洁">
+                <button id="btn" type="button">搜　索</button>
             </form>
         </div>
         <div class="phone">
@@ -154,7 +155,7 @@
                                 <p>本服务产品分为一星级、二星级、三星级、四星级、五星级五种级别...</p>
                                 <span class="y-btns clearfix">
                                                 <a class="fl"
-                                                   onclick="">立即下单</a>
+                                                   href="Pay.jsp" target="_self">立即下单</a>
                                                 <a href="../jsp/bmxq.jsp" target="_self" class="fl">了解更多</a>
                                             </span>
                             </div>
@@ -326,25 +327,25 @@
 </body>
 
 </html>
-<script type="text/javascript">
+<script>
     window.onload = function(){
-        var title = document.getElementById("title");
+        var titles = document.getElementById("titles");
         var btn = document.getElementById("btn");
         btn.onclick = function(){
-            if(title.value == "家庭清洁"){
-                url = "../jsp/jzfw_qj.jsp";
-            }else if(title.value == "企业清洁"){
-                url = "../jsp/jzfw_qyqj.jsp";
-            }else if(title.value == "保姆"){
-                url = "../jsp/jzfw_bm.jsp";
-            }else if(title.value == "月嫂"){
-                url = "../jsp/jzfw_ys.jsp";
-            }else if(title.value == "育婴"){
-                url = "../jsp/jzfw_yy.jsp";
-            }else if(title.value == "钟点工"){
-                url = "../jsp/jzfw_zdg.jsp";
-            }else if(title.value == "医院陪护"){
-                url = "../jsp/jzfw_yyph.jsp";
+            if(titles.value == "家庭清洁"){
+                url = "/jsp/jzfw_qj.jsp";
+            }else if(titles.value == "企业清洁"){
+                url = "/jsp/jzfw_qyqj.jsp";
+            }else if(titles.value == "保姆"){
+                url = "/jsp/jzfw_bm.jsp";
+            }else if(titles.value == "月嫂"){
+                url = "/jsp/jzfw_ys.jsp";
+            }else if(titles.value == "育婴"){
+                url = "/jsp/jzfw_yy.jsp";
+            }else if(titles.value == "钟点工"){
+                url = "/jsp/jzfw_zdg.jsp";
+            }else if(titles.value == "医院陪护"){
+                url = "/jsp/jzfw_yyph.jsp";
             }
             window.location.href = url;
         }

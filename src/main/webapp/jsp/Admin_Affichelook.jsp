@@ -38,7 +38,7 @@
         </tr>
 
         <tr>
-            <td style="margin: 8px"><input onclick="fabus(this)" type="button" value="发布" class="layui-btn layui-btn-primary"></td>
+<%--            <td style="margin: 8px"><input onclick="fabus(this)" type="button" value="发布" class="layui-btn layui-btn-primary"></td>--%>
             <td style="margin: 8px"><input onclick="guanbi()" type="button" value="返回" class="layui-btn layui-btn-primary"></td>
         </tr>
     </table>

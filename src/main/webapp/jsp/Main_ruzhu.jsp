@@ -43,8 +43,8 @@
         <h2><img src="../static/images/logo_text.png"></h2>
         <div class="search">
             <form>
-                <input  id="title" type="text" name="word" placeholder="家庭清洁">
-                <button id="btn" type="button" >搜　索</button>
+                <input id="titles" type="text" name="titles" placeholder="家庭清洁">
+                <button id="btn" type="button">搜　索</button>
             </form>
         </div>
         <div class="phone">
@@ -156,6 +156,12 @@
                 <div class="pic"><img src="../static/images/a8c9c61d6defc3f5.jpg" alt="品牌形象"></div>
                 <p>品牌形象</p>
             </li>
+
+            <li>
+                <div class="pic"><img src="../static/images/a8c9c61d6defc3f5.jpg" alt="品牌形象"></div>
+                <p>品牌形象</p>
+            </li>
+
         </ul>
     </div>
     <div class="btns">
@@ -257,40 +263,40 @@
 
 <!--是否设置分站-->
 <input type="hidden" id="fenzhan" value="否">
-<script>
-    $(function () {
+<%--<script>--%>
+<%--    $(function () {--%>
 
-        $("#gediaoBox").move({
-            leftBtn:"#gdleft",
-            rightBtn:"#gdright",
-            direction:"left",
-            carMethod:true,
-            btnBox:"#gddots",
-            showList:3
-        })
-    })
-</script>
+<%--        $("#gediaoBox").move({--%>
+<%--            leftBtn:"#gdleft",--%>
+<%--            rightBtn:"#gdright",--%>
+<%--            direction:"left",--%>
+<%--            carMethod:true,--%>
+<%--            btnBox:"#gddots",--%>
+<%--            showList:3--%>
+<%--        })--%>
+<%--    })--%>
+<%--</script>--%>
 </body>
 </html>
-<script type="text/javascript">
+<script>
     window.onload = function(){
         var titles = document.getElementById("titles");
         var btn = document.getElementById("btn");
         btn.onclick = function(){
             if(titles.value == "家庭清洁"){
-                url = "../jsp/jzfw_qj.jsp";
+                url = "/jsp/jzfw_qj.jsp";
             }else if(titles.value == "企业清洁"){
-                url = "../jsp/jzfw_qyqj.jsp";
+                url = "/jsp/jzfw_qyqj.jsp";
             }else if(titles.value == "保姆"){
-                url = "../jsp/jzfw_bm.jsp";
+                url = "/jsp/jzfw_bm.jsp";
             }else if(titles.value == "月嫂"){
-                url = "../jsp/jzfw_ys.jsp";
+                url = "/jsp/jzfw_ys.jsp";
             }else if(titles.value == "育婴"){
-                url = "../jsp/jzfw_yy.jsp";
+                url = "/jsp/jzfw_yy.jsp";
             }else if(titles.value == "钟点工"){
-                url = "../jsp/jzfw_zdg.jsp";
+                url = "/jsp/jzfw_zdg.jsp";
             }else if(titles.value == "医院陪护"){
-                url = "../jsp/jzfw_yyph.jsp";
+                url = "/jsp/jzfw_yyph.jsp";
             }
             window.location.href = url;
         }

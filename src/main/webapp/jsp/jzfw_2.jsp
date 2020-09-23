@@ -50,8 +50,8 @@
         <h2><img src="../static/images/logo_text.png"></h2>
         <div class="search">
             <form>
-                <input type="text" name="word" placeholder="家庭清洁">
-                <button type="submit" name="submit">搜　索</button>
+                <input id="titles" type="text" name="titles" placeholder="家庭清洁">
+                <button id="btn" type="button">搜　索</button>
             </form>
         </div>
         <div class="phone">

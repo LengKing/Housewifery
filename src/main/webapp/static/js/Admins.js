@@ -9,6 +9,24 @@ function guanbi() {
 }
 
 
+//新增培训计划
+function xiadan() {
+    layer.open({
+        anim: 1,
+        type: 2,
+        title: '立即下单',
+        shadeClose: true,
+        shade: false,
+        maxmin: true,
+        id: 'xiadan',
+        area: ['450', '600'],
+        content: ['/jsp/xiadan.jsp'],
+        // end: function () {
+        //     $("#searchUserifAccount").click();
+        // }
+    });
+}
+
 
 //新增培训计划
 function add() {
@@ -194,9 +212,10 @@ function fabu() {
 function fabus(node) {
     var title = $("#title").val();
     var describes = $("#describes").val();
+    var releasrDate = $("#releasrDate").val();
     $.ajax({
         url: "/adminAffiche/addTAffiche",
-        data: {title: title, describes: describes},
+        data: {title: title, describes: describes,releasrDate:releasrDate},
         success: function (data) {
             if (data == "发布成功") {
                 alert("发布成功");

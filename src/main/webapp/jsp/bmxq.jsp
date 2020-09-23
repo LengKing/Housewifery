@@ -45,21 +45,15 @@
     <div class="header-top">
         <div class="content">
             <p>欢迎来到XXX智慧家政！</p>
-            <!--            <div class="rightCon">-->
-            <!--                <a href="http://www.sqbang.com/SiteMap.html" target="_blank">网站地图</a>-->
-            <!--                <a href="javascript:addBookmark()">收藏本站</a>-->
-            <!--                <a href="http://www.sqbang.com/help/lxwm.html" target="_blank">联系社区邦</a>-->
-            <!--                <a href="http://www.sqbang.com/news/tag.html">热门标签</a>-->
-            <!--            </div>-->
         </div>
     </div>
     <div class="header-center">
         <h1><a href="">XXXX智慧家政</a></h1>
-        <h2><img src="/static/images/logo_text.png"></h2>
+        <h2><img src="../static/images/logo_text.png"></h2>
         <div class="search">
-            <form action="/Search/index.html">
-                <input type="text" name="word" placeholder="家庭保洁">
-                <button type="submit" name="submit">搜　索</button>
+            <form>
+                <input id="titles" type="text" name="titles" placeholder="家庭清洁">
+                <button id="btn" type="button">搜　索</button>
             </form>
         </div>
         <div class="phone">
@@ -121,7 +115,7 @@
                         <tbody>
                         <tr class="firstRow">
                             <td width="580" valign="middle" style="word-break: break-all;" align="center"><img
-                                    src="/static/images/65178d618f90101e.jpg"
+                                    src="../static/images/65178d618f90101e.jpg"
                                     title="保姆" alt="保姆"/></td>
                             <td width="610" valign="middle" style="word-break:
 

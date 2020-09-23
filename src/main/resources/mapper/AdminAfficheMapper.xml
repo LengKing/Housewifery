@@ -30,7 +30,7 @@
 
     <insert id="addTAffiche" parameterType="com.cykj.housewifery.bean.Affiche">
         insert into tb_affiche(title,describes,releasr_date)
-        values (#{affiche.title},#{affiche.describes},#{affiche.releasrDate})
+        values (#{affiche.title},#{affiche.describes},now())
     </insert>
 
     <update id="updateAffiche" parameterType="com.cykj.housewifery.bean.Affiche">

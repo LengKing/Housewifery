@@ -9,7 +9,7 @@
 <html>
 <head>
 
-    <title>发布需求</title>
+    <title>立即下单</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -29,7 +29,8 @@
     <link rel="stylesheet" href="../static/layui/css/layui.css">
     <link rel="stylesheet" href="../static/layui/css/layui.css"  media="all">
     <script src="../static/layui/layui.js" charset="utf-8"></script>
-    <script src="../static/js/postDemand.js"></script>
+    <script src="../static/js/Admins.js"></script>
+
 </head>
 <body>
 <!-- header -->
@@ -181,7 +182,7 @@
 </script>
 </html>
 <%--<script type="text/javascript" src="../static/js/1.9.1jquery.min.js" charset="utf-8"></script>--%>
-<script>
+<script type="text/javascript">
     window.onload = function(){
         var titles = document.getElementById("titles");
         var btn = document.getElementById("btn");

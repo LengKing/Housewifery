@@ -14,12 +14,12 @@
 
     <title>首页</title>
 
+    <script type="text/javascript" src="../static/js/1.9.1jquery.min.js" charset="utf-8"></script>
     <link href="../static/css/tcommon.css" rel="stylesheet" type="text/css">
     <link type="text/css" rel="stylesheet" href="../static/css/common.css" />
     <link type="text/css" rel="stylesheet" href="../static/css/index.css" />
     <link type="text/css" rel="stylesheet" href="../static/css/swiper.css" />
     <link type="text/css" rel="stylesheet" href="../static/css/animate.css" />
-    <script type="text/javascript" src="../static/js/1.9.1jquery.min.js" charset="utf-8"></script>
     <script type="text/javascript" charset="utf-8" src="../static/js/common.js"></script>
     <script type="text/javascript" charset="utf-8" src="../static/js/swiper.js"></script>
     <script type="text/javascript" charset="utf-8" src="../static/js/wow.js"></script>
@@ -75,8 +75,8 @@
         <h2><img src="../static/images/logo_text.png"></h2>
         <div class="search">
             <form>
-                <input  id="title" type="text" name="word" placeholder="家庭清洁">
-                <button id="btn" type="button" >搜　索</button>
+                <input id="titles" type="text" name="titles" placeholder="家庭清洁">
+                <button id="btn" type="button">搜　索</button>
             </form>
         </div>
         <div class="phone">
@@ -357,7 +357,16 @@
                     <div class="swiper-slide">
                         <div class="item">
                             <div class="text">
-                                <h3>家庭保洁+下单时间+下单市区</h3>
+                                <h3>家庭保洁+2020-09-22+厦门</h3>
+                                <p>服务不错，满意</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="item">
+                            <div class="text">
+                                <h3>月嫂+2020-09-15+福州</h3>
                                 <p>赞赞赞赞赞赞</p>
                             </div>
                         </div>
@@ -366,16 +375,7 @@
                     <div class="swiper-slide">
                         <div class="item">
                             <div class="text">
-                                <h3>月嫂+下单时间+下单市区</h3>
-                                <p>赞赞赞赞赞赞</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="item">
-                            <div class="text">
-                                <h3>育婴师+下单时间+下单市区</h3>
+                                <h3>育婴师+2020-09-15+泉州</h3>
                                 <p>赞赞赞赞赞赞</p>
                             </div>
 
@@ -385,7 +385,7 @@
                     <div class="swiper-slide">
                         <div class="item">
                             <div class="text">
-                                <h3>日常保洁+下单时间+下单市区</h3>
+                                <h3>日常保洁+2020-09-17+厦门</h3>
                                 <p>赞赞赞赞赞赞</p>
                             </div>
                         </div>
@@ -394,7 +394,7 @@
                     <div class="swiper-slide">
                         <div class="item">
                             <div class="text">
-                                <h3>家庭早教师+下单时间+下单市区</h3>
+                                <h3>家庭早教师+2020-09-18+南安</h3>
                                 <p>赞赞赞赞赞赞</p>
                             </div>
                         </div>
@@ -492,25 +492,26 @@
 <input type="hidden" id="fenzhan" value="否">
 </body>
 </html>
-<script type="text/javascript">
+<%--<script type="text/javascript" src="../static/js/1.9.1jquery.min.js" charset="utf-8"></script>--%>
+<script>
     window.onload = function(){
         var titles = document.getElementById("titles");
         var btn = document.getElementById("btn");
         btn.onclick = function(){
             if(titles.value == "家庭清洁"){
-                url = "../jsp/jzfw_qj.jsp";
+                url = "/jsp/jzfw_qj.jsp";
             }else if(titles.value == "企业清洁"){
-                url = "../jsp/jzfw_qyqj.jsp";
+                url = "/jsp/jzfw_qyqj.jsp";
             }else if(titles.value == "保姆"){
-                url = "../jsp/jzfw_bm.jsp";
+                url = "/jsp/jzfw_bm.jsp";
             }else if(titles.value == "月嫂"){
-                url = "../jsp/jzfw_ys.jsp";
+                url = "/jsp/jzfw_ys.jsp";
             }else if(titles.value == "育婴"){
-                url = "../jsp/jzfw_yy.jsp";
+                url = "/jsp/jzfw_yy.jsp";
             }else if(titles.value == "钟点工"){
-                url = "../jsp/jzfw_zdg.jsp";
+                url = "/jsp/jzfw_zdg.jsp";
             }else if(titles.value == "医院陪护"){
-                url = "../jsp/jzfw_yyph.jsp";
+                url = "/jsp/jzfw_yyph.jsp";
             }
             window.location.href = url;
         }
