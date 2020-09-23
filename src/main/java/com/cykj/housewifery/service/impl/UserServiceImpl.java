@@ -22,7 +22,6 @@ public class UserServiceImpl implements UserService {
     private CompanyMapper companyMapper;
 
     @Override
-
     public User login(User user) {
         User userLogin = null;
         userLogin = userMapper.login(user);

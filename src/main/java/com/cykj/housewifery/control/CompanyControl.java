@@ -1,5 +1,7 @@
 package com.cykj.housewifery.control;
 
+import com.cykj.housewifery.bean.Admin;
+import com.cykj.housewifery.bean.Company;
 import com.cykj.housewifery.bean.MapBean;
 import com.cykj.housewifery.bean.ReportDataBean;
 import com.cykj.housewifery.service.CompanyService;
@@ -9,6 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
@@ -38,5 +44,43 @@ public class CompanyControl {
     public Object companyMap(){
         List<MapBean> data=companyService.companyMap();
         return new Gson().toJson(data);
+    }
+
+    //家政公司的
+    @RequestMapping(value = "/login")
+    @ResponseBody
+    public void AdminLogin(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        String id = request.getParameter("id");
+        String password = request.getParameter("password");
+        Company company = new Company();
+        company.setId(Integer.valueOf(id));
+        company.setPassword(password);
+        Company company1=companyService.loginCompany(company);
+        if (null != company1) {
+            request.getSession().setAttribute("company", company1);
+            response.getWriter().print("success");
+            System.out.println("登陆成功！");
+        } else {
+            response.getWriter().print("你好 账号不正确");
+        }
+    }
+
+    //平台的登录
+    @RequestMapping(value = "/PTlogin")
+    @ResponseBody
+    public void PTLogin(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        String account = request.getParameter("account");
+        String password = request.getParameter("password");
+        Admin admin = new Admin();
+        admin.setAccount(account);
+        admin.setPassword(password);
+        Admin admin1 = companyService.LoginPT(admin);
+        if (null != admin1) {
+            request.getSession().setAttribute("admin1", admin1);
+            response.getWriter().print("success");
+            System.out.println("登陆成功！");
+        } else {
+            response.getWriter().print("你好 账号不正确");
+        }
     }
 }

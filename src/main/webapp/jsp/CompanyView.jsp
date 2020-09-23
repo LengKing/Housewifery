@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -52,24 +53,15 @@
                 <dd>
                     <a onclick="xadmin.open('最大化','http://localhost:8080/demo2.0/jsp/Tables.jsp','','',true)">
                         <i class="iconfont">&#xe6a2;</i>退出系统</a></dd>
-                <dd>
-                    <a onclick="xadmin.open('弹出自动宽高','http://www.baidu.com')">
-                        <i class="iconfont">&#xe6a8;</i>管理员信息修改</a></dd>
-                <dd>
-                    <a onclick="xadmin.open('弹出指定宽高','http://www.baidu.com',500,300)">
-                        <i class="iconfont">&#xe6a8;</i>弹出指定宽高</a></dd>
-                <dd>
-                    <a onclick="xadmin.add_tab('在tab打开','member-list.html')">
-                        <i class="iconfont">&#xe6b8;</i>在tab打开</a></dd>
-                <dd>
-                    <a onclick="xadmin.add_tab('在tab打开刷新','member-del.html',true)">
-                        <i class="iconfont">&#xe6b8;</i>在tab打开刷新</a></dd>
             </dl>
         </li>
     </ul>
     <ul class="layui-nav right" lay-filter="">
         <li class="layui-nav-item">
-            <a href="javascript:;">欢迎！小白</a>
+            <a href="javascript:;">
+                <span>欢迎${admin.account}</span>
+                <span>：${admin.office}&nbsp;${admin.jobs}</span>
+            </a>
             <dl class="layui-nav-child">
                 <!-- 二级菜单 -->
                 <dd>

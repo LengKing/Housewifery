@@ -1,5 +1,7 @@
 package com.cykj.housewifery.mapper;
 
+import com.cykj.housewifery.bean.Admin;
+import com.cykj.housewifery.bean.Company;
 import com.cykj.housewifery.bean.MapBean;
 import com.cykj.housewifery.bean.ReportDataBean;
 import org.apache.ibatis.annotations.Mapper;
@@ -14,4 +16,7 @@ public interface CompanyMapper {
    int totalCompany(@Param("date") String date);
    int lineCompany(@Param("date") String date);
    List<MapBean> companyMap();
+   int CompanyAdd(Company company);
+   public Company loginCompany(Company company);//公司的登录
+   Admin LoginPT(Admin admin);
 }

@@ -26,5 +26,12 @@
         delete from tb_jobs_menu where jobs=(select id from tb_jobs where jobs= #{jobs}) and menu= #{mid}
     </delete>
 
+<!--    动态的菜单-->
+    <select id="findMenu" resultType="Menu">
+      select m.id,m.NAME,m.URL from tb_jobs_menu mj,tb_menu m where m.id = mj.menu and mj.jobs= #{jobs} and m.pid = #{pid}
+    </select>
+
+
+
 
 </mapper>

@@ -27,4 +27,18 @@
     select s.area name,count(c.id) value from tb_company c,tb_service_area s where c.area=s.id and c.state=2 group by c.area
     </select>
 
+    <!--    家政公司的注册-->
+    <insert id="CompanyAdd" parameterType="Company"  >
+
+        insert into tb_company (account,name,password,legal,phone,address,state) value (#{account},#{name},#{password},#{legal},#{phone},#{address})
+    </insert>
+
+    <!--        公司端登录-->
+    <select id="loginCompany" resultType="Company" parameterType="Company">
+        select * from tb_company where id = #{id} and password = #{password}
+  </select>
+    <!--    平台端的登录-->
+    <select id="LoginPT" resultType="Admin" parameterType="Admin">
+        select * from tb_admin where account = #{account} and password = #{password}
+  </select>
 </mapper>
