@@ -49,7 +49,7 @@
             dataType:"text",
             success:function (data) {
                 alert(data);
-                if (data == "登陆成功"){
+                if (data == "登录成功"){
                     location.href=path+"/menu/findMenu?jobs=3";
                 }
                 else {
