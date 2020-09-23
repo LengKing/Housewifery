@@ -44,6 +44,7 @@
 </div>
 <script>
     $('#add').on('click', function () {
+        var companyId = parent.document.getElementById('id').value;
         layer.open({
             type: 2,
             title: "新增人员",
@@ -52,7 +53,7 @@
             shift: 2,
             area: ['70%', '85%'], //控制窗口大小
             shadeClose: true,
-            content: "add-employee.html?companyId="+1000, //这里填写自己的路径
+            content: "add-employee.html?companyId="+companyId, //这里填写自己的路径
             end:function(){
                 // location.reload();//弹出层结束后，刷新主页面
                 $(".layui-laypage-btn")[0].click();
@@ -62,10 +63,11 @@
 
     layui.use('table', function () {
         var table = layui.table;
+        var companyId = parent.document.getElementById('id').value;
         var tableIns = table.render({
             elem: '#employee'
             , height: 312
-            , url: '/employee/allEmployee?companyId='+1000 //数据接口
+            , url: '/employee/allEmployee?companyId='+companyId //数据接口
             , page: true //开启分页
             , cols: [[ //表头
                 {field: 'number', title: '员工编号', width: 100,align: 'center'}
@@ -93,7 +95,7 @@
             var name = $("#name").val();
             tableIns.reload({
                 method: 'post',
-                url: '/employee/allEmployee?companyId='+1000,
+                url: '/employee/allEmployee?companyId='+companyId,
                 page: {
                     curr: 1 //重新从第 1 页开始
                 },
@@ -124,7 +126,7 @@
                     shift: 2,
                     area: ['50%', '60%'], //控制窗口大小
                     shadeClose: true,
-                    content: 'employee-uploadFile.html?number='+number+"&companyId="+1000, //这里填写自己的路径
+                    content: 'employee-uploadFile.html?number='+number+"&companyId="+companyId, //这里填写自己的路径
                 })
             }
             if (event=='details'){
@@ -150,7 +152,7 @@
                     area: ['40%', '85%'], //控制窗口大小
                     shadeClose: true,
                     content: 'employee-update.html?age='+age+"&birthday="+birthday+"&gender="+gender+"&job="+job+"&label="+label+"&name="+name
-                        +"&number="+number+"&school="+school+"&skill="+skill+"&companyId="+1000, //这里填写自己的路径
+                        +"&number="+number+"&school="+school+"&skill="+skill+"&companyId="+companyId, //这里填写自己的路径
                     end:function(){
                         // location.reload();//弹出层结束后，刷新主页面
                         $(".layui-laypage-btn")[0].click();

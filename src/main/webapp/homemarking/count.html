@@ -81,8 +81,9 @@
         clickYear(url);
     });
     function clickYear(url){
+        var companyId = parent.document.getElementById('id').value;
         $.ajax({
-            data:"companyId="+1000,
+            data:"companyId="+companyId,
             url:url,
             dataType:"json",
             success:function(jsonData){

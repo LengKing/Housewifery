@@ -43,10 +43,11 @@
 <script>
     layui.use('table', function () {
         var table = layui.table;
+        var companyId = parent.document.getElementById('id').value;
         table.render({
             elem: '#companyData'
             , height: 250
-            , url: '/homemarking/companyData?companyId='+1000 //数据接口
+            , url: '/homemarking/companyData?companyId='+companyId //数据接口
             , page: true //开启分页
             , cols: [[ //表头
                 {field: 'name', title: '材料名', width: 200,align: 'center'}
@@ -61,8 +62,8 @@
         table.on('tool(companyData)', function (obj) {
             var event = obj.event;
             var name = obj.data.name;
-            var url =encodeURI("see-data.html?companyId="+1000+"&name="+name+"&type=company");
-            var url2 =encodeURI("add-data.html?companyId="+1000+"&name="+name+"&type=company");
+            var url =encodeURI("see-data.html?companyId="+companyId+"&name="+name+"&type=company");
+            var url2 =encodeURI("add-data.html?companyId="+companyId+"&name="+name+"&type=company");
             if (event == 'see'){
                 layer.open({
                     type: 2,
@@ -96,7 +97,7 @@
         table.render({
             elem: '#employeeData'
             , height: 250
-            , url: '/homemarking/employeeData?companyId='+1000 //数据接口
+            , url: '/homemarking/employeeData?companyId='+companyId //数据接口
             , page: true //开启分页
             , cols: [[ //表头
                 {field: 'name', title: '资料名', width: 200,align: 'center'}
@@ -111,8 +112,8 @@
         table.on('tool(employeeData)', function (obj) {
             var event = obj.event;
             var name = obj.data.name;
-            var url =encodeURI("see-data.html?companyId="+1000+"&name="+name+"&type=employee");
-            var url2 =encodeURI("add-data.html?companyId="+1000+"&name="+name+"&type=employee");
+            var url =encodeURI("see-data.html?companyId="+companyId+"&name="+name+"&type=employee");
+            var url2 =encodeURI("add-data.html?companyId="+companyId+"&name="+name+"&type=employee");
             if (event == 'see'){
                 layer.open({
                     type: 2,

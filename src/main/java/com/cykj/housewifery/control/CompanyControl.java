@@ -58,9 +58,9 @@ public class CompanyControl {
         Company company1=companyService.loginCompany(company);
         if (null != company1) {
             request.getSession().setAttribute("company", company1);
-            return new Gson().toJson(1);
+            return "1";
         } else {
-            return new Gson().toJson(2);
+            return "2";
         }
     }
 

@@ -38,6 +38,7 @@
 
     layui.use('table', function () {
         var table = layui.table;
+        var companyId = parent.document.getElementById('id').value;
         var tableIns = table.render({
             elem: '#train'
             , height: 312
@@ -79,7 +80,7 @@
                     shift: 2,
                     area: ['50%', '75%'], //控制窗口大小
                     shadeClose: true,
-                    content: 'train-apply.html?id='+id, //这里填写自己的路径
+                    content: 'train-apply.html?id='+id+'&companyId='+companyId, //这里填写自己的路径
                 })
             }
 
