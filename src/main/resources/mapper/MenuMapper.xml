@@ -11,11 +11,11 @@
     </select>
 
     <select id="findHaveIDs" resultType="java.lang.Object">
-   select id from tb_jobs_menu where jobs=(select id from tb_jobs where jobs=#{arg0})
+   select menu from tb_jobs_menu where jobs=(select id from tb_jobs where jobs=#{arg0})
    </select>
 
     <select id="findAllID" resultType="java.lang.Object">
-      select id from tb_jobs_menu
+      select menu from tb_jobs_menu
     </select>
 
     <insert id="addMenus">
