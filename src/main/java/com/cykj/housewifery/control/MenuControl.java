@@ -75,7 +75,7 @@ public class MenuControl {
             if (jobs.equals("2")){
                 return "/jsp/CompanyView.jsp";
             }else {
-                return "/jsp/AdminView,jsp";
+                return "/jsp/AdminView.jsp";
             }
                        //返回一个jsp 菜单栏
     }
