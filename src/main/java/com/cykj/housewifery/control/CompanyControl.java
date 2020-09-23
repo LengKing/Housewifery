@@ -58,10 +58,9 @@ public class CompanyControl {
         Company company1=companyService.loginCompany(company);
         if (null != company1) {
             request.getSession().setAttribute("company", company1);
-            response.getWriter().print("success");
-            System.out.println("登陆成功！");
+            response.getWriter().print("登录成功");
         } else {
-            response.getWriter().print("你好 账号不正确");
+            response.getWriter().print("你好！账号不正确");
         }
     }
 
@@ -77,10 +76,9 @@ public class CompanyControl {
         Admin admin1 = companyService.LoginPT(admin);
         if (null != admin1) {
             request.getSession().setAttribute("admin1", admin1);
-            response.getWriter().print("success");
-            System.out.println("登陆成功！");
+            response.getWriter().print("登录成功");
         } else {
-            response.getWriter().print("你好 账号不正确");
+            response.getWriter().print("你好！账号不正确");
         }
     }
 }

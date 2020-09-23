@@ -30,17 +30,14 @@ public class UserController {
         String account = request.getParameter("account");
         String password = request.getParameter("password");
         User user = new User();
-        HttpSession session = request.getSession();
-
         user.setAccount(account);
         user.setPassword(password);
         User user1 = userService.login(user);
         if (null != user1) {
-            request.getSession().setAttribute("user1", user1);
-            response.getWriter().print("success");
-            System.out.println("登陆成功！");
+            request.getSession().setAttribute("user", user1);
+            response.getWriter().print("登录成功");
         } else {
-            response.getWriter().print("你好 账号不正确");
+            response.getWriter().print("你好！账号不正确");
         }
 
 
@@ -64,9 +61,7 @@ public class UserController {
         boolean a = userService.add(user);
         if (a) {
             if (null != user) {
-                request.getSession().setAttribute("user", user);
-                response.getWriter().write("success");
-                System.out.println("注册成功！");
+                response.getWriter().write("注册成功");
             }
         }
 
