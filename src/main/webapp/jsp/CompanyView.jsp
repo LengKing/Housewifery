@@ -57,7 +57,7 @@
     <ul class="layui-nav right" lay-filter="">
         <li class="layui-nav-item">
                 <a href="javascript:;">
-                    <span>欢迎${company.name}</span>
+                    <span>欢迎:${company.name}</span>
                 </a>
 
             <dl class="layui-nav-child">
