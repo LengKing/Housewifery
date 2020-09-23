@@ -5,6 +5,7 @@ import com.cykj.housewifery.bean.Employee;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.Date;
 import java.util.List;
 
 @Mapper
@@ -16,4 +17,5 @@ public interface ArrangeMapper {
     List<Arrange> getArrange(@Param("companyId") String companyId,@Param("date") String date);
 
     int updateArrange(@Param("list") List<String> list,@Param("date") String date);
+
 }

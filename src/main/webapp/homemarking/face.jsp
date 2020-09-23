@@ -36,12 +36,12 @@
             var context = canvas.getContext('2d');
             var shortCut = document.getElementById('shortCut');
             var scContext = shortCut.getContext('2d');
-            var time =10000;//向后台发照片的冷却时间
+            var time =6000;//向后台发照片的冷却时间
             layui.use('layer',function () {
                 layer = layui.layer;
             })
             var tracker = new tracking.ObjectTracker('face');
-            tracker.setInitialScale(6);
+            tracker.setInitialScale(4);
             tracker.setStepSize(2);
             tracker.setEdgesDensity(0.1);
 
@@ -76,12 +76,12 @@
                 $.ajax({
                     url:"/face/searchFace",
                     type:"post",
-                    dataType:"json",
+                    dataType:"text",
                     data:{
                         imgStr:imgStr.substring(imgStr.indexOf(",")+1)
                     },
                     success:function(result){
-                        console.log(result)
+                        layer.msg(result)
                         // if(parseInt(result.result.user_list[0].score) > 80) {
                         //     //关闭摄像头
                         //    // video.srcObject.getTracks()[0].stop();

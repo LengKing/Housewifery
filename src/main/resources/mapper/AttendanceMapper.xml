@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.housewifery.mapper.AttendanceMapper">
+    <select id="getClockCount" resultType="int">
+        select count(*) from (select * from tb_employee_attendance where number in(select e.number from tb_employee e where
+        e.company_id = #{companyId}) and DATEDIFF(clock_time, #{date}) = 0 group by number) t
+    </select>
+
+    <select id="getClockList" resultType="attendance">
+        select e.number,e.name,e.gender,date_format(min(ea.clock_time), '%Y-%m-%d %H:%i:%s') am,date_format(max(ea.clock_time), '%H:%i') pm
+        from tb_employee e,tb_employee_attendance ea where e.number = ea.number and ea.number in
+        (select e1.number from tb_employee e1 where e1.company_id = #{companyId}) and DATEDIFF(ea.clock_time, #{date}) = 0
+        group by ea.number
+    </select>
+
+    <insert id="employeeClock">
+        insert into tb_employee_attendance(number, clock_time) VALUES (#{number},#{date})
+    </insert>
+</mapper>

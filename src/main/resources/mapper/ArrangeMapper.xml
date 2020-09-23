@@ -31,4 +31,5 @@
             #{string}
         </foreach>
     </delete>
+
 </mapper>
