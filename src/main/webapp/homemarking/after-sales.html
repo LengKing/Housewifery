@@ -68,10 +68,12 @@
             elem: '#endDate' //指定元素
         });
 
+        var companyId = parent.document.getElementById('#id').value;
+        console.log(companyId)
         var tableIns = table.render({
             elem: '#sales'
             , height: 312
-            , url: '/afterSales/afterSalesList?companyId=' + 1000//数据接口
+            , url: '/afterSales/afterSalesList?companyId=' + companyId//数据接口
             , page: true //开启分页
             , cols: [[ //表头
                 {field: 'id', title: 'ID', width: 200, align: 'center'}

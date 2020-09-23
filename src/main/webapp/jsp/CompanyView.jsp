@@ -35,6 +35,7 @@
     <link id="layuicss-layer" rel="stylesheet" href="http://x.xuebingsi.com/x-admin/v2.2/lib/layui/css/modules/layer/default/layer.css?v=3.1.1" media="all">
 </head>
 <body class="index">
+<input type="hidden" id="id" value="${company.id}">
 <!-- 顶部开始 -->
 <div class="container">
         <div class="logo">
