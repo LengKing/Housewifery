@@ -5,7 +5,7 @@
 <mapper namespace="com.cykj.housewifery.mapper.EvaluationMapper">
     <!--    用户评价的查询-->
     <select id="evaluation" resultType="Order">
-        select id,(select name from tb_employee where id=employee) employee, (select name from tb_company where id=company) company,
+        select id,(select name from tb_employee where number=employee) employee, (select name from tb_company where id=company) company,
         date_format(order_time,'%Y-%m-%d') order_time,cost,(select name from  tb_params where value=evaluation_state and type="evaluation_state") evaluationState_name
         from tb_order where user=#{account} and order_state=2
     </select>

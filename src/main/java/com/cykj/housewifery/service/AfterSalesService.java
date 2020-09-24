@@ -17,4 +17,11 @@ public interface AfterSalesService {
     Employee seeDetailsById(String id);
 
     String arrangeAfterSales(String id, String number);
+
+    int getAfterCount(String company);
+
+    List<AfterSales> selAfter(String company, Integer pageNum, String limit);
+
+    AfterSales findAfterById(String id);
+
 }
