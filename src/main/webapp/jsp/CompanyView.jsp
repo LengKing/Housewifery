@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>智慧家政</title>
+    <title>家政公司端</title>
     <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/static/js/1.9.1jquery.min.js"></script>
     <%--    <script src="${pageContext.request.contextPath}/js/jquery.validate.js"></script>--%>
     <meta name="renderer" content="webkit|ie-comp|ie-stand">

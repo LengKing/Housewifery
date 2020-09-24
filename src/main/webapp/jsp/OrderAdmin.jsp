@@ -87,9 +87,9 @@
             , page: true //开启分页
             , cols: [[ //表头
                 {field: 'id', title: '订单号', width: 80,align: 'center'}
-                ,{field: 'employee', title: '家政人员姓名', width: 150,align: 'center'}
                 ,{field: 'serviceName', title: '服务', width: 100,align: 'center'}
                 ,{field: 'company', title: '所属公司', width: 150,align: 'center'}
+                ,{field: 'employee', title: '家政人员姓名', width: 150,align: 'center'}
                 ,{field: 'orderTime', title: '订单时间', width: 200,align: 'center'}
                 ,{field: 'orderState', title: '状态', width: 80,align: 'center'}
                 ,{title: '操作', width: 250, align: 'center', toolbar: '#barDemo'}

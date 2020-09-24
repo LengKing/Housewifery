@@ -16,14 +16,34 @@ public class EvaluationSerivceImp implements EvaluationService {
 
 
     @Override
-    public List<Order> evaluation(String company, Integer pageNum, String limit) {
-        List<Order> orders = evaluationMapper.evaluation(company,pageNum,Integer.valueOf(limit));
+    public List<Order> evaluation(String account, Integer pageNum, String limit) {
+        List<Order> orders = evaluationMapper.evaluation(account,pageNum,Integer.valueOf(limit));
         return orders;
     }
 
     @Override
-    public int getCountCompany(String company) {
-        int count = evaluationMapper.getCountCompany(company);
+    public int getCountCompany(String account) {
+        int count = evaluationMapper.getCountCompany(account);
         return count;
+    }
+
+    @Override
+    public boolean delEvaluation(String id) {
+        int a=evaluationMapper.delEvaluation(id);
+        return a>0;
+    }
+
+    @Override
+    public String findEvaluation(String id) {
+        evaluationMapper.updateState(id);
+        String evaluation=evaluationMapper.findEvaluation(id);
+        return evaluation;
+    }
+
+    @Override
+    public boolean addEvaluation(String id, String comment) {
+        int a=evaluationMapper.updateEvaState(id);
+        a=evaluationMapper.addEvaluation(Integer.valueOf(id),comment);
+        return a>0;
     }
 }
