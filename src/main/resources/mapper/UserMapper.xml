@@ -4,8 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cykj.housewifery.mapper.UserMapper">
 <!--    用户登录-->
-    <select id="login" resultType="com.cykj.housewifery.bean.User" >
-        select * from tb_user where account = #{account} and password = #{password}
+    <select id="login" parameterType="com.cykj.housewifery.bean.User" resultType="com.cykj.housewifery.bean.User" >
+        select * from tb_user where account = #{user.account} and password = #{user.password}
   </select>
 <!--    用户的注册-->
     <insert id="add" parameterType="User"  >
@@ -22,7 +22,7 @@
 
 
 
-    <select id="findUserByAccount" parameterType="string" resultType="user">
+    <select id="findUserByAccount" parameterType="string" resultType="User">
         select user_id, account, name, password, gender, phone, address, integral, url, reg_date, money from tb_user where account = #{value}
     </select>
 </mapper>

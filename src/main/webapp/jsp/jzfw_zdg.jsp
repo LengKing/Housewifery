@@ -150,7 +150,7 @@
                                 </h4>
                                 <p>临时钟点工的工作内容包含:家庭定期的卫生打扫(未配带专业工具)...</p>
                                 <span class="y-btns clearfix">
-                                                <a href="javascript:void(formShow())" target="_self" rel="nofollow"
+                                                <a href="Pay.jsp" target="_self"
                                                    class="fl">立即下单</a>
                                                    <a href="../jsp/bmxq.jsp" target="_self" class="fl">了解更多</a>
                                             </span>

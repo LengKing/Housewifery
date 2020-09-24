@@ -5,7 +5,7 @@
 <mapper namespace="com.cykj.housewifery.mapper.CompanyManageMapper">
 
     <select id="getCompany" parameterType="java.util.Map" resultType="com.cykj.housewifery.bean.Company">
-        select id,name,legal,address,phone,phone,state,entry_date,account,money,area,
+        select id,name,legal,address,phone,phone,state,DATE_FORMAT(entry_date,'%Y-%m-%d')date1,account,money,area,
         (select name from tb_params where type = 'company_state' and value = state) stateName,
         (select area from tb_service_area where id = c.area) areaName
         from tb_company c where 1=1

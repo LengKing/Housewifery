@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="../static/layui/css/layui.css"  media="all">
     <script src="../static/layui/layui.all.js" charset="utf-8"></script>
     <script src="../static/js/postDemand.js"></script>
-    <script src="../static/js/jzfw_xd.js"></script>
+    <script src="../static/js/Admins.js"></script>
 </head>
 <body>
 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
@@ -27,11 +27,11 @@
 <form class="layui-form">
     <input id="userId" name="userId" value="" style="display: none"  type="text">
     <div class="layui-form-item">
-        <label class="layui-form-label">详细地址：</label>
-        <div class="layui-input-block">
-            <input type="text" name="address" id="address" required  lay-verify="required" placeholder="请填写详细的服务地址" autocomplete="off" class="layui-input">
-        </div>
+    <label class="layui-form-label">详细地址：</label>
+    <div class="layui-input-block">
+        <input type="text" name="address" id="address" required  lay-verify="required" placeholder="请填写详细的服务地址" autocomplete="off" class="layui-input">
     </div>
+</div>
 
     <div class="layui-form-item">
         <label class="layui-form-label">服务类别：</label>

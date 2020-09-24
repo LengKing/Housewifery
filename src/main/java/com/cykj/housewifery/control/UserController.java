@@ -33,13 +33,12 @@ public class UserController {
         user.setAccount(account);
         user.setPassword(password);
         User user1 = userService.login(user);
-        if (null != user1) {
-            request.getSession().setAttribute("user", user1);
-            response.getWriter().print("登录成功");
+        if (user1 != null) {
+            response.getWriter().print("0");
+            request.getSession().setAttribute("user1", user1);
         } else {
-            response.getWriter().print("你好！账号不正确");
+            response.getWriter().print("1");
         }
-
 
     }
 

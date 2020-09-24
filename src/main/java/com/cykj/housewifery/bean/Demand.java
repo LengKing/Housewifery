@@ -17,6 +17,7 @@ public class Demand {
     private String state;           //状态 默认初始待服务
     private String payState;  //支付状态
     private String names;            //对应参数表支付状态的名字
+    private String releaseTimes;       //发布时间
     public Demand() {
     }
 

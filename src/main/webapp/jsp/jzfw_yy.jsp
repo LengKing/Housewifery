@@ -153,7 +153,7 @@
                                 </h4>
                                 <p>本服务产品分为一星级、二星级、三星级、四星级、五星级五种级别...</p>
                                 <span class="y-btns clearfix">
-                                                <a href="javascript:void(formShow())" target="_self" rel="nofollow"
+                                                <a href="Pay.jsp" target="_self"
                                                    class="fl">立即下单</a>
                                                    <a href="../jsp/bmxq.jsp" target="_self" class="fl">了解更多</a>
                                             </span>

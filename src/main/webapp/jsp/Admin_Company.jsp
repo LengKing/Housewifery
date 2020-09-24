@@ -71,7 +71,7 @@
                     , {field: 'phone', title: '公司联系方式', width: 150}
                     , {field: 'stateName', title: '公司状态', width: 100}
                     , {field: 'areaName', title: '服务区域', width: 100}
-                    , {field: 'entryDate', title: '入驻时间', width: 180}
+                    , {field: 'date1', title: '入驻时间', width: 180}
                     , {field: 'account', title: '收款账户', width: 180}
                     , {field: 'money', title: '账户余额', width: 90}
                     , {fixed: 'right', align: 'center', toolbar: '#barDemo'}
