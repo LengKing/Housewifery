@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cykj.housewifery.mapper.UserMapper">
 <!--    用户登录-->
-    <select id="login" resultType="com.cykj.housewifery.bean.User" >
+    <select id="login" resultType="User" parameterType="User">
         select * from tb_user where account = #{account} and password = #{password}
   </select>
 <!--    用户的注册-->

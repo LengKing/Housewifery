@@ -161,7 +161,7 @@
         $.ajax({
             url:"/user/login",
             type:"post",
-            data:"account=" + account + "&password=" + password,
+            data:{"acount":account,"password":password},
             dataType:"text",
             success:function (data) {
                 if (data == 0){
