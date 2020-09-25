@@ -17,6 +17,7 @@ public class User {
     private  Double money;      //账户余额
     private int userState;     //用户表禁用启用 1启用 2禁用
     private String state;      //参数表禁用/启用别名
+    private String bankCard;
 
     public User() {
     }
@@ -57,6 +58,13 @@ public class User {
                 '}';
     }
 
+    public String getBankCard() {
+        return bankCard;
+    }
+
+    public void setBankCard(String bankCard) {
+        this.bankCard = bankCard;
+    }
 
     public int getUserState() {
         return userState;
