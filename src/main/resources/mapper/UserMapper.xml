@@ -4,8 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cykj.housewifery.mapper.UserMapper">
 <!--    用户登录-->
-    <select id="login" parameterType="com.cykj.housewifery.bean.User" resultType="com.cykj.housewifery.bean.User" >
-        select * from tb_user where account = #{user.account} and password = #{user.password}
+    <select id="login" resultType="com.cykj.housewifery.bean.User" >
+        select * from tb_user where account = #{account} and password = #{password}
   </select>
 <!--    用户的注册-->
     <insert id="add" parameterType="User"  >
@@ -22,7 +22,32 @@
 
 
 
-    <select id="findUserByAccount" parameterType="string" resultType="User">
-        select user_id, account, name, password, gender, phone, address, integral, url, reg_date, money from tb_user where account = #{value}
+    <select id="findUserByAccount" parameterType="string" resultType="user">
+        select account, name, password, gender, phone, a.address, integral, url, reg_date, money,bank_card from tb_user u,tb_address a where u.account=a.user_id and u.account = #{value}
     </select>
+
+    <select id="getRecordsCount" resultType="int">
+        select count(*) from tb_consump where user_id = #{value}
+    </select>
+
+    <select id="getRecordsList" resultType="Consump">
+        select c.consump_time, c.consump_ting, c.consump_money, c.server, c.server_classification, c1.name storeName, c.order_number from tb_consump c,
+        tb_company c1 where c.store_name = c1.id and c.user_id = #{account} limit #{pageNum},#{limit}
+    </select>
+
+    <update id="setBankCard">
+        update tb_user set bank_card = #{bankCard} where account = #{account}
+    </update>
+
+    <update id="consumption">
+        update tb_user set money =money - #{money} where money>=#{money} and account=#{account}
+    </update>
+
+    <insert id="insertRecords" parameterType="consump">
+        insert into tb_consump(user_id, consump_ting, consump_money) values (#{userId},#{consumpTing},#{consumpMoney})
+    </insert>
+
+    <update id="topUp">
+        update tb_user set money =money + #{money} where account=#{account}
+    </update>
 </mapper>

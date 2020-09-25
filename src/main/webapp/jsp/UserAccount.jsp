@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html class="x-admin-sm">
 <head>
     <meta charset="UTF-8">
@@ -22,15 +22,15 @@
     <div class="layui-row layui-col-space15">
         <div class="layui-col-sm12 layui-col-md6" style="width: 100%;">
             <div class="layui-card">
-                <div class="layui-card-header">公司账户</div>
+                <div class="layui-card-header">账户信息</div>
                 <div class="layui-card-body" style="min-height: 280px;text-align: center;">
                     <div id="main4" class="layui-col-sm12" style="height: 290px;">
-                        <form class="layui-form" action="" lay-filter="example" style="width: 30%;margin: auto">
+                        <form class="layui-form" action="" lay-filter="example" style="width: 25%;margin: auto">
 
                             <div class="layui-form-item">
                                 <label for="account" class="layui-form-label">账户类型：</label>
                                 <div class="layui-input-inline">
-                                    <input id="account" type="text" name="account" disabled placeholder="公司账户"
+                                    <input id="account" type="text" name="account" disabled placeholder="个人账户"
                                            autocomplete="off" class="layui-input">
                                 </div>
                             </div>
@@ -61,7 +61,6 @@
                                 <div class="layui-input-block" style="text-align: left">
                                     <button type="button" class="layui-btn" id="top-up">充值</button>
                                     <button type="button" class="layui-btn" id="transfer">转账</button>
-                                    <button type="button" class="layui-btn" id="withdrawal">提现</button>
                                 </div>
                             </div>
                         </form>
@@ -71,7 +70,7 @@
         </div>
         <div class="layui-col-sm12 layui-col-md6" style="width: 100%;">
             <div class="layui-card">
-                <div class="layui-card-header">交易明细</div>
+                <div class="layui-card-header">消费明细</div>
                 <div class="layui-card-body" style="min-height: 280px;">
                     <div id="main5" class="layui-col-sm12" style="height: 290px;">
                         <table class="layui-table layui-form" id="records" lay-filter="records"></table>
@@ -84,16 +83,16 @@
 </body>
 <script>
     $(function () {
-        var companyId = parent.document.getElementById('id').value;
+    //    var account = parent.document.getElementById('account').value;
         $.ajax({
-            url: '/companyAccount/accountMsg',
-            data: "companyId=" + companyId,
+            url: '/user/userAccountMsg',
+            data: "account=" + 100001,
             type: 'post',
             dataType: 'json',
             success: function (data) {
                 if (data != null) {
                     $("#money").val(data.money + "元");
-                    $("#bind-account").val(data.account);
+                    $("#bind-account").val(data.bankCard);
                 }
             },
             error: function () {
@@ -106,23 +105,29 @@
             table.render({
                 elem: '#records'
                 , height: 250
-                , url: '/companyAccount/transactionRecords?companyId='+companyId //数据接口
+                , url: '/user/userRecords?account='+100001 //数据接口
                 , page: true //开启分页
                 , cols: [[ //表头
-                     {title: '序号', width: 200,align: 'center',type:'numbers'}
-                    , {field: 'happenTime', title: '发生时间', width: 200,align: 'center'}
-                    , {field: 'sourcesOfFunding', title: '资金来源', width: 200,align: 'center',templet:function(res){
-                            if(res.sourcesOfFunding==null){
+                    {title: '序号', width: 50,align: 'center',type:'numbers'}
+                    , {field: 'orderNumber', title: '订单号', width: 150,align: 'center'}
+                    , {field: 'server', title: '服务', width: 100,align: 'center',templet:function(res){
+                            if(res.server==null){
                                 return  '-';
-                            }else return res.sourcesOfFunding;
+                            }else return res.server;
                         }}
-                    , {field: 'moneyTo', title: '资金去向', width: 200,align: 'center',templet:function(res){
-                            if(res.moneyTo==null){
+                    , {field: 'serverClassification', title: '服务分类', width: 100,align: 'center',templet:function(res){
+                            if(res.serverClassification==null){
                                 return  '-';
-                            }else return res.moneyTo;
+                            }else return res.serverClassification;
                         }}
-                    , {field: 'money', title: '金额', width: 200,align: 'center'}
-                    , {field: 'operationType', title: '操作类型', width: 200,align: 'center'}
+                    , {field: 'consumpTime', title: '消费时间', width: 150,align: 'center'}
+                    , {field: 'consumpTing', title: '消费事件', width: 100,align: 'center'}
+                    , {field: 'storeName', title: '商家名称', width: 100,align: 'center',templet:function(res){
+                            if(res.storeName==null){
+                                return  '-';
+                            }else return res.storeName;
+                        }}
+                    , {field: 'consumpMoney', title: '消费金额', width: 100,align: 'center'}
                 ]]
                 , limit: 4
                 , limits: [4, 5, 6]
@@ -131,7 +136,7 @@
     })
 
     function set() {
-        var companyId = parent.document.getElementById('id').value;
+    //    var companyId = parent.document.getElementById('id').value;
         layer.prompt({
             title: '设置账户',
             btn: ['确认', '取消'],
@@ -142,8 +147,8 @@
             var regYhk = /([\d]{4})([\d]{4})([\d]{4})([\d]{4})([\d]{0,})?/;
             if (regYhk.test(value)) {
                 $.ajax({
-                    url: '/companyAccount/setAccount',
-                    data: "companyId=" + companyId + "&account=" + value,
+                    url: '/user/setBankCard',
+                    data: "account=" + 100001 + "&bankCard=" + value,
                     type: 'post',
                     dataType: 'text',
                     success: function (data) {
@@ -165,60 +170,8 @@
         })
     }
 
-    $('#withdrawal').on('click', function () {
-        var companyId = parent.document.getElementById('id').value;
-        layer.prompt({
-            title: '账户提现',
-            btn: ['确认', '取消'],
-            value: '',
-            placeholder: '请输入提现金额',
-            formType: 0
-        }, function (value, index) {
-            var regMoney = /^[0-9]*$/;
-            var regZero = /^[0]*$/;
-            var money = value.replace(/\b(0+)/gi, "");
-            if (regMoney.test(value)) {
-                if (!regZero.test(value)) {
-                    var account = $("#bind-account").val();
-                    layer.confirm("提现账户：" + account + "\n,提现金额：" + money + "\n,是否确认提现？", function (index2) {
-                        $.ajax({
-                            url: '/companyAccount/withdrawal',
-                            data: "companyId=" + companyId + "&money=" + money,
-                            type: 'post',
-                            dataType: 'text',
-                            success: function (data) {
-                                if (data == "success") {
-                                    layer.msg("提现成功");
-                                    var i = 1;
-                                    var interval = setInterval(function () {
-                                        i--;
-                                        if (i === 0) {
-                                            location.reload();
-                                            clearInterval(interval);
-                                        }
-                                    }, 1000);
-                                    layer.close(index2);
-                                } else {
-                                    layer.msg(data);
-                                }
-                            },
-                            error: function () {
-                                layer.msg("网络发生了一点小问题..请稍后再试");
-                            }
-                        });
-                    });
-                    layer.close(index);
-                } else {
-                    layer.msg("提现额度不能为0");
-                }
-            } else {
-                layer.msg("金额仅支持输入正整数");
-            }
-        })
-    })
-
     $('#transfer').on('click', function () {
-        var companyId = parent.document.getElementById('id').value;
+      //  var companyId = parent.document.getElementById('id').value;
         layer.prompt({
             title: '转账',
             btn: ['确认', '取消'],
@@ -242,8 +195,8 @@
                         if (!regZero.test(value)) {
                             layer.confirm("转账账户：" + account + "\n,转账金额：" + money + "\n,是否确认转账？", function (index3) {
                                 $.ajax({
-                                    url: '/companyAccount/transfer',
-                                    data: "companyId=" + companyId + "&money=" + money,
+                                    url: '/user/transfer',
+                                    data: "account=" + 100001 + "&money=" + money,
                                     type: 'post',
                                     dataType: 'text',
                                     success: function (data) {
@@ -284,7 +237,7 @@
     })
 
     $('#top-up').on('click', function () {
-        var companyId = parent.document.getElementById('id').value;
+        //var companyId = parent.document.getElementById('id').value;
         layer.prompt({
             title: '账户充值',
             btn: ['确认', '取消'],
@@ -309,8 +262,8 @@
                         if (regYhk.test(account)) {
                             layer.confirm("银行卡：" + account + "\n,充值账户：" + account1 + "\n,充值金额："+money+"\n,是否确认充值？", function (index3) {
                                 $.ajax({
-                                    url: '/companyAccount/topUp',
-                                    data: "companyId=" + companyId + "&money=" + money,
+                                    url: '/user/topUp',
+                                    data: "account=" + 100001 + "&money=" + money,
                                     type: 'post',
                                     dataType: 'text',
                                     success: function (data) {
@@ -326,7 +279,7 @@
                                             }, 1000);
                                             layer.close(index3);
                                         } else {
-                                            layer.msg(data);
+                                            layer.msg("充值失败");
                                         }
                                     },
                                     error: function () {

@@ -1,5 +1,6 @@
 package com.cykj.housewifery.mapper;
 
+import com.cykj.housewifery.bean.Consump;
 import com.cykj.housewifery.bean.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -18,4 +19,15 @@ public interface UserMapper {
 
     int getAddressCount(@Param("user") String user);
 
+    int getRecordsCount(String account);
+
+    List<Consump> getRecordsList(@Param("account") String account,@Param("pageNum") Integer pageNum,@Param("limit") Integer limit);
+
+    int setBankCard(@Param("account") String account,@Param("bankCard") String bankCard);
+
+    int consumption(@Param("account") String account,@Param("money") String money);
+
+    int insertRecords(Consump consump);
+
+    int topUp(@Param("account") String account,@Param("money") String money);
 }

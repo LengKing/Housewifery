@@ -1,7 +1,6 @@
 package com.cykj.housewifery.service.impl;
 
-import com.cykj.housewifery.bean.ReportDataBean;
-import com.cykj.housewifery.bean.User;
+import com.cykj.housewifery.bean.*;
 import com.cykj.housewifery.mapper.CompanyMapper;
 import com.cykj.housewifery.mapper.UserMapper;
 import com.cykj.housewifery.service.UserService;
@@ -9,6 +8,8 @@ import com.cykj.housewifery.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -76,6 +77,57 @@ public class UserServiceImpl implements UserService {
     public int getAddressCount(String user) {
         int count = userMapper.getAddressCount(user);
         return count;
+    }
+
+    @Override
+    public int getRecordsCount(String account) {
+        int count = userMapper.getRecordsCount( account);
+        return count;
+    }
+
+    @Override
+    public List<Consump> getRecordsList(String account, Integer pageNum, String limit) {
+        List<Consump> consumps= userMapper.getRecordsList( account,pageNum,Integer.valueOf(limit));
+        return consumps;
+    }
+
+    @Override
+    public String setBankCard(String account, String bankCard) {
+        int n = userMapper.setBankCard( account, bankCard);
+        if (n>0){
+            return "success";
+        }else {
+            return "fail";
+        }
+    }
+
+    @Override
+    public String transfer(String account, String money) {
+        int n = userMapper.consumption(account,money);
+        if (n>0){
+            Consump consump = new Consump();
+            consump.setUserId(Integer.valueOf(account));
+            consump.setConsumpTing("转账");
+            consump.setConsumpMoney(new BigDecimal(money));
+            int n1 = userMapper.insertRecords(consump);
+            if (n1>0){
+                return "success";
+            }else {
+                return "转账失败，请稍后再试";
+            }
+        }else {
+            return "账户余额不足";
+        }
+    }
+
+    @Override
+    public String topUp(String account, String money) {
+        int n = userMapper.topUp(account,money);
+        if (n>0){
+            return "success";
+        }else {
+            return "fail";
+        }
     }
 
     @Override

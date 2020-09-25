@@ -1,6 +1,7 @@
 package com.cykj.housewifery.service;
 
 
+import com.cykj.housewifery.bean.Consump;
 import com.cykj.housewifery.bean.ReportDataBean;
 import com.cykj.housewifery.bean.User;
 
@@ -17,4 +18,13 @@ public interface UserService {
     List<User> userAddress(String user,Integer pageNum, String limit);
     int getAddressCount(String user);
 
+    int getRecordsCount(String account);
+
+    List<Consump> getRecordsList(String account, Integer pageNum, String limit);
+
+    String setBankCard(String account, String bankCard);
+
+    String transfer(String account, String money);
+
+    String topUp(String account, String money);
 }

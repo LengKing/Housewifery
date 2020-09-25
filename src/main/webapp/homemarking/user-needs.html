@@ -43,19 +43,19 @@
             , url: '/order/getDemands' //数据接口
             , page: true //开启分页
             , cols: [[ //表头
-                {field: 'id', title: 'ID', width: 120,align: 'center'}
-                ,{field: 'userId', title: '账号', width: 120,align: 'center'}
-                ,{field: 'name', title: '用户名', width: 120,align: 'center'}
-                ,{field: 'address', title: '服务地址', width: 200,align: 'center'}
-                , {field: 'classService', title: '服务类别', width: 120,align: 'center'}
-                , {field: 'serviceCount', title: '服务频次', width: 120,align: 'center',templet:function(res){
+                {field: 'id', title: 'ID', width: 100,align: 'center'}
+                ,{field: 'userId', title: '账号', width: 100,align: 'center'}
+                ,{field: 'name', title: '用户名', width: 100,align: 'center'}
+                ,{field: 'address', title: '服务地址', width: 150,align: 'center'}
+                , {field: 'classService', title: '服务类别', width: 100,align: 'center'}
+                , {field: 'serviceCount', title: '服务频次', width: 100,align: 'center',templet:function(res){
                         return res.serviceCount+"次";
                     }}
-                ,{field: 'title', title: '标题', width: 150,align: 'center'}
-                ,{field: 'described', title: '要求描述', width: 200,align: 'center'}
-                ,{field: 'phone', title: '联系方式', width: 120,align: 'center'}
-                ,{field: 'releaseTime', title: '发布时间', width: 120,align: 'center'}
-                , {title: '操作', width: 120, align: 'center', toolbar: '#barDemo'}
+                ,{field: 'title', title: '标题', width: 120,align: 'center'}
+                ,{field: 'described', title: '要求描述', width: 150,align: 'center'}
+                ,{field: 'phone', title: '联系方式', width: 100,align: 'center'}
+                ,{field: 'releaseTime', title: '发布时间', width: 100,align: 'center'}
+                , {title: '操作', width: 80, align: 'center', toolbar: '#barDemo'}
             ]]
             ,done: function () {
                 $("[data-field='id']").css('display','none');

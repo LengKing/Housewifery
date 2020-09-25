@@ -1,9 +1,9 @@
 package com.cykj.housewifery.control;
 
-import com.cykj.housewifery.bean.ReportDataBean;
-import com.cykj.housewifery.bean.User;
+import com.cykj.housewifery.bean.*;
 import com.cykj.housewifery.service.UserService;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.xml.crypto.Data;
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/user")
@@ -80,6 +81,55 @@ public class UserController {
         ReportDataBean dataBeans = userService.lineUser(startDate, endDate);
         System.out.println(new Gson().toJson(dataBeans));
         return new Gson().toJson(dataBeans);
+    }
+
+    @RequestMapping(value = "/userRecords",produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object userRecords (String page,String limit,String account) throws IOException {
+        Integer pageNum = (Integer.valueOf(page)-1)*Integer.valueOf(limit);
+        LayuiJson layuiJson = new LayuiJson();
+        int count = userService.getRecordsCount(account);
+        List<Consump> consumps = userService.getRecordsList(account,pageNum,limit);
+        layuiJson.setData(consumps);
+        layuiJson.setCode(0);
+        layuiJson.setCount(count);
+        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
+        return gson.toJson(layuiJson);
+    }
+    @RequestMapping(value = "/userAccountMsg", produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object userAccountMsg(String account) {
+        User user = userService.findUserByAccount(account);
+        return new Gson().toJson(user);
+    }
+    @RequestMapping(value = "/setBankCard", produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object setBankCard(String account,String bankCard) {
+        String result = userService.setBankCard(account,bankCard);
+        return result;
+    }
+    @RequestMapping(value = "/transfer", produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object transfer(String account,String money) {
+        String result = userService.transfer(account,money);
+        return result;
+    }
+    @RequestMapping(value = "/topUp", produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object topUp(String account,String money) {
+        String result = userService.topUp(account,money);
+        return result;
+    }
+    @RequestMapping(value = "/updateUserMsg", produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object updateUserMsg(String account,String money) {
+        return "保存成功";
+    }
+    @RequestMapping(value = "/findUserByAccount", produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object findUserByAccount(String account) {
+        User user = userService.findUserByAccount(account);
+        return new Gson().toJson(user);
     }
 }
 
