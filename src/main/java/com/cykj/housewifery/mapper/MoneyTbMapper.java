@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 @Mapper
 public interface MoneyTbMapper {
-   public List<Order> selOrder(@Param("company") String company,@Param("pageNum") Integer pageNum, @Param("limit") Integer limit);
-   int getCountCompany(@Param("company")String company);
+   public List<Order> selOrder(@Param("account") String account,@Param("pageNum") Integer pageNum, @Param("limit") Integer limit);
+   int getCountCompany(@Param("account")String account);
+    int overOrder(@Param("id") Integer id);
+    int addAfter(@Param("id") Integer valueOf, @Param("why") String why);
 }

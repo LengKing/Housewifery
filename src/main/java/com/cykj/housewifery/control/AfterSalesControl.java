@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -73,4 +74,19 @@ public class AfterSalesControl {
         AfterSales afterSales = afterSalesService.findAfterById(id);
         return new Gson().toJson(afterSales);
     }
+    @RequestMapping(value = "/selAfterByUser", produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object selAfterByUser(String company, String page, String limit, HttpServletRequest request) {
+        Integer pageNum = (Integer.valueOf(page) - 1) * Integer.valueOf(limit);
+        LayuiJson layuiJson = new LayuiJson();
+        User user=(User) request.getSession().getAttribute("user1");
+        int count = afterSalesService.getAfterCountByUser(company,user.getAccount());
+        List<AfterSales> afterSales = afterSalesService.selAfterByUser(company, pageNum, limit,user.getAccount());
+        layuiJson.setData(afterSales);
+        layuiJson.setCode(0);
+        layuiJson.setCount(count);
+        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+        return gson.toJson(layuiJson);
+    }
+
 }

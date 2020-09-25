@@ -34,7 +34,7 @@
         var tableinf = table.render({
             elem: '#evaluation'
             ,url:'${pageContext.request.contextPath}/evaluation/selEvaluation'
-            // ,toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
+            , page: true //开启分页
             ,title: '待评价表'
             ,height:400
             ,cols: [[

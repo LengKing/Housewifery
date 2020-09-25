@@ -28,8 +28,8 @@ public class EvaluationController {
     public Object selEvaluation(String page, String limit, HttpServletRequest request)  {
         Integer pageNum = (Integer.valueOf(page)-1)*Integer.valueOf(limit);
         LayuiJson layuiJson = new LayuiJson();
-        User user=(User)request.getSession().getAttribute("user");
-        int count=evaluationService.getCountCompany("100001");
+        User user=(User)request.getSession().getAttribute("user1");
+        int count=evaluationService.getCountCompany(user.getAccount());
         List<Order> list = evaluationService.evaluation("100001",pageNum,limit);
         layuiJson.setData(list);
         layuiJson.setCode(0);

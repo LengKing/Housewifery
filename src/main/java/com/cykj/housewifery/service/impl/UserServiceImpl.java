@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -128,6 +127,36 @@ public class UserServiceImpl implements UserService {
         }else {
             return "fail";
         }
+    }
+
+    @Override
+    public int getAddCount(String account) {
+        int count=userMapper.getAddCount(account);
+        return count;
+    }
+
+    @Override
+    public List<Address> getAddress(String account, Integer pageNum, String limit) {
+       List<Address> addresses=userMapper.getAddress(account,pageNum,Integer.valueOf(limit));
+       return addresses;
+    }
+
+    @Override
+    public boolean updAddress(Integer id, String address) {
+       int a=userMapper.updAddress(id,address);
+       return a>0;
+    }
+
+    @Override
+    public boolean delAddress(Integer id) {
+        int a=userMapper.delAddress(id);
+        return a>0;
+    }
+
+    @Override
+    public boolean addAddress(String address,String account) {
+       int a=userMapper.addAddress(address,account);
+       return a>0;
     }
 
     @Override

@@ -40,25 +40,17 @@
     .menuDiv ul li a:hover{color:#FFFFFF;background:black;}
 </style>
 <style type="text/css">
-    .menuDiv{
-        transform:translateX(-50%);/**左移元素**/
-        -ms-transform:translateX(-80%);
-        -webkit-transform:translateX(-209%);
-    }
 
-    .page-content{
-        transform:translateX(50%);/**右移元素**/
-        -ms-transform:translateX(50%);
-        -webkit-transform:translateX(50%);
-    }
-    .right{
-        background-color: #ff7d28;
-        height: 800px;
-        width: 850px;
-        transform:translateX(50%);/**右移元素**/
-        -ms-transform:translateX(50%);
-        -webkit-transform:translateX(70%);
-    }
+  li{
+      list-style-type: none;
+      text-align: center;
+      margin-left: 10px;
+      font-size: 20px;
+  }
+  li:hover{
+      cursor: default;
+      color: #FEA90C;
+  }
 
 
 </style>
@@ -95,10 +87,10 @@
 <div class="header">
     <div class="header-top">
         <div class="content">
-            <p>欢迎来到XXXX网站！</p>
+            <p>欢迎来到传一智慧家政！</p>
             <div class="rightCon">
                 <a>欢迎：${user1.name}</a>
-                <a href="../jsp/Main_lxpt.jsp" target="_self">联系平台</a>
+                <a href="../jsp/Page_Main.jsp" target="_self">首页</a>
                 <a href="">工作机会</a>
             </div>
         </div>
@@ -106,12 +98,12 @@
     <div class="header-center">
         <h1><a href="">传一智慧家政</a></h1>
         <h2><img src="../static/images/logo_text.png"></h2>
-        <div class="search">
-            <form>
-                <input id="titles" type="text" name="titles" placeholder="家庭清洁">
-                <button id="btn" type="button">搜　索</button>
-            </form>
-        </div>
+<%--        <div class="search">--%>
+<%--            <form>--%>
+<%--                <input id="titles" type="text" name="titles" placeholder="家庭清洁">--%>
+<%--                <button id="btn" type="button">搜　索</button>--%>
+<%--            </form>--%>
+<%--        </div>--%>
         <div class="phone">
             全国服务热线：<b>400-00-00000</b>
         </div>
@@ -119,24 +111,24 @@
     <div class="header-nav">
         <div class="content" id="navBox">
             <ul>
-                <li title="../jsp/MoneyTb.jsp">
+                <li  title="../jsp/MoneyTb.jsp">
                     我的订单
                 </li>
 
-                <li mark='65' px='1' title="../jsp/EvaluationTb.jsp" >
+                <li  title="../jsp/EvaluationTb.jsp" >
                     我的评价
                 </li>
 
-                <li mark='47' px='2' title="../jsp/UserAddress.jsp">
+                <li  title="../jsp/UserAddress.jsp">
                    我的地址
                 </li>
 
-                <li mark='88' px='3' title="../jsp/PostDemand.jsp" >
-                    账户
+                <li  title="../jsp/UserAccount.jsp" >
+                    我的账户
                 </li>
 
-                <li mark='89' px='4' title="../jsp/Main_lxpt.jsp" >
-                    售后
+                <li mark='89' px='4' title="../jsp/UserAfter.jsp" >
+                    我的售后
                 </li>
 
             </ul>

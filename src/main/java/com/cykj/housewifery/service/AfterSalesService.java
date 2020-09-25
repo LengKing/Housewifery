@@ -24,4 +24,7 @@ public interface AfterSalesService {
 
     AfterSales findAfterById(String id);
 
+    int getAfterCountByUser(String company,String account);
+
+    List<AfterSales> selAfterByUser(String company, Integer pageNum, String limit, String account);
 }

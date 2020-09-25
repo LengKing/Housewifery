@@ -5,35 +5,30 @@
 <mapper namespace="com.cykj.housewifery.mapper.MoneyTbMapper">
     <!--    用户订单的查询-->
     <select id="selOrder" resultType="Order" >
-       select  id,service_name,(select type_name from tb_service_type where id = type ) type ,cost ,order_time ,
-        (select name from tb_company where id=company) company
-       from tb_order
-       <where>
-       <if test="company!=null and company!=''">
-           and company =(select id from tb_company where name like '%${company}%')
-       </if>
-
-       </where>
+       select id,service_name,(select type_name from tb_service_type where id = type ) type ,cost ,date_format(order_time,'%Y-%m-%d') order_time ,
+        (select name from tb_company where id=company) company,(select name from tb_params where
+          value=order_state and type='order_state') order_state from tb_order where user=#{account}
        limit #{pageNum},#{limit}
   </select>
 
     <select id="getCountCompany" resultType="int">
-        select count(*) from tb_order
-        <where>
-            <if test="company!=null and company!=''">
-                and company =(select id from tb_company where name like concat('%',#{company},'%'))
-            </if>
-        </where>
+     select count(*) from tb_order where user=#{account}
     </select>
 
-  <select id="getKnowCountOrder" resultType="com.cykj.housewifery.bean.Order">
-                select count(*) from tb_order
+  <select id="getKnowCountOrder" resultType="Order">
+     select count(*) from tb_order
   </select>
 
-
-
-    <insert id="add" parameterType="User"  >
+    <insert id="add" parameterType="User">
         insert into tb_user (account,password,gender,phone,address) value (#{account},#{password},#{gender},#{phone},#{address})
+    </insert>
+
+    <update id="overOrder">
+        update tb_order set order_state=2 where id=#{id}
+    </update>
+
+    <insert id="addAfter">
+        insert into tb_after(order_id,after_why,state) values (#{id},#{why},0)
     </insert>
 
 </mapper>

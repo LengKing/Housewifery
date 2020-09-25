@@ -50,4 +50,22 @@
     <update id="topUp">
         update tb_user set money =money + #{money} where account=#{account}
     </update>
+
+    <select id="getAddCount" resultType="int">
+        select count(*) from tb_address where user_id=#{account}
+    </select>
+
+    <select id="getAddress" resultType="Address">
+    select id,address from tb_address where user_id=#{account} limit #{pageNum},#{limit}
+    </select>
+
+    <update id="updAddress">
+        update tb_address set address=#{address} where id=#{id}
+    </update>
+    <delete id="delAddress">
+        delete from tb_address where id=#{id}
+    </delete>
+    <insert id="addAddress">
+        insert into tb_address(address,user_id) values (#{address},#{account})
+    </insert>
 </mapper>

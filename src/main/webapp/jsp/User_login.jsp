@@ -169,7 +169,7 @@
                     location.href="/jsp/Page_Main.jsp";
                 }
                 else {
-                    // changeImg();
+                    alert("账号或密码错误");
                 }
             },
 

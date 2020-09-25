@@ -83,4 +83,16 @@ public class AfterSalesServiceImpl implements AfterSalesService {
         return afterSales;
     }
 
+    @Override
+    public int getAfterCountByUser(String company,String account) {
+        int count=afterSalesMapper.getAfterCountByUser(company,account);
+        return count;
+    }
+
+    @Override
+    public List<AfterSales> selAfterByUser(String company, Integer pageNum, String limit, String account) {
+        List<AfterSales> afterSales=afterSalesMapper.selAfterByUser(company,pageNum,Integer.valueOf(limit),account);
+        return afterSales;
+    }
+
 }
