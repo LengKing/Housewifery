@@ -154,7 +154,7 @@
                                 <p>本服务产品严格按国标进行星级评定与划分，主要分为二星级、三星...</p>
                                 <span class="y-btns clearfix">
                                                <a class="fl"
-                                                  onclick="">立即下单</a>
+                                                  href="Pay.jsp" target="_self">立即下单</a>
                                                    <a href="../jsp/bmxq.jsp" target="_self" class="fl">了解更多</a>
                                             </span>
                             </div>

@@ -1,43 +1,81 @@
 <%--
   Created by IntelliJ IDEA.
   User: ZhangZeMing
-  Date: 2020/9/22
-  Time: 8:53
+  Date: 2020/9/23
+  Time: 17:18
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script type="text/javascript" src="../static/js/jquery-3.5.1.js" charset="UTF-8"></script>
-</head>
-<%--<body text=#000000 bgColor="#ffffff" leftMargin=0 topMargin=4>--%>
-<%--<header class="am-header">--%>
-<%--    <h1>支付宝电脑网站支付体验入口页</h1>--%>
-<%--</header>--%>
-<body>
-<div id="main">
-    <form style="text-align: center" action="${pageContext.request.contextPath}/adminPay/pay">
-        商品订单号：
-        <input id="WIDTCout_trade_no" name="WIDTCout_trade_no"/>
-        <br/>
-        商品订单名称：
-        <input id="WIDsubject" name="WIDsubject"/>
-        <br/>
-        付款金额：
-        <input id="WIDtotal_amount" name="WIDtotal_amount"/>
-        <br/>
-        商品描述：
-        <input id="WIDbody" name="WIDbody"/>
-        <br/>
-        <button class="new-btn-login" type="submit" style="text-align:center;">确 认</button>
+    <title>下单界面</title>
 
-        <span class="note-help">如果您点击“确认”按钮，即表示您同意该次的执行操作。</span>
-    </form>
+    <link rel="stylesheet" type="text/css" href="/static/css/amazeui.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css" />
+    <script src="../static/layui/layui.js" charset="UTF-8"></script>
+    <link rel="stylesheet" href="../static/layui/css/layui.css">
+</head>
+<body>
+<div class="pay">
+    <!--主内容开始编辑-->
+    <div class="tr_recharge">
+        <div class="tr_rechtext">
+            <p class="te_retit"><img src="/static/images/coin.png" alt="" />付款中心</p>
+
+        </div>
+        <form action="${pageContext.request.contextPath}/adminPay/pay" class="am-form" id="doc-vld-msg">
+            <div class="tr_rechbox">
+                <div class="tr_rechhead">
+                    <img src="/static/images/ys_head2.jpg" />
+                    <p>收款账号：
+                        <a>bvfwhf1995@sandbox.com</a>
+                    </p>
+                                        <div class="tr_rechheadcion">
+                                            <img src="/static/images/coin.png" alt="" />
+                                            <span>商户收款：<span>2020</span></span>
+                                        </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">商品订单号</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="WIDTCout_trade_no" lay-verify="required" id="WIDTCout_trade_no" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">商品订单名称</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="WIDsubject" lay-verify="required" id="WIDsubject" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">付款金额</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="WIDtotal_amount" lay-verify="required" id="WIDtotal_amount" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">商品描述</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="WIDbody" lay-verify="required" id="WIDbody" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
+            </div>
+            <div class="tr_paybox">
+                <input type="submit" value="确认支付" class="tr_pay am-btn" />
+                <span>温馨提示：如果您点击“确认”按钮，即表示您同意该次的执行操作。</span>
+            </div>
+        </form>
+    </div>
 </div>
-</body>
+
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/amazeui.min.js"></script>
+<script type="text/javascript" src="/static/js/ui-choose.js"></script>
 
 <script>
     $(function () {
@@ -60,4 +98,5 @@
         $('#WIDbody').val("居家保姆");
     }
 </script>
+</body>
 </html>

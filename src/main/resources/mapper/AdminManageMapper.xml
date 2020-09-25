@@ -5,7 +5,7 @@
 <mapper namespace="com.cykj.housewifery.mapper.AdminManageMapper">
 
     <select id="getManage" parameterType="java.util.Map" resultType="com.cykj.housewifery.bean.User">
-        select user_id,account,name,password,gender,phone,address,integral,url,reg_date,money,user_state,
+        select user_id,account,name,password,gender,phone,address,integral,url,DATE_FORMAT(reg_date,'%Y-%m-%d')regDates,money,user_state,
         (select name from tb_params where type = 'user_state' and value = user_state) state from tb_user where 1=1
 
         <if test="condition.name !=null">
@@ -41,7 +41,7 @@
     <!--搜索服务信息-->
     <select id="getNeed" parameterType="java.util.Map" resultType="com.cykj.housewifery.bean.Demand">
         select id,user_id,address,class_service,service_count,title,described,phone,
-        release_time,state,pay_state,(select name from tb_params where type = 'pay_state'
+        DATE_FORMAT(release_time,'%Y-%m-%d')releaseTimes,state,pay_state,(select name from tb_params where type = 'pay_state'
         and value = t.pay_state ) names ,(select name from tb_user where account = t.user_id) name from tb_demand t where 1=1
 
         <if test="condition.name !=null">

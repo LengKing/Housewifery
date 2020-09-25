@@ -151,7 +151,7 @@
                                 </h4>
                                 <p>1.24小时临床陪护不间断，服务贴心<br/>医护一体，高效协调医院专家...</p>
                                 <span class="y-btns clearfix">
-                                               <a href="javascript:void(formShow())" target="_self" rel="nofollow"
+                                               <a href="Pay.jsp" target="_self"
                                                   class="fl">立即下单</a>
                                                    <a href="../jsp/bmxq.jsp" target="_self" class="fl">了解更多</a>
                                             </span>

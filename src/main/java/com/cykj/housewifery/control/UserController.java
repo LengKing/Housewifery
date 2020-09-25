@@ -1,12 +1,9 @@
 package com.cykj.housewifery.control;
 
-import com.cykj.housewifery.bean.LayuiJson;
-import com.cykj.housewifery.bean.Order;
 import com.cykj.housewifery.bean.ReportDataBean;
 import com.cykj.housewifery.bean.User;
 import com.cykj.housewifery.service.UserService;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.xml.crypto.Data;
 import java.io.IOException;
-import java.util.List;
 
 @Controller
 @RequestMapping("/user")
@@ -28,27 +24,25 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/login" , produces = "text/plain;charset=utf-8")
+    @RequestMapping(value = "/login")
     @ResponseBody
     public void AdminLogin(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String account = request.getParameter("account");
         String password = request.getParameter("password");
-        response.setContentType("text/plain");
         User user = new User();
         user.setAccount(account);
         user.setPassword(password);
         User user1 = userService.login(user);
-        if (null != user1) {
+        if (user1 != null) {
+            response.getWriter().print("0");
             request.getSession().setAttribute("user1", user1);
-            response.getWriter().print("登录成功");
         } else {
-            response.getWriter().print("你好！账号不正确");
+            response.getWriter().print("1");
         }
-
 
     }
 
-    @RequestMapping(value = "/userAdd" , produces = "text/plain;charset=utf-8")
+    @RequestMapping(value = "/userAdd")
     //用户的增加
     public void addAdmaina(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String account = request.getParameter("account");
@@ -86,21 +80,6 @@ public class UserController {
         ReportDataBean dataBeans = userService.lineUser(startDate, endDate);
         System.out.println(new Gson().toJson(dataBeans));
         return new Gson().toJson(dataBeans);
-    }
-
-    @RequestMapping(value = "/userAddres" ,produces ="text/plain;charset=utf-8" )
-    @ResponseBody
-    public Object findAddress(String user, String page, String limit){
-        Integer pageNum = (Integer.valueOf(page) - 1) * Integer.valueOf(limit);
-        LayuiJson layuiJson = new LayuiJson();
-        int count = userService.getAddressCount(user);
-        List<User> users = userService.userAddress(user, pageNum, limit);
-        layuiJson.setData(users);
-        layuiJson.setCode(0);
-        layuiJson.setCount(count);
-        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-        return gson.toJson(layuiJson);
-
     }
 }
 

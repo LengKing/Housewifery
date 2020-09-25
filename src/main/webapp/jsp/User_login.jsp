@@ -14,13 +14,13 @@
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
     <title>register</title>
-    <script src="<%=basePath%>static/bootstrap/js/jquery-2.2.3.min.js"></script>
-    <script src="<%=basePath%>static/bootstrap/js/jquery-ui.min.js"></script>
-    <script src="<%=basePath%>static/bootstrap/js/bootstrap.min.js"></script>
-    <link href="<%=basePath%>static/bootstrap/css/jquery-ui.min.css"rel="stylesheet">
-   <link href="<%=basePath%>static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<%=basePath%>static/bootstrap/css/login.css" rel="stylesheet">
-    <script src="<%=basePath%>static/bootstrap/js/my.js"></script>
+    <script src="<%=basePath%>/static/bootstrap/js/jquery-2.2.3.min.js"></script>
+    <script src="<%=basePath%>/static/bootstrap/js/jquery-ui.min.js"></script>
+    <script src="<%=basePath%>/static/bootstrap/js/bootstrap.min.js"></script>
+    <link href="<%=basePath%>/static/bootstrap/css/jquery-ui.min.css"rel="stylesheet">
+   <link href="<%=basePath%>/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=basePath%>/static/bootstrap/css/login.css" rel="stylesheet">
+    <script src="<%=basePath%>/static/bootstrap/js/my.js"></script>
     <SCRIPT language = "JavaScript">
         // function checkUserName(){    //验证用户名
         //     var fname = document.myform.username.value;
@@ -126,25 +126,25 @@
 </head>
 <body>
 <input type="hidden" id="path" value="<%=basePath%>">
-<img src="<%=basePath%>static/bootstrap/img/login_bg.jpg" class="bg">
+<img src="<%=basePath%>/static/bootstrap/img/login_bg.jpg" class="bg">
 <div id="head">
-    <img src="<%=basePath%>static/bootstrap/img/login_head.png" width=100% height=auto />
+    <img src="<%=basePath%>/static/bootstrap/img/login_head.png" width=100% height=auto />
 </div>
 <div id="center">
-    <form name="myform" onSubmit="return validateform()" enctype="multipart/form-data" action="cgi-bin/login.cgi" method="post" >
+    <form enctype="multipart/form-data">
         <div class="input-group">
-            <h3>用户名：</h3>&nbsp;<input class="form-control" id="account" name="account" type="text"  style="height:40px" value="" placeholder="只能输入字母或数字，4-16个字符"/>
+            <h3>用户名：</h3>&nbsp;<input class="form-control" id="account" name="account" type="text"  style="height:40px"  placeholder="只能输入字母或数字，4-16个字符"/>
         </div>
         <div class="input-group">
-            <h3>密&nbsp;&nbsp;&nbsp;码：</h3>&nbsp;<input class="form-control" id="password" name="password" type="password" style="height:40px"  value="" placeholder="密码长度6-12位"/>
+            <h3>密&nbsp;&nbsp;&nbsp;码：</h3>&nbsp;<input class="form-control" id="password" name="password" type="password" style="height:40px"  placeholder="密码长度6-12位"/>
             <span class="input-group-btn">
 			<INPUT class="btn btn-default" id="passwordeye" type="button" value="show/hide">
         </span>
         </div>
 
         <div id="btn">
-            <INPUT class="btn btn-primary" name="loginButton" type="button" id="Button" value="登陆"  onclick="jqAjax()">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="btn btn-primary" name="loginButton" type="button" id="Button" value="登陆"  onclick="jqAjax()">
+
             <a href="register.html"><INPUT class="btn btn-primary" name="registerButton" id="ButtonS" type="button" value="注册"></a>
         </div>
     </form>
@@ -154,23 +154,22 @@
     function jqAjax() {//登录的ajax
         var account = $("#account").val();
         var password = $("#password").val();
-        console.log(account+":"+password);
-        // var vCode = $("#code").val();
-        var  admin = {"account":account,"password":password};
+        // console.log(account+":"+password);
+        // // var vCode = $("#code").val();
+        // var  admin = {"account":account,"password":password};
         var path = $("#path").val();
         $.ajax({
-            url:path+"/user/login",
+            url:"/user/login",
             type:"post",
-            data:admin,
+            data:"account=" + account + "&password=" + password,
             dataType:"text",
             success:function (data) {
-                alert("你好帅!")
-                alert(data);
-                if (data == "success"){
+                if (data == 0){
+                    alert("登录成功");
                     location.href="/jsp/Page_Main.jsp";
                 }
                 else {
-                    alert("登录失败");
+                    // changeImg();
                 }
             },
 

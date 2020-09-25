@@ -4,8 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cykj.housewifery.mapper.UserMapper">
 <!--    用户登录-->
-    <select id="login" resultType="com.cykj.housewifery.bean.User" >
-        select * from tb_user where account = #{account} and password = #{password}
+    <select id="login" parameterType="com.cykj.housewifery.bean.User" resultType="com.cykj.housewifery.bean.User" >
+        select * from tb_user where account = #{user.account} and password = #{user.password}
   </select>
 <!--    用户的注册-->
     <insert id="add" parameterType="User"  >
@@ -20,22 +20,9 @@
         select count(*) from tb_user where date_format(reg_date,'%Y-%m-%d') &lt;= #{date}
     </select>
 
-    <select id="findUserByAccount" parameterType="string" resultType="user">
+
+
+    <select id="findUserByAccount" parameterType="string" resultType="User">
         select user_id, account, name, password, gender, phone, address, integral, url, reg_date, money from tb_user where account = #{value}
-    </select>
-
-    <select id="userAddress" resultType="user">
-
-        select name,(select address from tb_address where user_id=account)address,phone from tb_user
-
-    </select>
-
-    <select id="getAddressCount" resultType="int">
-        select count(*) from tb_user
-        <where>
-            <if test="user!=null and user!=''">
-                and user =(select id from tb_user where name like concat('%',#{user},'%'))
-            </if>
-        </where>
     </select>
 </mapper>

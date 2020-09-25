@@ -74,7 +74,7 @@
                     , {field: 'title', title: '标题', width: 100}
                     , {field: 'described', title: '要求描述', width: 180}
                     , {field: 'phone', title: '手机号', width: 180}
-                    , {field: 'releaseTime', title: '发布时间', width: 180}
+                    , {field: 'releaseTimes', title: '发布时间', width: 180}
                     , {field: 'state', title: '服务状态', width: 180}
                     , {field: 'names', title: '支付状态', width: 180}
                     // , {fixed: 'right', align: 'center', toolbar: '#barDemo'}

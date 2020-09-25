@@ -154,7 +154,7 @@
                                 </h4>
                                 <p>为了创新办公保洁服务模式和提升办公保洁服务水平，智慧家政产品研...</p>
                                 <span class="y-btns clearfix">
-                                               <a href="javascript:void(formShow())" target="_self" rel="nofollow"
+                                               <a href="Pay.jsp" target="_self"
                                                   class="fl">立即下单</a>
                                                    <a href="../jsp/bmxq.jsp" target="_self" class="fl">了解更多</a>
                                             </span>
@@ -171,7 +171,7 @@
                                 </h4>
                                 <p>服务详情智慧家政为您提供服务服务人员:&#160; 专职技工服务时间:&#160; 上午...</p>
                                 <span class="y-btns clearfix">
-                                               <a href="javascript:void(formShow())" target="_self" rel="nofollow"
+                                               <a href="Pay.jsp" target="_self"
                                                   class="fl">立即下单</a>
                                                    <a href="../jsp/bmxq.jsp" target="_self" class="fl">了解更多</a>
                                             </span>
@@ -188,7 +188,7 @@
                                 </h4>
                                 <p>服务人员: 专职技工<br/>服务时间: <br/>上午 8:00-12:00<br/>下午 14...</p>
                                 <span class="y-btns clearfix">
-                                              <a href="javascript:void(formShow())" target="_self" rel="nofollow"
+                                              <a href="Pay.jsp" target="_self"
                                                  class="fl">立即下单</a>
                                                    <a href="../jsp/bmxq.jsp" target="_self" class="fl">了解更多</a>
                                             </span>
