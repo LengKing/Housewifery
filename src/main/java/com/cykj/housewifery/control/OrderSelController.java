@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 
 import com.cykj.housewifery.bean.LayuiJson;
 import com.cykj.housewifery.bean.Order;
+import com.cykj.housewifery.bean.User;
 import com.cykj.housewifery.service.MoneyTbService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -29,12 +30,13 @@ public class OrderSelController {
     private MoneyTbService moneyTbService;
 
     @ResponseBody
-    @RequestMapping(value = "/OrderSel" , produces = "text/plain;charset=utf-8")
-    public Object OrderSel(String company,String page,String limit)  {
+    @RequestMapping(value = "/selOrder" , produces = "text/plain;charset=utf-8")
+    public Object selOrder(String company,String page,String limit,HttpServletRequest request)  {
         Integer pageNum = (Integer.valueOf(page)-1)*Integer.valueOf(limit);
         LayuiJson layuiJson = new LayuiJson();
-        int count=moneyTbService.getCountCompany(company);
-        List<Order> list = moneyTbService.selOrder(company,pageNum,limit);
+        User user=(User)request.getSession().getAttribute("user1");
+        int count=moneyTbService.getCountCompany(user.getAccount());
+        List<Order> list = moneyTbService.selOrder(user.getAccount(),pageNum,limit);
         layuiJson.setData(list);
         layuiJson.setCode(0);
         layuiJson.setCount(count);
@@ -42,6 +44,27 @@ public class OrderSelController {
         return gson.toJson(layuiJson);
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/overOrder" , produces = "text/plain;charset=utf-8")
+    public Object overOrder(String id){
+        boolean flag=moneyTbService.overOrder(id);
+        if (flag){
+            return "确认完成";
+        }else{
+            return "确认失败";
+        }
+    }
+    @ResponseBody
+    @RequestMapping(value = "/addAfter" , produces = "text/plain;charset=utf-8")
+    public Object addAfter(String id,String why){
+        boolean flag=moneyTbService.addAfter(id,why);
+        if (flag){
+            return "提交完成";
+        }else{
+            return "提交失败";
+        }
+
+    }
 
 
 

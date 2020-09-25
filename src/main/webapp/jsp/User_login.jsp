@@ -161,7 +161,7 @@
         $.ajax({
             url:"/user/login",
             type:"post",
-            data:"account=" + account + "&password=" + password,
+            data:{"acount":account,"password":password},
             dataType:"text",
             success:function (data) {
                 if (data == 0){
@@ -169,7 +169,7 @@
                     location.href="/jsp/Page_Main.jsp";
                 }
                 else {
-                    // changeImg();
+                    alert("账号或密码错误");
                 }
             },
 

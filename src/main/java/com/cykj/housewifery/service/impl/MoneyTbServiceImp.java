@@ -18,15 +18,27 @@ class MoneyTbServiceImp implements MoneyTbService {
     public MoneyTbMapper moneyTbMapper;
 
     @Override
-    public List<Order> selOrder(String company, Integer pageNum, String limit) {
-        List<Order> orders=moneyTbMapper.selOrder(company,pageNum,Integer.valueOf(limit));
+    public List<Order> selOrder(String account, Integer pageNum, String limit) {
+        List<Order> orders=moneyTbMapper.selOrder(account,pageNum,Integer.valueOf(limit));
         return orders;
     }
 
     @Override
-    public int getCountCompany(String company) {
-        int count = moneyTbMapper.getCountCompany(company);
+    public int getCountCompany(String account) {
+        int count = moneyTbMapper.getCountCompany(account);
         return count;
+    }
+
+    @Override
+    public boolean overOrder(String id) {
+        int a=moneyTbMapper.overOrder(Integer.valueOf(id));
+        return a>0;
+    }
+
+    @Override
+    public boolean addAfter(String id, String why) {
+        int a=moneyTbMapper.addAfter(Integer.valueOf(id),why);
+        return a>0;
     }
 
 

@@ -69,4 +69,22 @@
         state from tb_after a ,tb_order o where order_id=#{arg0} and a.order_id=o.id
     </select>
 
+    <select id="getAfterCountByUser" resultType="int">
+        select count(*) from tb_after a,tb_order o where a.order_id=o.id and o.user=#{account}
+        <if test="company!=null and company!=''">
+            and o.company in (select id from tb_company where name like concat('%',#{company},'%'))
+        </if>
+    </select>
+
+    <select id="selAfterByUser" resultType="AfterSales">
+        select order_id,date_format(time,'%Y-%m-%d') time,after_why,(select name from tb_user where account=o.user) user,
+        (select name from tb_employee where number=o.employee) employee,(select name from tb_company where id=o.company) company,
+        (select name from tb_params where value=a.state and type='after_sales_state') stateName from tb_after a,tb_order o
+        where a.order_id=o.id and o.user=#{account}
+        <if test="company!=null and company!=''">
+            and company in (select id from tb_company where name like '%${company}%')
+        </if>
+        limit #{pageNum},#{limit}
+    </select>
+
 </mapper>

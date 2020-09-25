@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.util.List;
 
@@ -130,6 +128,55 @@ public class UserController {
     public Object findUserByAccount(String account) {
         User user = userService.findUserByAccount(account);
         return new Gson().toJson(user);
+    }
+
+    @RequestMapping(value = "/selAddress", produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object selAddress(HttpServletRequest request,String page,String limit){
+        Integer pageNum = (Integer.valueOf(page)-1)*Integer.valueOf(limit);
+        LayuiJson layuiJson = new LayuiJson();
+        User user=(User)request.getSession().getAttribute("user1");
+        int count=userService.getAddCount(user.getAccount());
+        List<Address> list = userService.getAddress(user.getAccount(),pageNum,limit);
+        layuiJson.setData(list);
+        layuiJson.setCode(0);
+        layuiJson.setCount(count);
+        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+        return gson.toJson(layuiJson);
+
+    }
+    @RequestMapping(value = "/updAddress", produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object updAddress(String id,String address){
+        boolean flag=userService.updAddress(Integer.valueOf(id),address);
+        if (flag){
+            return "修改成功";
+        }else{
+            return "修改失败";
+        }
+    }
+
+    @RequestMapping(value = "/delAddress", produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object delAddress(String id){
+        boolean flag=userService.delAddress(Integer.valueOf(id));
+        if (flag){
+            return "删除成功";
+        }else{
+            return "删除失败";
+        }
+    }
+
+    @RequestMapping(value = "/addAddress", produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object addAddress(String address,HttpServletRequest request){
+        User user=(User) request.getSession().getAttribute("user1");
+        boolean flag=userService.addAddress(address,user.getAccount());
+        if (flag){
+            return "添加成功";
+        }else{
+            return "添加失败";
+        }
     }
 }
 

@@ -25,4 +25,8 @@ public interface AfterSalesMapper {
     List<AfterSales> selAfter(@Param("company") String company, @Param("pageNum") Integer pageNum, @Param("limit") Integer limit);
 
     AfterSales findAfterById(Integer id);
+
+    int getAfterCountByUser(@Param("company") String company,@Param("account") String account);
+
+    List<AfterSales> selAfterByUser(@Param("company") String company, @Param("pageNum") Integer pageNum, @Param("limit") Integer limit,@Param("account") String account);
 }
