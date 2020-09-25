@@ -75,9 +75,8 @@
                 </c:choose>
 <%--                <a href="../jsp/LoginUser.jsp" target="_self">登录</a>--%>
 <%--                <a href="../jsp/Resig_user.jsp" target="_self">注册</a>--%>
-
                 <a href="../jsp/Main_lxpt.jsp" target="_self">联系平台</a>
-                <a href="">个人中心</a>
+                <a href="${pageContext.request.contextPath}/jsp/PersonalView.jsp">个人中心</a>
             </div>
         </div>
     </div>
