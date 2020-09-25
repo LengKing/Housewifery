@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>后台管理</title>
+    <title>个人中心第一版</title>
     <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/static/js/1.9.1jquery.min.js"></script>
 <%--    <script src="${pageContext.request.contextPath}/js/jquery.validate.js"></script>--%>
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
@@ -25,11 +25,11 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/xadmin.js"></script>
 
 
-    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
-    <!--[if lt IE 9]>
+
+
     <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
     <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
     <script>
         // 是否开启刷新记忆tab功能
         // var is_remember = false;
@@ -107,7 +107,7 @@
                             <cite>我的订单</cite></a>
                     </li>
                     <li>
-                        <a onclick="xadmin.add_tab('账户管理','http://localhost:8080/testjsp/MoneyTb.jsp')">
+                        <a onclick="xadmin.add_tab('账户管理','http://localhost:8080/jsp/MoneyTb.jsp')">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>消费记录</cite></a>
                     </li>

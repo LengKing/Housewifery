@@ -20,9 +20,22 @@
         select count(*) from tb_user where date_format(reg_date,'%Y-%m-%d') &lt;= #{date}
     </select>
 
-
-
     <select id="findUserByAccount" parameterType="string" resultType="user">
         select user_id, account, name, password, gender, phone, address, integral, url, reg_date, money from tb_user where account = #{value}
+    </select>
+
+    <select id="userAddress" resultType="user">
+
+        select name,(select address from tb_address where user_id=account)address,phone from tb_user
+
+    </select>
+
+    <select id="getAddressCount" resultType="int">
+        select count(*) from tb_user
+        <where>
+            <if test="user!=null and user!=''">
+                and user =(select id from tb_user where name like concat('%',#{user},'%'))
+            </if>
+        </where>
     </select>
 </mapper>

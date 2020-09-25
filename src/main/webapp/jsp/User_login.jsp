@@ -167,10 +167,10 @@
                 alert("你好帅!")
                 alert(data);
                 if (data == "success"){
-                    location.href=path+"/jsp/jzfw.jsp";
+                    location.href="/jsp/Page_Main.jsp";
                 }
                 else {
-                    changeImg();
+                    alert("登录失败");
                 }
             },
 

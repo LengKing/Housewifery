@@ -218,6 +218,9 @@
 
 <script type="text/javascript">
     var obj = document.getElementById("getCode");
+
+
+
     var flag = 60;
     obj.onclick = function () {
         if (flag < 60) {

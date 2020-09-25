@@ -75,7 +75,7 @@ public class CompanyControl {
         admin.setPassword(password);
         Admin admin1 = companyService.LoginPT(admin);
         if (null != admin1) {
-            request.getSession().setAttribute("admin", admin1);
+            request.getSession().setAttribute("admin1", admin1);
             return new Gson().toJson(1);
         } else {
             return new Gson().toJson(2);
