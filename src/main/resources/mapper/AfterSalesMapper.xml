@@ -45,4 +45,28 @@
         update tb_after set house_id = #{number},state = (select value from tb_params where type='after_sales_state'
         and name='处理中') where id = #{id}
     </update>
+
+    <select id="getAfterCount" resultType="int">
+        select count(*) from tb_after a,tb_order o where a.order_id=o.id
+            <if test="company!=null and company!=''">
+                and o.company in (select id from tb_company where name like concat('%',#{company},'%'))
+            </if>
+    </select>
+
+    <select id="selAfter" resultType="AfterSales">
+        select order_id,date_format(time,'%Y-%m-%d') time,after_why,(select name from tb_user where account=o.user) user,
+        (select name from tb_employee where number=o.employee) employee,(select name from tb_company where id=o.company) company,
+        (select name from tb_params where value=a.state and type='after_sales_state') stateName from tb_after a,tb_order o  where a.order_id=o.id
+            <if test="company!=null and company!=''">
+                and company in (select id from tb_company where name like '%${company}%')
+            </if>
+        limit #{pageNum},#{limit}
+    </select>
+
+    <select id="findAfterById" resultType="AfterSales">
+         select order_id,date_format(time,'%Y-%m-%d') time,after_why,(select name from tb_user where account=o.user) user,
+        (select name from tb_employee where number=o.employee) employee,(select name from tb_company where id=o.company) company,
+        state from tb_after a ,tb_order o where order_id=#{arg0} and a.order_id=o.id
+    </select>
+
 </mapper>

@@ -19,4 +19,10 @@ public interface AfterSalesMapper {
     Employee seeDetailsById(String id);
 
     int arrangeAfterSales(@Param("id") String id,@Param("number") String number);
+
+    int getAfterCount(@Param("company") String company);
+
+    List<AfterSales> selAfter(@Param("company") String company, @Param("pageNum") Integer pageNum, @Param("limit") Integer limit);
+
+    AfterSales findAfterById(Integer id);
 }

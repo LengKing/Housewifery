@@ -5,7 +5,7 @@
 <mapper namespace="com.cykj.housewifery.mapper.AdminTrainMapper">
 
     <select id="getTrain" parameterType="java.util.Map" resultType="com.cykj.housewifery.bean.Train">
-        select id,title,start_date,end_date,start_time,end_time,content,count,length,credential,url from tb_train where 1=1
+        select id,title,DATE_FORMAT(start_date,'%Y-%m-%d')startDate,DATE_FORMAT(end_date,'%Y-%m-%d')endDate,start_time,end_time,content,count,length,credential,url from tb_train where 1=1
         <if test="condition.title !=null">
             and title like CONCAT('%',#{condition.title},'%')
         </if>

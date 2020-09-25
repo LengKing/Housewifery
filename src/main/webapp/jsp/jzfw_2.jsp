@@ -36,17 +36,14 @@
 <div class="header">
     <div class="header-top">
         <div class="content">
-            <p>欢迎来到XXXX网站！</p>
+            <p>欢迎来到传一智慧家政网站！</p>
             <div class="rightCon">
-                <a href="" target="_blank">登录</a>
-                <a href="">注册</a>
-                <a href="" target="_blank">联系平台</a>
-                <a href="">工作机会</a>
+                <a>欢迎：${sessionScope.user1.name}</a>
             </div>
         </div>
     </div>
     <div class="header-center">
-        <h1><a href="">XXXX智慧家政</a></h1>
+        <h1><a href="">传一智慧家政</a></h1>
         <h2><img src="../static/images/logo_text.png"></h2>
         <div class="search">
             <form>
@@ -156,7 +153,7 @@
                                 </h4>
                                 <p>本服务产品适用于居家、写字楼、商铺、厂房及其它类型的开荒项目...</p>
                                 <span class="y-btns clearfix">
-                                              <a href="javascript:void(formShow())" target="_self" rel="nofollow"
+                                              <a href="Pay.jsp" target="_self"
                                                  class="fl">立即下单</a>
                                                    <a href="../jsp/bmxq.jsp" target="_self" class="fl">了解更多</a>
                                             </span>
@@ -173,7 +170,7 @@
                                 </h4>
                                 <p>为了创新办公保洁服务模式和提升办公保洁服务水平，社区邦产品研...</p>
                                 <span class="y-btns clearfix">
-                                               <a href="javascript:void(formShow())" target="_self" rel="nofollow"
+                                               <a href="Pay.jsp" target="_self"
                                                   class="fl">立即下单</a>
                                                    <a href="../jsp/bmxq.jsp" target="_self" class="fl">了解更多</a>
                                             </span>
@@ -190,7 +187,7 @@
                                 </h4>
                                 <p>服务详情社区邦为您提供服务服务人员:&#160; 专职技工服务时间:&#160; 上午...</p>
                                 <span class="y-btns clearfix">
-                                               <a href="javascript:void(formShow())" target="_self" rel="nofollow"
+                                               <a href="Pay.jsp" target="_self"
                                                   class="fl">立即下单</a>
                                                    <a href="../jsp/bmxq.jsp" target="_self" class="fl">了解更多</a>
                                             </span>
@@ -207,7 +204,7 @@
                                 </h4>
                                 <p>服务人员: 专职技工<br/>服务时间: <br/>上午 8:00-12:00<br/>下午 14...</p>
                                 <span class="y-btns clearfix">
-                                              <a href="javascript:void(formShow())" target="_self" rel="nofollow"
+                                              <a href="Pay.jsp" target="_self"
                                                  class="fl">立即下单</a>
                                                    <a href="../jsp/bmxq.jsp" target="_self" class="fl">了解更多</a>
                                             </span>
@@ -224,7 +221,7 @@
                                 </h4>
                                 <p>1.24小时临床陪护不间断，服务贴心<br/>医护一体，高效协调医院专家...</p>
                                 <span class="y-btns clearfix">
-                                               <a href="javascript:void(formShow())" target="_self" rel="nofollow"
+                                               <a href="Pay.jsp" target="_self"
                                                   class="fl">立即下单</a>
                                                    <a href="../jsp/bmxq.jsp" target="_self" class="fl">了解更多</a>
                                             </span>
@@ -265,6 +262,76 @@
         </div>
     </div>
 
+</div>
+<!-- 底部包含文件 -->
+<!-- foter -->
+<div class="footer">
+    <div class="content">
+        <div class="item">
+            <h3><a href="/jsp/jzfw.jsp">家政服务</a></h3>
+
+            <p><a href="/jsp/jzfw_qj.jsp">家庭清洁</a></p>
+
+            <p><a href="/jsp/jzfw_qyqj.jsp">企业清洁</a></p>
+
+            <p><a href="/jsp/jzfw_bm.jsp">保姆</a></p>
+
+            <p><a href="/jsp/jzfw_ys.jsp">月嫂</a></p>
+
+            <p><a href="/jsp/jzfw_yy.jsp">育婴</a></p>
+
+            <p><a href="/jsp/jzfw_zdg.jsp">钟点工</a></p>
+
+        </div>
+        <div class="item">
+            <h3><a href="">家政培训</a></h3>
+
+            <p><a href=""> 最新开课</a></p>
+
+            <p><a href="">家政培训项目</a></p>
+
+        </div>
+        <div class="item">
+            <h3><a href="">加盟社区</a></h3>
+
+            <p><a href="">行业前景</a></p>
+
+            <p><a href="">品牌支持</a></p>
+
+            <p><a href="">投资预算</a></p>
+
+            <p><a href="">客户见证</a></p>
+
+            <p><a href="">合作伙伴</a></p>
+
+            <p><a href="">申请加盟</a></p>
+
+        </div>
+        <div class="item">
+            <h3><a href="">关于社区</a></h3>
+
+            <p><a href="">品牌介绍</a></p>
+
+            <p><a href="">创始人</a></p>
+
+            <p><a href="">师资队伍</a></p>
+
+            <p><a href="">荣誉资质</a></p>
+
+            <p><a href="">品牌形象</a></p>
+
+            <p><a href="">大事记</a></p>
+
+        </div>
+
+    </div>
+    <div class="phone">
+        全国服务热线：400-00-00000 / 品牌加盟专线：8888-88888888
+    </div>
+    <div class="text">
+        <p>版权所有：　厦门<a href="" target="_blank" rel="nofollow">厦AAA备888888号-8</a></p>
+        <p>技术支持：<a href="" target="_blank" rel="nofollow" >个人网</a></p>
+    </div>
 </div>
 </body>
 </html>

@@ -8,7 +8,7 @@
        select count(*) from tb_order
        <where>
        <if test="company!=null and company!=''">
-         and company =(select id from tb_company where name like concat('%',#{company},'%'))
+         and company  in (select id from tb_company where name like concat('%',#{company},'%'))
        </if>
        </where>
     </select>
@@ -20,7 +20,7 @@
           value=order_state and type='order_state') order_state from tb_order
         <where>
             <if test="company!=null and company!=''">
-               and company =(select id from tb_company where name like '%${company}%')
+               and company in (select id from tb_company where name like '%${company}%')
             </if>
         </where>
         limit #{pageNum},#{limit}
@@ -88,7 +88,7 @@
     <select id="barOrder" resultType="int">
         select count(*) from tb_order where date_format(order_time,'%Y-%m-%d') = #{date}
             <if test="company!='' and company!=null">
-                and company=(select id from tb_company where name like concat('%', #{company},'%'))
+                and company in (select id from tb_company where name like concat('%', #{company},'%'))
             </if>
 
     </select>
@@ -96,7 +96,7 @@
     <select id="lineOrder" resultType="int">
         select count(*) from tb_order where date_format(order_time,'%Y-%m-%d') &lt;= #{date}
         <if test="company!='' and company!=null">
-            and company=(select id from tb_company where name like concat('%', #{company},'%'))
+            and company in (select id from tb_company where name like concat('%', #{company},'%'))
         </if>
     </select>
 

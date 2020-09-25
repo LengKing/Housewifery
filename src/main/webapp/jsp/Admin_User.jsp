@@ -75,7 +75,7 @@
                     , {field: 'phone', title: '手机号', width: 100}
                     , {field: 'address', title: '地址', width: 100}
                     , {field: 'integral', title: '积分', width: 80}
-                    , {field: 'regDate', title: '注册时间', width: 180}
+                    , {field: 'regDates', title: '注册时间', width: 180}
                     , {field: 'money', title: '账户余额', width: 80}
                     , {field: 'state', title: '状态', width: 80}
                     , {fixed: 'right', align: 'center', toolbar: '#barDemo'}

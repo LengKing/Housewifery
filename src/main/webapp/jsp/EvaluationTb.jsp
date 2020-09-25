@@ -3,131 +3,147 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Layui</title>
+    <title>我的评价</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
     <script src="${pageContext.request.contextPath}/static/js/jquery-3.5.1.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/layui/css/layui.css" media="all">
-
     <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
 </head>
 <body>
-
-<form class="layui-form" lay-filter="component-form-group" id="search_submits" onsubmit="return false" style="margin-top: 15px">
-    <div class="layui-form layui-card-header layuiadmin-card-header-auto" lay-filter="layadmin-useradmin-formlist">
-
-        <div class="layui-inline">
-            <label class="layui-form-label" name="account">姓名：</label>
-            <div class="layui-input-block">
-                <input type="text" name="trueName" id="trueName" placeholder="请输入姓名" class="layui-input">
-            </div>
-        </div>
-        <div class="layui-inline">
-            <label class="layui-form-label">账号：</label>
-            <div class="layui-input-block">
-                <input type="text" name="adminName" id="adminName" placeholder="请输入账号" class="layui-input">
-            </div>
-        </div>
-        <div class="layui-inline">
-            <button class="layui-btn" lay-submit="search_submits" lay-filter="search"  >查询</button>
-        </div>
-    </div>
-</form>
-<table class="layui-table" id="test" lay-filter="test"></table>
-
-<script type="text/html" id="toolbarDemo">
-    <div class="layui-btn-container">
-        <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
-        <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
-        <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
-    </div>
-</script>
-
+<div class="layui-card-header">我的评价</div>
+<table class="layui-table" id="evaluation" lay-filter="evaluation"></table>
 <script type="text/html" id="barDemo">
-    <a class="layui-btn layui-btn-xs" lay-event="edit">修改</a>
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" >删除</a>
+    {{#  if(d.evaluationStateName=="待评价"){ }}
+    <button class="layui-btn layui-btn-normal" type="button" lay-event="evaluation">评价</button>
+    {{#  } }}
+    {{#  if(d.evaluationStateName=="已评价"){ }}
+    <button class="layui-btn layui-btn-normal" type="button" lay-event="detail">查看评价</button>
+    <button class="layui-btn layui-btn-normal" type="button" lay-event="del">删除</button>
+    {{#  } }}
 </script>
-
-
 <script src="${pageContext.request.contextPath}/static/layui/layui.js" charset="utf-8"></script>
 <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
-
 <script>
-
-    layui.use(['form','table','jquery'], function(){
+    layui.use(['form','table','jquery','layer'], function(){
         var table = layui.table;
         var form = layui.form;
+        var layer=layui.layer;
         var $ = layui.jquery;
         var tableinf = table.render({
-            elem: '#test'
-            ,url:'${pageContext.request.contextPath}/Evaluation/evaluation'
-            ,toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
-            ,defaultToolbar: ['filter', 'exports', 'print', { //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
-                title: '提示'
-                ,layEvent: 'LAYTABLE_TIPS'
-                ,icon: 'layui-icon-tips'
-            }]
-            ,title: '用户订单表'
+            elem: '#evaluation'
+            ,url:'${pageContext.request.contextPath}/evaluation/selEvaluation'
+            // ,toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
+            ,title: '待评价表'
+            ,height:400
             ,cols: [[
-                {type: 'checkbox', fixed: 'left'}
-                ,{field:'employee', title:'保姆名字', width:130, fixed: 'left', unresize: true, sort: true }
-                ,{field:'company', title:'所属公司', width:120, edit: 'text'}
-                ,{field:'orderTime', title:'订单时间', width:160, edit: 'text', sort: true}
-                ,{field:'cost', title:'费用', width:150, edit: 'text', sort: true}
-                ,{field:'evaluationStateName', title:'状态', width:160, edit: 'text', sort: true}
-                ,{title: '操作', width: 250, align: 'center', toolbar: '#barDemo'}
+                {field:'id', title:'订单ID', width:130,align: "center" }
+                ,{field:'employee', title:'家政人员名字', width:130,align: "center" }
+                ,{field:'company', title:'家政公司', width:180,align: "center"}
+                ,{field:'orderTime', title:'订单时间', width:200, align: "center"}
+                ,{field:'cost', title:'费用', width:150, align: "center"}
+                ,{field:'evaluationStateName', title:'状态', width:160, align: "center"}
+                ,{title: '操作', width: 200, align: 'center', toolbar: '#barDemo',align: "center"}
             ]]
             ,done:function (res) {
                 console.log(res.data)
-
             }
             , limit: 5
             , limits: [5, 6, 7]
         });
 
         //监听行工具事件
-        table.on('tool(test)', function(obj){
-            var data = obj.data;
-            //console.log(obj)
-            if(obj.event === 'del'){
-                layer.confirm('真的删除行么', function(index){
-                    obj.del();
-                    layer.close(index);
+        table.on('tool(evaluation)', function(obj){
+            id=obj.data.id;
+            var layEvent = obj.event;
+            if (layEvent === 'del') {    //删除
+                $.ajax({
+                    url: "${pageContext.request.contextPath}/evaluation/delEvaluation",
+                    type: "Post",
+                    data: {"id":id},
+                    dataType: "text",
+                    beforeSend:function(){
+                        return confirm("确认删除该评价？")
+                    },
+                    success:function (data) {
+                        table.reload('evaluation',{
+                            url: '${pageContext.request.contextPath}/evaluation/selEvaluation'
+                            ,height: 400
+                            ,page:{
+                                curr:1
+                            }
+                        })
+                        layer.alert(data,{title:"信息",time:2000});
+                    }
                 });
-            } else if(obj.event === 'edit'){
-                layer.prompt({
-                    formType: 2
-                    ,value: data.email
-                }, function(value, index){
-                    obj.update({
-                        email: value
-                    });
-                    layer.close(index);
+            }else if (layEvent === 'detail') {
+                $.ajax({
+                    url: "${pageContext.request.contextPath}/evaluation/findEvaluation",
+                    type: "Post",
+                    data: {"id":id},
+                    dataType: "text",
+                    success:function (data) {
+                        alert(data);
+                    }
                 });
+            }else if (layEvent === 'evaluation') {    //评价
+                layer.open({
+                    title:"发表评价",
+                    type: 1,
+                    area: 'auto',
+                    content:$("#evaluation_div"),
+                    btn:'提交',
+                    btnAlign: 'c',
+                    btn1:function (index) {
+                        var comment=$("#comment").val();
+                        $.ajax({
+                            url: "${pageContext.request.contextPath}/evaluation/addEvaluation",
+                            type: "Post",
+                            data: {"id":id,"comment":comment},
+                            dataType: "text",
+                            beforeSend:function () {
+                                if(comment==""){
+                                    layer.alert("请输入评价",{icon:5,title:"提示",time:1500});
+                                    return false;
+                                }else{
+                                    return confirm("确认提交评价？")
+                                }
+                            },
+                            success:function (data) {
+                                alert(data);
+                                if (data=="提交成功"){
+                                    layer.close(index);
+                                    table.reload('evaluation',{
+                                        url: '${pageContext.request.contextPath}/evaluation/selEvaluation'
+                                        ,height: 400
+                                        ,page:{
+                                            curr:1
+                                        }
+                                    })
+                                }
+                            },
+                            error:function () {
+                                layer.alert("网络繁忙",{icon:5,title:"提示",time:2000});
+                            }
+                        });
+                    }
+                })
+
             }
-        });
-
-        form.on('submit(search)',function (data) {
-
-            var adminName = $("#adminName").val();
-            var trueName = $("#trueName").val();
-
-
-            tableinf.reload({
-                url:'${pageContext.request.contextPath}/Evaluation/evaluation',
-                page: {
-                    curr: 1 //重新从第 1 页开始
-                },
-                where:{
-                    adminName:adminName, trueName:trueName
-                }
-            });
-
         });
     });
 </script>
 
 </body>
+<div id="evaluation_div" style="width: 350px;height: 120px;text-align: center;display: none">
+    <table class="layui-table" lay-skin="line">
+        <tr>
+            <td>评价内容</td>
+            <td><input class="layui-input" id="comment"></td>
+        </tr>
+    </table>
+
+</div>
+
 </html>

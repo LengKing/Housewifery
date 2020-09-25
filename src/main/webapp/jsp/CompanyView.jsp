@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>智慧家政</title>
+    <title>家政公司端</title>
     <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/static/js/1.9.1jquery.min.js"></script>
     <%--    <script src="${pageContext.request.contextPath}/js/jquery.validate.js"></script>--%>
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
@@ -58,7 +58,7 @@
     <ul class="layui-nav right" lay-filter="">
         <li class="layui-nav-item">
                 <a href="javascript:;">
-                    <span>欢迎${company.name}</span>
+                    <span>欢迎:${company.name}</span>
                 </a>
 
             <dl class="layui-nav-child">

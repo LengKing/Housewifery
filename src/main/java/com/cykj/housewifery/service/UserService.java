@@ -15,6 +15,8 @@ public interface UserService {
     User findUserByAccount(String account);
     ReportDataBean barUser(String startDate, String endDate);
     ReportDataBean lineUser(String startDate, String endDate);
+    List<User> userAddress(String user,Integer pageNum, String limit);
+    int getAddressCount(String user);
 
     int getRecordsCount(String account);
 

@@ -151,7 +151,7 @@
                                 </h4>
                                 <p>服务详情智慧家政为您提供服务本服务产品主要将潜伏在门窗边框及窗...</p>
                                 <span class="y-btns clearfix">
-                                                <a href="javascript:void(formShow())" target="_self" rel="nofollow"
+                                                <a href="Pay.jsp" target="_self"
                                                    class="fl">立即下单</a>
                                                    <a href="../jsp/bmxq.jsp" target="_self" class="fl">了解更多</a>
                                             </span>
@@ -167,7 +167,7 @@
                                 </h4>
                                 <p>服务详情智慧家政为您提供服务社区邦以打造健康家居环境为出发点，...</p>
                                 <span class="y-btns clearfix">
-                                                <a href="javascript:void(formShow())" target="_blank" rel="nofollow"
+                                                <a href="Pay.jsp" target="_self"
                                                    class="fl">立即下单</a>
                                                    <a href="../jsp/bmxq.jsp" target="_self" class="fl">了解更多</a>
                                             </span>
@@ -182,7 +182,7 @@
                                 <h4><a href="" target="_self">卫生间深度清洁</a></h4>
                                 <p>服务详情智慧家政为您提供服务服务人员:&#160; 专职保洁师服务时间:&#160; 上...</p>
                                 <span class="y-btns clearfix">
-                                                <a href="javascript:void(formShow())" target="_self" rel="nofollow"
+                                                <a href="Pay.jsp" target="_self"
                                                    class="fl">立即下单</a>
                                                    <a href="../jsp/bmxq.jsp" target="_self" class="fl">了解更多</a>
                                             </span>
@@ -198,7 +198,7 @@
                                 </h4>
                                 <p>4小时标准化高端家庭保洁服务产品，全员实行员工制，严格按照“...</p>
                                 <span class="y-btns clearfix">
-                                                <a href="javascript:void(formShow())" target="_self" rel="nofollow"
+                                                <a href="Pay.jsp" target="_self"
                                                    class="fl">立即下单</a>
                                                    <a href="../jsp/bmxq.jsp" target="_self" class="fl">了解更多</a>
                                             </span>
@@ -214,7 +214,7 @@
                                 </h4>
                                 <p>服务介绍：&quot;居家除螨”是智慧家政新推出的星级除螨产品，采用专业...</p>
                                 <span class="y-btns clearfix">
-                                                <a href="javascript:void(formShow())" target="_self" rel="nofollow"
+                                                <a href="Pay.jsp" target="_self"
                                                    class="fl">立即下单</a>
                                                    <a href="../jsp/bmxq.jsp" target="_self" class="fl">了解更多</a>
                                             </span>
@@ -231,7 +231,7 @@
                                 </h4>
                                 <p>本服务产品适用于居家、写字楼、商铺、厂房及其它类型的开荒项目...</p>
                                 <span class="y-btns clearfix">
-                                              <a href="javascript:void(formShow())" target="_self" rel="nofollow"
+                                              <a href="Pay.jsp" target="_self"
                                                  class="fl">立即下单</a>
                                                    <a href="../jsp/bmxq.jsp" target="_self" class="fl">了解更多</a>
                                             </span>

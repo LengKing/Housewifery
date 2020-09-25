@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -60,18 +61,28 @@
 <div class="header">
     <div class="header-top">
         <div class="content">
-            <p>欢迎来到XXXX网站！</p>
+            <p>欢迎来到传一智慧家政网站！</p>
             <div class="rightCon">
-                <a>欢迎：${sessionScope.user.name}</a>
-                <a href="../jsp/User_login.jsp" target="_self">登录</a>
-                <a href="../jsp/Resig_user.jsp" target="_self">注册</a>
+                <a>欢迎：${sessionScope.user1.name}</a>
+                <c:choose>
+                    <c:when test="${sessionScope.user1.name != null}">
+                   </c:when>
+                <c:otherwise>
+                    <a href="../jsp/LoginUser.jsp" target="_self">登录</a>
+                    <a href="../jsp/Resig_user.jsp" target="_self">注册</a>
+                </c:otherwise>
+
+                </c:choose>
+<%--                <a href="../jsp/LoginUser.jsp" target="_self">登录</a>--%>
+<%--                <a href="../jsp/Resig_user.jsp" target="_self">注册</a>--%>
+
                 <a href="../jsp/Main_lxpt.jsp" target="_self">联系平台</a>
-                <a href="">工作机会</a>
+                <a href="">个人中心</a>
             </div>
         </div>
     </div>
     <div class="header-center">
-        <h1><a href="">XXXX智慧家政</a></h1>
+        <h1><a href="">传一智慧家政</a></h1>
         <h2><img src="../static/images/logo_text.png"></h2>
         <div class="search">
             <form>
@@ -348,7 +359,7 @@
     </div>
     <div class="content">
         <div class="left">
-            <a><img src="../static/images/pj1.jpg"></a>
+            <a><img src="../static/images/bdfcf58eca18149a.jpg"></a>
         </div>
         <div class="right">
             <div class="swiper-container kecheng-swiper">
@@ -417,74 +428,74 @@
 
 <!-- 底部包含文件 -->
 <!-- foter -->
-<%--<div class="footer">--%>
-<%--    <div class="content">--%>
-<%--        <div class="item">--%>
-<%--            <h3><a href="http://www.sqbang.com/help/jzfw.html" target="_blank">家政服务</a></h3>--%>
+<div class="footer">
+    <div class="content">
+        <div class="item">
+            <h3><a href="/jsp/jzfw.jsp">家政服务</a></h3>
 
-<%--            <p><a href="http://www.sqbang.com/help/jtqj.html">家庭清洁</a></p>--%>
+            <p><a href="/jsp/jzfw_qj.jsp">家庭清洁</a></p>
 
-<%--            <p><a href="http://www.sqbang.com/help/qyqj.html">企业清洁</a></p>--%>
+            <p><a href="/jsp/jzfw_qyqj.jsp">企业清洁</a></p>
 
-<%--            <p><a href="http://www.sqbang.com/help/bm.html">保姆</a></p>--%>
+            <p><a href="/jsp/jzfw_bm.jsp">保姆</a></p>
 
-<%--            <p><a href="http://www.sqbang.com/help/ys.html">月嫂</a></p>--%>
+            <p><a href="/jsp/jzfw_ys.jsp">月嫂</a></p>
 
-<%--            <p><a href="http://www.sqbang.com/help/yy.html">育婴</a></p>--%>
+            <p><a href="/jsp/jzfw_yy.jsp">育婴</a></p>
 
-<%--            <p><a href="http://www.sqbang.com/help/help/20190723111533169.html.html">钟点工</a></p>--%>
+            <p><a href="/jsp/jzfw_zdg.jsp">钟点工</a></p>
 
-<%--        </div>--%>
-<%--        <div class="item">--%>
-<%--            <h3><a href="http://www.sqbang.com/help/jzfw.html" target="_blank">家政培训</a></h3>--%>
+        </div>
+        <div class="item">
+            <h3><a href="">家政培训</a></h3>
 
-<%--            <p><a href="http://www.sqbang.com/product/zxkk.html"> 最新开课</a></p>--%>
+            <p><a href=""> 最新开课</a></p>
 
-<%--            <p><a href="http://www.sqbang.com/product/jzpxxm.html">家政培训项目</a></p>--%>
+            <p><a href="">家政培训项目</a></p>
 
-<%--        </div>--%>
-<%--        <div class="item">--%>
-<%--            <h3><a href="http://www.sqbang.com/help/ppzs.html" target="_blank">加盟社区邦</a></h3>--%>
+        </div>
+        <div class="item">
+            <h3><a href="">加盟社区</a></h3>
 
-<%--            <p><a href="http://www.sqbang.com/help/ppzs.html#hyqj">行业前景</a></p>--%>
+            <p><a href="">行业前景</a></p>
 
-<%--            <p><a href="http://www.sqbang.com/help/ppzs.html#ppzc">品牌支持</a></p>--%>
+            <p><a href="">品牌支持</a></p>
 
-<%--            <p><a href="http://www.sqbang.com/help/ppzs.html#tzys">投资预算</a></p>--%>
+            <p><a href="">投资预算</a></p>
 
-<%--            <p><a href="http://www.sqbang.com/help/ppzs.html#khjz">客户见证</a></p>--%>
+            <p><a href="">客户见证</a></p>
 
-<%--            <p><a href="http://www.sqbang.com/help/hzhb.html">合作伙伴</a></p>--%>
+            <p><a href="">合作伙伴</a></p>
 
-<%--            <p><a href="http://www.sqbang.com/help/ppzs.html#sqjm">申请加盟</a></p>--%>
+            <p><a href="">申请加盟</a></p>
 
-<%--        </div>--%>
-<%--        <div class="item">--%>
-<%--            <h3><a href="http://www.sqbang.com/help/" target="_blank">关于社区邦</a></h3>--%>
+        </div>
+        <div class="item">
+            <h3><a href="">关于社区</a></h3>
 
-<%--            <p><a href="http://www.sqbang.com/help/ppjs.html">品牌介绍</a></p>--%>
+            <p><a href="">品牌介绍</a></p>
 
-<%--            <p><a href="http://www.sqbang.com/help/csr.html">创始人</a></p>--%>
+            <p><a href="">创始人</a></p>
 
-<%--            <p><a href="http://www.sqbang.com/help/szdwqh.html">师资队伍</a></p>--%>
+            <p><a href="">师资队伍</a></p>
 
-<%--            <p><a href="http://www.sqbang.com/help/ryzz.html">荣誉资质</a></p>--%>
+            <p><a href="">荣誉资质</a></p>
 
-<%--            <p><a href="http://www.sqbang.com/help/ppxx.html">品牌形象</a></p>--%>
+            <p><a href="">品牌形象</a></p>
 
-<%--            <p><a href="http://www.sqbang.com/help/dsj.html">大事记</a></p>--%>
+            <p><a href="">大事记</a></p>
 
-<%--        </div>--%>
+        </div>
 
-<%--    </div>--%>
-<%--    <div class="phone">--%>
-<%--        全国服务热线：400-00-00000 / 品牌加盟专线：0755-36907516--%>
-<%--    </div>--%>
-<%--    <!--    <div class="text">-->--%>
-<%--    <!--        <p>版权所有：深圳市深家网络信息服务有限公司　<a href="http://www.beian.miit.gov.cn/" target="_blank" rel="nofollow">粤ICP备11103067号-8</a></p>-->--%>
-<%--    <!--        <p>技术支持：<a href="http://www.shenduwang.cn/" target="_blank" rel="nofollow" >深度网</a></p>            -->--%>
-<%--    <!--    </div>-->--%>
-<%--</div>--%>
+    </div>
+    <div class="phone">
+        全国服务热线：400-00-00000 / 品牌加盟专线：8888-88888888
+    </div>
+        <div class="text">
+            <p>版权所有：　厦门<a href="" target="_blank" rel="nofollow">厦AAA备888888号-8</a></p>
+            <p>技术支持：<a href="" target="_blank" rel="nofollow" >个人网</a></p>
+        </div>
+</div>
 
 
 

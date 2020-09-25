@@ -8,5 +8,4 @@
         insert into tb_demand(address,class_service,service_count,title,described,phone)
         values (#{address},#{classService},#{serviceCount},#{title},#{described},#{phone})
     </insert>
-
 </mapper>

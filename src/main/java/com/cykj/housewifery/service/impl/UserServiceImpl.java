@@ -64,6 +64,20 @@ public class UserServiceImpl implements UserService {
         reportDataBean.setData(datas);
         return reportDataBean;
     }
+//地址的
+    @Override
+    public List<User> userAddress(String user, Integer pageNum, String limit) {
+        List<User> users = userMapper.userAddress(user,pageNum,Integer.valueOf(limit));
+
+
+        return users;
+    }
+
+    @Override
+    public int getAddressCount(String user) {
+        int count = userMapper.getAddressCount(user);
+        return count;
+    }
 
     @Override
     public int getRecordsCount(String account) {

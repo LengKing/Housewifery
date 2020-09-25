@@ -52,4 +52,25 @@ public class AfterSalesControl {
         String result = afterSalesService.arrangeAfterSales(id,number);
         return result;
     }
+
+    @RequestMapping(value = "/selAfter", produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object selAfter(String company, String page, String limit) {
+        Integer pageNum = (Integer.valueOf(page) - 1) * Integer.valueOf(limit);
+        LayuiJson layuiJson = new LayuiJson();
+        int count = afterSalesService.getAfterCount(company);
+        List<AfterSales> afterSales = afterSalesService.selAfter(company, pageNum, limit);
+        layuiJson.setData(afterSales);
+        layuiJson.setCode(0);
+        layuiJson.setCount(count);
+        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+        return gson.toJson(layuiJson);
+    }
+
+    @RequestMapping(value = "/findAfterById", produces = "text/plain;charset=utf-8")
+    @ResponseBody
+    public Object findAfterById(String id) {
+        AfterSales afterSales = afterSalesService.findAfterById(id);
+        return new Gson().toJson(afterSales);
+    }
 }

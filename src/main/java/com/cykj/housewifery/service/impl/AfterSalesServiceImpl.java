@@ -63,7 +63,24 @@ public class AfterSalesServiceImpl implements AfterSalesService {
         }else {
             return "操作失败，请重试";
         }
+    }
 
+    @Override
+    public int getAfterCount(String company) {
+        int count=afterSalesMapper.getAfterCount(company);
+        return count;
+    }
+
+    @Override
+    public List<AfterSales> selAfter(String company, Integer pageNum, String limit) {
+        List<AfterSales> afterSales=afterSalesMapper.selAfter(company,pageNum,Integer.valueOf(limit));
+        return afterSales;
+    }
+
+    @Override
+    public AfterSales findAfterById(String id) {
+        AfterSales afterSales=afterSalesMapper.findAfterById(Integer.valueOf(id));
+        return afterSales;
     }
 
 }
