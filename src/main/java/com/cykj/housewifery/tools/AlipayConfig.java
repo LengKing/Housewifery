@@ -13,9 +13,9 @@ public class AlipayConfig {
 	public static String alipay_public_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAigFiVtlSB50DlHw4rocZ6PZWKlV5ihzvSJ6947ek9DI245boOjCcHa8p0PwJyY1svYiQsiDC7DAxbDjq3PfO3RKTBUmaPHxROOsrnbrLE5jNKPoQVMccNB18ndbBXyxSzHAqr8OdW5HLCH9qSjgzU9qrvj1eiAdn+V4qsvC3vB7JeSNktAtC49OkWqo/8ABb+8SxoGGg/q6ZFeRpiwGE9ZtoBDY9baciMszeGN25Qp0oZtbBtwPvRzxKsVQGPwypDZpSba6g+XvLqZrx7V8UlXppDmQVrsmuozBhCJvpjDSdf3qNq17leNrgm1ukK5rapH5geux9OgrprFYt4TUZIQIDAQAB";
 
 	// 服务器异步通知页面路径 需http://或者https://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-	public static String notify_url = "http://127.0.0.1/notify_url.jsp";
+	public static String notify_url = "http://118.178.142.244/housewifery/jsp/Page_Main.jsp";
 	// 页面跳转同步通知页面路径 需http://或者https://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问 商户可以自定义同步跳转地址
-	public static String return_url = "http://localhost:8080/jsp/Page_Main.jsp";
+	public static String return_url = "http://118.178.142.244/housewifery/jsp/Page_Main.jsp";
 
 
 	// 签名方式

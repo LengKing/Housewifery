@@ -11,8 +11,8 @@
     <meta charset="UTF-8">
     <title>下单界面</title>
 
-    <link rel="stylesheet" type="text/css" href="/static/css/amazeui.min.css" />
-    <link rel="stylesheet" type="text/css" href="/static/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/amazeui.min.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css" />
     <script src="../static/layui/layui.js" charset="UTF-8"></script>
     <link rel="stylesheet" href="../static/layui/css/layui.css">
 </head>
@@ -21,20 +21,20 @@
     <!--主内容开始编辑-->
     <div class="tr_recharge">
         <div class="tr_rechtext">
-            <p class="te_retit"><img src="/static/images/coin.png" alt="" />付款中心</p>
+            <p class="te_retit"><img src="../static/images/coin.png" alt="" />付款中心</p>
 
         </div>
         <form action="${pageContext.request.contextPath}/adminPay/pay" class="am-form" id="doc-vld-msg">
             <div class="tr_rechbox">
                 <div class="tr_rechhead">
-                    <img src="/static/images/ys_head2.jpg" />
+                    <img src="../static/images/ys_head2.jpg" />
                     <p>收款账号：
                         <a>bvfwhf1995@sandbox.com</a>
                     </p>
-                                        <div class="tr_rechheadcion">
-                                            <img src="/static/images/coin.png" alt="" />
-                                            <span>商户收款：<span>2020</span></span>
-                                        </div>
+                    <div class="tr_rechheadcion">
+                        <img src="../static/images/coin.png" alt="" />
+                        <span>商户收款：<span>2020</span></span>
+                    </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">商品订单号</label>
@@ -73,9 +73,9 @@
     </div>
 </div>
 
-<script type="text/javascript" src="/static/js/jquery.min.js"></script>
-<script type="text/javascript" src="/static/js/amazeui.min.js"></script>
-<script type="text/javascript" src="/static/js/ui-choose.js"></script>
+<script type="text/javascript" src="../static/js/jquery.min.js"></script>
+<script type="text/javascript" src="../static/js/amazeui.min.js"></script>
+<script type="text/javascript" src="../static/js/ui-choose.js"></script>
 
 <script>
     $(function () {

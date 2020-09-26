@@ -5,10 +5,15 @@ import com.alipay.api.AlipayClient;
 import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.domain.AlipayTradeWapPayModel;
 import com.alipay.api.request.AlipayTradeWapPayRequest;
+import com.cykj.housewifery.bean.Order;
+import com.cykj.housewifery.bean.ServiceArea;
 import com.cykj.housewifery.tools.AlipayConfig;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
+import java.math.BigDecimal;
 
 
 @Controller

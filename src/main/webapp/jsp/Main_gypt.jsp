@@ -126,68 +126,68 @@
 
 
 
-<%--    <div class="aboutIntro">--%>
-<%--        <div class="container">--%>
-<%--            <div class="mub01Title">--%>
-<%--                <h3><i class="xianL"></i>公司<em>简介</em><i class="xianR"></i></h3>--%>
-<%--            </div>--%>
-<%--            <div class="mainCon">--%>
+    <%--    <div class="aboutIntro">--%>
+    <%--        <div class="container">--%>
+    <%--            <div class="mub01Title">--%>
+    <%--                <h3><i class="xianL"></i>公司<em>简介</em><i class="xianR"></i></h3>--%>
+    <%--            </div>--%>
+    <%--            <div class="mainCon">--%>
 
-<%--                <p><br/></p>--%>
-<%--                <table width="1200" style="width: 1200px;">--%>
-<%--                    <tbody>--%>
-<%--                    <tr class="firstRow">--%>
-<%--                        <td valign="middle" width="600" align="center"><img src="static/picture/2bb78d61dbb91126.jpg"--%>
-<%--                                                                            title="社区邦简介" alt="社区邦简介" width="610"--%>
-<%--                                                                            height="415" border="0" vspace="0"--%>
-<%--                                                                            style="width: 610px; height: 415px;"/></td>--%>
-<%--                        <td valign="middle" style="word-break: break-all;" align="left"><p--%>
-<%--                                style="line-height: 1.75em; font-size: 32px; text-indent: 0em; margin-bottom: 15px; margin-top: 10px;">--%>
-<%--                            <strong>走进社区邦</strong></p>--%>
-<%--                            <p style="text-indent: 2em; margin-bottom: 10px; margin-top: 5px; line-height: 2em;"><span--%>
-<%--                                    style="font-size: 16px;"></span><span style="font-size: 16px;">社区邦隶属于深圳市深家网络信息服务有限公司，致力于提供一站式高品质到家服务，<span--%>
-<%--                                    style="font-size: 16px; text-indent: 28px;">提升家庭服务供给侧品质，充分利用互联网+技术，打造线上线下垂直一体化运营的先进模式和业务系统、营销系统，贯彻“以用户为中心”的产品思维，</span>倡导家政行业规范化、标准化和职业化。主要业务包含家庭保洁、企业保洁、家电清洗、月嫂、育婴、保姆和钟点工等家政服务，注重以互联网和信息化技术优化提升用户体验，进而促进行业示范及规模化。</span>--%>
-<%--                            </p>--%>
-<%--                            <p style="text-indent: 2em; margin-top: 5px; margin-bottom: 10px; line-height: 2em;"><span--%>
-<%--                                    style="font-size: 16px;">社区邦采用“互联网+家政”O2O垂直一体化运营体系的先进模式，注重服务质量，服务产品通过ISO 9001质量体系认证，拥有丰富的家政资源——社区服务站+线上自媒体群+合作渠道+标准化产品+信息系统+培训学校+行业协会会长单位+民生工程。<br/></span>--%>
-<%--                            </p>--%>
-<%--                            <p style="text-indent: 2em;"><span style="font-size: 16px;"></span></p>--%>
-<%--                            <p style="text-indent: 2em;"><br/></p></td>--%>
-<%--                    </tr>--%>
-<%--                    </tbody>--%>
-<%--                </table>--%>
-<%--                <p style="line-height: 1.75em;"><br/></p>--%>
-<%--                <p><br/></p>--%>
-<%--                <table width="1200" style="width: 1200px;">--%>
-<%--                    <tbody>--%>
-<%--                    <tr class="firstRow">--%>
-<%--                        <td valign="middle" style="word-break: break-all;" align="left"><p--%>
-<%--                                style="text-indent: 2em; margin-bottom: 10px; margin-top: 5px; line-height: 2.2em;">--%>
-<%--                            <span style="font-size: 16px;"></span><span style="font-size: 16px; text-indent: 32px;">社区邦作为深圳市消费者口碑榜十佳企业，不断完善其专业化、职业化、规范化的培训体系，积极响应国家发展改革委办公厅、人力资源社会保障部办公厅、商务部办公厅2018年5月印发了《关于请报送家政服务业发展典型案例的通知》（发改办社会〔2018〕642号），作为全国范围内征集的家政服务业发展典型案例，社区邦其“垂直一体化”家政加盟运营模式引发高度关注，并光荣上榜，社区邦</span><span--%>
-<%--                                style="font-size: 16px; text-indent: 28px;">注重提升家庭服务供给侧品质，</span><span--%>
-<%--                                style="font-size: 16px; text-indent: 32px;">希望在总结家政服务业发展经验与模式方面能贡献一份小小的力量。</span><span--%>
-<%--                                style="font-size: 16px;"></span></p></td>--%>
-<%--                        <td valign="top" width="580" align="right"><img src="static/picture/73e7d252f0fc4960.jpg"--%>
-<%--                                                                        title="社区邦家政" alt="社区邦家政" width="560"--%>
-<%--                                                                        height="284" border="0" vspace="0"--%>
-<%--                                                                        style="width: 560px; height: 284px;"/></td>--%>
-<%--                    </tr>--%>
-<%--                    </tbody>--%>
-<%--                </table>--%>
-<%--                 <p style="text-align: center; margin-top: 15px;"><strong><span--%>
-<%--                        style="color: rgb(255, 125, 40); font-size: 32px;">社区邦风采</span></strong></p>--%>
-<%--                <p style="margin-bottom: 10px; text-indent: 0em; white-space: normal; line-height: 1.75em;"><span--%>
-<%--                        microsoft="" color:="" style="font-size: 14px;"><strong><strong--%>
-<%--                        style="font-size: 18px; line-height: 24.5px; white-space: normal;"></strong></strong></span></p>--%>
-<%--                <p style="text-align: center;"><span style="color: rgb(127, 127, 127);">Dumuda Introduction</span></p>--%>
-<%--                <p style="text-align: center; margin-top: 10px;"><img src="static/picture/e7dff04965f84f23.jpg"--%>
-<%--                                                                      title="社区邦家政" alt="社区邦家政" width="1200"--%>
-<%--                                                                      height="550" border="0" vspace="0"--%>
-<%--                                                                      style="width: 1200px; height: 550px;"/></p>--%>
+    <%--                <p><br/></p>--%>
+    <%--                <table width="1200" style="width: 1200px;">--%>
+    <%--                    <tbody>--%>
+    <%--                    <tr class="firstRow">--%>
+    <%--                        <td valign="middle" width="600" align="center"><img src="static/picture/2bb78d61dbb91126.jpg"--%>
+    <%--                                                                            title="社区邦简介" alt="社区邦简介" width="610"--%>
+    <%--                                                                            height="415" border="0" vspace="0"--%>
+    <%--                                                                            style="width: 610px; height: 415px;"/></td>--%>
+    <%--                        <td valign="middle" style="word-break: break-all;" align="left"><p--%>
+    <%--                                style="line-height: 1.75em; font-size: 32px; text-indent: 0em; margin-bottom: 15px; margin-top: 10px;">--%>
+    <%--                            <strong>走进社区邦</strong></p>--%>
+    <%--                            <p style="text-indent: 2em; margin-bottom: 10px; margin-top: 5px; line-height: 2em;"><span--%>
+    <%--                                    style="font-size: 16px;"></span><span style="font-size: 16px;">社区邦隶属于深圳市深家网络信息服务有限公司，致力于提供一站式高品质到家服务，<span--%>
+    <%--                                    style="font-size: 16px; text-indent: 28px;">提升家庭服务供给侧品质，充分利用互联网+技术，打造线上线下垂直一体化运营的先进模式和业务系统、营销系统，贯彻“以用户为中心”的产品思维，</span>倡导家政行业规范化、标准化和职业化。主要业务包含家庭保洁、企业保洁、家电清洗、月嫂、育婴、保姆和钟点工等家政服务，注重以互联网和信息化技术优化提升用户体验，进而促进行业示范及规模化。</span>--%>
+    <%--                            </p>--%>
+    <%--                            <p style="text-indent: 2em; margin-top: 5px; margin-bottom: 10px; line-height: 2em;"><span--%>
+    <%--                                    style="font-size: 16px;">社区邦采用“互联网+家政”O2O垂直一体化运营体系的先进模式，注重服务质量，服务产品通过ISO 9001质量体系认证，拥有丰富的家政资源——社区服务站+线上自媒体群+合作渠道+标准化产品+信息系统+培训学校+行业协会会长单位+民生工程。<br/></span>--%>
+    <%--                            </p>--%>
+    <%--                            <p style="text-indent: 2em;"><span style="font-size: 16px;"></span></p>--%>
+    <%--                            <p style="text-indent: 2em;"><br/></p></td>--%>
+    <%--                    </tr>--%>
+    <%--                    </tbody>--%>
+    <%--                </table>--%>
+    <%--                <p style="line-height: 1.75em;"><br/></p>--%>
+    <%--                <p><br/></p>--%>
+    <%--                <table width="1200" style="width: 1200px;">--%>
+    <%--                    <tbody>--%>
+    <%--                    <tr class="firstRow">--%>
+    <%--                        <td valign="middle" style="word-break: break-all;" align="left"><p--%>
+    <%--                                style="text-indent: 2em; margin-bottom: 10px; margin-top: 5px; line-height: 2.2em;">--%>
+    <%--                            <span style="font-size: 16px;"></span><span style="font-size: 16px; text-indent: 32px;">社区邦作为深圳市消费者口碑榜十佳企业，不断完善其专业化、职业化、规范化的培训体系，积极响应国家发展改革委办公厅、人力资源社会保障部办公厅、商务部办公厅2018年5月印发了《关于请报送家政服务业发展典型案例的通知》（发改办社会〔2018〕642号），作为全国范围内征集的家政服务业发展典型案例，社区邦其“垂直一体化”家政加盟运营模式引发高度关注，并光荣上榜，社区邦</span><span--%>
+    <%--                                style="font-size: 16px; text-indent: 28px;">注重提升家庭服务供给侧品质，</span><span--%>
+    <%--                                style="font-size: 16px; text-indent: 32px;">希望在总结家政服务业发展经验与模式方面能贡献一份小小的力量。</span><span--%>
+    <%--                                style="font-size: 16px;"></span></p></td>--%>
+    <%--                        <td valign="top" width="580" align="right"><img src="static/picture/73e7d252f0fc4960.jpg"--%>
+    <%--                                                                        title="社区邦家政" alt="社区邦家政" width="560"--%>
+    <%--                                                                        height="284" border="0" vspace="0"--%>
+    <%--                                                                        style="width: 560px; height: 284px;"/></td>--%>
+    <%--                    </tr>--%>
+    <%--                    </tbody>--%>
+    <%--                </table>--%>
+    <%--                 <p style="text-align: center; margin-top: 15px;"><strong><span--%>
+    <%--                        style="color: rgb(255, 125, 40); font-size: 32px;">社区邦风采</span></strong></p>--%>
+    <%--                <p style="margin-bottom: 10px; text-indent: 0em; white-space: normal; line-height: 1.75em;"><span--%>
+    <%--                        microsoft="" color:="" style="font-size: 14px;"><strong><strong--%>
+    <%--                        style="font-size: 18px; line-height: 24.5px; white-space: normal;"></strong></strong></span></p>--%>
+    <%--                <p style="text-align: center;"><span style="color: rgb(127, 127, 127);">Dumuda Introduction</span></p>--%>
+    <%--                <p style="text-align: center; margin-top: 10px;"><img src="static/picture/e7dff04965f84f23.jpg"--%>
+    <%--                                                                      title="社区邦家政" alt="社区邦家政" width="1200"--%>
+    <%--                                                                      height="550" border="0" vspace="0"--%>
+    <%--                                                                      style="width: 1200px; height: 550px;"/></p>--%>
 
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
+    <%--            </div>--%>
+    <%--        </div>--%>
+    <%--    </div>--%>
 
 
     <div class="aboutMien">
@@ -336,19 +336,19 @@
 <div class="footer">
     <div class="content">
         <div class="item">
-            <h3><a href="/jsp/jzfw.jsp">家政服务</a></h3>
+            <h3><a href="../jsp/jzfw.jsp">家政服务</a></h3>
 
-            <p><a href="/jsp/jzfw_qj.jsp">家庭清洁</a></p>
+            <p><a href="../jsp/jzfw_qj.jsp">家庭清洁</a></p>
 
-            <p><a href="/jsp/jzfw_qyqj.jsp">企业清洁</a></p>
+            <p><a href="../jsp/jzfw_qyqj.jsp">企业清洁</a></p>
 
-            <p><a href="/jsp/jzfw_bm.jsp">保姆</a></p>
+            <p><a href="../jsp/jzfw_bm.jsp">保姆</a></p>
 
-            <p><a href="/jsp/jzfw_ys.jsp">月嫂</a></p>
+            <p><a href="../jsp/jzfw_ys.jsp">月嫂</a></p>
 
-            <p><a href="/jsp/jzfw_yy.jsp">育婴</a></p>
+            <p><a href="../jsp/jzfw_yy.jsp">育婴</a></p>
 
-            <p><a href="/jsp/jzfw_zdg.jsp">钟点工</a></p>
+            <p><a href="../jsp/jzfw_zdg.jsp">钟点工</a></p>
 
         </div>
         <div class="item">
@@ -409,19 +409,19 @@
         var btn = document.getElementById("btn");
         btn.onclick = function(){
             if(titles.value == "家庭清洁"){
-                url = "/jsp/jzfw_qj.jsp";
+                url = "../jsp/jzfw_qj.jsp";
             }else if(titles.value == "企业清洁"){
-                url = "/jsp/jzfw_qyqj.jsp";
+                url = "../jsp/jzfw_qyqj.jsp";
             }else if(titles.value == "保姆"){
-                url = "/jsp/jzfw_bm.jsp";
+                url = "../jsp/jzfw_bm.jsp";
             }else if(titles.value == "月嫂"){
-                url = "/jsp/jzfw_ys.jsp";
+                url = "../jsp/jzfw_ys.jsp";
             }else if(titles.value == "育婴"){
-                url = "/jsp/jzfw_yy.jsp";
+                url = "../jsp/jzfw_yy.jsp";
             }else if(titles.value == "钟点工"){
-                url = "/jsp/jzfw_zdg.jsp";
+                url = "../jsp/jzfw_zdg.jsp";
             }else if(titles.value == "医院陪护"){
-                url = "/jsp/jzfw_yyph.jsp";
+                url = "../jsp/jzfw_yyph.jsp";
             }
             window.location.href = url;
         }
