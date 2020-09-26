@@ -66,15 +66,15 @@
                 <a>欢迎：${sessionScope.user1.name}</a>
                 <c:choose>
                     <c:when test="${sessionScope.user1.name != null}">
-                    </c:when>
-                    <c:otherwise>
-                        <a href="../jsp/LoginUser.jsp" target="_self">登录</a>
-                        <a href="../jsp/Resig_user.jsp" target="_self">注册</a>
-                    </c:otherwise>
+                   </c:when>
+                <c:otherwise>
+                    <a href="../jsp/LoginUser.jsp" target="_self">登录</a>
+                    <a href="../jsp/Resiguu.jsp" target="_self">注册</a>
+                </c:otherwise>
 
                 </c:choose>
-                <%--                <a href="../jsp/LoginUser.jsp" target="_self">登录</a>--%>
-                <%--                <a href="../jsp/Resig_user.jsp" target="_self">注册</a>--%>
+<%--                <a href="../jsp/LoginUser.jsp" target="_self">登录</a>--%>
+<%--                <a href="../jsp/Resig_user.jsp" target="_self">注册</a>--%>
                 <a href="../jsp/Main_lxpt.jsp" target="_self">联系平台</a>
                 <a href="${pageContext.request.contextPath}/jsp/PersonalView.jsp">个人中心</a>
             </div>
@@ -247,7 +247,7 @@
     </div>
     <div class="fnbox">
 
-        <div class="item" style="background-image:url(../static/images/4884fc0a96aa4f3d.jpg)">
+        <div class="item" style="background-image:url(/static/images/4884fc0a96aa4f3d.jpg)">
             <div class="content">
                 <div class="text">
                     <h3>汇聚全国351个地区海量精准家庭客户、<br/>企业客户携手多个大型平台全网覆盖式吸收客源</h3><p>携手百度、美团、大众点评、京东到家等，全网覆盖式吸收精准客户，建立专属粘性体系稳固平台客源。</p><p><a href="../jsp/Main_ruzhu.jsp">抢先加盟，拿走你附近的客源</a></p>
@@ -255,7 +255,7 @@
             </div>
         </div>
 
-        <div class="item" style="background-image:url(../static/images/7873597b09790788.jpg)">
+        <div class="item" style="background-image:url(/static/images/7873597b09790788.jpg)">
             <div class="content">
                 <div class="text">
                     <h3>直接复制成功门店的赚钱方法<br/>现成营销方法锁定周边客户群</h3><p>市场调研、定价、促销策略、团队管理、服务品质管控等，由实战导师一对一全程指导。</p><p><a href="../jsp/Main_ruzhu.jsp">加盟咨询</a></p>
@@ -263,7 +263,7 @@
             </div>
         </div>
 
-        <div class="item" style="background-image:url(../static/images/2097c0724476a748.jpg)">
+        <div class="item" style="background-image:url(/static/images/2097c0724476a748.jpg)">
             <div class="content">
                 <div class="text">
                     <h3>立即拥有完整的家政产品链<br/>每项服务都有参考的标准及方法</h3><p>智慧家政拥有专属服务标准，并持续开发新产品服务，让每项服务都有参照的标准及方法。</p><p><a href="../jsp/jzfw.jsp">去看有哪些产品服务 &gt;&gt;</a></p>
@@ -271,7 +271,7 @@
             </div>
         </div>
 
-        <div class="item" style="background-image:url(../static/images/28390e1adc12bcb8.jpg)">
+        <div class="item" style="background-image:url(/static/images/28390e1adc12bcb8.jpg)">
             <div class="content">
                 <div class="text">
                     <h3>马上享有连锁品牌的影响力<br/>互联网品牌广告全网大力宣传</h3><p>互联网家政品牌典范，品牌VI、工服、标配工具、宣传物料、法务团队、风险评估全支持。</p><p><a href="../jsp/Main_ruzhu.jsp">查看品牌支持 &gt;&gt;</a></p>
@@ -279,7 +279,7 @@
             </div>
         </div>
 
-        <div class="item" style="background-image:url(../static/images/2618520d120ef66b.jpg)">
+        <div class="item" style="background-image:url(/static/images/2618520d120ef66b.jpg)">
             <div class="content">
                 <div class="text">
                     <h3>千万级管理软件一键管控更轻松<br/>一键管订单/一键财务分析/一键管员工/一键管客户</h3><p>千万资金注入研发，9年沉淀，打造成熟稳定的家政服务管理系统，独立后台可视化管理。</p><p><a href="../jsp/Main_ruzhu.jsp">去发现系统更多功能 &gt;&gt;</a></p>
@@ -287,7 +287,7 @@
             </div>
         </div>
 
-        <div class="item" style="background-image:url(../static/images/9f4e4d24e6ecd780.jpg)">
+        <div class="item" style="background-image:url(/static/images/9f4e4d24e6ecd780.jpg)">
             <div class="content">
                 <div class="text">
                     <h3>营销/管理/技能 零基础速成<br/>理论与实践双管齐下 只教真本事</h3><p>智慧家政，拥有行业重量级师资队伍，为你快速打造一支精英团队。</p><p><a href="../jsp/Main_gypt.jsp">了解智慧家政 &gt;&gt;</a></p>
@@ -311,10 +311,10 @@
                 <h4>全空间无死角深层洁净</h4>
                 <span>Deep Cleaning without Dead Angle in Full Space</span>
                 <img src="../static/images/jm03.jpg">
-                <%--                    <div class="btns">--%>
-                <%--                        <a href="http://www.sqbang.com/help/jtqj.html" target="_self">家庭保洁</a>--%>
-                <%--                        <a href="http://www.sqbang.com/help/qyqj.html" target="_self">企业保洁</a>--%>
-                <%--                    </div>--%>
+<%--                    <div class="btns">--%>
+<%--                        <a href="http://www.sqbang.com/help/jtqj.html" target="_self">家庭保洁</a>--%>
+<%--                        <a href="http://www.sqbang.com/help/qyqj.html" target="_self">企业保洁</a>--%>
+<%--                    </div>--%>
             </div>
         </div>
         <div class="center">
@@ -430,19 +430,19 @@
 <div class="footer">
     <div class="content">
         <div class="item">
-            <h3><a href="../jsp/jzfw.jsp">家政服务</a></h3>
+            <h3><a href="/jsp/jzfw.jsp">家政服务</a></h3>
 
-            <p><a href="../jsp/jzfw_qj.jsp">家庭清洁</a></p>
+            <p><a href="/jsp/jzfw_qj.jsp">家庭清洁</a></p>
 
-            <p><a href="../jsp/jzfw_qyqj.jsp">企业清洁</a></p>
+            <p><a href="/jsp/jzfw_qyqj.jsp">企业清洁</a></p>
 
-            <p><a href="../jsp/jzfw_bm.jsp">保姆</a></p>
+            <p><a href="/jsp/jzfw_bm.jsp">保姆</a></p>
 
-            <p><a href="../jsp/jzfw_ys.jsp">月嫂</a></p>
+            <p><a href="/jsp/jzfw_ys.jsp">月嫂</a></p>
 
-            <p><a href="../jsp/jzfw_yy.jsp">育婴</a></p>
+            <p><a href="/jsp/jzfw_yy.jsp">育婴</a></p>
 
-            <p><a href="../jsp/jzfw_zdg.jsp">钟点工</a></p>
+            <p><a href="/jsp/jzfw_zdg.jsp">钟点工</a></p>
 
         </div>
         <div class="item">
@@ -490,10 +490,10 @@
     <div class="phone">
         全国服务热线：400-00-00000 / 品牌加盟专线：8888-88888888
     </div>
-    <div class="text">
-        <p>版权所有：　厦门<a href="" target="_blank" rel="nofollow">厦AAA备888888号-8</a></p>
-        <p>技术支持：<a href="" target="_blank" rel="nofollow" >个人网</a></p>
-    </div>
+        <div class="text">
+            <p>版权所有：　厦门<a href="" target="_blank" rel="nofollow">厦AAA备888888号-8</a></p>
+            <p>技术支持：<a href="" target="_blank" rel="nofollow" >个人网</a></p>
+        </div>
 </div>
 
 
@@ -509,19 +509,19 @@
         var btn = document.getElementById("btn");
         btn.onclick = function(){
             if(titles.value == "家庭清洁"){
-                url = "../jsp/jzfw_qj.jsp";
+                url = "/jsp/jzfw_qj.jsp";
             }else if(titles.value == "企业清洁"){
-                url = "../jsp/jzfw_qyqj.jsp";
+                url = "/jsp/jzfw_qyqj.jsp";
             }else if(titles.value == "保姆"){
-                url = "../jsp/jzfw_bm.jsp";
+                url = "/jsp/jzfw_bm.jsp";
             }else if(titles.value == "月嫂"){
-                url = "../jsp/jzfw_ys.jsp";
+                url = "/jsp/jzfw_ys.jsp";
             }else if(titles.value == "育婴"){
-                url = "../jsp/jzfw_yy.jsp";
+                url = "/jsp/jzfw_yy.jsp";
             }else if(titles.value == "钟点工"){
-                url = "../jsp/jzfw_zdg.jsp";
+                url = "/jsp/jzfw_zdg.jsp";
             }else if(titles.value == "医院陪护"){
-                url = "../jsp/jzfw_yyph.jsp";
+                url = "/jsp/jzfw_yyph.jsp";
             }
             window.location.href = url;
         }

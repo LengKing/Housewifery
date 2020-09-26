@@ -9,7 +9,7 @@
   </select>
 <!--    用户的注册-->
     <insert id="add" parameterType="User"  >
-        insert into tb_user (account,password,gender,phone,address) value (#{account},#{password},#{gender},#{phone},#{address})
+        insert into tb_user (name ,account,password,gender,phone,address,url) value (#{name},#{account},#{password},#{gender},#{phone},#{address},'http://localhost:8080/static/images/gg1.jpg')
     </insert>
 
     <select id="barUser" resultType="int">
@@ -19,8 +19,6 @@
     <select id="lineUser" resultType="int">
         select count(*) from tb_user where date_format(reg_date,'%Y-%m-%d') &lt;= #{date}
     </select>
-
-
 
     <select id="findUserByAccount" parameterType="string" resultType="user">
         select account, name, password, gender, phone, a.address, integral, url, reg_date, money,bank_card from tb_user u,tb_address a where u.account=a.user_id and u.account = #{value}

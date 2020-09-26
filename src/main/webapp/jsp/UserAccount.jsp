@@ -86,7 +86,7 @@
     //    var account = parent.document.getElementById('account').value;
         $.ajax({
             url: '/user/userAccountMsg',
-            data: "account=" + 100001,
+            data: "account=" + "${user1.account}",
             type: 'post',
             dataType: 'json',
             success: function (data) {
@@ -105,7 +105,7 @@
             table.render({
                 elem: '#records'
                 , height: 250
-                , url: '/user/userRecords?account='+100001 //数据接口
+                , url: '/user/userRecords?account='+"${user1.account}"//数据接口
                 , page: true //开启分页
                 , cols: [[ //表头
                     {title: '序号', width: 50,align: 'center',type:'numbers'}
@@ -148,7 +148,7 @@
             if (regYhk.test(value)) {
                 $.ajax({
                     url: '/user/setBankCard',
-                    data: "account=" + 100001 + "&bankCard=" + value,
+                    data: "account=" + "${user1.account}" + "&bankCard=" + value,
                     type: 'post',
                     dataType: 'text',
                     success: function (data) {
@@ -263,7 +263,7 @@
                             layer.confirm("银行卡：" + account + "\n,充值账户：" + account1 + "\n,充值金额："+money+"\n,是否确认充值？", function (index3) {
                                 $.ajax({
                                     url: '/user/topUp',
-                                    data: "account=" + 100001 + "&money=" + money,
+                                    data: "account=" + "${user1.account}" + "&money=" + money,
                                     type: 'post',
                                     dataType: 'text',
                                     success: function (data) {
