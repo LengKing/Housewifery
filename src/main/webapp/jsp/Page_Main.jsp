@@ -69,7 +69,7 @@
                    </c:when>
                 <c:otherwise>
                     <a href="../jsp/LoginUser.jsp" target="_self">登录</a>
-                    <a href="../jsp/Resig_user.jsp" target="_self">注册</a>
+                    <a href="../jsp/Resiguu.jsp" target="_self">注册</a>
                 </c:otherwise>
 
                 </c:choose>

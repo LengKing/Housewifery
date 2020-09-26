@@ -41,16 +41,17 @@ public class UserController {
 
     }
 
-    @RequestMapping(value = "/userAdd")
+    @RequestMapping(value = "/userAdd" , produces = "text/plain;charset=utf-8")
     //用户的增加
     public void addAdmaina(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        String name=request.getParameter("name");
         String account = request.getParameter("account");
         String password = request.getParameter("password");
         String gender = request.getParameter("gender");
         String phone = request.getParameter("phone");
         String address = request.getParameter("address");
         User user = new User();
-
+        user.setName(name);
         user.setAccount(account);
         user.setAddress(address);
         user.setGender(gender);
