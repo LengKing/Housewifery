@@ -30,8 +30,12 @@
     <link rel="stylesheet" href="../static/layui/css/layui.css"  media="all">
     <script src="../static/layui/layui.js" charset="utf-8"></script>
     <script src="../static/js/postDemand.js"></script>
+    <%
+        String path = request.getContextPath();
+    %>
 </head>
 <body>
+<input type="hidden" id="path" value="<%=path%>">
 <!-- header -->
 <div class="header">
     <div class="header-top">
