@@ -83,7 +83,7 @@ public class MienControl {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
             String dateStr = simpleDateFormat.format(date);
             String savePath = request.getSession().getServletContext().getRealPath("/static/data/images");
-            String playPath = "/static/data/images" + File.separator + dateStr + File.separator + uuid + "." + prefix;
+            String playPath = "/housewifery/static/data/images" + File.separator + dateStr + File.separator + uuid + "." + prefix;
             String projectPath = savePath + File.separator + dateStr + File.separator + uuid + "." + prefix;
             File files = new File(projectPath);
             if (!files.getParentFile().exists()) {

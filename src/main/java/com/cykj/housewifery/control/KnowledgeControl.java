@@ -84,13 +84,13 @@ public class KnowledgeControl {
             String playPath = null;
             if (type.equals("图片")) {
                 savePath = request.getSession().getServletContext().getRealPath("/static/data/images");
-                playPath = "/static/data/images" + File.separator + dateStr + File.separator + uuid + "." + prefix;
+                playPath = "/housewifery/static/data/images" + File.separator + dateStr + File.separator + uuid + "." + prefix;
             } else if (type.equals("文章")) {
                 savePath = request.getSession().getServletContext().getRealPath("/static/data/documents");
-                playPath = "/static/data/documents" + File.separator + dateStr + File.separator + uuid + "." + prefix;
+                playPath = "/housewifery/static/data/documents" + File.separator + dateStr + File.separator + uuid + "." + prefix;
             } else if (type.equals("视频")) {
                 savePath = request.getSession().getServletContext().getRealPath("/static/data/video");
-                playPath = "/static/data/video" + File.separator + dateStr + File.separator + uuid + "." + prefix;
+                playPath = "/housewifery/static/data/video" + File.separator + dateStr + File.separator + uuid + "." + prefix;
             }
             String projectPath = savePath + File.separator + dateStr + File.separator + uuid + "." + prefix;
             File files = new File(projectPath);

@@ -114,7 +114,7 @@ public Object updateTrain(HttpServletRequest request) throws ParseException {
             //要保存的问题件路径和名称   /upload/2020-09-09/uuid.jpg
             String projectPath = savePath+ File.separator+ dateStr + File.separator + uuid + "." + prefix;
             System.out.println("projectPath==" + projectPath);
-            String playPath="/static/data/video"+ File.separator+ dateStr + File.separator + uuid + "." + prefix;
+            String playPath="/housewifery/static/data/video"+ File.separator+ dateStr + File.separator + uuid + "." + prefix;
             File files = new File(projectPath);
             //打印查看上传路径
             if (!files.getParentFile().exists()) {//判断目录是否存在
