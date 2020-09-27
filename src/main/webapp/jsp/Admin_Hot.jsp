@@ -17,8 +17,13 @@
     <script src="../static/layui/layui.js" charset="UTF-8"></script>
     <link rel="stylesheet" href="../static/layui/css/layui.css">
     <script src="../static/js/Admins.js"></script>
+    <%
+        String path = request.getContextPath();
+    %>
 </head>
 <body>
+<input type="hidden" id="path" value="<%=path%>">
+
 
 
 <div class="layui-input-block" style="margin-top: 20px">
@@ -53,7 +58,7 @@
             table.render({
                 elem: '#demo'
                 , height: 510
-                , url:'/hot/getHot' //数据接口
+                , url:path+'/hot/getHot' //数据接口
                 , page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
                     layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
                     , curr: 1 //设定初始在第 1 页
@@ -79,7 +84,7 @@
                 if (obj.event === 'del') {
                     layer.confirm('真的要删除吗', function (index) {
                         $.ajax({
-                            url: path + "/scale/deleteScale",
+                            url: path+"/scale/deleteScale",
                             data: {scaleId: data.scaleId},
                             success: function (data) {
                                 if (data == "删除成功") {

@@ -1,6 +1,7 @@
 package com.cykj.housewifery.service.impl;
 
 import com.cykj.housewifery.bean.LayuiJson;
+import com.cykj.housewifery.bean.Order;
 import com.cykj.housewifery.bean.User;
 import com.cykj.housewifery.mapper.AdminManageMapper;
 import com.cykj.housewifery.service.AdminManageService;
@@ -45,4 +46,11 @@ public class AdminManageServiceImpl implements AdminManageService {
         layuiJson.setCount(record);
         return layuiJson;
     }
+
+//    @Override
+//    public int pays(Order order) {
+//        int n = 0;
+//        n = adminManageMapper.pays(order);
+//        return n;
+//    }
 }

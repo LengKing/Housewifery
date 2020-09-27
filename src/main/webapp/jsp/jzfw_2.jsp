@@ -268,19 +268,19 @@
 <div class="footer">
     <div class="content">
         <div class="item">
-            <h3><a href="/jsp/jzfw.jsp">家政服务</a></h3>
+            <h3><a href="../jsp/jzfw.jsp">家政服务</a></h3>
 
-            <p><a href="/jsp/jzfw_qj.jsp">家庭清洁</a></p>
+            <p><a href="../jsp/jzfw_qj.jsp">家庭清洁</a></p>
 
-            <p><a href="/jsp/jzfw_qyqj.jsp">企业清洁</a></p>
+            <p><a href="../jsp/jzfw_qyqj.jsp">企业清洁</a></p>
 
-            <p><a href="/jsp/jzfw_bm.jsp">保姆</a></p>
+            <p><a href="../jsp/jzfw_bm.jsp">保姆</a></p>
 
-            <p><a href="/jsp/jzfw_ys.jsp">月嫂</a></p>
+            <p><a href="../jsp/jzfw_ys.jsp">月嫂</a></p>
 
-            <p><a href="/jsp/jzfw_yy.jsp">育婴</a></p>
+            <p><a href="../jsp/jzfw_yy.jsp">育婴</a></p>
 
-            <p><a href="/jsp/jzfw_zdg.jsp">钟点工</a></p>
+            <p><a href="../jsp/jzfw_zdg.jsp">钟点工</a></p>
 
         </div>
         <div class="item">

@@ -127,19 +127,19 @@
                 </dd>
             </dl>
 
-<%--            <dl class="clearfix">--%>
-<%--                <dt><a href="http://www.sqbang.com/news/20200908155391547.html" target="_blank"><img--%>
-<%--                        src="static/picture/ac55d9aada23a817.jpg" alt="钟点工保洁选择哪家好口碑推荐"></a></dt>--%>
-<%--                <dd>--%>
-<%--                    <h3><a href="http://www.sqbang.com/news/20200908155391547.html" target="_blank">钟点工保洁选择哪家好口碑推荐</a>--%>
-<%--                    </h3>--%>
-<%--                    <p>现在的年轻人，或许是因为工作的压力，或许是因为对家务事情不感兴趣，所以他们总是会请钟点工保洁。那么，钟点工保洁如何选择更靠谱呢?</p>--%>
+            <%--            <dl class="clearfix">--%>
+            <%--                <dt><a href="http://www.sqbang.com/news/20200908155391547.html" target="_blank"><img--%>
+            <%--                        src="static/picture/ac55d9aada23a817.jpg" alt="钟点工保洁选择哪家好口碑推荐"></a></dt>--%>
+            <%--                <dd>--%>
+            <%--                    <h3><a href="http://www.sqbang.com/news/20200908155391547.html" target="_blank">钟点工保洁选择哪家好口碑推荐</a>--%>
+            <%--                    </h3>--%>
+            <%--                    <p>现在的年轻人，或许是因为工作的压力，或许是因为对家务事情不感兴趣，所以他们总是会请钟点工保洁。那么，钟点工保洁如何选择更靠谱呢?</p>--%>
 
-<%--                    <span class="zan"><em>2020-09-11</em></span>--%>
-<%--                    <span class="readNum">2</span>--%>
-<%--                    <a href="http://www.sqbang.com/news/20200908155391547.html" target="_blank" class="more"></a>--%>
-<%--                </dd>--%>
-<%--            </dl>--%>
+            <%--                    <span class="zan"><em>2020-09-11</em></span>--%>
+            <%--                    <span class="readNum">2</span>--%>
+            <%--                    <a href="http://www.sqbang.com/news/20200908155391547.html" target="_blank" class="more"></a>--%>
+            <%--                </dd>--%>
+            <%--            </dl>--%>
 
         </div>
         <!-- 翻页 -->
@@ -180,19 +180,19 @@
         var btn = document.getElementById("btn");
         btn.onclick = function(){
             if(titles.value == "家庭清洁"){
-                url = "/jsp/jzfw_qj.jsp";
+                url = "../jsp/jzfw_qj.jsp";
             }else if(titles.value == "企业清洁"){
-                url = "/jsp/jzfw_qyqj.jsp";
+                url = "../jsp/jzfw_qyqj.jsp";
             }else if(titles.value == "保姆"){
-                url = "/jsp/jzfw_bm.jsp";
+                url = "../jsp/jzfw_bm.jsp";
             }else if(titles.value == "月嫂"){
-                url = "/jsp/jzfw_ys.jsp";
+                url = "../jsp/jzfw_ys.jsp";
             }else if(titles.value == "育婴"){
-                url = "/jsp/jzfw_yy.jsp";
+                url = "../jsp/jzfw_yy.jsp";
             }else if(titles.value == "钟点工"){
-                url = "/jsp/jzfw_zdg.jsp";
+                url = "../jsp/jzfw_zdg.jsp";
             }else if(titles.value == "医院陪护"){
-                url = "/jsp/jzfw_yyph.jsp";
+                url = "../jsp/jzfw_yyph.jsp";
             }
             window.location.href = url;
         }

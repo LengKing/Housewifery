@@ -1,6 +1,7 @@
 package com.cykj.housewifery.control;
 
 import com.cykj.housewifery.bean.LayuiJson;
+import com.cykj.housewifery.bean.Order;
 import com.cykj.housewifery.bean.User;
 import com.cykj.housewifery.service.AdminManageService;
 import com.google.gson.Gson;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -83,5 +85,36 @@ public class AdminManageControl {
         LayuiJson layuiJson = adminManageService.getNeed(condition, curPage, pageSize);
         return new Gson().toJson(layuiJson);
     }
+
+
+//    @RequestMapping("/pays")
+//    @ResponseBody
+//    public String pays(HttpServletRequest request) {
+//        String type = request.getParameter("WIDsubject");
+//        String cost = request.getParameter("WIDtotal_amount");
+//        String typeName = request.getParameter("WIDsubject");
+//        String count = request.getParameter("count");
+//        String orderTime = request.getParameter("orderTime");
+//        String orderState = request.getParameter("orderState");
+//        String payState = request.getParameter("payState");
+//        String evaluationState = request.getParameter("evaluationState");
+//        String user = request.getParameter("userid");
+//        Order order = new Order();
+//        order.setType(type);
+//        order.setCost(new BigDecimal(cost));
+//        order.setTypeName(typeName);
+//        order.setCount(count);
+//        order.setOrderTime(orderTime);
+//        order.setOrderState(orderState);
+//        order.setPayState(payState);
+//        order.setEvaluationState(Integer.parseInt(evaluationState));
+//        order.setUser(user);
+//        int n = adminManageService.pays(order);
+//        if (n == 1) {
+//            return "添加成功";
+//        } else {
+//            return "添加失败";
+//        }
+//    }
 
 }

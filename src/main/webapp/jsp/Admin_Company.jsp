@@ -17,8 +17,12 @@
     <script src="../static/layui/layui.js" charset="UTF-8"></script>
     <link rel="stylesheet" href="../static/layui/css/layui.css">
     <script src="../static/js/Admins.js"></script>
+    <%
+        String path = request.getContextPath();
+    %>
 </head>
 <body>
+<input type="hidden" id="path" value="<%=path%>">
 
 
 <div class="layui-input-block" style="margin-top: 20px">
@@ -42,7 +46,7 @@
         <a class="layui-btn layui-btn-xs" onclick="look(this)">查看详情</a>
     </script>
     <script>
-
+        var path = $("#path").val();
         //加载table模块
         layui.use(['table', 'layer', 'laypage'], function () {
             var table = layui.table;
@@ -53,7 +57,7 @@
             table.render({
                 elem: '#demo'
                 , height: 510
-                , url: '/companyManage/getCompany' //数据接口
+                , url: path+'/companyManage/getCompany' //数据接口
                 , page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
                     layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
                     , curr: 1 //设定初始在第 1 页
@@ -94,8 +98,8 @@
                 var data = obj.data;
                 if (obj.event === 'ckxq') {
                     $.ajax({
-                        url: "/adminManage/updateState",
-                        data: {account: data.account, userState: userState},
+                        url: path+"/adminManage/updateState",
+                        data: {account: data.account, userState: data.userState},
                         success: function (data) {
                             if (data == "操作成功") {
                                 layer.alert("禁用成功！");

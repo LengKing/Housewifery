@@ -48,6 +48,7 @@ function add() {
 
 //新增培训计划ajax
 function addTrain(node) {
+    var path = $("#path").val();
     var title = $("#title").val();
     var startDate = $("#startDate").val();
     var endDate = $("#endDate").val();
@@ -57,7 +58,7 @@ function addTrain(node) {
     var count = $("#count").val();
     var length = $("#length").val();
     $.ajax({
-        url: "/adminTrain/addTrain",
+        url:path+"/adminTrain/addTrain",
         data: {title: title, startDate: startDate, endDate: endDate,startTime: startTime, endTime: endTime, content: content, count: count,length: length},
         success: function (data) {
             if (data == "添加成功") {
@@ -124,9 +125,9 @@ function updateTrain(node) {
     var count = $("#count").val();
     var length = $("#length").val();
     var id = $("#id").val();
-
+    var path = $("#path").val();
     $.ajax({
-        url: "/adminTrain/updateTrain",
+        url:path+"/adminTrain/updateTrain",
         data: {title: title, startDate: startDate,
             endDate: endDate,startTime: startTime, endTime: endTime, content: content,
             count: count, length: length, id: id},
@@ -213,8 +214,9 @@ function fabus(node) {
     var title = $("#title").val();
     var describes = $("#describes").val();
     var releasrDate = $("#releasrDate").val();
+    var path = $("#path").val();
     $.ajax({
-        url: "/adminAffiche/addTAffiche",
+        url: path+"/adminAffiche/addTAffiche",
         data: {title: title, describes: describes,releasrDate:releasrDate},
         success: function (data) {
             if (data == "发布成功") {
@@ -296,9 +298,9 @@ function updateAffiches(node) {
     // var releasrDate = $("#releasrDate").val();
     var describes = $("#describes").val();
     var id = $("#id").val();
-
+    var path = $("#path").val();
     $.ajax({
-        url: "/adminAffiche/updateAffiche",
+        url: path+"/adminAffiche/updateAffiche",
         data: {title: title,
             describes: describes,id: id},
         success: function (data) {
@@ -382,9 +384,9 @@ function updatesTypes(node) {
     var id = $("#id").val();
     var name = $("#name").val();
     var id1 = $("#id1").val();
-
+    var path = $("#path").val();
     $.ajax({
-        url: "/adminType/updatesType",
+        url:path+"/adminType/updatesType",
         data: {typeName: typeName,id: id,
             name: name,id1: id1},
         success: function (data) {
@@ -441,8 +443,9 @@ function updateServers(node) {
     var id = $("#id").val();
     var name = $("#name").val();
     var id1 = $("#id1").val();
+    var path = $("#path").val();
     $.ajax({
-        url: "/adminType/updateServers",
+        url: path+"/adminType/updateServers",
         data: {typeName: typeName,id: id,
             name: name,id1: id1},
         success: function (data) {
@@ -482,8 +485,9 @@ function addType() {
 function addTypes(node) {
     var typeName = $("#typeName").val();
     var pid = $("#pid").val();
+    var path = $("#path").val();
     $.ajax({
-        url: "/adminType/addType",
+        url: path+"/adminType/addType",
         data: {typeName: typeName, pid: pid},
         success: function (data) {
             if (data == "添加成功") {
@@ -556,8 +560,9 @@ function addareac() {
 //添加区域 ajax
 function addareacs(node) {
     var area = $("#area").val();
+    var path = $("#path").val();
     $.ajax({
-        url: "/adminAreac/addareac",
+        url: path+"/adminAreac/addareac",
         data: {area: area},
         success: function (data) {
             if (data == "添加成功") {

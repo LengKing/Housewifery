@@ -30,8 +30,12 @@
     <link rel="stylesheet" href="../static/layui/css/layui.css"  media="all">
     <script src="../static/layui/layui.js" charset="utf-8"></script>
     <script src="../static/js/postDemand.js"></script>
+    <%
+        String path = request.getContextPath();
+    %>
 </head>
 <body>
+<input type="hidden" id="path" value="<%=path%>">
 <!-- header -->
 <div class="header">
     <div class="header-top">
@@ -178,19 +182,19 @@
 <div class="footer">
     <div class="content">
         <div class="item">
-            <h3><a href="/jsp/jzfw.jsp">家政服务</a></h3>
+            <h3><a href="../jsp/jzfw.jsp">家政服务</a></h3>
 
-            <p><a href="/jsp/jzfw_qj.jsp">家庭清洁</a></p>
+            <p><a href="../jsp/jzfw_qj.jsp">家庭清洁</a></p>
 
-            <p><a href="/jsp/jzfw_qyqj.jsp">企业清洁</a></p>
+            <p><a href="../jsp/jzfw_qyqj.jsp">企业清洁</a></p>
 
-            <p><a href="/jsp/jzfw_bm.jsp">保姆</a></p>
+            <p><a href="../jsp/jzfw_bm.jsp">保姆</a></p>
 
-            <p><a href="/jsp/jzfw_ys.jsp">月嫂</a></p>
+            <p><a href="../jsp/jzfw_ys.jsp">月嫂</a></p>
 
-            <p><a href="/jsp/jzfw_yy.jsp">育婴</a></p>
+            <p><a href="../jsp/jzfw_yy.jsp">育婴</a></p>
 
-            <p><a href="/jsp/jzfw_zdg.jsp">钟点工</a></p>
+            <p><a href="../jsp/jzfw_zdg.jsp">钟点工</a></p>
 
         </div>
         <div class="item">
@@ -259,19 +263,19 @@
         var btn = document.getElementById("btn");
         btn.onclick = function(){
             if(titles.value == "家庭清洁"){
-                url = "/jsp/jzfw_qj.jsp";
+                url = "../jsp/jzfw_qj.jsp";
             }else if(titles.value == "企业清洁"){
-                url = "/jsp/jzfw_qyqj.jsp";
+                url = "../jsp/jzfw_qyqj.jsp";
             }else if(titles.value == "保姆"){
-                url = "/jsp/jzfw_bm.jsp";
+                url = "../jsp/jzfw_bm.jsp";
             }else if(titles.value == "月嫂"){
-                url = "/jsp/jzfw_ys.jsp";
+                url = "../jsp/jzfw_ys.jsp";
             }else if(titles.value == "育婴"){
-                url = "/jsp/jzfw_yy.jsp";
+                url = "../jsp/jzfw_yy.jsp";
             }else if(titles.value == "钟点工"){
-                url = "/jsp/jzfw_zdg.jsp";
+                url = "../jsp/jzfw_zdg.jsp";
             }else if(titles.value == "医院陪护"){
-                url = "/jsp/jzfw_yyph.jsp";
+                url = "../jsp/jzfw_yyph.jsp";
             }
             window.location.href = url;
         }

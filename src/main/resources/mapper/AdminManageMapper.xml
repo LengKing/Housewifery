@@ -61,4 +61,9 @@
         </if>
     </select>
 
+
+<!--    <insert id="pays" parameterType="com.cykj.housewifery.bean.Order">-->
+<!--        insert into tb_order(user,service_name,type,count,order_time,cost,order_state,pay_state,evaluation_state)-->
+<!--        values (#{order.user},#{order.typeName},#{order.type},#{order.count},#{order.orderTime},#{order.cost},#{order.orderState},#{order.payState},#{order.evaluationState})-->
+<!--    </insert>-->
 </mapper>
